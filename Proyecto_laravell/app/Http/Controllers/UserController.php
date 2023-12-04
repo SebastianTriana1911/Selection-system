@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pais;
+use App\Models\User;
 use App\Models\Municipio;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller{
     public function index(){
@@ -38,7 +40,10 @@ class UserController extends Controller{
         
     }
 
-    public function destroy(string $id){
-        
+    public function destroy($id){
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->route('super.index');
     }
 }

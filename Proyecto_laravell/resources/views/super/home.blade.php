@@ -85,7 +85,7 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="/Administrador/Html/consultar-instructores.html">Consultar</a>
+                        <a href="{{route('listar.instructores')}}">Consultar</a>
                     </article>
 
                 </article>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Instructor;
 use App\Models\SuperUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,13 @@ class SuperUsuarioController extends Controller{
         return redirect()->route('login');
     }
 
+    public function listarInstructores(){
+        $instructores = Instructor::all();
+        $user = Auth::user();
+
+        return view('super.showInstructores', ['instructores' => $instructores, 'user' => $user]);
+    }
+
     public function show(string $id){
         
     }
@@ -59,4 +67,6 @@ class SuperUsuarioController extends Controller{
     public function destroy(string $id){
         
     }
+
+    
 }

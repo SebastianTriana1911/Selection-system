@@ -28,6 +28,8 @@ Route::get('/', function () {
 // ----------------------------------------------------------------------------------------------
 // Rutas de la clase Users -> retorna la vista register para crear un usuario
 Route::get('user/create', [UserController::class, 'create'])->name('user.create');
+Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
 // ----------------------------------------------------------------------------------------------
 
 
@@ -40,12 +42,12 @@ Route::post('candidato/store', [CandidatoController::class, 'store'])->name('can
 Route::get('super/index', [SuperUsuarioController::class, 'index'])->name('super.index')->middleware('auth');
 // Ruta store del controlador SuperUsuario para registrar datos en la tabla Users y SuperUsuario a la vez
 Route::post('super/store', [SuperUsuarioController::class, 'store'])->name('super.store');
+Route::get('super/listar/instructores', [SuperUsuarioController::class, 'listarInstructores'])->name('listar.instructores');
 // ----------------------------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------------------------
 Route::get('instructor/create', [InstructorController::class, 'create'])->name('instructor.create')->middleware('auth');
 Route::post('instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
-
 // ----------------------------------------------------------------------------------------------
 
 
