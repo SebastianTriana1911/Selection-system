@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidato;
+use App\Models\Role;
 use App\Models\User;
 use App\Models\Instructor;
 use App\Models\SuperUsuario;
@@ -20,12 +22,12 @@ class SuperUsuarioController extends Controller{
     }
 
     public function create(){
-        
+
     }
 
     public function store(Request $request){
         $user = new User();
-        
+
         $user -> num_documento = $request -> num_documento;
         $user -> tipo_documento = $request -> tipo_documento;
         $user -> nombre = $request -> nombre;
@@ -52,21 +54,45 @@ class SuperUsuarioController extends Controller{
         return view('super.showInstructores', ['instructores' => $instructores, 'user' => $user]);
     }
 
+    public function dashboardInstructor(){
+        $instructores = Instructor::all();
+        $roles = Role::all();
+        return view('instructor.dashboard', ['instructores' => $instructores, 'roles' => $roles]);
+    }
+
+    // public function dashboardReclutador(){
+    //     $instructores = Reclutador::all();
+    //     $roles = Role::all();
+    //     return view('instructor.dashboard', ['instructores' => $instructores, 'roles' => $roles]);
+    // }
+
+    // public function dashboardSeleccionador(){
+    //     $instructores = Instructor::all();
+    //     $roles = Role::all();
+    //     return view('instructor.dashboard', ['instructores' => $instructores, 'roles' => $roles]);
+    // }
+
+    public function dashboardCandidato(){
+        $candidatos = Candidato::all();
+        $roles = Role::all();
+        return view('candidato.dashboard', ['candidatos' => $candidatos, 'roles' => $roles]);
+    }
+
     public function show(string $id){
-        
+
     }
 
     public function edit(string $id){
-        
+
     }
 
     public function update(Request $request, string $id){
-        
+
     }
 
     public function destroy(string $id){
-        
+
     }
 
-    
+
 }

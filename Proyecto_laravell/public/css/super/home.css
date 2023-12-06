@@ -307,6 +307,7 @@
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-x {
     position: relative;
     top: -14%;
+    left: -134.5%;
     display: flex;
     justify-content: center;
     width: 100%;

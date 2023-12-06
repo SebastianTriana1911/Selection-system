@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Montserrat&family=Poppins:wght@300&family=Tilt+Prism&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: black;
+}
+
+body::-webkit-scrollbar{
+    width: 9px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: white;
+}
+
+.page {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 10vh auto 15vh;
+    grid-template-areas: 
+    "header"
+    "navbar"
+    "content"
+    "footer";
+}
+
+
+.header {
+    display: flex;
+    grid-area: header;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    border-bottom: 3px solid white;
+    font-size: 23pt;
+    align-items: center;
+    padding-left: 25px;
+    font-weight: 1000;
+}
+
+.header .contenedor-logo {
+    display: flex;
+    gap: 2px
+}
+
+.header .contenedor-logo .s-amarilla {
+    color: #FFD966;
+}
+
+.header .titulo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.header .titulo .system {
+    color: #FFD966;
+}
+
+/*------------------------------------------------------------*/
+
+.nav {
+    grid-area: navbar;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+}
+
+.nav .primer-contenedor {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    padding-left: 1.5%;
+}
+
+.nav .segundo-contenedor {
+    position: relative;
+    right: 2%;
+}
+
+.nav .segundo-contenedor i {
+    cursor: pointer;
+}
+
+/*------------------------------------------------------------*/
+
+.contenedor-content {
+    grid-area: content;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5%;
+    background-color: black;
+}
+
+.contenedor-logout{
+    position: relative;
+    width: 100%;
+    margin-top: 20%;
+    left: -16%;
+}
+
+.contenedor-logout .boton{
+    display: flex;
+    justify-content: center;
+    width: 120%;
+    padding: 10%;
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+}
+
+.contenedor-logout .boton:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+.contenedor-content .contenedor-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 4%;
+    background-color: black;
+    margin-bottom: 1%;
+}
+
+.contenedor-content .contenedor-titulo .titulo {
+    color: white;
+    font-size: 25pt;
+}
+
+.contenedor-content .contenedor-titulo .barra {
+    width: 18%;
+    height: 3px;
+    background-color: #FFD966;
+    box-shadow: 0 0 35px #FFD966;
+}
+
+.contenedor-content .contenedor-informacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    background-color: black;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor {
+    width: 37%;
+    height: 15%;
+    margin-top: 3%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-logo i {
+    font-size: 27pt;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-bote {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    width: 10%;
+    height: 100%;
+    position: relative;
+    left: -3%;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-bote i {
+    font-size: 20pt;
+    cursor: pointer;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-nombre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+.contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-nombre .titulo {
+    font-size: 15pt;
+    font-weight: bolder;
+}
+
+.contenedor-boton  { 
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.contenedor-boton .volver {    
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    padding: 0.7% 0.7%;
+    font-weight: bolder;
+    box-shadow: 0 0 10px #FFD966;
+}
+
+.contenedor-boton .volver:hover {
+    background-color: black;
+    transition: 0.5s;
+    color: #FFD966;
+}
+
+.empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    height: 15%;
+    margin-top: 3%;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 0 15px white;
+}
