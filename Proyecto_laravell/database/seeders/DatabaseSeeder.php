@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\SuperUsuario;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,5 +24,8 @@ class DatabaseSeeder extends Seeder
         $this -> call([PaisSeeder::class]);
         $this -> call([DepartamentoSeeder::class]);
         $this -> call([MunicipioSeeder::class]);
+        $this -> call([UserSeeder::class]);
+        $this -> call([SuperUsuarioSeeder::class]);
+        $this -> call([ReclutadorSeeder::class]);
     }
 }

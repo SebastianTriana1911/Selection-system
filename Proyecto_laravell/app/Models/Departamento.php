@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Pais;
+use App\Models\Municipio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

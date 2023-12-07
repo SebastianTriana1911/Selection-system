@@ -252,7 +252,7 @@
 
                     <!-- Este input no se muestra en la vista pero corresponde a que el campo
                         role_id en esta vista sera por defecto dos que corresponde al rol candidato -->
-                    <input type="number" name="role_id" value="1" hidden>
+                    <input type="number" name="role_id" value="2" hidden>
                 </section>
 
                 <section class="contenedor-boton">

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Reclutador;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -64,6 +65,10 @@ class User extends Authenticatable
 
     public function candidato(): HasOne{
         return $this -> hasOne(Candidato::class, 'user_id', 'id');
+    }
+
+    public function reclutador(): HasOne{
+        return $this -> hasOne(Reclutador::class);
     }
 
     public function experiencia(): HasMany{

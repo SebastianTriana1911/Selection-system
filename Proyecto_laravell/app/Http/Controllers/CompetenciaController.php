@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProfesionController extends Controller{
+class CompetenciaController extends Controller{
     public function index(){
         
     }
@@ -14,7 +14,7 @@ class ProfesionController extends Controller{
     }
 
     public function store(Request $request){
-        
+
     }
 
     public function show(string $id){
@@ -22,7 +22,7 @@ class ProfesionController extends Controller{
     }
 
     public function edit(string $id){
-        
+
     }
 
     public function update(Request $request, string $id){
@@ -30,6 +30,5 @@ class ProfesionController extends Controller{
     }
 
     public function destroy(string $id){
-        
     }
 }

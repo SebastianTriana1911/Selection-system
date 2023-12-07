@@ -17,6 +17,7 @@ class CandidatoController extends Controller{
         
     }
 
+    // -------------------- METODO STORE ------------------------
     public function store(StoreCandidato $request){
         // Al llamar el metodo store se instanciara un objeto de
         // la clase usuario y se llaman los campos correspondiente
@@ -48,8 +49,11 @@ class CandidatoController extends Controller{
         $candidato -> user_id = $user -> id;
         $candidato -> save();
 
+        // Se hace una redireccion al login para que el candidato
+        // se autentique
         return redirect()->route('login');
     }
+    // ----------------------------------------------------------
 
     public function show(string $id){
         

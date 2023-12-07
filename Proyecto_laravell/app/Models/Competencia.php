@@ -2,19 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Cargo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Educacion extends Model{
+class Competencia extends Model{
     use HasFactory;
 
-    protected $table = 'educaciones';
-
+    protected $table = 'competencias';
     protected $guarded = [];
 
-    public function user(): BelongsTo{
-        return $this -> belongsTo(User::class, 'user_id', 'id');
+    public function cargo(): BelongsTo{
+        return $this -> belongsTo(Cargo::class, 'cargo_id', 'id');
     }
 }

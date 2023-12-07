@@ -5,7 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Models\SuperUsuario;
 
@@ -43,7 +45,7 @@ Route::post('candidato/store', [CandidatoController::class, 'store'])->name('can
 
 
 // ----------------------------- RUTAS DEL CONTROLADOR DEL SUPER USUARIO -------------------------
-// Ruta para mostrar el index de un administrador al registrarse
+// Ruta para mostrar el index de un administrador al registrarse 
 Route::get('super/index', [SuperUsuarioController::class, 'index'])->name('super.index')->middleware('auth');
 // Ruta store del controlador SuperUsuario para registrar datos en la tabla Users y SuperUsuario a la vez
 Route::post('super/store', [SuperUsuarioController::class, 'store'])->name('super.store');
@@ -58,7 +60,9 @@ Route::get('instructor/create', [InstructorController::class, 'create'])->name('
 Route::post('instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
 // ----------------------------------------------------------------------------------------------
 
+Route::get('reclutador/empresa', [ReclutadorController::class, 'crearEmpresa'])->name('reclutador.empresa');
 
+Route::post('empresa/store', [EmpresaController::class, 'store'])->name('empresa.store');
 // ----------------------------------------------------------------------------------------------
 // Ruta create del controlador login que retorna la vista para logiarse si ya cuenta con una cuenta
 Route::get('login', [LoginController::class, 'create'])->name('login')->middleware('guest');
