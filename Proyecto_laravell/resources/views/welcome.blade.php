@@ -1,3 +1,4 @@
+<!-- VISTA INDEX DE LA PAGINA -->
 @extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">

@@ -1,12 +1,12 @@
-<!-- DASHBOARD DEL CANDIDATO -->
+<!-- DASHBOARD ADMINISTRADOR -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/candidato/dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/super/dashboard.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Dashboard Candidato</title>
+    <title>Dashboard Administrador</title>
 </head>
 <body>
     <main class="page">
@@ -53,11 +53,11 @@
 
         <section class="segunda-columna">
             <article class="contenedor-titulo">
-                <strong>Lista de instructores</strong>
+                <strong>Lista de administradores</strong>
             </article>
 
             <article class="contenedor-informacion">
-                @forelse($candidatos as $candidato)
+                @forelse($supers as $super)
                     <article class="contenedor-instructor">
 
                         <article class="contenedor-logo">
@@ -65,11 +65,11 @@
                         </article>
 
                         <article class="contenedor-nombre">
-                            <h1 class="titulo">{{$candidato->user->nombre}} {{$candidato->user->apellido}}</h1>
+                            <h1 class="titulo">{{$super->user->nombre}} {{$super->user->apellido}}</h1>
                         </article>
 
                         <article class="contenedor-opciones">
-                            <form  class="formulario" action="{{route('user.destroy', ['id' => $candidato -> user_id])}}" method="POST">
+                            <form  class="formulario" action="{{route('user.destroy', ['id' => $super -> user_id])}}" method="POST">
                                 @csrf
     
                                 @method('delete')
@@ -80,7 +80,7 @@
                             </form>
 
                             <article class="rol">
-                                <form  class="formulario-2" action="{{route('update.rol', ['id' => $candidato -> user_id])}}" method="POST">
+                                <form  class="formulario-2" action="{{route('update.rol', ['id' => $super -> user_id])}}" method="POST">
                                     @csrf
                                     <select class="menu" name="menu">
                                         @foreach($roles as $rol)

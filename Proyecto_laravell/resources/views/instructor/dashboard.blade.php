@@ -1,3 +1,4 @@
+<!-- DASHBOARD INSTRUCTOR -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,10 @@
     <!---------------------------------------------------------------->
     <section class="content">
         <section class="primera-columna">
+            <a class="contenedor-super" href="{{route('dashboard.super')}}">
+                <h1>Administradores</h1>
+            </a>
+
             <a class="contenedor-instructor" href="{{route('dashboard.instructor')}}">
                 <h1>Instructores</h1>
             </a>

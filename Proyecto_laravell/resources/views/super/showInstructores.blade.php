@@ -1,9 +1,10 @@
+<!-- VISTA PARA VER TODOS LOS INSTRUCTORES DE LA BD -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Retiro instructores</title>
     <link rel="stylesheet" href="{{asset('css/super/showInstructores.css')}}">    
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <title>Listar instructores</title>
 </head>
 <body>
     <main class="page">

@@ -43,8 +43,7 @@ class EmpresaController extends Controller{
         // relacion del reclutador, esto quiere decir que buscaremos
         // el campo foraneo de la tabla reclutadores donde coinsida con
         // el campo autenticado de la tabla users
-        // $reclutador = $user->reclutador;
-        $reclutador = Reclutador::where('user_id' = $user_id);
+        $reclutador = $user->reclutador;
 
         // Ya accedido al registro del reclutador autenticado, accedemos
         // al campo empresa_id que se encuentra en null y le asociamos la

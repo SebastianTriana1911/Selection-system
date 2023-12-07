@@ -6,10 +6,15 @@ use App\Models\Pais;
 use App\Models\Municipio;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReclutadorController extends Controller{
     public function index(){
-        
+        // Para hayar algun campo que corresponda al usuario autenticado
+        // se hace la validacion de quien este autenticado para mostrar
+        // dicho usuario con el campo correspondiente en la vista
+        $reclutador = Auth::user();
+        return view('reclutador.index', ['reclutador' => $reclutador]);
     }
 
     // ---------------------- METODO CREATE EMPRESA --------------------

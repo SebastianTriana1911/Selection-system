@@ -1,12 +1,12 @@
-<!-- DASHBOARD DEL CANDIDATO -->
+<!-- VISTA INDEX DEL RECLUTADOR -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/candidato/dashboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/super/home.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Dashboard Candidato</title>
+    <title>Index Reclutador</title>
 </head>
 <body>
     <main class="page">
@@ -24,83 +24,102 @@
         </header>
 
     <!---------------------------------------------------------------->
-    <section class="content">
-        <section class="primera-columna">
-            <a class="contenedor-super" href="{{route('dashboard.super')}}">
-                <h1>Administradores</h1>
-            </a>
 
-            <a class="contenedor-instructor" href="{{route('dashboard.instructor')}}">
-                <h1>Instructores</h1>
-            </a>
+        <nav class="nav">
 
-            <a class="contenedor-reclutador">
-                <h1>Reclutadores</h1>
-            </a>
-
-            <a class="contenedor-seleccionador">
-                <h1>Seleccionadores</h1>
-            </a>
-
-            <a class="contenedor-candidatos" href="{{route('dashboard.candidato')}}">
-                <h1>Candidatos</h1>
-            </a>
-
-            <article class="contenedor-boton">
-                <a class="volver" href="{{route('super.index')}}">Volver</a>
-            </article>
-        </section>
-
-        <section class="segunda-columna">
-            <article class="contenedor-titulo">
-                <strong>Lista de instructores</strong>
+            <article class="primer-contenedor">
+                <h1>Reclutador {{$reclutador -> nombre}} {{$reclutador -> apellido}}</h1>
             </article>
 
-            <article class="contenedor-informacion">
-                @forelse($candidatos as $candidato)
-                    <article class="contenedor-instructor">
+            <article class="segundo-contenedor">
+                
+                <article class="contenedor-logout">
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button class="boton">Cerrar sesion</button>
+                    </form>
+                </article>
+            </article>
 
-                        <article class="contenedor-logo">
-                            <i class="fa-solid fa-user" style="color: #000000;"></i>
-                        </article>
+        </nav>
 
-                        <article class="contenedor-nombre">
-                            <h1 class="titulo">{{$candidato->user->nombre}} {{$candidato->user->apellido}}</h1>
-                        </article>
+    <!---------------------------------------------------------------->
 
-                        <article class="contenedor-opciones">
-                            <form  class="formulario" action="{{route('user.destroy', ['id' => $candidato -> user_id])}}" method="POST">
-                                @csrf
-    
-                                @method('delete')
-    
-                                <button class="contenedor-bote">
-                                    <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                                </button>
-                            </form>
+        <section class="contenedor-content"> 
 
-                            <article class="rol">
-                                <form  class="formulario-2" action="{{route('update.rol', ['id' => $candidato -> user_id])}}" method="POST">
-                                    @csrf
-                                    <select class="menu" name="menu">
-                                        @foreach($roles as $rol)
-                                            <option value="{{$rol -> id}}">{{$rol -> rol}}</option>
-                                        @endforeach
-                                    </select>
+            <article class="recuadro-menu">
 
-                                    <button class="cambiar">
-                                        Cambiar
-                                    </button>
-                                </form>
-                            </article>
-                        </article>
+                <article class="cuadro-1">
+
+                    <article class="contenedor-logo">
+                        <i class="fa-solid fa-user" style="color: #000000;"></i>
                     </article>
-                    @empty
-                    <h3 class="empty">No hay ningun instructor registrado</h3>
-                @endforelse
+
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo">Registrar Instructor</h1>
+                    </article>
+
+                    <article class="contenedor-descripcion">
+                        <p>En este campo podra registrar a un instructor para que tome el control de los roles entre todos los candidatos de Selection System</p>
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{route('instructor.create')}}">Registrar</a>
+                    </article>
+
+                </article>
+
+                <article class="cuadro-2">
+
+                    <article class="contenedor-logo">
+                        <i class="fa-solid fa-user" style="color: #000000;"></i>
+                        <i class="fa-solid fa-user" style="color: #000000;"></i>
+                        <i class="fa-solid fa-user" style="color: #000000;"></i>
+                    </article>
+
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo">Listar Instructores</h1>
+                    </article>
+
+                    <article class="contenedor-descripcion">
+                        <p>En este campo podra eliminar y consultar todos los instructores que haya en su momento registrados en Selection System</p>
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{route('listar.instructores')}}">Consultar</a>
+                    </article>
+
+                </article>
+
+                <article class="cuadro-3">
+
+                    <article class="contenedor-logo">
+                        <i class="fa-solid fa-user" style="color: #000000;"></i>
+                    </article>
+
+                    <article class="contenedor-x">
+                        <i class="fa-solid fa-xmark fa-2xl" style="color: #ff0000;"></i>
+                    </article>
+
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo">Gestionar roles</h1>
+                    </article>
+
+                    <article class="contenedor-descripcion">
+                        <p>En este campo podra consultar todas las personas que se encuentran en el sistema correspondientes a si rol dentro de Selection System</p>
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{route('dashboard.instructor')}}">Consultar</a>
+                    </article>
+
+                </article>
+
             </article>
+
         </section>
-    </section>  
+
+
     <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <footer class="footer">

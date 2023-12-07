@@ -1,3 +1,4 @@
+<!-- VISTA INDEX DEL ADMINISTRADOR -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,10 @@
 
             <article class="segundo-contenedor">
 
+                <article class="contenedor-create">
+                    <a class="boton" href="{{route('super.create')}}">Crear Admin</a>
+                </article>
+                
                 <article class="contenedor-logout">
                     <form action="{{route('logout')}}" method="POST">
                         @csrf

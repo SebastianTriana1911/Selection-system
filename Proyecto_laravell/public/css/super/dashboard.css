@@ -78,7 +78,8 @@
     align-items: center;
     gap: 5%;
     font-size: 15pt;
-    background-color: white;
+    background-color: #FFD966;
+    box-shadow: 0 0 10px #FFD966;
     height: 20%;
     cursor: pointer;
     text-decoration: none;
@@ -99,9 +100,8 @@
     align-items: center;
     gap: 5%;
     font-size: 15pt;
-    background-color: #FFD966;
+    background-color: white;
     height: 20%;
-    box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
     color:black;

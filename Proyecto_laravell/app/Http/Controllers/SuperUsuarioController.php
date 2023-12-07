@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidato;
+use App\Models\Pais;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Candidato;
+use App\Models\Municipio;
 use App\Models\Instructor;
+use App\Models\Departamento;
 use App\Models\SuperUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +25,13 @@ class SuperUsuarioController extends Controller{
     }
 
     public function create(){
-
+        $paises = Pais::all();
+        $departamentos = Departamento::all();
+        $municipios = Municipio::all();
+        
+        return view('super.create', ['paises' => $paises, 
+        'departamentos' => $departamentos,
+        'municipios' => $municipios]);
     }
 
     // -------------------------- METODO STORE -----------------------------
@@ -60,7 +69,7 @@ class SuperUsuarioController extends Controller{
         $super -> user_id = $user -> id;
         $super -> save();
 
-        return redirect()->route('login');
+        return redirect()->route('super.index');
     }
     // -----------------------------------------------------------------------
 
@@ -84,6 +93,13 @@ class SuperUsuarioController extends Controller{
     // El metodo dashboard hace la misma funcion que la de listar el unico cambio
     // es que dicha funcion retorna una vista la cual permite cambiarle el rol
     // al ROL que contenga el dashboard en ese momento
+    public function dashboardSuper(){
+        $supers = SuperUsuario::all();
+        $roles = Role::all();
+        return view('super.dashboard',
+        ['supers' => $supers , 'roles' => $roles]);
+    }
+
     public function dashboardInstructor(){
         $instructores = Instructor::all();
         $roles = Role::all();

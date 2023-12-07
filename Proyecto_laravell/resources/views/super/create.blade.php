@@ -1,11 +1,11 @@
-<!-- VISTA PARA CREAR UN CANDIDATO -->
+<!-- VISTA PARA CREAR UN ADMINISTRADOR -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/Candidato/Css/hoja-vida.css">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/auth/register.css') }}">
-    <title>Create Candidato</title>
+    <link rel="stylesheet" href="{{ asset('css/super/create.css') }}">
+    <title>Create Administrador</title>
 </head>
 
 <body>
@@ -24,10 +24,20 @@
 
         </header>
 
+        <nav class="nav">
+
+            <article class="contenedor-nav">
+                <h1 class="titulo">Crear Administrador</h1>
+                <h1 class="linea"></h1>
+            </article>
+
+        </nav>
+
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <section class="contenedor-content">
-            <form class="contenedor-hoja-vida" action="{{route('candidato.store')}}" method="POST">
+
+            <form class="contenedor-hoja-vida" action="{{route('super.store')}}" method="POST">
                 @csrf
 
                 <section class="primera-linea">
@@ -70,18 +80,6 @@
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                         <!------------------------------------------------------>
-
-                        <!--------- Campo fecha_nacimiento de la tabla candidatos -------->
-                        <article class="contenedor-fecha-nac">
-                            <h4 class="titulo">Fecha de nacimiento</h4>
-                            <input class="fecha-nacimiento" type="date" value="{{ old('fecha_nacimiento') }}"
-                                name="fecha_nacimiento" />
-                        </article>
-
-                        @error('fecha_nacimiento')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                        <!----------------------------------------------------------------->
                     </article>
 
 
@@ -175,16 +173,6 @@
                             <h2 class="titulo">Otros datos</h2>
                         </article>
 
-                        <!--------- Campo direccion de la tabla users -------->
-                        <article class="contenedor-direccion">
-                            <h3 class="titulo">Direccion</h3>
-                            <input class="input" type="text" name="direccion" value="{{ old('direccion') }}" />
-                        </article>
-                        @error('direccion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                        <!---------------------------------------------------->
-
                         <!------- Campo estado_civil de la tabla users ------->
                         <article class="contenedor-estado">
                             <h3 class="titulo">Estado civil</h3>
@@ -198,16 +186,6 @@
                             </select>
                         </article>
                         @error('estado_civil')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                        <!---------------------------------------------------->
-
-                        <!------- Campo telefono de la tabla candidato ------->
-                        <article class="contenedor-telefono">
-                            <h3 class="titulo">Telefono celular</h3>
-                            <input class="input" type="text" name="telefono" value="{{ old('telefono') }}" />
-                        </article>
-                        @error('telefono')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                         <!---------------------------------------------------->
@@ -234,30 +212,14 @@
                         <!---------------------------------------------------->
                     </article>
 
-
-                    <article class="datos-profesionales">
-                        <!------- Campo perfil_ocupacional de la tabla candidatos ------->
-                        <article class="perfil-ocupacional">
-                            <h3 class="titulo">Perfil ocupacional</h3>
-                            <p class="sintesis">Aqui podra redactar su hoja de vida, preferiblemente que sea del ultimo
-                                empleo o estudio especificando su experiencia su labor y el conocimiento que adquirio
-                            </p>
-                            <textarea class="textarea" name="perfil_ocupacional" value="{{ old('perfil_ocupacional') }}"></textarea>
-                        </article>
-                        @error('perfil_ocupacional')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                        <!---------------------------------------------------------------->
-                    </article>
-
                     <!-- Este input no se muestra en la vista pero corresponde a que el campo
                         role_id en esta vista sera por defecto dos que corresponde al rol candidato -->
-                    <input type="number" name="role_id" value="2" hidden>
+                    <input type="number" name="role_id" value="1" hidden>
                 </section>
 
                 <section class="contenedor-boton">
-                    <a class="atras" href="{{ route('welcome') }}">Atras</a>
-                    <input class="input" type="submit" value="Crear usuario" />
+                    <a class="atras" href="{{ route('super.index') }}">Atras</a>
+                    <input class="input" type="submit" value="Crear Admin" />
                 </section>
 
             </form>

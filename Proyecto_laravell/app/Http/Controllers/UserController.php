@@ -78,6 +78,52 @@ class UserController extends Controller{
     public function cambioRol(Request $request, $id){
         $usuario = User::find($id);
 
+        if ($usuario -> role_id == 1){
+            $candidato = SuperUsuario::where('user_id',  $usuario -> id)->first();
+            $candidato ->delete();
+
+            if($request -> menu == 2){
+                $usuario -> role_id = $request -> menu;
+                $usuario -> save();
+
+                $super = new Candidato();
+                $super -> user_id = $usuario -> id;
+
+                $super->save();
+                return redirect()->back();
+            }
+            else if($request -> menu == 3){
+                $usuario -> role_id = $request -> menu;
+                $usuario -> save();
+
+                $instructor = new Instructor();
+                $instructor -> user_id = $usuario -> id;
+
+                $instructor->save();
+                return redirect()->back();
+            }
+            // else if($request -> menu == 4){
+            //     $usuario -> role_id = $request -> menu;
+            //     $usuario -> save();
+
+            //     $seleccionador = new Seleccionador();
+            //     $seleccionador -> user_id = $usuario -> id;
+
+            //     $seleccionador->save();
+            //     return redirect()->route('super.index');
+            // }
+            // else if($request -> menu == 5){
+            //     $usuario -> role_id = $request -> menu;
+            //     $usuario -> save();
+
+            //     $reclutador = new Reclutador();
+            //     $reclutador -> user_id = $usuario -> id;
+
+            //     $reclutador->save();
+            //     return redirect()->route('super.index');
+            // }
+        }
+
         // Validacion donde se comprueba si el usuario al que se desea 
         // cambiar el rol es un candidato
         if ($usuario -> role_id == 2){
@@ -92,7 +138,7 @@ class UserController extends Controller{
                 $super -> user_id = $usuario -> id;
 
                 $super->save();
-                return redirect()->route('super.index');
+                return redirect()->back();
             }
             else if($request -> menu == 3){
                 $usuario -> role_id = $request -> menu;
@@ -102,7 +148,7 @@ class UserController extends Controller{
                 $instructor -> user_id = $usuario -> id;
 
                 $instructor->save();
-                return redirect()->route('super.index');
+                return redirect()->back();
             }
             // else if($request -> menu == 4){
             //     $usuario -> role_id = $request -> menu;
@@ -139,7 +185,7 @@ class UserController extends Controller{
 
                 $admin->save();
 
-                return redirect()->route('super.index');
+                return redirect()->back();
             }
             else if($request -> menu == 2){
                 $usuario -> role_id = $request -> menu;
@@ -149,7 +195,7 @@ class UserController extends Controller{
                 $candidato -> user_id = $usuario -> id;
 
                 $candidato->save();
-                return redirect()->route('super.index');
+                return redirect()->back();
             }
             // else if($request -> menu == 4){
             //     $usuario -> role_id = $request -> menu;

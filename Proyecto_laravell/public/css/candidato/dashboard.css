@@ -72,6 +72,27 @@
     border-left: 5px solid white;
 }
 
+.content .primera-columna .contenedor-super{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    font-size: 15pt;
+    background-color: white;
+    height: 20%;
+    cursor: pointer;
+    text-decoration: none;
+    color:black;
+    border: 4px solid black
+}
+
+.content .primera-columna .contenedor-super:hover {
+    background-color: black;
+    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+}
+
 .content .primera-columna .contenedor-instructor{
     display: flex;
     justify-content: center;
@@ -80,7 +101,6 @@
     font-size: 15pt;
     background-color: white;
     height: 20%;
-    box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
     color:black;
@@ -143,6 +163,7 @@
     gap: 5%;
     font-size: 15pt;
     background-color: #FFD966;
+    box-shadow: 0 0 10px #FFD966;
     height: 20%;
     box-shadow: 0 0 10px white;
     cursor: pointer;

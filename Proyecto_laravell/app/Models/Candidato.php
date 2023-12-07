@@ -14,7 +14,7 @@ class Candidato extends Model{
 
     protected $guarded = [];
 
-    public function candidato(): BelongsTo{
+    public function user(): BelongsTo{
         return $this -> belongsTo(User::class, 'user_id', 'id');
     }
 }
