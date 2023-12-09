@@ -72,11 +72,12 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-informacion{
     position: relative;
     margin-top: 4%;
-    left: 22%;
-    width: 60%;
+    left: 28%;
+    width: 50%;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 0 10px white;
+    margin-bottom: 6%;
 }
 
 .contenedor-content .contenedor-informacion:hover{
@@ -95,16 +96,19 @@ body::-webkit-scrollbar-thumb{
 .primera-fila{
     display: flex;
     justify-content: space-around;
+    width: 100%;
     margin-top: 6%;
 }
 
 .contenedor-numero-identificacion {
-    display: grid;
-    gap: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .num-identificacion {
-    width: 100%;
+    width: 90%;
     padding: 2%;
     border-radius: 7px;
     font-weight: bolder;
@@ -112,11 +116,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 4px black;
     margin-bottom: 12%;
     text-align: center;
+    align-items: center;
 }
 
 .contenedor-tipo-identificacion{
-    display: grid;
-    gap: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .contenedor-tipo-identificacion .titulo {
@@ -124,280 +131,292 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-tipo-identificacion .menu-identificacion {
-    position: relative;
-    left: -10%;
-    width: 90%;
+    width: 70%;
     padding: 2%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
     cursor: pointer;
-    margin-bottom: 12%;
     text-align: center;
 }
 
 .contenedor-pais {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .contenedor-pais .titulo-pais{
-    position: relative;
-    left: -25%;
+    font-size: 13pt;
 }
 
 .contenedor-pais .munu-pais {
-    position: relative;
-    left: -107%;
-    top: -13%;
-    width: 210%;
-    padding: 2%;
+    width: 120%;
+    padding: 6%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
     cursor: pointer;
-    margin-bottom: 15%;
+    text-align: center;
 }
 
 .segunda-fila{
     display: flex;
     justify-content: space-around;
-    margin-top: 6%;
+    width: 100%;
+    margin-top: 2%;
 }
 
 .contenedor-departamento {
-    display: grid;
-    gap: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .contenedor-departamento .titulo {
-    position: relative;
-    left: 18%;
     font-size: 13pt;
 }
 
 .contenedor-departamento .munu-departamentos {
-    position: relative;
-    left: -20%;
-    width: 180%;
-    padding: 7%;
+    width: 125%;
+    padding: 4%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
     cursor: pointer;
-    margin-bottom: 15%;
     text-align: center;
 }
 
-.contenedor-departamento .titulo-muni {
-    position: relative;
-    left: 50%;
-    font-size: 13pt;
-}
-
-.contenedor-departamento .munu-municipios {
-    position: relative;
-    left: -17%;
-    width: 220%;
-    padding: 7%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    margin-bottom: 15%;
-    text-align: center;
-}
-
-.contenedor-nombre {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-nombre .titulo {
-    position: relative;
-    left: 37%;
-    font-size: 13pt;
-}
-
-.contenedor-nombre .input {
-    width: 115%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
-    text-align: center;
-}
-
-.tercera-fila{
+.contenedor-municipio {
     display: flex;
-    justify-content: space-around;
-    margin-top: 9%;
-}
-
-.contenedor-apellido-1 {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-apellido-1 .titulo {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
     position: relative;
-    left: 37%;
+    left: 8%;
+}
+
+.contenedor-municipio .titulo-muni {
     font-size: 13pt;
 }
 
-.contenedor-apellido-1 .input {
-    position: relative;
-    left: -9%;
-    width: 130%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
-}
-
-.contenedor-genero {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-genero .titulo { 
-    position: relative;
-    left: 45%;
-    font-size: 13pt;
-}
-
-.menu-generos { 
-    position: relative;
-    left: -42%;
-    width: 255%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
-    text-align: center;
-}
-
-.contenedor-direccion {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-direccion .titulo {
-    position: relative;
-    left: 36%;
-    font-size: 13pt;
-}
-
-.contenedor-direccion .input {
-    width: 115%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 15%;
-    text-align: center;
-}
-
-.cuarta-fila{
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    background-color: white;
-    margin-top: 6%;
-    margin-bottom: 10%;
-    padding-bottom: 10%;
-    border-radius: 20px;
-}
-
-.contenedor-estado {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-estado .titulo { 
-    position: relative;
-    left: 45%;
-    font-size: 13pt;
-}
-
-.contenedor-estado .menu-estado-civil { 
+.contenedor-municipio .munu-municipios {
     width: 170%;
     padding: 4%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
+    cursor: pointer;
+    text-align: center;
 }
 
-.contenedor-email {
-    display: grid;
-    gap: 15%;
-}
-
-.contenedor-email .titulo { 
+.contenedor-nombre {
     position: relative;
-    left: 37%;
+    left: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-nombre .titulo {
     font-size: 13pt;
 }
 
-.contenedor-email .input { 
+.contenedor-nombre .input {
+    width: 64%;
+    padding: 3%;
+    border-radius: 7px;
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0 0 4px black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.tercera-fila{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 6%;
+}
+
+.contenedor-apellido-1 {
     position: relative;
-    left: 8%;
-    width: 140%;
+    left: -3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-apellido-1 .titulo {
+    font-size: 13pt;
+}
+
+.contenedor-apellido-1 .input {
+    width: 86%;
+    padding: 3%;
+    border-radius: 7px;
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0 0 4px black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contenedor-genero {
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-genero .titulo { 
+    font-size: 13pt;
+}
+
+.menu-generos { 
+    width: 190%;
     padding: 4%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
+    cursor: pointer;
     text-align: center;
 }
 
-.contenedor-contraseña {
-    display: grid;
-    gap: 15%;
+.contenedor-direccion {
+    position: relative;
+    left: 7.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
-.contenedor-contraseña .titulo { 
-    position: relative;
-    left: 28%;
+.contenedor-direccion .titulo {
     font-size: 13pt;
 }
 
-.contenedor-contraseña .input { 
+.contenedor-direccion .input {
+    width: 65%;
+    padding: 3%;
+    border-radius: 7px;
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0 0 4px black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cuarta-fila{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 6%;
+    padding-bottom: 10%;
+}
+
+.contenedor-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-estado .titulo { 
+    font-size: 13pt;
+}
+
+.contenedor-estado .menu-estado-civil { 
     width: 110%;
     padding: 4%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
-    margin-bottom: 18%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contenedor-email {
+    position: relative;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-email .titulo { 
+    font-size: 13pt;
+}
+
+.contenedor-email .input { 
+    width: 100%;
+    padding: 3%;
+    border-radius: 7px;
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0 0 4px black;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contenedor-contraseña {
+    position: relative;
+    left: 7%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contenedor-contraseña .titulo { 
+    font-size: 13pt;
+}
+
+.contenedor-contraseña .input { 
+    width: 67%;
+    padding: 3%;
+    border-radius: 7px;
+    font-weight: bolder;
+    border: none;
+    box-shadow: 0 0 4px black;
+    cursor: pointer;
     text-align: center;
 }
 
 /* -------------------------------------------- */
 
+.contenedor-boton{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor-boton .atras{
-    width: 3.5%;
+    width: 3.3%;
     height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: black;
     background-color: #FFD966;
     border: none;
     border-radius: 10px;
-    padding: 13px;
+    padding: 11px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;

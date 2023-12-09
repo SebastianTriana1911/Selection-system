@@ -112,49 +112,23 @@
 }
 
 .segundo-contenedor{
+    position: relative;
+    left: -6.5%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     width: 20%;
-    margin-right: 3%;
-}
-
-.contenedor-create{
-    width: 50%;
-    left: -16%;
-}
-
-.contenedor-create .boton{
-    display: flex;
-    justify-content: center;
-    padding: 9%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    box-shadow: 0 0 10px #FFD966;
-    font-size: 11pt;
-}
-
-.contenedor-create .boton:hover{
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
 }
 
 .contenedor-logout{
     width: 40%;
-    left: -16%;
 }
 
 .contenedor-logout .boton{
     display: flex;
     justify-content: center;
     width: 120%;
-    padding: 10%;
+    padding: 9%;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -171,8 +145,12 @@
     cursor: pointer;
 }
 
+.contenedor-content .recuadro-menu{
+    width: 80%;
+}
+
 .contenedor-content .recuadro-menu .cuadro-1 {
-    width: 50%;
+    width: 40%;
     height: 70%;
     background-color: white;
     padding: 2%;
@@ -240,7 +218,7 @@
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 {
-    width: 50%;
+    width: 40%;
     height: 70%;
     background-color: white;
     padding: 2%;
@@ -303,86 +281,6 @@
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a:hover {
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 {
-    width: 50%;
-    height: 70%;
-    background-color: white;
-    padding: 2%;
-    border-radius: 15px;
-    box-shadow: 0 0 15px white;
-    position: relative;
-    top: -15px;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 30%;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-logo i {
-    font-size: 40pt;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-x {
-    position: relative;
-    top: -14%;
-    left: -134.5%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-x i {
-    font-size: 50pt;
-} 
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-titulo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 10%;
-    margin-bottom: 3%;
-    font-weight: bolder;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-titulo .titulo {
-    font-size: 16pt;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-boton {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 8%;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-boton a {
-    display: flex;
-    align-items: center;
-    padding: 3%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.contenedor-content .recuadro-menu .cuadro-3 .contenedor-boton a:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;

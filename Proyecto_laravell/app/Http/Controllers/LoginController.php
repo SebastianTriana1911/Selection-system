@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreLogin;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,7 +62,7 @@ class LoginController extends Controller{
         // }
         // Role_id == 5 = Reclutador
         else if($user->role_id==5){
-            return redirect()->route('reclutador.empresa');
+            return redirect()->route('reclutador.index');
         }
     }
     // --------------------------------------------------------------

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pais;
 use App\Models\Empresa;
+use App\Models\Municipio;
+use App\Models\Departamento;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,23 +55,45 @@ class EmpresaController extends Controller{
         $reclutador -> empresa_id = $empresa -> id;
         $reclutador -> save();
         
-        // return redirect()->route('');
+        return redirect()->route('reclutador.index');
     }
     // -------------------------------------------------------------
 
     public function show(string $id){
-        
+        $empresa = Empresa::find($id);
+
+        return view('empresa.show', ['empresa' => $empresa]);
     }
 
-    public function edit(string $id){
-        
+    public function edit($id){   
+        $empresa = Empresa::find($id);
+
+        $paises = Pais::all();
+        $departamentos = Departamento::all();
+        $municipios = Municipio::all();
+
+        return view('empresa.edit', ['empresa' => $empresa,
+        'paises' => $paises, 
+        'departamentos' => $departamentos,
+        'municipios' => $municipios]);
     }
 
     public function update(Request $request, string $id){
-    
+        $empresa = Empresa::find($id);
+        $empresa->update($request->all());
+
+        return redirect()->route('empresa.show', $empresa -> id);
     }
 
     public function destroy(string $id){
+        $user = Auth::user();
+        $reclutador = $user->reclutador;
+        $reclutador -> empresa_id = null;
+        $reclutador -> save();
         
+        $empresa = Empresa::find($id);
+        $empresa ->delete();
+
+        return redirect()->route('reclutador.index');
     }
 }

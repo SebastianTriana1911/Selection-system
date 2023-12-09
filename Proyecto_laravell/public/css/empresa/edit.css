@@ -97,7 +97,7 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 30%;
     height: 4px;
     background-color: #FFD966;
     box-shadow: 0 0 15px #FFD966;

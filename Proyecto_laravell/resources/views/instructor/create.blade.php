@@ -39,7 +39,7 @@
                     <article class="primera-fila">
                     <!------ Campo num_documento de la tabla users --------->
                     <article class="contenedor-numero-identificacion">
-                        <h4 class="titulo">Numero de identificacion</h4>
+                        <h4 class="titulo">N identificacion</h4>
                         <input class="num-identificacion" type="text" name="num_documento"
                             value="{{ old('num_documento') }}" />
                     </article>
@@ -51,7 +51,7 @@
 
                     <!------ Campo tipo_documento de la tabla users -------->
                     <article class="contenedor-tipo-identificacion">
-                        <h4 class="titulo">Tipo de identificacion</h4>
+                        <h4 class="titulo">Tipo identificacion</h4>
                         <select class="menu-identificacion" name="tipo_documento"
                             value="{{ old('tipo_documento') }}">
                             <option value="cedula de ciudadania">Cedula de ciudadania</option>
@@ -97,7 +97,7 @@
                     <!---------------------------------------------------------------------------------->
 
                     <!--------- Campo municipio_id de la tabla users -------->
-                    <article class="contenedor-departamento">
+                    <article class="contenedor-municipio">
                         <h4 class="titulo-muni">Municipio</h4>
                         <select class="munu-municipios" name="municipio_id" value="{{ old('municipio_id') }}">
                             @foreach ($municipios as $municipio)
@@ -203,7 +203,7 @@
 
                 <section class="contenedor-boton">
                     <a class="atras" href="{{ route('super.index') }}">Atras</a>
-                    <input class="input" type="submit" value="Crear instructor" />
+                    <input class="input" type="submit" value="Crear" />
                 </section>
 
             </form>

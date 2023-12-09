@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/reclutador/index.css')}}">
+    <link rel="stylesheet" href="{{asset('css/reclutador/home.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Reclutador</title>
+    <title>Home Reclutador</title>
 </head>
 <body>
     <main class="page">
@@ -29,10 +29,15 @@
 
             <article class="primer-contenedor">
                 <h1>Reclutador {{$reclutador -> nombre}} {{$reclutador -> apellido}}</h1>
+                <h1>Empresa {{$empresa}}</h1>
             </article>
 
             <article class="segundo-contenedor">
                 
+                <form action="{{route('reclutador.desvincular')}}" method="POST">
+                    @csrf
+                    <button class="boton">Desvincularme</button>
+                </form>
                 <article class="contenedor-logout">
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
@@ -52,19 +57,19 @@
                 <article class="cuadro-1">
 
                     <article class="contenedor-logo">
-                        <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                        <i class="fa-solid fa-building" style="color: #000000;"></i>
                     </article>
 
                     <article class="contenedor-titulo">
-                        <h1 class="titulo">Postularme a una empresa</h1>
+                        <h1 class="titulo">Ver datos de la empresa</h1>
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <p>En este campo podra dirigirte a rodas las empresas creadas por los reclutadores de nuesta plataforma y poderte vincular a una de ellas.</p>
+                        <p>En este campo podra visualizar todos los datos correspondientes a la empresa a la que te has postulado o en su defecto has creado.</p>
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="#">Postularse</a>
+                        <a href="{{route('empresa.show', $empresaId)}}">Inspeccionar</a>
                     </article>
 
                 </article>
@@ -72,24 +77,68 @@
                 <article class="cuadro-2">
 
                     <article class="contenedor-logo">
-                        <i class="fa-solid fa-building" style="color: #000000;"></i>
+                        <i class="fa-solid fa-house" style="color: #000000;"></i>
                     </article>
 
                     <article class="contenedor-titulo">
-                        <h1 class="titulo">Crear una empresa</h1>
+                        <h1 class="titulo">Crear vacantes</h1>
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <p>Si no deseas postularte a ninguna de las empresas que te ofrece nuestro sistema podras crear tu propia empresa en Selection Systems</p>
+                        <p>En este campo te permitira hacerlo asociando dicha vacante a la empresa para que cualquier candidato la pueda buscar y se pueda postular.</p>
                     </article>
 
                     <article class="contenedor-boton">
+                        <a href="">Ver</a>
+                        <a href="{{route('reclutador.empresa')}}">Crear</a>
+                    </article>
+
+                </article>
+
+                <article class="cuadro-3">
+
+                    <article class="contenedor-logo">
+                        <i class="fa-solid fa-plus" style="color: #000000;"></i>
+                    </article>
+
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo">Crear Cargos</h1>
+                    </article>
+
+                    <article class="contenedor-descripcion">
+                        <p>En este campo podras crear una ocupacion visualizando las que ya estan creadas para que no haya redundancia al crearla.</p>
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{route('reclutador.empresa')}}">Ver</a>
+                        <a href="{{route('reclutador.empresa')}}">Crear</a>
+                    </article>
+
+                </article>
+
+                <article class="cuadro-4">
+
+                    <article class="contenedor-logo">
+                        <i class="fa-solid fa-gear" style="color: #000000;"></i>
+                    </article>
+
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo">Crear Ocupaciones</h1>
+                    </article>
+
+                    <article class="contenedor-descripcion">
+                        <p>En este campo podras crear una ocupacion visualizando las que ya estan creadas para que no haya redundancia al crearla.</p>
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{route('reclutador.empresa')}}">Ver</a>
                         <a href="{{route('reclutador.empresa')}}">Crear</a>
                     </article>
 
                 </article>
 
             </article>
+
 
         </section>
 

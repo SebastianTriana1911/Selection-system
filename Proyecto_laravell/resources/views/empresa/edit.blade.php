@@ -1,15 +1,13 @@
-<!-- VISTA LOGIN -->
+<!-- VISTA PARA ACTUALIZAR DATOS DE LA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
-    <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('css/empresa/edit.css') }}">
+    <title>Update empresa</title>
 </head>
-
 <body>
     <main class="page">
 
@@ -26,58 +24,94 @@
 
         </header>
 
-        <!---------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
-        <section class="contenedor-login">
+        <section class="contenedor-content">
 
-            <a class="home" href="{{ route('welcome') }}">
-                <i class="fa-solid fa-house" style="color: #ffd966;"></i>
-            </a>
-            
-            <form class="formulario" action="{{route('login.store')}}" method="POST">
+            <article class="contenedor-titulo">
+                <h1 class="titulo-principal">Actualizar datos de la empresa {{$empresa -> nombre}}</h1>
+                <h1 class="linea"></h1>
+            </article>
 
+            <form class="contenedor-hoja-vida" action="{{route('empresa.update', ['id' => $empresa -> id])}}" method="POST">
                 @csrf
 
-                <article class="contenedor-imagen">
-                    <img class="logo" src="{{ asset('imagenes/Logo.png') }}" alt="Logo" />
-                </article>
-
-                <section class="grid">
-                    <section class="primera-barra">
-                        <article class="contenedor-titulo">
-                            <span class="titulo">Login Selection System</span>
+                @method('put')
+                <section class="primera-linea">
+                    
+                    <section class="linea-1">
+                        <!--------- Campo nombre de la tabla empresa -------->
+                        <article class="contenedor-nit">
+                            <input class="input" type="text" name="nit" placeholder="Nit" value="{{ old('nit', $empresa->nit)}}" />
                         </article>
-                    </section>
+                        {{-- @error('nombre')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror --}}
+                        <!-------------------------------------------------->
 
-                    <section class="segunda-barra">
-                        <section class="informacion-barra-2">
-
-                            <article>
-                                <h1 class="titulo-documento">Email: </h1>
-                                <input class="input" type="email" name="email" placeholder="Ingrese su email">
-                            </article>
-                            @error('email')
-                                <strong>{{$message}}</strong>
-                            @enderror
-
-                            <article>
-                                <h1 class="titulo-contraseña">Contraseña: </h1>
-                                <input class="input" type="password" name="password" placeholder="Ingrese su contraseña">
-                            </article>
-                            @error('password')
-                                <strong>{{$message}}</strong>
-                            @enderror
-
-                        </section>
-                    </section>
-
-                    <section class="tercera-barra">
-                        <article>
-                            <input class="iniciar" type="submit" value="Iniciar" />
-                            <a class="olvido" href="" target="_blank">¿Olvidaste tu contraseña?</a>
+                        <!------ Campo num_documento de la tabla empresa --------->
+                        <article class="contenedor-nombre">
+                            <input class="input" type="text" name="nombre"
+                                placeholder="Nombre" value="{{ old('nombre', $empresa->nombre) }}" />
                         </article>
+                        {{-- @error('nombre')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror --}}
+                        <!------------------------------------------------------>
                     </section>
+
+                    <section class="linea-2">
+                        <!--------- Campo direccion de la tabla empresa -------->
+                        <article class="contenedor-direccion">
+                            <input class="input" type="text" name="direccion" placeholder="Direccion" value="{{ old('direccion', $empresa->direccion) }}" />
+                        </article>
+                        {{-- @error('direccion')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror --}}
+                        <!---------------------------------------------------->
+                    
+                        <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
+                        <article class="contenedor-pais">
+                            <select class="menu-pais">
+                                @foreach ($paises as $pais)
+                                    <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </article>
+                        <!------------------------------------------------------------------------->
+                    </section>
+
+                    <section class="linea-3">
+                        <!---- Campo departamento que corresponde al campo que se ingrese en municipio ---->
+                        <article class="contenedor-departamento">
+                            <select class="menu-departamentos">
+                                @foreach ($departamentos as $departamento)
+                                    <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </article>
+                        <!---------------------------------------------------------------------------------->
+
+                        <!--------- Campo municipio_id de la tabla users -------->
+                        <article class="contenedor-municipio">
+                            <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id', $empresa->municipio->nombre) }}">
+                                @foreach ($municipios as $municipio)
+                                    <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </article>
+                        @error('municipio_id')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                        <!--------------------------------------------------------->
+                    </section>
+                
+
+                <section class="contenedor-boton">
+                    <a  class="input-1" href="{{route('empresa.show', ['id' => $empresa -> id])}}">Atras</a>
+                    <input class="input-2" type="submit" value="Actualizar"/>
                 </section>
+            </section>
             </form>
         </section>
 
@@ -175,7 +209,7 @@
                 </section>
             </section>
         </footer>
+
     </main>
 </body>
-
 </html>

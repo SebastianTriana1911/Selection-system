@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reclutadores', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('empresa_id')->nullable()->references('id')->on('empresas')->onDelete('cascade');
+            $table->foreignId('empresa_id')->nullable()->references('id')->on('empresas');
             $table->timestamps();
         });
     }

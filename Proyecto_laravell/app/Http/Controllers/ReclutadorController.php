@@ -5,17 +5,50 @@ namespace App\Http\Controllers;
 use App\Models\Pais;
 use App\Models\Municipio;
 use App\Models\Departamento;
+use App\Models\Funcion;
+use App\Models\Reclutador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReclutadorController extends Controller{
+
+    // ---------------------- METODO INDEX EMPRESA ---------------------
+    // AL llamar el metodo index se realizara una validacion para saber 
+    // si el reclutador ya pertenece a una empresa, si este no es el caso
+    // lo debera retornar a la vista que contiene la informacion para
+    // postularse o crear una empresa
     public function index(){
         // Para hayar algun campo que corresponda al usuario autenticado
         // se hace la validacion de quien este autenticado para mostrar
         // dicho usuario con el campo correspondiente en la vista
         $reclutador = Auth::user();
-        return view('reclutador.index', ['reclutador' => $reclutador]);
+        
+        // Se hace la validacion accediendo al usuario autenticado, luego
+        // accediendo a la tabla reclutador y validando si el campo empresa_id
+        // es null para hacer que se postule o cree una empresa por medio de
+        // una vista
+        if($reclutador->reclutador->empresa_id == null){
+            return view('reclutador.index', ['reclutador' => $reclutador]);
+        }
+        else {
+            // Se desea acceder al nombre de la empresa asi que se accede al
+            // usuario autenticado a la tabla reclutadores como hay una
+            // relacion entre reclutadores y empresas accedemos a la tabla
+            // empresas y ya aqui accederemos la campo nombre para mostrarlo
+            $empresa = $reclutador->reclutador->empresa->nombre;
+
+            // A una variable llamada empresaId se le asigna el id de la 
+            // empresa a la cual el reclutador esta postulado para asi
+            // mostrar los datos de esa empresa en una vista, se necesita
+            // el id de dicha empresa para acceder a ese registro unicamente
+            $empresaId = $reclutador->reclutador->empresa->id;
+
+            return view('reclutador.home', ['reclutador' => $reclutador,
+            'empresa' => $empresa, 'empresaId' => $empresaId]);
+        }
     }
+    // -----------------------------------------------------------------
+
 
     // ---------------------- METODO CREATE EMPRESA --------------------
     public function createEmpresa(){
@@ -41,6 +74,16 @@ class ReclutadorController extends Controller{
         'municipios' => $municipios]);
     }
     // -----------------------------------------------------------------
+
+    public function desvincular(){
+        $user = Auth::user();
+        $reclutador = $user -> reclutador;
+
+        $reclutador -> empresa_id = null;
+        $reclutador -> save();
+
+        return redirect()->route('reclutador.index');
+    }
 
     public function create(){
         

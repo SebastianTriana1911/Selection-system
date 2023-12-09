@@ -114,7 +114,7 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="{{route('dashboard.instructor')}}">Consultar</a>
+                        <a href="{{route('dashboard.super')}}">Consultar</a>
                     </article>
 
                 </article>

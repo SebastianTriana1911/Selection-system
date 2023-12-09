@@ -11,7 +11,7 @@ class StoreSuperUsuario extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,7 +29,6 @@ class StoreSuperUsuario extends FormRequest
             'estado_civil' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
-            'municipio_id' => 'required',
         ];
     }
 }

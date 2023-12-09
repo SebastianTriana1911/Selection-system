@@ -22,7 +22,7 @@ class StoreLogin extends FormRequest
     public function rules(): array{
         return [
             'email' => 'requerid|email',
-            'contraseña' => 'requerid'
+            'password' => 'requerid'
         ];
     }
 }

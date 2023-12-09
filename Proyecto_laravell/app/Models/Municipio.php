@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Empresa;
 use App\Models\Departamento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -23,4 +24,8 @@ class Municipio extends Model{
     public function user(): HasOne{
         return $this -> hasOne(User::class, 'municipio_id', 'id');
     }
+
+    public function empresa(): HasOne{
+        return $this -> hasOne(Empresa::class, 'municipio_id', 'id');
+    }    
 }

@@ -58,12 +58,12 @@ Route::post('super/store', [SuperUsuarioController::class, 'store'])->name('supe
 
 // Ruta listar instructores que por medio de un foreach en la vista permite iterar la lisya de instructores
 // que hay en la base de datos
-Route::get('super/listar/instructores', [SuperUsuarioController::class, 'listarInstructores'])->name('listar.instructores');
+Route::get('super/listar/instructores', [SuperUsuarioController::class, 'listarInstructores'])->name('listar.instructores')->middleware('auth');
 
 // Rutas dashboard de todos los roles para mostrarlos por medio de un listado en una vista
-Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSuper'])->name('dashboard.super');
-Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor');
-Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato');
+Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSuper'])->name('dashboard.super')->middleware('auth');
+Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor')->middleware('auth');
+Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
 
@@ -81,15 +81,24 @@ Route::post('instructor/store', [InstructorController::class, 'store'])->name('i
 Route::get('reclutador/index', [ReclutadorController::class, 'index'])->name('reclutador.index')->middleware('auth');
 
 // Ruta createEmpresa que retorna una vista de un formulario para crear una empresa
-Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])->name('reclutador.empresa');
+Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])->name('reclutador.empresa')->middleware('auth');
+
+Route::post('reclutador/desvincular', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
+// ----------------------------------------------------------------------------------------------
+
 
 // Ruta store que al llamarla valida cada uno de los datos para subirla a la base de datos
 // y crear la empresa en la tabla empresas para que posteriormente a dicho registro en el
 // campo id se le asigne al reclutador que la creo en el campo empresa_id
 Route::post('empresa/store', [EmpresaController::class, 'store'])->name('empresa.store');
-// ----------------------------------------------------------------------------------------------
 
+Route::get('empresa/show/{id}', [EmpresaController::class, 'show'])->name('empresa.show')->middleware('auth');
 
+Route::get('empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa.edit')->middleware('auth');
+
+Route::put('empresa/update/{id}', [EmpresaController::class, 'update'])->name('empresa.update');
+
+Route::delete('empresa/destroy/{id}', [EmpresaController::class, 'destroy'])->name('empresa.destroy');
 // --------------------------- RUTAS DEL CONTROLADOR LOGIN Y LOGOUTS ------------------------------
 // Ruta create del controlador login que retorna la vista para logiarse si ya cuenta con una cuenta
 Route::get('login', [LoginController::class, 'create'])->name('login')->middleware('guest');

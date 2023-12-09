@@ -27,63 +27,62 @@
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <section class="contenedor-content">
+
+            <article class="contenedor-titulo">
+                <h1 class="titulo-principal">Crear empresa</h1>
+                <h1 class="linea"></h1>
+            </article>
+
             <form class="contenedor-hoja-vida" action="{{route('empresa.store')}}" method="POST">
                 @csrf
-
-                <h1 class="titulo">Crear empresa</h1>
-
                 <section class="primera-linea">
                     
                     <section class="linea-1">
-                    <!--------- Campo nombre de la tabla users -------->
-                    <article class="contenedor-nit">
-                        <h4 class="titulo">Nit</h4>
-                        <input class="input" type="text" name="nit" placeholder="Ingrese el nit"value="{{ old('nit') }}" />
-                    </article>
-                    {{-- @error('nombre')
-                        <strong class="mensaje">{{ $message }}</strong>
-                    @enderror --}}
-                    <!-------------------------------------------------->
-
-                        <!------ Campo num_documento de la tabla users --------->
-                        <article class="contenedor-nombre">
-                            <h4 class="titulo">Nombre</h4>
-                            <input class="input" type="text" name="nombre"
-                                placeholder="Ingrese el nombre" value="{{ old('nombre') }}" />
+                        <!--------- Campo nombre de la tabla empresa -------->
+                        <article class="contenedor-nit">
+                            <input class="input" type="text" name="nit" placeholder="Nit"value="{{ old('nit') }}" />
                         </article>
+                        {{-- @error('nombre')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror --}}
+                        <!-------------------------------------------------->
 
+                        <!------ Campo num_documento de la tabla empresa --------->
+                        <article class="contenedor-nombre">
+                            <input class="input" type="text" name="nombre"
+                                placeholder="Nombre" value="{{ old('nombre') }}" />
+                        </article>
                         {{-- @error('nombre')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror --}}
                         <!------------------------------------------------------>
-
-                        <!--------- Campo direccion de la tabla users -------->
-                        <article class="contenedor-direccion">
-                            <h4 class="titulo">Direccion</h4>
-                            <input class="input" type="text" name="direccion" placeholder="Ingrese la direccion" value="{{ old('direccion') }}" />
-                        </article>
-                        @error('direccion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                        <!---------------------------------------------------->
                     </section>
 
                     <section class="linea-2">
+                        <!--------- Campo direccion de la tabla empresa -------->
+                        <article class="contenedor-direccion">
+                            <input class="input" type="text" name="direccion" placeholder="Direccion" value="{{ old('direccion') }}" />
+                        </article>
+                        {{-- @error('direccion')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror --}}
+                        <!---------------------------------------------------->
+                    
                         <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
                         <article class="contenedor-pais">
-                            <h4 class="titulo">Pais</h4>
-                            <select class="munu-pais">
+                            <select class="menu-pais">
                                 @foreach ($paises as $pais)
                                     <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
                                 @endforeach
                             </select>
                         </article>
                         <!------------------------------------------------------------------------->
+                    </section>
 
+                    <section class="linea-3">
                         <!---- Campo departamento que corresponde al campo que se ingrese en municipio ---->
                         <article class="contenedor-departamento">
-                            <h4 class="titulo">Departamento</h4>
-                            <select class="munu-departamentos">
+                            <select class="menu-departamentos">
                                 @foreach ($departamentos as $departamento)
                                     <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
                                 @endforeach
@@ -93,8 +92,7 @@
 
                         <!--------- Campo municipio_id de la tabla users -------->
                         <article class="contenedor-municipio">
-                            <h4 class="titulo">Municipio</h4>
-                            <select class="munu-municipio" name="municipio_id" value="{{ old('municipio_id') }}">
+                            <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id') }}">
                                 @foreach ($municipios as $municipio)
                                     <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                                 @endforeach
@@ -105,13 +103,13 @@
                         @enderror
                         <!--------------------------------------------------------->
                     </section>
-                </section>
+                
 
                 <section class="contenedor-boton">
-                    <a  class="input" href="#">Postularme</a>
-                    <input class="input" type="submit" value="Crear empresa"/>
+                    <a  class="input-1" href="{{route('reclutador.index')}}">Atras</a>
+                    <input class="input-2" type="submit" value="Crear"/>
                 </section>
-
+            </section>
             </form>
         </section>
 

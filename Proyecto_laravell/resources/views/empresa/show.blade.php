@@ -1,3 +1,4 @@
+<!-- VISTA DE LA EMPRESA A LA QUE ESTA VINCULADO EL RECLUTADOR -->
 <!-- VISTA LOGIN -->
 <!DOCTYPE html>
 <html lang="en">
@@ -5,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/empresa/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Login</title>
+    <title>Show empresa</title>
 </head>
 
 <body>
@@ -28,60 +29,61 @@
 
         <!---------------------------------------------------------------->
 
-        <section class="contenedor-login">
+        <section class="content">
 
-            <a class="home" href="{{ route('welcome') }}">
-                <i class="fa-solid fa-house" style="color: #ffd966;"></i>
-            </a>
-            
-            <form class="formulario" action="{{route('login.store')}}" method="POST">
+            <article class="contenedor-titulo">
+                <h1 class="titulo">Informacion de la empresa {{$empresa -> nombre}}</h1>
+                <h1 class="linea"></h1>
+            </article>
 
-                @csrf
+            <article class="contenedor-informacion">
 
-                <article class="contenedor-imagen">
-                    <img class="logo" src="{{ asset('imagenes/Logo.png') }}" alt="Logo" />
+                <article class="linea-1">
+                    <article class="id">
+                        <h1 class="titulo">ID</h1>
+                        <p> {{$empresa -> id}}</p>
+                    </article>
+
+                    <article class="nit">
+                        <h1 class="titulo">NIT</h1>
+                        <p> {{$empresa -> nit}}</p>
+                    </article>
+                
+                    <article class="nombre">
+                        <h1 class="titulo">NOMBRE</h1>
+                        <p> {{$empresa -> nombre}}</p>
+                    </article>
                 </article>
 
-                <section class="grid">
-                    <section class="primera-barra">
-                        <article class="contenedor-titulo">
-                            <span class="titulo">Login Selection System</span>
-                        </article>
-                    </section>
+                <article class="linea-2">
+                    <article class="direccion">
+                        <h1 class="titulo">DIRECCION</h1>
+                        <p> {{$empresa -> direccion}}</p>
+                    </article>
+                    
+                    <article class="municipio">
+                        <h1 class="titulo">MUNICIPIO</h1>
+                        <p> {{$empresa -> municipio -> nombre}}</p>
+                    </article>
+                </article>
 
-                    <section class="segunda-barra">
-                        <section class="informacion-barra-2">
+                </article>
 
-                            <article>
-                                <h1 class="titulo-documento">Email: </h1>
-                                <input class="input" type="email" name="email" placeholder="Ingrese su email">
-                            </article>
-                            @error('email')
-                                <strong>{{$message}}</strong>
-                            @enderror
+            <article class="contenedor-boton">
+                <a class="boton" href="{{route('reclutador.index')}}">Volver</a>
+                <a class="boton" href="{{route('empresa.edit', ['id' => $empresa -> id])}}">Actualizar</a>
+                <form action="{{route('empresa.destroy', ['id' => $empresa -> id])}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button class="form">
+                        Eliminar
+                    </button>
+                </form>
+            </article>
 
-                            <article>
-                                <h1 class="titulo-contraseña">Contraseña: </h1>
-                                <input class="input" type="password" name="password" placeholder="Ingrese su contraseña">
-                            </article>
-                            @error('password')
-                                <strong>{{$message}}</strong>
-                            @enderror
-
-                        </section>
-                    </section>
-
-                    <section class="tercera-barra">
-                        <article>
-                            <input class="iniciar" type="submit" value="Iniciar" />
-                            <a class="olvido" href="" target="_blank">¿Olvidaste tu contraseña?</a>
-                        </article>
-                    </section>
-                </section>
-            </form>
         </section>
 
-        <!--------------------------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------->
 
         <footer class="footer">
             <section class="contenedor-footer">
@@ -177,5 +179,4 @@
         </footer>
     </main>
 </body>
-
 </html>
