@@ -131,7 +131,6 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="{{route('reclutador.empresa')}}">Ver</a>
                         <a href="{{route('ocupacion.create')}}">Crear</a>
                     </article>
 

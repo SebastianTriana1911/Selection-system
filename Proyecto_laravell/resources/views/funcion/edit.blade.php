@@ -1,4 +1,4 @@
-<!-- VISTA PARA ACTUALIZAR UNA OCUPACION Y VER SUS DATOS -->
+<!-- VISTA PARA CREAR FUNCIONES RELACIONADAS A SU OCUPACION -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/ocupacion/show.css') }}">
-    <title>Show ocupaciones</title>
+    <link rel="stylesheet" href="{{ asset('css/funcion/edit.css') }}">
+    <title>Update funciones</title>
 </head>
 <body>
     <main class="page">
@@ -31,32 +31,26 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Actualizacion de ocupaciones</h1>
+                    <h1 class="titulo-principal">Formulario de actualizacion</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{route('ocupacion.update', ['id' => $ocupacion -> id])}}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{route('funcion.update', ['id' => $funcion -> id])}}" method="POST">
                     @csrf
                     @method('put')
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
-                        <article class="Nombre">
-                            <h1>Nombre de la ocupacion</h1>
-                            <input class="input" type="text" name="nombre" placeholder="" value="{{ old('nombre', $ocupacion -> nombre)}}" />
-                        </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
-                        <article class="descripcion">
-                            <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="7"></textarea>
+                        <!--------- Campo nombre de la tabla ocupaciones ----------->
+                        <article class="funcion">
+                            <h1>Funcion de la ocupacion</h1>
+                            <input class="input" type="text" name="funcion" placeholder="" value="{{ old('funcion', $funcion -> funcion)}}" />
                         </article>
                         <!---------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{route('ocupacion.create', ['id' => $ocupacion -> id])}}">Volver</a>
+                        <a class="input-1" href="{{route('funcion.create', ['id' => $ocupacion -> id])}}">Volver</a>
                         <input class="input-2" type="submit" value="Actualizar">
                     </section>
                 </form>
@@ -64,51 +58,18 @@
 
             <section class="content-2">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Ocupacion {{$ocupacion -> nombre}}</h1>
+                    <h1 class="titulo-principal">Funcion que deseas actualizar</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <article class="contenedor-show">
-                    
-                    <article class="primera-linea">
-                        <article class="id">
-                            <h1 class="titulo">ID</h1>
-                            <p class="info">{{$ocupacion -> id}}</p>
-                        </article>
-
-                        <article class="nombre">
-                            <h1 class="titulo">NOMBRE</h1>
-                            <p class="info">{{$ocupacion -> nombre}}</p>
-                        </article>
-                    </article>
-
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">DESCRIPCION</h1>
-                            <p class="info">{{$ocupacion -> descripcion}}</p>
-                        </article>
-                    </article>
-
-                    <h1 class="titulo-funciones">FUNCIONES</h1>
-                    <article class="tercera-linea">
-                        
-                        <article class="funcion">
-                            @forelse ($funciones as $funcion)
-                                <ul>
-                                    <li>
-                                        <p class="info">{{$funcion -> funcion}}</p>
-                                    </li>
-                                </ul>
-                            @empty
-                                <p class="empty">No hay funciones</p>
-                            @endforelse
-                        </article>
-                    </article>
-
-                </article>
+                <section class="contenedor-ocupaciones">
+                        <article class="ocupacion">
+                            <article class="parte-1">
+                                <a>{{$funcion -> funcion}}</a>
+                            </article>
+                        </article>  
+                </section>
             </section>
-
-        </section>
 
         </section>
 

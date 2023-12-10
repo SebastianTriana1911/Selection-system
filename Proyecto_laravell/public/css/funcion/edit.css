@@ -122,11 +122,13 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
+    position: relative;
+    top: -3%;
     justify-content: center;
     flex-direction: column;
     margin: auto;
     width: 40%;
-    height: 60%;
+    height: 50%;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 15px white;
@@ -190,7 +192,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 20%;
+    top: 28%;
     gap: 10%;
 }
 
@@ -252,10 +254,9 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
     width: 90%;
-    height: 400px;
-    overflow: auto;
+    height: 100%;
 }
 
 .contenedor-content .contenedor-ocupaciones::-webkit-scrollbar{
@@ -288,14 +289,13 @@ body::-webkit-scrollbar-thumb{
 
 .content-2 .contenedor-ocupaciones .ocupacion{
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    top: -10%;
     align-items: center;
     width: 60%;
-    margin-top: 3%;
-    padding: 2%;
+    padding: 4%;
     background-color: white;
     border-radius: 15px;
-    display: flex;
     text-decoration: none;
     color: black;
     box-shadow: 0 0 15px white;

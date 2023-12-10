@@ -1,4 +1,4 @@
-<!-- VISTA PARA ACTUALIZAR DATOS DE LA EMPRESA -->
+<!-- VISTA PARA CREAR Y LAS OCUPACIONES -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +83,7 @@
                                         <i class="fa-solid fa-trash" style="color: black"></i>        
                                     </button>
                                 </form>
-                                <a class="a" href="">+</a>
+                                <a class="a" href="{{route('funcion.create', ['id' => $ocupacion -> id])}}">+</a>
                             </article>
                         </article>
                         @empty

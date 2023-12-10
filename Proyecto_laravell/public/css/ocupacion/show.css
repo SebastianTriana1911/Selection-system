@@ -259,12 +259,12 @@ body::-webkit-scrollbar-thumb{
     height: 60%;
     margin-top: 10%;
     border-radius: 15px;
-    box-shadow: 0 0 20px #FFD966;
+    box-shadow: 0 0 15px white;
     padding-top: 5%;
 }
 
 .contenedor-content .content-2 .contenedor-show:hover{
-    box-shadow: 0 0 40px #FFD966;
+    box-shadow: 0 0 25px white;
     transition: 0.5s;
 }
 
@@ -340,6 +340,13 @@ body::-webkit-scrollbar-thumb{
     gap: 10%;
     margin-top: 8%;
     overflow-y: auto;
+}
+
+.titulo-funciones{
+    display: flex;
+    position: relative;
+    top: 9%;
+    left: -30%;
 }
 
 .contenedor-content .content-2 .contenedor-show .tercera-linea::-webkit-scrollbar{

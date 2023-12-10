@@ -1,4 +1,4 @@
-<!-- VISTA PARA ACTUALIZAR UNA OCUPACION Y VER SUS DATOS -->
+<!-- VISTA PARA CREAR FUNCIONES RELACIONADAS A SU OCUPACION -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/ocupacion/show.css') }}">
-    <title>Show ocupaciones</title>
+    <link rel="stylesheet" href="{{ asset('css/funcion/create.css') }}">
+    <title>Create funciones</title>
 </head>
 <body>
     <main class="page">
@@ -31,84 +31,69 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Actualizacion de ocupaciones</h1>
+                    <h1 class="titulo-principal">Formulario de funciones</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{route('ocupacion.update', ['id' => $ocupacion -> id])}}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{route('funcion.store', ['id' => $ocupaciones -> id])}}" method="POST">
                     @csrf
-                    @method('put')
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
-                        <article class="Nombre">
-                            <h1>Nombre de la ocupacion</h1>
-                            <input class="input" type="text" name="nombre" placeholder="" value="{{ old('nombre', $ocupacion -> nombre)}}" />
+                        <article class="contenedor-encabezado">
+                            <h1 class="encabezado">Ocupacion {{$ocupaciones -> nombre}}</h1>
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
-                        <article class="descripcion">
-                            <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="7"></textarea>
+                        <!--------- Campo nombre de la tabla ocupaciones ----------->
+                        <article class="funcion">
+                            <h1>Funcion de la ocupacion</h1>
+                            <input class="input" type="text" name="funcion" placeholder="" value="{{ old('funcion')}}" />
                         </article>
                         <!---------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{route('ocupacion.create', ['id' => $ocupacion -> id])}}">Volver</a>
-                        <input class="input-2" type="submit" value="Actualizar">
+                        <a class="input-1" href="{{route('ocupacion.create')}}">Volver</a>
+                        <input class="input-2" type="submit" value="Crear">
                     </section>
                 </form>
             </section>
 
             <section class="content-2">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Ocupacion {{$ocupacion -> nombre}}</h1>
+                    <h1 class="titulo-principal">Listado de funciones</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <article class="contenedor-show">
-                    
-                    <article class="primera-linea">
-                        <article class="id">
-                            <h1 class="titulo">ID</h1>
-                            <p class="info">{{$ocupacion -> id}}</p>
-                        </article>
+                <section class="contenedor-ocupaciones">
+                    @forelse($funciones as $funcion)
 
-                        <article class="nombre">
-                            <h1 class="titulo">NOMBRE</h1>
-                            <p class="info">{{$ocupacion -> nombre}}</p>
-                        </article>
-                    </article>
+                        @if($funcion -> ocupacion_id == $ocupaciones -> id)
+                        <article class="ocupacion">
+                            <article class="parte-1">
+                                <i class="fa-solid fa-plus" style="color: black"></i>
+                                <a>{{$funcion -> funcion}}</a>
+                            </article>
 
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">DESCRIPCION</h1>
-                            <p class="info">{{$ocupacion -> descripcion}}</p>
+                            <article class="parte-2">
+                                <form action="{{route('funcion.destroy', ['id' => $funcion -> id])}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="buttom">
+                                        <i class="fa-solid fa-trash" style="color: black"></i>        
+                                    </button>
+                                </form>
+                                <a class="a" href="{{route('funcion.edit', ['ocupacion' => $ocupaciones -> id, 
+                                'id' => $funcion -> id])}}"><i class="fa-solid fa-pen"></i></a>
+                            </article>
                         </article>
-                    </article>
+                        @endif
 
-                    <h1 class="titulo-funciones">FUNCIONES</h1>
-                    <article class="tercera-linea">
+                        @empty
+                        <h1 class="empty">No hay funciones creadas</h1>
+                    @endforelse
                         
-                        <article class="funcion">
-                            @forelse ($funciones as $funcion)
-                                <ul>
-                                    <li>
-                                        <p class="info">{{$funcion -> funcion}}</p>
-                                    </li>
-                                </ul>
-                            @empty
-                                <p class="empty">No hay funciones</p>
-                            @endforelse
-                        </article>
-                    </article>
-
-                </article>
+                </section>
             </section>
-
-        </section>
 
         </section>
 
