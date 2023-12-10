@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pais;
-use App\Models\Municipio;
-use App\Models\Departamento;
+use App\Models\Empresa;
 use App\Models\Funcion;
+use App\Models\Municipio;
 use App\Models\Reclutador;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -75,15 +76,52 @@ class ReclutadorController extends Controller{
     }
     // -----------------------------------------------------------------
 
-    public function desvincular(){
+
+    // -------------- METODO DESVINCULAR DE UNA EMPRESA ----------------
+    public function desvincular($id){
+        // El metodo desvincular funciona accediendo al usuario autenticado
+        // y accediendo al metodo reclutador que en este caso es el usuario
+        // autenticado, para acceder al campo empresa_id y asi poner dicho
+        // campo en nulo para asi desvincular dicho reclutador de alguna 
+        // empresa 
+        // Se desea que cuando solo haya una persona vinculada a la empresa
+        // y esta desee desvincularse la empresa se elimine, para que esto 
+        // suceda se accede al usuario autenticado en el campo empresa_id
+        // se itera todos los registros de la tabla reclutador en el campo
+        // empresa_id para validar si es el mismo id que el de el usuario
+        // autenticado, si ninguno de los reclutadores tiene el mismo empresa_id
+        // que tiene el usuario autenticado, dicho usuario se le pasara dicho
+        // campo a nulo para asi proceder a eliminar la empresa, de lo contrario
+        // solo se pasara el campo a nulo
+        
         $user = Auth::user();
-        $reclutador = $user -> reclutador;
+        $empresa = Empresa::find($id);
+        $reclutadores = Reclutador::all();
+        $usuarioAutenticado = $user -> reclutador;
 
-        $reclutador -> empresa_id = null;
-        $reclutador -> save();
+        
+        $contador = 0;
+        foreach($reclutadores as $reclutador){
+            if($reclutador -> empresa_id == $usuarioAutenticado -> empresa_id){
+                $contador = $contador + 1;
+            }else{
+                continue;
+            }
+        }
 
-        return redirect()->route('reclutador.index');
+        if($contador == 1){
+            $usuarioAutenticado -> empresa_id = null;
+            $usuarioAutenticado -> save();
+            $empresa -> delete();
+            return redirect()->route('reclutador.index');
+
+        }else{
+            $usuarioAutenticado -> empresa_id = null;
+            $usuarioAutenticado -> save();
+            return redirect()->route('reclutador.index');
+        }
     }
+    // -----------------------------------------------------------------
 
     public function create(){
         

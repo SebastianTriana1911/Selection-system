@@ -83,22 +83,31 @@ Route::get('reclutador/index', [ReclutadorController::class, 'index'])->name('re
 // Ruta createEmpresa que retorna una vista de un formulario para crear una empresa
 Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])->name('reclutador.empresa')->middleware('auth');
 
-Route::post('reclutador/desvincular', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
+Route::post('reclutador/desvincular/{id}', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
 // ----------------------------------------------------------------------------------------------
 
-
+// --------------------------- RUTAS DEL CONTROLADOR EMPRESA ------------------------------------
 // Ruta store que al llamarla valida cada uno de los datos para subirla a la base de datos
 // y crear la empresa en la tabla empresas para que posteriormente a dicho registro en el
 // campo id se le asigne al reclutador que la creo en el campo empresa_id
 Route::post('empresa/store', [EmpresaController::class, 'store'])->name('empresa.store');
 
+// Ruta show al llamarla se le debera de pasar como parametro de la empresa que se desea ver ya que
+// por medio de una vista se mostrara los datos de dicha empresa
 Route::get('empresa/show/{id}', [EmpresaController::class, 'show'])->name('empresa.show')->middleware('auth');
 
+// Ruta edit al llamarla mostrara una vista para actualizar los datos que le corresponden a la empresa
 Route::get('empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa.edit')->middleware('auth');
 
+// Ruta update que recibe todos los datos que se mandan por el formulario de actualizacion para hacer la
+// modificacion a la base de datos
 Route::put('empresa/update/{id}', [EmpresaController::class, 'update'])->name('empresa.update');
 
+// Ruta delete para eliminar un registro de la base de datos
 Route::delete('empresa/destroy/{id}', [EmpresaController::class, 'destroy'])->name('empresa.destroy');
+// ----------------------------------------------------------------------------------------------
+
+
 // --------------------------- RUTAS DEL CONTROLADOR LOGIN Y LOGOUTS ------------------------------
 // Ruta create del controlador login que retorna la vista para logiarse si ya cuenta con una cuenta
 Route::get('login', [LoginController::class, 'create'])->name('login')->middleware('guest');

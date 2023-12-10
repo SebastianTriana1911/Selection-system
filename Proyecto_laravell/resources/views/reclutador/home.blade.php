@@ -34,7 +34,7 @@
 
             <article class="segundo-contenedor">
                 
-                <form action="{{route('reclutador.desvincular')}}" method="POST">
+                <form action="{{route('reclutador.desvincular', ['id' => $empresaId])}}" method="POST">
                     @csrf
                     <button class="boton">Desvincularme</button>
                 </form>

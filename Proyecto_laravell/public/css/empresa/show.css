@@ -216,6 +216,27 @@
     font-size: 13pt;
 }
 
+.content .contenedor-informacion .linea-3{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.content .contenedor-informacion .reclutadores{
+    display: flex;
+    width: 100%;
+    gap: 4%;
+}
+
+.content .contenedor-informacion .reclutadores .titulo{
+    font-size: 13pt;
+}
+
+.content .contenedor-informacion .reclutadores p{
+    font-size: 13pt;
+}
+
 .content .contenedor-boton {
     display: flex;
     justify-content: space-around;

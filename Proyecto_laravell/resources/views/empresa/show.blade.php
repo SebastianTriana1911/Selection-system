@@ -67,6 +67,12 @@
                     </article>
                 </article>
 
+                <article class="linea-3">
+                    <article class="reclutadores">
+                        <h1 class="titulo">Reclutadores</h1>
+                        <p>{{$contador}}</p>
+                    </article>
+                </article>
                 </article>
 
             <article class="contenedor-boton">
