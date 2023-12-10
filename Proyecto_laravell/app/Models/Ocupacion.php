@@ -15,7 +15,7 @@ class Ocupacion extends Model{
     protected $guarded = [];
 
     public function funcion(): HasMany{
-        return $this -> hasMany(Funcion::class, 'ocupacion_id', 'id');
+        return $this -> hasMany(Funcion::class);
     }
 
     public function cargo(): HasMany{

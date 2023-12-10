@@ -1,4 +1,4 @@
-<!-- VISTA INDEX DEL RECLUTADOR -->
+<!-- VISTA PARA CREAR UNA OCUPACION Y VER EL LISTADO DE LAS OCUPACIONES -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,7 +132,7 @@
 
                     <article class="contenedor-boton">
                         <a href="{{route('reclutador.empresa')}}">Ver</a>
-                        <a href="{{route('reclutador.empresa')}}">Crear</a>
+                        <a href="{{route('ocupacion.create')}}">Crear</a>
                     </article>
 
                 </article>

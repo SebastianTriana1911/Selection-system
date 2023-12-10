@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\OcupacionController;
 use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Models\SuperUsuario;
@@ -86,6 +87,7 @@ Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])
 Route::post('reclutador/desvincular/{id}', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
 // ----------------------------------------------------------------------------------------------
 
+
 // --------------------------- RUTAS DEL CONTROLADOR EMPRESA ------------------------------------
 // Ruta store que al llamarla valida cada uno de los datos para subirla a la base de datos
 // y crear la empresa en la tabla empresas para que posteriormente a dicho registro en el
@@ -105,6 +107,14 @@ Route::put('empresa/update/{id}', [EmpresaController::class, 'update'])->name('e
 
 // Ruta delete para eliminar un registro de la base de datos
 Route::delete('empresa/destroy/{id}', [EmpresaController::class, 'destroy'])->name('empresa.destroy');
+// ----------------------------------------------------------------------------------------------
+
+// --------------------------- RUTAS DEL CONTROLADOR EMPRESA ------------------------------------
+Route::get('ocupacion/create', [OcupacionController::class, 'create'])->name('ocupacion.create')->middleware('auth');
+Route::get('ocupacion/show/{id}', [OcupacionController::class, 'show'])->name('ocupacion.show')->middleware('auth');
+Route::post('ocupacion/store', [OcupacionController::class, 'store'])->name('ocupacion.store');
+Route::put('ocupacion/update/{id}', [OcupacionController::class, 'update'])->name('ocupacion.update');
+Route::delete('ocupacion/destroy/{id}', [OcupacionController::class, 'destroy'])->name('ocupacion.destroy');
 // ----------------------------------------------------------------------------------------------
 
 
