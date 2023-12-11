@@ -110,8 +110,7 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="{{route('reclutador.empresa')}}">Ver</a>
-                        <a href="{{route('reclutador.empresa')}}">Crear</a>
+                        <a href="{{route('cargo.create', ['id' => $empresaId])}}">Crear</a>
                     </article>
 
                 </article>

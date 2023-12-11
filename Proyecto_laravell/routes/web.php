@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\InstructorController;
@@ -126,6 +127,15 @@ Route::get('funcion/edit/{ocupacion}/{id}', [FuncionController::class, 'edit'])-
 Route::put('funcion/update/{id}', [FuncionController::class, 'update'])->name('funcion.update');
 Route::delete('funcion/destroy/{id}', [FuncionController::class, 'destroy'])->name('funcion.destroy');
 // ---------------------------------------------------------------------------------------------------
+
+// --------------------------- RUTAS DEL CONTROLADOR CARGOS ----------------------------------------
+Route::get('cargo/create/{id}', [CargoController::class, 'create'])->name('cargo.create')->middleware('auth');
+Route::post('cargo/store', [CargoController::class, 'store'])->name('cargo.store');
+Route::get('cargo/show/{id}', [CargoController::class, 'show'])->name('cargo.show')->middleware('auth');
+Route::get('cargo/edit/{id}', [CargoController::class, 'edit'])->name('cargo.edit')->middleware('auth');
+Route::put('cargo/update/{id}', [CargoController::class, 'update'])->name('cargo.update');
+Route::delete('cargo/destroy/{id}', [CargoController::class, 'destroy'])->name('cargo.destroy');
+// --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
 
 
 // --------------------------- RUTAS DEL CONTROLADOR LOGIN Y LOGOUTS ------------------------------

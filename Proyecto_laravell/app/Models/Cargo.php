@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Empresa;
 use App\Models\Habilidad;
 use App\Models\Ocupacion;
 use App\Models\Competencia;
@@ -19,11 +20,7 @@ class Cargo extends Model{
         return $this -> belongsTo(Ocupacion::class, 'ocupacion_id', 'id');
     }
 
-    public function habilidad(): HasMany{
-        return $this -> hasMany(Habilidad::class, 'cargo_id', 'id');
-    }
-
-    public function competencia(): HasMany{
-        return $this -> hasMany(Competencia::class, 'cargo_id', 'id');
+    public function empresa(): BelongsTo{
+        return $this -> belongsTo(Empresa::class, 'empresa_id', 'id');
     }
 }
