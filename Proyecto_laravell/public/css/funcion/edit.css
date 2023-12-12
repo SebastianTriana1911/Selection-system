@@ -25,7 +25,6 @@ body::-webkit-scrollbar-thumb{
 .page {
     display: grid;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: 10vh 75vh 15vh;
     grid-template-areas: 
     "header    header"
@@ -71,6 +70,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content {
     grid-area: content;
     display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "content-1  content-2";
     width: 100%;

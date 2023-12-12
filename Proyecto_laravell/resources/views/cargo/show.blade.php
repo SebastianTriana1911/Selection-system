@@ -94,51 +94,43 @@
                 <article class="contenedor-show">
                     
                     <article class="primera-linea">
-                        <article class="id">
-                            <h1 class="titulo">ID</h1>
-                            <p class="info">{{$cargo -> id}}</p>
+                        
+                    </article>
+
+                    <article class="cont-ocu-empre">
+                        <article class="segunda-linea">
+                            <article class="ocupacion">
+                                <h1 class="titulo">OCUPACION</h1>
+                                <p class="info">{{$cargo -> ocupacion -> nombre}}</p>
+                            </article>
                         </article>
 
-                        <article class="nombre">
-                            <h1 class="titulo">OCUPACION</h1>
-                            <p class="info">{{$cargo -> ocupacion -> nombre}}</p>
+                        <article class="segunda-linea-2">
+                            <article class="id">
+                                <h1 class="titulo">ID</h1>
+                                <p class="info">{{$cargo -> id}}</p>
+                            </article>
+
+                            <article class="empresa">
+                                <h1 class="titulo">EMPRESA</h1>
+                                <p class="info">{{$cargo -> empresa -> nombre}}</p>
+                            </article>
                         </article>
                     </article>
 
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">HABILIDADES</h1>
-                            <p class="info">{{$cargo -> habilidad}}</p>
+                    <article class="cont-habilidad-competencia">
+                        <article class="segunda-linea">
+                            <article class="habilidades">
+                                <h1 class="titulo">HABILIDADES</h1>
+                                <p class="info">{{$cargo -> habilidad}}</p>
+                            </article>
                         </article>
-                    </article>
 
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">COMPETENCIAS</h1>
-                            <p class="info">{{$cargo -> competencia}}</p>
-                        </article>
-                    </article>
-
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">OCUPACION</h1>
-                            <p class="info">{{$cargo -> ocupacion -> nombre}}</p>
-                        </article>
-                    </article>
-
-                    <!------------------------------------------------------------------------------------>
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">FUNCIONES DE LA OCUPACION</h1>
-                            <p class="info">{{$ocupacion -> habilidad}}</p>
-                        </article>
-                    </article>
-                    <!------------------------------------------------------------------------------------>
-
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">EMPRESA</h1>
-                            <p class="info">{{$cargo -> empresa -> nombre}}</p>
+                        <article class="segunda-linea">
+                            <article class="competencia">
+                                <h1 class="titulo">COMPETENCIAS</h1>
+                                <p class="info">{{$cargo -> competencia}}</p>
+                            </article>
                         </article>
                     </article>
 

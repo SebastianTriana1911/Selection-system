@@ -50,7 +50,7 @@
                         <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="7"></textarea>
+                            <textarea name="descripcion" rows="7">{{old('descripcion', $ocupacion -> descripcion)}}</textarea>
                         </article>
                         <!---------------------------------------------------------->
                     </section>
@@ -64,8 +64,8 @@
 
             <section class="content-2">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Ocupacion {{$ocupacion -> nombre}}</h1>
-                    <h1 class="linea"></h1>
+                    <h1 class="titulo-principal">Ocupacion - {{$ocupacion -> nombre}}</h1>
+                    <h1 class="linea-2"></h1>
                 </article>
 
                 <article class="contenedor-show">
@@ -74,29 +74,21 @@
                         <article class="id">
                             <h1 class="titulo">ID</h1>
                             <p class="info">{{$ocupacion -> id}}</p>
-                        </article>
-
-                        <article class="nombre">
-                            <h1 class="titulo">NOMBRE</h1>
-                            <p class="info">{{$ocupacion -> nombre}}</p>
-                        </article>
+                        </article>                        
                     </article>
 
-                    <article class="segunda-linea">
-                        <article class="descripcion">
-                            <h1 class="titulo">DESCRIPCION</h1>
-                            <p class="info">{{$ocupacion -> descripcion}}</p>
-                        </article>
-                    </article>
-
-                    <h1 class="titulo-funciones">FUNCIONES</h1>
                     <article class="tercera-linea">
-                        
+                        <article class="descripcion">
+                                <h1 class="titulo">DESCRIPCION</h1>
+                                <p class="info">{{$ocupacion -> descripcion}}</p>
+                        </article>
+
                         <article class="funcion">
+                            <h1 class="titulo">FUNCIONES</h1>
                             @forelse ($funciones as $funcion)
                                 <ul>
                                     <li>
-                                        <p class="info">{{$funcion -> funcion}}</p>
+                                        <p class="info">● {{$funcion -> funcion}}</p>
                                     </li>
                                 </ul>
                             @empty
