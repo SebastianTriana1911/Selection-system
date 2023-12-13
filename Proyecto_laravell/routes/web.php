@@ -12,6 +12,7 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\OcupacionController;
 use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\SuperUsuarioController;
+use App\Http\Controllers\VacanteController;
 use App\Models\SuperUsuario;
 
 /*
@@ -120,7 +121,7 @@ Route::put('ocupacion/update/{id}', [OcupacionController::class, 'update'])->nam
 Route::delete('ocupacion/destroy/{id}', [OcupacionController::class, 'destroy'])->name('ocupacion.destroy');
 // ---------------------------------------------------------------------------------------------------
 
-// --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
+// --------------------------- RUTAS DEL CONTROLADOR FUNCIONES ---------------------------------------
 Route::get('funcion/create/{id}', [FuncionController::class, 'create'])->name('funcion.create')->middleware('auth');
 Route::post('funcion/store/{id}', [FuncionController::class, 'store'])->name('funcion.store');
 Route::get('funcion/edit/{ocupacion}/{id}', [FuncionController::class, 'edit'])->name('funcion.edit')->middleware('auth');
@@ -135,7 +136,14 @@ Route::get('cargo/show/{id}', [CargoController::class, 'show'])->name('cargo.sho
 Route::get('cargo/edit/{id}', [CargoController::class, 'edit'])->name('cargo.edit')->middleware('auth');
 Route::put('cargo/update/{id}', [CargoController::class, 'update'])->name('cargo.update');
 Route::delete('cargo/destroy/{id}', [CargoController::class, 'destroy'])->name('cargo.destroy');
-// --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
+// ---------------------------------------------------------------------------------------------------
+
+
+// --------------------------- RUTAS DEL CONTROLADOR VACANTES ----------------------------------------
+Route::get('vacante.index/{id}', [VacanteController::class, 'index'])->name('vacante.index')->middleware('auth');
+Route::get('vacante.create/{id}', [VacanteController::class, 'create'])->name('vacante.create')->middleware('auth');
+Route::post('vacante.store', [VacanteController::class, 'store'])->name('vacante.store');
+// ---------------------------------------------------------------------------------------------------
 
 
 // --------------------------- RUTAS DEL CONTROLADOR LOGIN Y LOGOUTS ------------------------------

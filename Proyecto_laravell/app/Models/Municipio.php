@@ -4,9 +4,11 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Empresa;
+use App\Models\Vacante;
 use App\Models\Departamento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -28,4 +30,8 @@ class Municipio extends Model{
     public function empresa(): HasOne{
         return $this -> hasOne(Empresa::class, 'municipio_id', 'id');
     }    
+
+    public function vacante(): HasMany{
+        return $this -> hasMany(Vacante::class, 'vacante_id', 'id');
+    }
 }

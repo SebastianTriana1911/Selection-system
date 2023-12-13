@@ -1,12 +1,12 @@
-<!-- VISTA PARA CREAR UNA OCUPACION Y VER EL LISTADO DE LAS OCUPACIONES -->
+<!-- VISTA PARA VER TODAS LAS VACANTES QUE TIENE UNA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/reclutador/home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/vacante/index.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Home Reclutador</title>
+    <title>Index Vacantes</title>
 </head>
 <body>
     <main class="page">
@@ -26,120 +26,100 @@
     <!---------------------------------------------------------------->
 
         <nav class="nav">
+            <section class="contenedor-nav">
+                <article class="contador-vacantes">
+                    <h1 class="titulo">Cantidad de vacantes {{$contador}}</h1>
+                </article>
 
-            <article class="primer-contenedor">
-                <h1>Reclutador {{$reclutador -> nombre}} {{$reclutador -> apellido}}</h1>
-                <h1>Empresa {{$empresa}}</h1>
-            </article>
+                <article class="titulo-principal">
+                    <h1 class="titulo">Lista de vacantes de la empresa {{$empresa -> nombre}}</h1>
+                    <h1 class="linea"></h1>
+                </article>
 
-            <article class="segundo-contenedor">
-                
-                <form action="{{route('reclutador.desvincular', ['id' => $empresaId])}}" method="POST">
-                    @csrf
-                    <button class="boton">Desvincularme</button>
-                </form>
-                <article class="contenedor-logout">
-                    <form action="{{route('logout')}}" method="POST">
+                <article class="contenedor-input">
+                    <form class="buscar" action="" method="POST">
                         @csrf
-                        <button class="boton">Cerrar sesion</button>
+                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes"/>
+                        <button class="boton">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                        </button>
                     </form>
                 </article>
-            </article>
-
+            </section>
         </nav>
 
     <!---------------------------------------------------------------->
 
-        <section class="contenedor-content"> 
+        <section class="contenedor-content">
 
-            <article class="recuadro-menu">
+            <article class="contenedor-vacante">
 
-                <article class="cuadro-1">
+                <article class="vacantes">
+                    @forelse($vacantes as $vacante)
+                            <article class="informacion-vacante">
 
-                    <article class="contenedor-logo">
-                        <i class="fa-solid fa-building" style="color: #000000;"></i>
-                    </article>
+                                <article class="info-completa">
+                                        <article class="grid-1">
+                                            <article class="contenedor-codigo">
+                                                <h1 class="titulo">{{$vacante -> codigo}}</h1>
+                                            </article>
+                                        </article>
 
-                    <article class="contenedor-titulo">
-                        <h1 class="titulo">Ver datos de la empresa</h1>
-                    </article>
+                                        <article class="info">
+                                            <article class="contenedor-cargo">
+                                                <h1 class="titulo">{{$vacante -> cargo -> cargo}}</h1>
+                                                <article class="contenedor-botones">
+                                                    <a href=""><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                                                    <a href=""><i class="fa-solid fa-pencil" style="color: #000000;"></i></a>
+                                                    <a href=""><i class="fa-solid fa-plus" style="color: #000000;"></i></a>
+                                                    <a href=""><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
+                                                </article>
+                                            </article>
 
-                    <article class="contenedor-descripcion">
-                        <p>En este campo podra visualizar todos los datos correspondientes a la empresa a la que te has postulado o en su defecto has creado.</p>
-                    </article>
+                                        <article class="flex">
+                                            <article class="grid-2">
+                                        
+                                                <article class="contenedor-salario">
+                                                    <h1 class="titulo">$ {{$vacante -> salario}}</h1>
+                                                </article>
 
-                    <article class="contenedor-boton">
-                        <a href="{{route('empresa.show', $empresaId)}}">Inspeccionar</a>
-                    </article>
+                                                <article class="contenedor-experiencia">
+                                                    <h1 class="titulo">Experiencia {{$vacante -> meses_experiencia}} meses</h1>
+                                                </article>
 
+                                                <article class="contenedor-contrato">
+                                                    <h1 class="titulo">{{$vacante -> tipo_contrato}}</h1>
+                                                </article>
+
+                                                <article class="contenedor-lugar">
+                                                    <h1>{{$vacante -> municipio -> nombre}}</h1>
+                                                    <h1>{{$vacante -> municipio -> departamento -> pais -> nombre}}</h1>
+                                                </article>
+
+                                                <article class="contenedor-num-vac">
+                                                    <h1 class="titulo"> Num vacantes {{$vacante -> num_vacante}}</h1>
+                                                </article>
+                                                
+                                                <article class="contenedor-postulados">
+                                                    <h1 class="titulo"> Postulados 0</h1>
+                                                </article>
+                                                
+                                                
+
+                                            </article>
+                                        </article>
+                                    </article>
+                                </article>
+                            </article>
+
+                            
+                        @empty
+                            <h1>No hay vacantes registradas</h1>
+                    @endforelse
                 </article>
-
-                <article class="cuadro-2">
-
-                    <article class="contenedor-logo">
-                        <i class="fa-solid fa-house" style="color: #000000;"></i>
-                    </article>
-
-                    <article class="contenedor-titulo">
-                        <h1 class="titulo">Crear vacantes</h1>
-                    </article>
-
-                    <article class="contenedor-descripcion">
-                        <p>En este campo te permitira hacerlo asociando dicha vacante a la empresa para que cualquier candidato la pueda buscar y se pueda postular.</p>
-                    </article>
-
-                    <article class="contenedor-boton">
-                        <a href="{{route('vacante.index', ['id' => $empresaId])}}">Ver</a>
-                        <a href="{{route('vacante.create', ['id' => $empresaId])}}">Crear</a>
-                    </article>
-
-                </article>
-
-                <article class="cuadro-3">
-
-                    <article class="contenedor-logo">
-                        <i class="fa-solid fa-plus" style="color: #000000;"></i>
-                    </article>
-
-                    <article class="contenedor-titulo">
-                        <h1 class="titulo">Crear Cargos</h1>
-                    </article>
-
-                    <article class="contenedor-descripcion">
-                        <p>En este campo podras crear una ocupacion visualizando las que ya estan creadas para que no haya redundancia al crearla.</p>
-                    </article>
-
-                    <article class="contenedor-boton">
-                        <a href="{{route('cargo.create', ['id' => $empresaId])}}">Crear</a>
-                    </article>
-
-                </article>
-
-                <article class="cuadro-4">
-
-                    <article class="contenedor-logo">
-                        <i class="fa-solid fa-gear" style="color: #000000;"></i>
-                    </article>
-
-                    <article class="contenedor-titulo">
-                        <h1 class="titulo">Crear Ocupaciones</h1>
-                    </article>
-
-                    <article class="contenedor-descripcion">
-                        <p>En este campo podras crear una ocupacion visualizando las que ya estan creadas para que no haya redundancia al crearla.</p>
-                    </article>
-
-                    <article class="contenedor-boton">
-                        <a href="{{route('ocupacion.create')}}">Crear</a>
-                    </article>
-
-                </article>
-
             </article>
-
-
+            
         </section>
-
 
     <!--------------------------------------------------------------------------------------------------------------------------------------------->
 

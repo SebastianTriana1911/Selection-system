@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Empresa;
+use App\Models\Vacante;
 use App\Models\Habilidad;
 use App\Models\Ocupacion;
 use App\Models\Competencia;
@@ -22,5 +23,9 @@ class Cargo extends Model{
 
     public function empresa(): BelongsTo{
         return $this -> belongsTo(Empresa::class, 'empresa_id', 'id');
+    }
+
+    public function vacante(): HasMany{
+        return $this -> hasMany(Vacante::class, 'cargo_id', 'id');
     }
 }

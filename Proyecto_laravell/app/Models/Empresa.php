@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Cargo;
+use App\Models\Vacante;
 use App\Models\Municipio;
 use App\Models\Reclutador;
 use Illuminate\Database\Eloquent\Model;
@@ -24,7 +25,11 @@ class Empresa extends Model{
         return $this -> belongsTo(Municipio::class, 'municipio_id', 'id');
     }
 
-    public function cargo(){
+    public function cargo(): HasMany{
         return $this -> hasMany(Cargo::class, 'empresa_id', 'id');
+    }
+
+    public function vacante(): HasMany{
+        return $this -> hasMany(Vacante::class, 'empresa_id', 'id');
     }
 }

@@ -343,7 +343,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .tercera-linea .descripcion::-webkit-scrollbar{
-    width: 9px;
+    width: 4px;
 }
 
 .tercera-linea .descripcion::-webkit-scrollbar-thumb{
@@ -359,7 +359,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .content-2 .contenedor-show .tercera-linea .funcion::-webkit-scrollbar{
-    width: 9px;
+    width: 4px;
 }
 
 .contenedor-content .content-2 .contenedor-show .tercera-linea .funcion::-webkit-scrollbar-thumb{
