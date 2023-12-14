@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\InstructorController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\OcupacionController;
 use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\VacanteController;
+use App\Models\EducacionVacante;
 use App\Models\SuperUsuario;
 
 /*
@@ -88,10 +90,15 @@ Route::get('reclutador/index', [ReclutadorController::class, 'index'])->name('re
 Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])->name('reclutador.empresa')->middleware('auth');
 
 Route::post('reclutador/desvincular/{id}', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
+
+Route::post('reclutador/postulacion/{empresa}', [ReclutadorController::class, 'postulacion'])->name('reclutador.postulacion');
+
+Route::post('reclutador/buscar', [ReclutadorController::class, 'buscar'])->name('reclutador.buscar');
 // ----------------------------------------------------------------------------------------------
 
 
 // --------------------------- RUTAS DEL CONTROLADOR EMPRESA ------------------------------------
+Route::get('empresa/index', [EmpresaController::class, 'index'])->name('empresa.index')->middleware('auth');
 // Ruta store que al llamarla valida cada uno de los datos para subirla a la base de datos
 // y crear la empresa en la tabla empresas para que posteriormente a dicho registro en el
 // campo id se le asigne al reclutador que la creo en el campo empresa_id
@@ -143,6 +150,20 @@ Route::delete('cargo/destroy/{id}', [CargoController::class, 'destroy'])->name('
 Route::get('vacante.index/{id}', [VacanteController::class, 'index'])->name('vacante.index')->middleware('auth');
 Route::get('vacante.create/{id}', [VacanteController::class, 'create'])->name('vacante.create')->middleware('auth');
 Route::post('vacante.store', [VacanteController::class, 'store'])->name('vacante.store');
+Route::get('vacante/show/{id}/{empresa}', [VacanteController::class, 'show'])->name('vacante.show')->middleware();
+Route::post('vacante/buscar/{id}', [VacanteController::class, 'buscar'])->name('vacante.buscar');
+Route::get('vacante/edit/{id}/{empresa}', [VacanteController::class, 'edit'])->name('vacante.edit')->middleware('auth');
+Route::put('vacante/update/{id}/{empresa}', [VacanteController::class, 'update'])->name('vacante.update');
+Route::delete('vacante/destroy/{id}', [VacanteController::class, 'destroy'])->name('vacante.destroy');
+// ---------------------------------------------------------------------------------------------------
+
+
+// --------------------------- RUTAS DEL CONTROLADOR EDUCACION VACANTES ------------------------------
+Route::get('eduvacante/create/{vacante}/{empresa}', [EducacionVacanteController::class, 'create'])->name('eduvacante.create')->middleware('auth');
+Route::post('eduvacante/store/{vacante}', [EducacionVacanteController::class, 'store'])->name('eduvacante.store');
+Route::get('eduvacante/edit/{educacion}/{vacante}/{empresa}', [EducacionVacanteController::class, 'edit'])->name('eduvacante.edit')->middleware('auth');
+Route::put('eduvacante/update/{vacante}/{educacion}', [EducacionVacanteController::class, 'update'])->name('eduvacante.update');
+Route::delete('eduvacante/destroy/{id}', [EducacionVacanteController::class, 'destroy'])->name('eduvacante.destroy');
 // ---------------------------------------------------------------------------------------------------
 
 

@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class EmpresaController extends Controller{
     public function index(){
-    
+        $empresas = Empresa::all();
+        $contador = 0;
+
+        foreach($empresas as $empresa){
+            $contador = $contador + 1;
+        }
+
+        return view('empresa.index', ['empresas' => $empresas, 'contador' => $contador]);
     }
 
     public function create(){

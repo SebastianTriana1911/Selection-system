@@ -1,13 +1,14 @@
-<!-- VISTA PARA VER TODAS LAS VACANTES QUE TIENE UNA EMPRESA -->
+<!-- VISTA PARA CREAR Y LAS OCUPACIONES -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/vacante/index.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Vacantes</title>
+    <link rel="stylesheet" href="{{ asset('css/educacionVacante/edit.css') }}">
+    <title>Create educacion vacante</title>
 </head>
 
 <body>
@@ -26,108 +27,92 @@
 
         </header>
 
-        <!---------------------------------------------------------------->
-
-        <nav class="nav">
-            <section class="contenedor-nav">
-                <article class="contador-vacantes">
-                    <h1 class="titulo">Cantidad de vacantes {{ $contador }}</h1>
-                </article>
-
-                <article class="titulo-principal">
-                    <h1 class="titulo">Lista de vacantes de la empresa {{ $empresa->nombre }}</h1>
-                    <h1 class="linea"></h1>
-                </article>
-
-                <article class="contenedor-input">
-                    <form class="buscar" action="{{route('vacante.buscar', ['id' => $empresa -> id])}}" method="POST">
-                        @csrf
-                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
-                        <button class="boton">
-                            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-                        </button>
-                    </form>
-                </article>
-            </section>
-        </nav>
-
-        <!---------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <section class="contenedor-content">
 
-            <article class="contenedor-vacante">
+            <section class="content">
+                <article class="contenedor-titulo">
+                    <h1 class="titulo-principal">Actualizacion de educaciones V</h1>
+                    <h1 class="linea"></h1>
+                </article>
 
-                <article class="vacantes">
-                    @forelse($vacantes as $vacante)
-                        <article class="informacion-vacante">
+                <form class="contenedor-hoja-vida" action="{{ route('eduvacante.update', ['educacion' => $educacion ->id, 'vacante' => $vacante -> id]) }}" method="POST">
+                    @csrf
+                    @method('put')
 
-                            
-                                <article class="grid-1">
-                                    <article class="contenedor-codigo">
-                                        <h1 class="titulo">{{ $vacante->codigo }}</h1>
-                                    </article>
-                                </article>
+                    <section class="primera-linea">
 
-                                <article class="grid-2">
-                                    
-                                        <article class="contenedor-cargo">
-                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
-                                        </article>
-
-                                    <article class="info">
-                                        <article class="contenedor-salario">
-                                            <h1 class="titulo">$ {{ $vacante->salario }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-experiencia">
-                                            <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
-                                            </h1>
-                                        </article>
-
-                                        <article class="contenedor-contrato">
-                                            <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-lugar">
-                                            <h1>{{ $vacante->municipio->nombre }}</h1>
-                                            <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-num-vac">
-                                            <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-postulados">
-                                            <h1 class="titulo"> Postulados 0</h1>
-                                        </article>
-
-                                    </article>
-                                </article>
-
-
-                                <article class="contenedor-botones">
-                                    <a href="{{route('vacante.show', ['id' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                                    <a href="{{route('vacante.edit', ['id' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-pencil" style="color: #000000;"></i></a>
-                                    <a href="{{route('eduvacante.create', ['vacante' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-plus" style="color: #000000;"></i></a>
-                                    <form action="{{route('vacante.destroy', ['id' => $vacante -> id])}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="boton">
-                                            <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                                        </button>
-                                    </form>
-                                </article>
-
+                        <article class="flex">
+                            <!--------- Campo nombre de la tabla ocupaciones ----------->
+                            <article class="educacion">
+                                <h1>Nivel de educacion</h1>
+                                <select class="nivel" name="nivel_estudio">
+                                    <option value="Bachiller">Bachiller</option>
+                                    <option value="Tecnico">Tecnico</option>
+                                    <option value="Tecnologo">Tecnologo</option>
+                                    <option value="Pregrado">Pregrado</option>
+                                    <option value="Posgrado">Posgrado</option>
+                                    <option value="Especializacion">Especializacion</option>
+                                    <option value="Doctorado">Doctorado</option>
+                                </select>
                             </article>
-                    @empty
-                        <h1>No hay vacantes registradas</h1>
-                    @endforelse
+                            <!---------------------------------------------------------->
+
+                            <article class="puntos">
+                                <h1>Puntos</h1>
+                                <input class="input" type="number" name="puntos" value="{{old('puntos', $educacion -> puntos)}}">
+                            </article>
+                        </article>
+                        
+                        <!------ Campo descripcion de la tabla ocupaciones --------->
+                        <article class="descripcion">
+                            <h1>Descripcion</h1>
+                            <textarea name="descripcion" rows="4">{{old('descripcion', $educacion -> descripcion)}}</textarea>
+                        </article>
+                        <!---------------------------------------------------------->
+                        
+                        <input type="text" name="vacante_id" value="{{$vacante -> id}}" hidden>
+                        
+                    </section>
+
+                    <section class="contenedor-boton">
+                        <a class="input-1" href="{{ route('eduvacante.create', ['vacante' => $vacante -> id, 'empresa' => $empresa -> id]) }}">Volver</a>
+                        <input class="input-2" type="submit" value="Actualizar">
+                    </section>
+                </form>
+            </section>
+
+            <section class="content-2">
+                <article class="contenedor-titulo">
+                    <h1 class="titulo-principal">Descripcion de la educacion</h1>
+                    <h1 class="linea"></h1>
                 </article>
 
-                <article class="contenedor-volver">
-                    <a  class="a" href="{{route('reclutador.index')}}">Volver</a>
-                </article>
-            </article>
+                <section class="contenedor-ocupaciones">
+                    <article class="contenedor-recuadro">
+                        <article class="primera-linea">
+                            <article class="nivel">
+                                <h1 class="titulo">Nivel de educacion</h1>
+                                <p>{{$educacion -> nivel_estudio}}</p>
+                            </article>
+
+                            <article class="puntos">
+                                <h1 class="titulo">Puntos</h1>
+                                <p>{{$educacion -> puntos}}</p>
+                            </article>
+                        </article>
+
+                        <article class="segunda-linea">
+                            <article class="descripcion">
+                                <h1 class="titulo">Descripcion de la educacion</h1>
+                                <p>{{$educacion -> descripcion}}</p>
+                            </article>
+                        </article>
+                    </article>
+                </section>
+            </section>
+
         </section>
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
@@ -224,6 +209,7 @@
                 </section>
             </section>
         </footer>
+
     </main>
 </body>
 

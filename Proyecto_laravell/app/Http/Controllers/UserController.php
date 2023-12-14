@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Candidato;
 use App\Models\Municipio;
 use App\Models\Instructor;
+use App\Models\Reclutador;
 use App\Models\Departamento;
 use App\Models\SuperUsuario;
 use Illuminate\Http\Request;
@@ -112,16 +113,16 @@ class UserController extends Controller{
             //     $seleccionador->save();
             //     return redirect()->route('super.index');
             // }
-            // else if($request -> menu == 5){
-            //     $usuario -> role_id = $request -> menu;
-            //     $usuario -> save();
+            else if($request -> menu == 5){
+                $usuario -> role_id = $request -> menu;
+                $usuario -> save();
 
-            //     $reclutador = new Reclutador();
-            //     $reclutador -> user_id = $usuario -> id;
+                $reclutador = new Reclutador();
+                $reclutador -> user_id = $usuario -> id;
 
-            //     $reclutador->save();
-            //     return redirect()->route('super.index');
-            // }
+                $reclutador->save();
+                return redirect()->route('super.index');
+            }
         }
 
         // Validacion donde se comprueba si el usuario al que se desea 
@@ -164,13 +165,12 @@ class UserController extends Controller{
             //     $usuario -> role_id = $request -> menu;
             //     $usuario -> save();
 
-            //     $reclutador = new Reclutador();
-            //     $reclutador -> user_id = $usuario -> id;
+                $reclutador = new Reclutador();
+                $reclutador -> user_id = $usuario -> id;
 
-            //     $reclutador->save();
-            //     return redirect()->route('super.index');
-            // }
-        }
+                $reclutador->save();
+                return redirect()->route('super.index');
+            }
 
         if ($usuario -> role_id == 3){
             $instructor = Instructor::where('user_id',  $usuario -> id)->first();
@@ -207,16 +207,16 @@ class UserController extends Controller{
             //     $seleccionador->save();
             //     return redirect()->route('super.index');
             // }
-            // else if($request -> menu == 5){
-            //     $usuario -> role_id = $request -> menu;
-            //     $usuario -> save();
+            else if($request -> menu == 5){
+                $usuario -> role_id = $request -> menu;
+                $usuario -> save();
 
-            //     $reclutador = new Reclutador();
-            //     $reclutador -> user_id = $usuario -> id;
+                $reclutador = new Reclutador();
+                $reclutador -> user_id = $usuario -> id;
 
-            //     $reclutador->save();
-            //     return redirect()->route('super.index');
-            // }
+                $reclutador->save();
+                return redirect()->route('super.index');
+            }
         }
     }
 }

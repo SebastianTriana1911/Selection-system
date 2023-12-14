@@ -64,7 +64,7 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="#">Postularse</a>
+                        <a href="{{route('empresa.index')}}">Postularse</a>
                     </article>
 
                 </article>

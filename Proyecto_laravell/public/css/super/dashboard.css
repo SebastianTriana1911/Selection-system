@@ -10,7 +10,7 @@
     display: grid;
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 74.5vh 15vh;
+    grid-template-rows: 10vh 74.4vh 15vh;
     grid-template-areas: 
     "header"
     "content"
@@ -367,7 +367,7 @@
     grid-area: footer;
     background-color: #FFD966;
     height: 100%;
-    border-top: 5px solid white;
+    border-top: 4px solid white;
 }
 
 .footer:hover{

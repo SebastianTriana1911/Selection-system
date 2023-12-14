@@ -76,6 +76,14 @@ class ReclutadorController extends Controller{
     }
     // -----------------------------------------------------------------
 
+    public function postulacion(Empresa $empresa){
+        $user = Auth::user();
+        $reclutador = $user -> reclutador;
+        $reclutador -> empresa_id = $empresa ->id;
+        $reclutador -> save();
+
+        return redirect()->route('reclutador.index');
+    }
 
     // -------------- METODO DESVINCULAR DE UNA EMPRESA ----------------
     public function desvincular($id){
@@ -123,6 +131,26 @@ class ReclutadorController extends Controller{
     }
     // -----------------------------------------------------------------
 
+    public function buscar(Request $request){
+        $busqueda = $request -> busqueda;
+        $contador = 0;
+        
+        $resultado = Reclutador::whereHas('empresa', function ($query) use ($busqueda){
+            $query->where('nombre', 'like', '%'.$busqueda.'%');
+        })->get();
+        $encontrado = $resultado -> isNotEmpty();
+
+        if ($encontrado == 0){
+            return redirect()->route('empresa.index');
+        }else{
+            foreach ($resultado as $resul){
+                $contador = $contador + 1;
+            }
+            return view('empresa.resultado', ['resultado' => $resultado,
+            'contador' => $contador]);
+        }
+    }
+    
     public function create(){
         
     }
