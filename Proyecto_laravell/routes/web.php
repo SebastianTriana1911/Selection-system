@@ -1,21 +1,25 @@
 <?php
 
+use App\Models\SuperUsuario;
+use App\Models\EducacionVacante;
+use App\Mail\ContactanosMailable;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CargoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\CandidatoController;
-use App\Http\Controllers\CargoController;
-use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\FuncionController;
-use App\Http\Controllers\InstructorController;
-use App\Http\Controllers\OcupacionController;
-use App\Http\Controllers\ReclutadorController;
-use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\VacanteController;
-use App\Models\EducacionVacante;
-use App\Models\SuperUsuario;
+use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\OcupacionController;
+use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\ReclutadorController;
+use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\RestablecerController;
+use App\Http\Controllers\SuperUsuarioController;
+use App\Http\Controllers\EducacionVacanteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,6 +123,11 @@ Route::put('empresa/update/{id}', [EmpresaController::class, 'update'])->name('e
 Route::delete('empresa/destroy/{id}', [EmpresaController::class, 'destroy'])->name('empresa.destroy');
 // ----------------------------------------------------------------------------------------------
 
+// --------------------- RUTAS PARA EL CONTROLADOR DE CONTRASEÑA NUEVA --------------------------
+Route::get('restablecer/create', [RestablecerController::class, 'create'])->name('restablecer.create')->middleware('guest');
+Route::post('restablecer/store', [RestablecerController::class, 'store'])->name('restablecer.store');
+Route::get('restablecer/enviar/{id}/{token}', [RestablecerController::class, 'enviar'])->name('restablecer.enviar');
+// ----------------------------------------------------------------------------------------------
 
 // --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
 Route::get('ocupacion/create', [OcupacionController::class, 'create'])->name('ocupacion.create')->middleware('auth');

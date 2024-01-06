@@ -15,7 +15,8 @@ class PaisSeeder extends Seeder
         $pais = [
             ['nombre' => 'Colombia'],
             ['nombre' => 'Venezuela'],
-            ['nombre' => 'Argentina']
+            ['nombre' => 'Argentina'],
+            ['nombre' => 'Argentina'],
         ];
 
         DB::table('paises')->insert($pais);

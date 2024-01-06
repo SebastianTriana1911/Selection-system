@@ -828,7 +828,6 @@ body::-webkit-scrollbar-thumb{
 /*------------------------------------------------------------*/
 
 .contenedor-boton .atras{
-    width: 3.5%;
     height: 100%;
     display: flex;
     align-items: center;

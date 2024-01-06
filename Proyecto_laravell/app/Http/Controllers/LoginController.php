@@ -23,7 +23,7 @@ class LoginController extends Controller{
 
 
     // ----------------------- METODO STORE -------------------------
-    public function store(Request $request){
+    public function store(StoreLogin $request){
         // Al llamar el metodo store se realiza una validacion
         // donde se valida si las credenciales email y password
         // corresponden a algun registro de la base de datos si

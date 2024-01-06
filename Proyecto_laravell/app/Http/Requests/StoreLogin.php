@@ -1,16 +1,13 @@
 <?php
+// StoreLogin funcionara como las validaciones que se haran a 
+// la hora de logearse
 
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreLogin extends FormRequest
-{
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
+class StoreLogin extends FormRequest{
+    public function authorize(): bool{
         return true;
     }
 
@@ -21,8 +18,8 @@ class StoreLogin extends FormRequest
      */
     public function rules(): array{
         return [
-            'email' => 'requerid|email',
-            'password' => 'requerid'
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
 }
