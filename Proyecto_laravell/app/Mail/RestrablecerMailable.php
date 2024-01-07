@@ -27,7 +27,7 @@ class RestrablecerMailable extends Mailable
      */
     public function envelope(): Envelope{
         return new Envelope(
-            from: new Address('sebastiantriana1911@gmail.com', 'Sebastian Triana'),
+            from: new Address($this->usuario->email, $this->usuario->nombre),
             subject: 'Reestablecimiento de contraseña',
         );
     }

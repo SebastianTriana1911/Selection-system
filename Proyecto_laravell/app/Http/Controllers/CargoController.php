@@ -1,4 +1,8 @@
 <?php
+// El controlador CargoController esta relacionado al rol
+// del reclutador ya que es el, el encargado de las actividades
+// como crear actualizar y eliminar en este caso cargos relacionados
+// a la empresa en la que esta vinculado 
 
 namespace App\Http\Controllers;
 
@@ -8,10 +12,7 @@ use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
 class CargoController extends Controller{
-    public function index(){
-        
-    }
-
+    // -------------------- CREATE ------------------------
     public function create($id){
         $ocupaciones = Ocupacion::all();
         $cargos = Cargo::all();
@@ -20,7 +21,10 @@ class CargoController extends Controller{
         return view('cargo.create', ['ocupaciones' => $ocupaciones, 
         'empresa' => $empresa, 'cargos' => $cargos]);
     }
+    // ----------------------------------------------------
 
+
+    // --------------------- STORE ------------------------
     public function store(Request $request){
         $cargo = new Cargo();
 
@@ -29,12 +33,14 @@ class CargoController extends Controller{
         $cargo -> competencia = $request -> competencia;
         $cargo -> ocupacion_id = $request -> ocupacion_id; 
         $cargo -> empresa_id = $request -> empresa_id;
-
         $cargo -> save();
 
         return redirect()->back();
     }
+    // ----------------------------------------------------
 
+
+    // -------------------- SHOW ---------------------------
     public function show(string $id){
         $ocupaciones = Ocupacion::all();
         $cargo = Cargo::find($id);
@@ -42,11 +48,10 @@ class CargoController extends Controller{
         return view('cargo.show', ['ocupaciones' => $ocupaciones,
         'cargo' => $cargo]);
     }
+    // ----------------------------------------------------
 
-    public function edit(string $id){
 
-    }
-
+    // -------------------- UPDATE -------------------------
     public function update(Request $request, string $id){
         $cargo = Cargo::find($id);
 
@@ -54,15 +59,20 @@ class CargoController extends Controller{
         $cargo -> habilidad = $request -> habilidad;
         $cargo -> competencia = $request -> competencia;
         $cargo -> ocupacion_id = $request -> ocupacion_id;
-
         $cargo -> save();
+
         return redirect()->back();
     }
+    // ----------------------------------------------------
 
+
+    // -------------------- DELETE -------------------------
     public function destroy(string $id){
         $cargo = Cargo::find($id);
         $cargo -> delete();
 
         return redirect()->back();
     }
+    // ----------------------------------------------------
+
 }

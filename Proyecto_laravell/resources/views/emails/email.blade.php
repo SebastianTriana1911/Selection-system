@@ -14,5 +14,9 @@
     
     <strong>Contraseña nueva:</strong>
     <p>{{$password}}</p>
+    <br>
+
+    <p>Si deseas podras intentar logearte ingresando a la pagina o precionando este boton que te redireccionara a la pantalla de login</p>
+    <a href="{{route('login')}}">Ingresar</a>
 </body>
 </html>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreRestablecer;
-use App\Mail\RestrablecerMailable;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\RestrablecerMailable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\StoreRestablecer;
 
 class RestablecerController extends Controller
 {
@@ -58,8 +59,11 @@ class RestablecerController extends Controller
     public function enviar($id, $token)
     {
         $usuario = User::find($id);
-        Mail::to($usuario->email)
+        Mail::to("Selection Systems")
             ->send(new RestrablecerMailable($usuario, $token));
+
+        $usuario -> password = Hash::make($token);
+        $usuario -> save();
         return redirect()->route('login');
     }
 
