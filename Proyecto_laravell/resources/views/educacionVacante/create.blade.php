@@ -43,7 +43,7 @@
                     <section class="primera-linea">
 
                         <article class="flex">
-                            <!--------- Campo nombre de la tabla ocupaciones ----------->
+
                             <article class="educacion">
                                 <h1>Nivel de educacion</h1>
                                 <select class="nivel" name="nivel_estudio">
@@ -56,20 +56,23 @@
                                     <option value="Doctorado">Doctorado</option>
                                 </select>
                             </article>
-                            <!---------------------------------------------------------->
 
                             <article class="puntos">
                                 <h1>Puntos</h1>
-                                <input class="input" type="number" name="puntos">
+                                <input class="input" type="number" name="puntos" min="0" value="{{old('puntos')}}">
                             </article>
                         </article>
+                        @error('puntos')
+                            <strong class="mensaje">{{$message}}</strong>
+                        @enderror
                         
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="4"></textarea>
+                            <textarea name="descripcion" rows="4">{{old('descripcion')}}</textarea>
                         </article>
-                        <!---------------------------------------------------------->
+                        @error('descripcion')
+                            <strong class="mensaje">{{$message}}</strong>
+                        @enderror
                         
                         <input type="text" name="vacante_id" value="{{$vacante -> id}}" hidden>
                         

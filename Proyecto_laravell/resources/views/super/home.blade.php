@@ -33,14 +33,18 @@
 
             <article class="segundo-contenedor">
 
+                <article class="contenedor-restablecer">
+                    <a class="boton-restablecer" href="{{route('restaurar.create')}}">Cambiar contraseña</a>
+                </article>
+
                 <article class="contenedor-create">
-                    <a class="boton" href="{{route('super.create')}}">Crear Admin</a>
+                    <a class="boton-create" href="{{route('super.create')}}">Crear Admin</a>
                 </article>
                 
                 <article class="contenedor-logout">
                     <form action="{{route('logout')}}" method="POST">
                         @csrf
-                        <button class="boton">Cerrar sesion</button>
+                        <button class="boton-logout">Cerrar sesion</button>
                     </form>
                 </article>
             </article>

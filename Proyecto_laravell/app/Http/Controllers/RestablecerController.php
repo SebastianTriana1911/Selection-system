@@ -52,7 +52,7 @@ class RestablecerController extends Controller
                 'token' => $codigoAleatorio,
             ]);
         } else {
-            return "no";
+            return redirect()->back();
         }
     }
 

@@ -84,9 +84,98 @@
 .nav .segundo-contenedor {
     position: relative;
     right: 2%;
+    left: 1%;
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .nav .segundo-contenedor i {
+    cursor: pointer;
+}
+
+.contenedor-restablecer{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-restablecer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    padding: 7%;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+    font-size: 11pt;
+}
+
+.boton-restablecer:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.contenedor-create{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.boton-create{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    padding: 5%;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+    font-size: 11pt;
+}
+
+.boton-create:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.contenedor-logout{
+    width: 50%;
+    display: flex;
+    justify-content: start;
+}
+
+.boton-logout{
+    width: 150%;
+    display: flex;
+    justify-content: center;
+    padding: 13%;
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+    font-size: 11pt;
+}
+
+.boton-logout:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
     cursor: pointer;
 }
 

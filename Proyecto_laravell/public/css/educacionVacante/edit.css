@@ -269,6 +269,11 @@ body::-webkit-scrollbar-thumb{
     color: #FFD966;
 }
 
+.mensaje{
+    color: red;
+    font-size: 10pt;
+}
+
 /*------------------------------------------------------------*/
 
 .contenedor-content .content-2{

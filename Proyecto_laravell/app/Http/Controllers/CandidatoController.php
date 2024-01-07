@@ -1,4 +1,6 @@
 <?php
+// El controlador CandidatoController corresponde a el CRUD que
+// podra realizar un candidato dentro de la pagina web
 
 namespace App\Http\Controllers;
 
@@ -9,14 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreCandidato;
 
 class CandidatoController extends Controller{
-    public function index(){
-        
-    }
-
-    public function create(){
-        
-    }
-
     // -------------------- METODO STORE ------------------------
     public function store(StoreCandidato $request){
         // Al llamar el metodo store se instanciara un objeto de

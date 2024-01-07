@@ -12,6 +12,7 @@ use App\Models\Departamento;
 use App\Models\SuperUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
     public function index(){
@@ -218,5 +219,24 @@ class UserController extends Controller{
                 return redirect()->route('super.index');
             }
         }
+    }
+
+    public function restaurarCreate(){
+        return view('auth.restaurar');
+    }
+
+    public function restaurarContraseña(Request $request){
+        $usuarios = User::all();
+
+        foreach ($usuarios as $usuario){
+            if ($usuario -> password == $request -> password);
+
+            $usuario -> password = Hash::make($request -> password);
+            $usuario -> save();
+
+            return redirect()->route('login');
+        }
+
+        return redirect()->back();
     }
 }

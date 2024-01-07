@@ -1,4 +1,8 @@
 <?php
+// EducacionController corresponde al rol candidato para 
+// que despues de logiarse en su pantalla de inicio pueda
+// actualizar sus datos relacionados con la educacion que
+// este tiene
 
 namespace App\Http\Controllers;
 
