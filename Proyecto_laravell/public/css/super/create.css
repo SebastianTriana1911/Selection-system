@@ -902,6 +902,10 @@ body::-webkit-scrollbar-thumb{
     color: #FFD966;
 }
 
+.mensaje{
+    color:red;
+}
+
 
 /*------------------------------------------------------------*/
 

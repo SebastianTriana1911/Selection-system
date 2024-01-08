@@ -10,12 +10,13 @@ use App\Models\Municipio;
 use App\Models\Instructor;
 use App\Models\Departamento;
 use App\Models\SuperUsuario;
+use App\Http\Requests\StoreSuperUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class SuperUsuarioController extends Controller{
-
+    // -------------------------- METODO INDEX ------------------------------
     public function index(){
         // Para hayar algun campo que corresponda al usuario autenticado
         // se hace la validacion de quien este autenticado para mostrar
@@ -23,7 +24,10 @@ class SuperUsuarioController extends Controller{
         $super = Auth::user();
         return view('super.home', ["super" => $super]);
     }
+    // -----------------------------------------------------------------------
 
+
+    // -------------------------- METODO CREATE ------------------------------
     public function create(){
         $paises = Pais::all();
         $departamentos = Departamento::all();
@@ -33,13 +37,15 @@ class SuperUsuarioController extends Controller{
         'departamentos' => $departamentos,
         'municipios' => $municipios]);
     }
+    // -----------------------------------------------------------------------
+
 
     // -------------------------- METODO STORE -----------------------------
     // Metodo store, como un super usuario es un usuario se debe de crear
     // primero el registro de la tabla usuarios para asi proceder con la 
     // insercion de la tabla super usuarios ya que esta depende de los
     // registros de la tabla usuarios
-    public function store(Request $request){
+    public function store(StoreSuperUsuario $request){
 
         // Se instancia un objeto de la case User
         $user = new User();

@@ -63,347 +63,333 @@ body::-webkit-scrollbar-thumb{
 }
 
 /* ---------------------------------------------------------------- */
-.contenedor-content {
+
+.contenedor-content{
     grid-area: content;
     width: 100%;
-    background-color: black;
-}
-
-.contenedor-content .contenedor-informacion{
-    position: relative;
-    margin-top: 4%;
-    left: 28%;
-    width: 50%;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 0 10px white;
-    margin-bottom: 6%;
-}
-
-.contenedor-content .contenedor-informacion:hover{
-    box-shadow: 0 0 30px white;
-    transition: 0.5s;
-}
-
-.contenedor-content .contenedor-informacion .titulo-principal{
+    height: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    border-bottom: 4px solid black;
 }
 
-.primera-fila{
+.contenedor-content .contenedor-principal{
+    background-color: white;
+    width: 55%;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px white;
+}
+
+.contenedor-content .contenedor-principal .titulo-principal{ 
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 6%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 15%;
+    border-radius: 15px 15px 0 0;
+    color: white;
 }
 
-.contenedor-numero-identificacion {
+.contenedor-hoja-vida .contenedor-informacion{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.num-identificacion {
-    width: 90%;
-    padding: 2%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-hoja-vida .contenedor-informacion .primera-fila{
+    display: flex;
+    margin-top: 3%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.contenedor-numero-identificacion{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-numero-identificacion .num-identificacion{
     border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 12%;
-    text-align: center;
-    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 4%;
+    padding-left: 4%;
+    margin-top: 3%;
+}
+
+.contenedor-numero-identificacion .num-identificacion:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
 }
 
 .contenedor-tipo-identificacion{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-tipo-identificacion .titulo {
-    font-size: 13pt;
-}
-
-.contenedor-tipo-identificacion .menu-identificacion {
-    width: 70%;
+.contenedor-tipo-identificacion .menu-identificacion{
+    border: none;
+    width: 80%;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
     padding: 2%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 1.8%;
 }
 
-.contenedor-pais {
+.contenedor-tipo-identificacion .menu-identificacion:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-pais{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-pais .titulo-pais{
-    font-size: 13pt;
+.contenedor-pais .munu-pais{
+    border: none;
+    width: 140%;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 5%;
+    margin-top: 7%;
 }
 
-.contenedor-pais .munu-pais {
-    width: 120%;
+.contenedor-pais .munu-pais:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-content .segunda-fila{
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.contenedor-departamento{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-departamento .munu-departamentos{
+    border: none;
+    width: 140%;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 5%;
+    margin-top: 7%;
+}
+
+.contenedor-departamento .munu-departamentos:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-municipio{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-municipio .munu-municipios{
+    border: none;
+    width: 140%;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 5%;
+    margin-top: 7%;
+}
+
+.contenedor-municipio .munu-municipios:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-nombre{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-nombre .titulo{
+    font-size: 14pt;
+}
+
+.contenedor-nombre .input{
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 3%;
+    margin-top: 4%;
+}
+
+.contenedor-nombre .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-hoja-vida .contenedor-informacion .tercera-fila{
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.contenedor-apellido-1{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-apellido-1 .titulo{
+    font-size: 14pt;
+}
+
+.contenedor-apellido-1 .input{
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 3%;
+    margin-top: 4%;
+}
+
+.contenedor-apellido-1 .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-genero{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-genero .titulo{
+    font-size: 14pt;
+}
+
+.contenedor-genero .menu-generos{
+    width: 120%;        
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
     padding: 6%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 7%;
 }
 
-.segunda-fila{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 2%;
+.contenedor-genero .menu-generos:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
 }
 
-.contenedor-departamento {
+.contenedor-direccion{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-departamento .titulo {
-    font-size: 13pt;
+.contenedor-direccion .titulo{
+    font-size: 14pt;
 }
 
-.contenedor-departamento .munu-departamentos {
-    width: 125%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-direccion .input{
     border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
-}
-
-.contenedor-municipio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    position: relative;
-    left: 8%;
-}
-
-.contenedor-municipio .titulo-muni {
-    font-size: 13pt;
-}
-
-.contenedor-municipio .munu-municipios {
-    width: 170%;
-    padding: 4%;
     border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
-}
-
-.contenedor-nombre {
-    position: relative;
-    left: 8%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.contenedor-nombre .titulo {
-    font-size: 13pt;
-}
-
-.contenedor-nombre .input {
-    width: 64%;
+    box-shadow: 0 0 8px black;
     padding: 3%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 4%;
 }
 
-.tercera-fila{
+.contenedor-direccion .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-hoja-vida .contenedor-informacion .cuarta-fila{
     display: flex;
-    justify-content: space-around;
+    margin-top: 5%;
+    margin-bottom: 5%;
     width: 100%;
-    margin-top: 6%;
+    justify-content: space-evenly;
 }
 
-.contenedor-apellido-1 {
-    position: relative;
-    left: -3%;
+.contenedor-estado{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-apellido-1 .titulo {
-    font-size: 13pt;
+.contenedor-estado .titulo{
+    font-size: 14pt;
 }
 
-.contenedor-apellido-1 .input {
-    width: 86%;
+.contenedor-estado .menu-estado-civil{
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
     padding: 3%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 4%;
 }
 
-.contenedor-genero {
-    position: relative;
-    left: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.contenedor-genero .titulo { 
-    font-size: 13pt;
-}
-
-.menu-generos { 
-    width: 190%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
-}
-
-.contenedor-direccion {
-    position: relative;
-    left: 7.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.contenedor-direccion .titulo {
-    font-size: 13pt;
-}
-
-.contenedor-direccion .input {
-    width: 65%;
-    padding: 3%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
-}
-
-.cuarta-fila{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 6%;
-    padding-bottom: 10%;
-}
-
-.contenedor-estado {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.contenedor-estado .titulo { 
-    font-size: 13pt;
-}
-
-.contenedor-estado .menu-estado-civil { 
-    width: 110%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
-    border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+.contenedor-estado .menu-estado-civil:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
 }
 
 .contenedor-email {
-    position: relative;
-    left: 7%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-email .titulo { 
-    font-size: 13pt;
+.contenedor-email .titulo{
+    font-size: 14pt;
 }
 
-.contenedor-email .input { 
-    width: 100%;
-    padding: 3%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-email .input{
     border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 3%;
+    margin-top: 4%;
+}
+
+.contenedor-email .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
 }
 
 .contenedor-contraseña {
-    position: relative;
-    left: 7%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
 }
 
-.contenedor-contraseña .titulo { 
-    font-size: 13pt;
+.contenedor-contraseña .titulo{
+    font-size: 14pt;
 }
 
-.contenedor-contraseña .input { 
-    width: 67%;
-    padding: 3%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-contraseña .input{
     border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
-    text-align: center;
+    border-radius: 7px;
+    box-shadow: 0 0 8px black;
+    padding: 3%;
+    margin-top: 4%;
 }
 
-/* -------------------------------------------- */
+.contenedor-contraseña .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 15px black;
+}
+
+.mensaje{
+    color: red;
+}
+
+/* ---------------------------------------------------------------- */
 
 .contenedor-boton{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 60px;
 }
 
 .contenedor-boton .atras{

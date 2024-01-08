@@ -8,14 +8,11 @@ use App\Models\Municipio;
 use App\Models\Instructor;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreInstructor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class InstructorController extends Controller{
-    public function index(){
-        
-    }
-
     // ---------------------- METODO CREATE ----------------------
     public function create(){
 
@@ -42,7 +39,7 @@ class InstructorController extends Controller{
     // ----------------------------------------------------------
 
     // ---------------------- METODO STORE ----------------------
-    public function store(Request $request){
+    public function store(StoreInstructor $request){
         // Al llamar el metodo store vamos a hacer la insercion de
         // un nuevo registro de la tabla users pues recordemos que
         // en este caso un instructor es un usuario, asi que se
