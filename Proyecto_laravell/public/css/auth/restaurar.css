@@ -52,6 +52,160 @@
 
 /*------------------------------------------------------------*/
 
+.contenedor-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: content;
+    background-color: black;
+}
+
+.contenedor-content .contenedor-principal{
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px white;
+}
+
+.contenedor-content .contenedor-principal .contenedor-titulo{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 20%;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-content .contenedor-principal .contenedor-titulo .titulo{
+    font-size: 18pt;
+}
+
+.formulario{
+    margin-top: 6%;
+    margin-left: 6%;
+}
+
+.formulario .contraseña-vieja{
+    font-size: 14pt;
+    margin-bottom: 3%;
+}
+
+.formulario .contraseña-vieja .input{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 7%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 6px;
+    border: none;
+    margin-top: 1%;
+}
+
+.formulario .contraseña-vieja .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 7px black;
+}
+
+.formulario .contraseña-nueva{
+    font-size: 14pt;
+    margin-bottom: 3%;
+}
+
+.formulario .contraseña-nueva .input{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 7%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 6px;
+    border: none;
+    margin-top: 1%;
+}
+
+.formulario .contraseña-nueva .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 7px black;
+}
+
+.formulario .contraseña-verificacion{
+    font-size: 14pt;
+    margin-bottom: 3%;
+}
+
+.formulario .contraseña-verificacion .input{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 7%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 6px;
+    border: none;
+    margin-top: 1%;
+}
+
+.formulario .contraseña-verificacion .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 7px black;
+}
+
+.formulario .contenedor-botones{
+    margin-top: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+}
+
+.formulario .contenedor-botones a{
+    font-size: 12pt;
+}
+
+.formulario .contenedor-botones input{
+    font-size: 13pt;
+}
+
+.formulario .contenedor-botones .boton{
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 10px;
+    padding: 9px;
+    font-weight: bolder;
+    box-shadow: 0 0 10px #FFD966;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.formulario .contenedor-botones .boton:hover {
+    transition: 0.4s;
+    background-color: black;
+    color: #FFD966;
+}
+
+.mensaje{
+    color: red;
+    font-size: 12pt;
+}
+
+
 /*------------------------------------------------------------*/
 
 .footer {

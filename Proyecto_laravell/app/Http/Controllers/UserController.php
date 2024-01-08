@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RestaurarPassword;
 use App\Models\Pais;
 use App\Models\User;
 use App\Models\Candidato;
@@ -15,42 +16,26 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
-    public function index(){
-        
-    }
-
     // -------------------------- METODOS CREATE --------------------------
     // Este metodo es el que retorna la vista para registrar un candidato, 
     // Se hace el llamado de los modelos de pais, departamento y municipio
     // con el metodo all para en la vista poderlos iterar por medio de un
     // foreach y asi mostrar todos los paises que contiene cada tabla en 
     // dicho momento
-    public function create(){
+    public function create()
+    {
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
-        
-        return view('auth.register', ['paises' => $paises, 
-        'departamentos' => $departamentos,
-        'municipios' => $municipios]);
+
+        return view('auth.register', [
+            'paises' => $paises,
+            'departamentos' => $departamentos,
+            'municipios' => $municipios
+        ]);
     }
     // ---------------------------------------------------------------------
 
-    public function store(Request $request){
-        
-    }
-
-    public function show(string $id){
-        
-    }
-
-    public function edit(string $id){
-        
-    }
-
-    public function update(Request $request, string $id){
-        
-    }
 
     // -------------------------- METODOS DESTROY ------------------------
     // El metodo destroy como se encuentra dentro del controlador User se
@@ -80,26 +65,25 @@ class UserController extends Controller{
     public function cambioRol(Request $request, $id){
         $usuario = User::find($id);
 
-        if ($usuario -> role_id == 1){
-            $candidato = SuperUsuario::where('user_id',  $usuario -> id)->first();
-            $candidato ->delete();
+        if ($usuario->role_id == 1) {
+            $candidato = SuperUsuario::where('user_id',  $usuario->id)->first();
+            $candidato->delete();
 
-            if($request -> menu == 2){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            if ($request->menu == 2) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $super = new Candidato();
-                $super -> user_id = $usuario -> id;
+                $super->user_id = $usuario->id;
 
                 $super->save();
                 return redirect()->back();
-            }
-            else if($request -> menu == 3){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            } else if ($request->menu == 3) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $instructor = new Instructor();
-                $instructor -> user_id = $usuario -> id;
+                $instructor->user_id = $usuario->id;
 
                 $instructor->save();
                 return redirect()->back();
@@ -114,12 +98,12 @@ class UserController extends Controller{
             //     $seleccionador->save();
             //     return redirect()->route('super.index');
             // }
-            else if($request -> menu == 5){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            else if ($request->menu == 5) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $reclutador = new Reclutador();
-                $reclutador -> user_id = $usuario -> id;
+                $reclutador->user_id = $usuario->id;
 
                 $reclutador->save();
                 return redirect()->route('super.index');
@@ -128,26 +112,25 @@ class UserController extends Controller{
 
         // Validacion donde se comprueba si el usuario al que se desea 
         // cambiar el rol es un candidato
-        if ($usuario -> role_id == 2){
-            $candidato = Candidato::where('user_id',  $usuario -> id)->first();
-            $candidato ->delete();
+        if ($usuario->role_id == 2) {
+            $candidato = Candidato::where('user_id',  $usuario->id)->first();
+            $candidato->delete();
 
-            if($request -> menu == 1){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            if ($request->menu == 1) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $super = new SuperUsuario();
-                $super -> user_id = $usuario -> id;
+                $super->user_id = $usuario->id;
 
                 $super->save();
                 return redirect()->back();
-            }
-            else if($request -> menu == 3){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            } else if ($request->menu == 3) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $instructor = new Instructor();
-                $instructor -> user_id = $usuario -> id;
+                $instructor->user_id = $usuario->id;
 
                 $instructor->save();
                 return redirect()->back();
@@ -166,34 +149,33 @@ class UserController extends Controller{
             //     $usuario -> role_id = $request -> menu;
             //     $usuario -> save();
 
-                $reclutador = new Reclutador();
-                $reclutador -> user_id = $usuario -> id;
+            $reclutador = new Reclutador();
+            $reclutador->user_id = $usuario->id;
 
-                $reclutador->save();
-                return redirect()->route('super.index');
-            }
+            $reclutador->save();
+            return redirect()->route('super.index');
+        }
 
-        if ($usuario -> role_id == 3){
-            $instructor = Instructor::where('user_id',  $usuario -> id)->first();
-            $instructor ->delete();
+        if ($usuario->role_id == 3) {
+            $instructor = Instructor::where('user_id',  $usuario->id)->first();
+            $instructor->delete();
 
-            if($request -> menu == 1){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            if ($request->menu == 1) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $admin = new SuperUsuario();
-                $admin -> user_id = $usuario -> id;
+                $admin->user_id = $usuario->id;
 
                 $admin->save();
 
                 return redirect()->back();
-            }
-            else if($request -> menu == 2){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            } else if ($request->menu == 2) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $candidato = new Candidato();
-                $candidato -> user_id = $usuario -> id;
+                $candidato->user_id = $usuario->id;
 
                 $candidato->save();
                 return redirect()->back();
@@ -208,35 +190,80 @@ class UserController extends Controller{
             //     $seleccionador->save();
             //     return redirect()->route('super.index');
             // }
-            else if($request -> menu == 5){
-                $usuario -> role_id = $request -> menu;
-                $usuario -> save();
+            else if ($request->menu == 5) {
+                $usuario->role_id = $request->menu;
+                $usuario->save();
 
                 $reclutador = new Reclutador();
-                $reclutador -> user_id = $usuario -> id;
+                $reclutador->user_id = $usuario->id;
 
                 $reclutador->save();
                 return redirect()->route('super.index');
             }
         }
     }
+    // -------------------------------------------------------------------
 
+
+    // --------------------- METODO RESTAURAR CREATE ---------------------
+    // Este metodo retornara una vista que pedira la contraseña actual que
+    // tenga el usuario, la nueva contraseña y la confirmacion de la nueva
+    // contraseña
     public function restaurarCreate(){
         return view('auth.restaurar');
     }
+    // -------------------------------------------------------------------
 
-    public function restaurarContraseña(Request $request){
-        $usuarios = User::all();
 
-        foreach ($usuarios as $usuario){
-            if ($usuario -> password == $request -> password);
+    // ------------------ METODO RESTAURAR CONTRASEÑA --------------------
+    // Al llamar el metodo restaurarContraseña se accede al usuario 
+    // autenticado para acceder a la contraseña de dicho usuario. Como la
+    // contraseña del usuario esta hasheada para acceder a la contraseña
+    // normal accedemos a la clase Hash con el metodo estatico check, esta
+    // recibira dos parametros el primero sera la contraseña que deseamos
+    // validar y como segundo parametro la contraseña del usuario. Luego de
+    // validar que las dos contraseñas coincidan se valida si la contraseña
+    // nueva es igual a la contraseña de verificacion para luego asi proceder
+    // a cambiar la contraseña del usuario autenticado hasheandola, para asi
+    // cerrarle la sesion y volverlo a la ruta login
+    public function restaurarContraseña(RestaurarPassword $request){
+        $usuario = Auth::user();
 
-            $usuario -> password = Hash::make($request -> password);
-            $usuario -> save();
+        // Hash::check hace la validacion entre los dos parametros que
+        // se le asignen y deshashea las contraseñas que esten hashadas
+        // para asi poder realizar la validacion
+        if (Hash::check($request->contraseña_old, $usuario->password)){
+            if ($request->contraseña_new == $request->contraseña_verifi){
 
-            return redirect()->route('login');
-        }
+                $usuarioNewPassword = User::find($usuario->id);
+                $usuarioNewPassword->password = Hash::make($request->contraseña_new);
+                $usuarioNewPassword->save();
 
-        return redirect()->back();
+                // Cierre de la sesion del usuario autenticado 
+                auth()->logout();
+                session()->invalidate();
+                return redirect()->route('login');
+            }else{
+                return redirect()->back();
+            }
+        };
     }
+    // -------------------------------------------------------------------
+
+
+    // ----------------------- METODO RESTAURAR HOME ----------------------
+    // El metodo restaurarHome funcionara para que a la hora de entrar a la
+    // vista de restaurar la contraseña al darle al boton de atras se muestre
+    // la pantalla de inicio segun el usuario auntenticado, esto se realiza 
+    // de esta manera para no hacer el mismo codigo en cada uno de los roles
+    // si no que en un solo metodo validar el usuario que este auntenticado
+    // y dependiendo de su rol le retorne la vista de inicio que le corresponda
+    public function restaurarHome(){
+        $user = Auth::user();
+
+        if ($user->role_id == 1) {
+            return redirect()->route('super.index');
+        }
+    }
+    // -------------------------------------------------------------------
 }

@@ -42,7 +42,9 @@ Route::get('/', function () {
 Route::get('user/create', [UserController::class, 'create'])->name('user.create')->middleware('guest');
 Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::post('user/uptade/rol/{id}', [UserController::class, 'cambioRol'])->name('update.rol');  
-Route::get('user/restaurar/create', [UserController::class, 'restaurarCreate'])->name('restaurar.create');
+Route::get('user/restaurar/create', [UserController::class, 'restaurarCreate'])->name('restaurar.create')->middleware('auth');
+Route::post('user/restaurar/contraseña', [UserController::class, 'restaurarContraseña'])->name('restaurar.contraseña');
+Route::get('user/home/restaurar', [UserController::class, 'restaurarHome'])->name('home.restaurar');
 // -----------------------------------------------------------------------------------------------
 
 

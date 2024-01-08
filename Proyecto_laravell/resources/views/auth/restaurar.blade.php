@@ -29,9 +29,42 @@
         <!---------------------------------------------------------------->
 
         <section class="contenedor-content">
-
             <section class="contenedor-principal">
-                <!-- Toca hacer la vista para el restablecimiento de contraseña -->
+                <article class="contenedor-titulo">
+                    <h1 class="titulo">Restauracion de contraseña</h1> 
+                </article>
+
+                <form class="formulario" action="{{route('restaurar.contraseña')}}" method="POST">
+                    @csrf
+                    <article class="contraseña-vieja">
+                        <h1 class="titulo">Ingrese su contraseña</h1>
+                        <input class="input" type="text" name="contraseña_old" value="{{old('contraseña_old')}}">
+                        @error('contraseña_old')
+                            <strong class="mensaje">{{$message}}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contraseña-nueva">
+                        <h1 class="titulo">Ingrese su nueva contraseña</h1>
+                        <input class="input" type="password" name="contraseña_new" value="{{old('contraseña_new')}}">
+                        @error('contraseña_new')
+                            <strong class="mensaje">{{$message}}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contraseña-verificacion">
+                        <h1 class="titulo">Ingrese nuevamente la contraseña</h1>
+                        <input class="input" type="password" name="contraseña_verifi" value="{{old('contraseña_verifi')}}">
+                        @error('contraseña_verifi')
+                            <strong class="mensaje">{{$message}}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-botones">
+                        <a class="boton" href="{{route('home.restaurar')}}">Atras</a>
+                        <input class="boton" type="submit" value="Listo">
+                    </article>
+                </form>
             </section>
 
         </section>
