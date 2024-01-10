@@ -67,6 +67,11 @@
                 <article class="contenedor-informacion">
 
                     <article class="correo">
+                        <h1 class="clave">Nombre completo</h1>
+                        <span class="valor">{{$instructor->nombre}} {{$instructor->apellido}}</span>
+                    </article>
+
+                    <article class="correo">
                         <h1 class="clave">Correo electronico</h1>
                         <span class="valor">{{$instructor->email}}</span>
                     </article>

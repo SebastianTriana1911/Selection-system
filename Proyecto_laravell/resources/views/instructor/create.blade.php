@@ -32,7 +32,7 @@
                 <article class="titulo-principal">
                     <h2>Registro de instructor</h2>
                 </article>
-                <form class="contenedor-hoja-vida" action="{{ route('instructor.store') }}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{ route('instructor.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <section class="contenedor-informacion">
@@ -42,9 +42,9 @@
                                 <h4 class="titulo">N identificacion</h4>
                                 <input class="num-identificacion" type="text" name="num_documento"
                                     value="{{ old('num_documento') }}" />
-                                    @error('num_documento')
-                                        <strong class="mensaje">{{ $message }}</strong>
-                                    @enderror
+                                @error('num_documento')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
                             </article>
                             <!------------------------------------------------------>
 
@@ -146,18 +146,6 @@
                             </article>
                             <!-------------------------------------------------->
 
-                            <!--------- Campo direccion de la tabla users -------->
-                            <article class="contenedor-direccion">
-                                <h3 class="titulo">Direccion</h3>
-                                <input class="input" type="text" name="direccion" value="{{ old('direccion') }}" />
-                                @error('direccion')
-                                    <strong class="mensaje">{{ $message }}</strong>
-                                @enderror
-                            </article>
-                            <!---------------------------------------------------->
-                        </article>
-
-                        <article class="cuarta-fila">
                             <!------- Campo estado_civil de la tabla users ------->
                             <article class="contenedor-estado">
                                 <h3 class="titulo">Estado civil</h3>
@@ -176,6 +164,45 @@
                             </article>
                             <!---------------------------------------------------->
 
+
+                        </article>
+
+                        <article class="quinta-fila">
+                            <!--------- Campo fecha_nacimiento de la tabla instructores -------->
+                            <article class="contenedor-fecha">
+                                <h3 class="titulo">Fecha nacimiento</h3>
+                                <input class="input" type="date" name="fecha_nacimiento"
+                                    value="{{ old('fecha_nacimiento') }}" />
+                                @error('fecha_nacimiento')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+                            <!-------------------------------------------------->
+
+                            <!--------- Campo direccion de la tabla instructores -------->
+                            <article class="contenedor-direccion">
+                                <h3 class="titulo">Direccion</h3>
+                                <input class="input" type="text" name="direccion"
+                                    value="{{ old('direccion') }}" />
+                                @error('direccion')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+                            <!---------------------------------------------------->
+
+                            <!--------- Campo direccion de la tabla users -------->
+                            <article class="contenedor-telefono">
+                                <h3 class="titulo">Telefono</h3>
+                                <input class="input" type="tel" name="telefono"
+                                    value="{{ old('telefono') }}" />
+                                @error('telefono')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+                            <!---------------------------------------------------->
+                        </article>
+
+                        <article class="cuarta-fila">
                             <!---------- Campo email de la tabla users ----------->
                             <article class="contenedor-email">
                                 <h3 class="titulo">Correo electronico</h3>
@@ -191,11 +218,66 @@
                                 <h3 class="titulo">Contraseña</h3>
                                 <input class="input" type="password" name="password"
                                     value="{{ old('password') }}" />
-                                    @error('password')
-                                        <strong class="mensaje">{{ $message }}</strong>
-                                    @enderror
+                                @error('password')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
                             </article>
                             <!---------------------------------------------------->
+                        </article>
+
+
+                        <!-- Desde este punto empieza la insercion a la tabla Profesiones -->
+                        <article class="primera">
+                            <article class="contenedor-titulo-profesion">
+                                <h1 class="titulo">Datos sobre su profesion</h1>
+                            </article>
+                        </article>
+
+                        <article class="segunda">
+
+                            <!------- Campo titulado de la tabla profesiones --------->
+                            <article class="contenedor-titulado">
+                                <h1 class="titulo">Titulado</h1>
+                                <input class="input" type="text" name="titulado" value="{{ old('titulado') }}">
+                                @error('titulado')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+                            <!-------------------------------------------------------->
+
+                            <!------- Campo institucion de la tabla profesiones --------->
+                            <article class="contenedor-institucion">
+                                <h1 class="titulo">Institucion egresado</h1>
+                                <input class="input" type="text" name="institucion"
+                                    value="{{ old('institucion') }}">
+                                @error('institucion')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+                            <!-------------------------------------------------------->
+
+                            <!------- Campo documento de la tabla profesiones --------->
+                            <article class="contenedor-documento">
+                                <h1 class="titulo">Diploma</h1>
+                                <article class="texto">
+                                    <i class="fa-solid fa-download" style="color: #000000;"></i>
+                                    <label for="input">Archivo</label>
+                                    <input id="input" class="input" type="file" name="documento">
+                                    @error('documento')
+                                        <strong class="mensaje">{{ $message }}</strong>
+                                    @enderror
+                                </article>
+                            </article>
+                            <!-------------------------------------------------------->
+                        </article>
+
+                        <article class="tercer">
+                            <article class="contenedor-perfil">
+                                <article class="perfil">
+                                    <h1 class="titulo">Perfil profesional</h1>
+                                    <textarea class="input" name="perfil_profesional"cols="30" rows="4" placeholder="En este campo podras redactar tu como persona como te sientes en el ambito profesional y el ser un profesional">{{ old('perfil_profesional') }}</textarea>
+                                </article>
+                            </article>
                         </article>
 
                         <!-- Este input no se muestra en la vista pero corresponde a que el campo

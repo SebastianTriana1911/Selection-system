@@ -17,4 +17,8 @@ class Profesion extends Model{
     public function instructor(): BelongsTo{
         return $this -> belongsTo(Instructor::class, 'instructor_id', 'id');
     }
+
+    public function getDocumento(){
+        return $this->documento ? asset('public\storage' . $this->documento) : null; 
+    }
 }

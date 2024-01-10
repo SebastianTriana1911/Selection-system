@@ -9,6 +9,7 @@ use App\Models\Instructor;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreInstructor;
+use App\Models\Profesion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -75,7 +76,21 @@ class InstructorController extends Controller{
         // de la tabla instructores corresponde al registro con el mismo
         // valor en el campo id de la tabla users 
         $instructor -> user_id = $user -> id;
+        $instructor -> fecha_nacimiento = $request -> fecha_nacimiento;
+        $instructor -> direccion = $request -> direccion;
+        $instructor -> telefono = $request -> telefono;
+        $instructor -> perfil_profesional = $request -> perfil_profesional; 
         $instructor -> save();
+
+
+        $profesion = new Profesion();
+        $profesion -> instructor_id = $instructor -> id;
+        $profesion -> titulado = $request -> titulado;
+        $profesion -> institucion = $request -> institucion;
+
+        $documento = $request->file('documento')->store('public\storage');
+        $profesion -> documento = $documento;
+        $profesion -> save();
 
         return redirect()->route('super.index');
     }

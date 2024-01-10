@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('profesiones', function (Blueprint $table) {
             $table->id();
-            $table->string('institucion');
-            $table->string('titulado');
-            $table->string('documento');
+            $table->string('titulado')->nullable();
+            $table->string('institucion')->nullable();
+            $table->string('documento')->nullable();
             $table->foreignId('instructor_id')->references('id')->on('instructores')->onDelete('cascade');
             $table->timestamps();
         });
