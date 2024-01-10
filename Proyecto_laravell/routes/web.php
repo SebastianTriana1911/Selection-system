@@ -58,6 +58,7 @@ Route::get('super/index', [SuperUsuarioController::class, 'index'])->name('super
 Route::get('super/create', [SuperUsuarioController::class, 'create'])->name('super.create')->middleware('auth');
 Route::post('super/store', [SuperUsuarioController::class, 'store'])->name('super.store');
 Route::get('super/listar/instructores', [SuperUsuarioController::class, 'listarInstructores'])->name('listar.instructores')->middleware('auth');
+Route::get('super/sintesis/instructor/{id}', [SuperUsuarioController::class, 'sintesisInstructor'])->name('sintesis.instructor')->middleware('auth');
 Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSuper'])->name('dashboard.super')->middleware('auth');
 Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor')->middleware('auth');
 Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato')->middleware('auth');

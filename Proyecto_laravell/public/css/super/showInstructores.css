@@ -217,6 +217,8 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-nombre .titulo {
     font-size: 15pt;
     font-weight: bolder;
+    text-decoration: none;
+    color: black;
 }
 
 .contenedor-boton  { 

@@ -135,6 +135,18 @@ class SuperUsuarioController extends Controller{
     // }    
     // -----------------------------------------------------------------------
 
+
+    public function sintesisInstructor($id){
+        $instructor = User::find($id);    
+        $imagen = null;
+        if($instructor->genero == 'Masculino'){
+            $imagen = asset('imagenes\Icono-hombre.png');
+        }else{
+            $imagen = asset('imagenes\Icono-mujer.png');
+        }
+        return view('super.sintesisInstructor', ['instructor' => $instructor,
+            'imagen' => $imagen]);
+    }
     
 
     public function show(string $id){

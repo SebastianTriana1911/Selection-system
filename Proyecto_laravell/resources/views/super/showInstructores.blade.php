@@ -60,7 +60,7 @@
                         </article>
 
                         <article class="contenedor-nombre">
-                            <h1 class="titulo">{{$instructor->user->nombre}} {{$instructor->user->apellido}}</h1>
+                            <a class="titulo" href="{{route('sintesis.instructor', ['id' => $instructor -> user_id])}}">{{$instructor->user->nombre}} {{$instructor->user->apellido}}</a>
                         </article>
 
                         <form action="{{route('user.destroy', ['id' => $instructor -> user_id])}}" method="POST">
