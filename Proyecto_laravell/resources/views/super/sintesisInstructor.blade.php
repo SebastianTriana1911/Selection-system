@@ -48,11 +48,13 @@
                     <img class="imagen" src="{{$imagen}}"/>
                 </article>
 
+                <article class="contenedor-boton">
+                    <a class="boton" href="{{ route('listar.instructores') }}">Volver</a>
+                </article>
+
             </article>
 
-            <article class="contenedor-boton">
-                <a class="boton" href="{{ route('listar.instructores') }}">Volver</a>
-            </article>
+            
 
         </section>
 
@@ -69,6 +71,31 @@
                     <article class="correo">
                         <h1 class="clave">Nombre completo</h1>
                         <span class="valor">{{$instructor->nombre}} {{$instructor->apellido}}</span>
+                    </article>
+
+                    <article class="correo">
+                        <h1 class="clave">Numero documento</h1>
+                        <span class="valor">{{$instructor->num_documento}}</span>
+                    </article>
+
+                    <article class="correo">
+                        <h1 class="clave">Genero</h1>
+                        <span class="valor">{{$instructor->genero}}</span>
+                    </article>
+
+                    <article class="correo">
+                        <h1 class="clave">Fecha de nacimiento</h1>
+                        <span class="valor">{{$instructor->instructor->fecha_nacimiento}}</span>
+                    </article>
+
+                    <article class="correo">
+                        <h1 class="clave">Telefono</h1>
+                        <span class="valor">{{$instructor->instructor->telefono}}</span>
+                    </article>
+
+                    <article class="correo">
+                        <h1 class="clave">Direccion</h1>
+                        <span class="valor">{{$instructor->instructor->direccion}}</span>
                     </article>
 
                     <article class="correo">
@@ -93,21 +120,31 @@
 
                     <article class="profesion">
                         <h1 class="clave">Profesion</h1>
-                        <span class="valor">Ingeniero en sistemas</span>
+                        <span class="valor">
+                            @forelse($profesionInstructor as $profesion)
+                                <li>{{$profesion->titulado}}</li>
+                                @empty
+                                    <span>El instructor no cuenta con ninguna profesion</span>
+                            @endforelse
+                        </span>
                     </article>
 
                     <article class="perfil-profesional">
                         <h1 class="clave">Perfil profesional</h1>
-                        <p class="valor">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa saepe enim
-                            sapiente tempore, eaque ab atque inventore aut, quod voluptate consequatur totam error
-                            doloribus officiis ex, animi distinctio? Molestias, voluptates.</p>
+                        <p class="valor">{{$instructor->instructor->perfil_profesional}}</p>
                     </article>
 
                     <article class="experiencia">
-                        <h1 class="clave">Experiencia</h1>
-                        <p class="valor">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus accusamus ea
-                            veritatis dolorum ex dicta consequuntur quos, assumenda facilis vel repudiandae hic
-                            consectetur, corporis ipsum autem labore aliquam nobis tenetur.</p>
+                        <h1 class="clave">Documentos</h1>
+                        <span class="valor">
+                            @forelse($profesionInstructor as $profesion)
+                                <li>
+                                    <a href="{{$profesion->documento->getDocumentoAttribute()}}" target="_blank">safsedf</a>
+                                </li>
+                                @empty
+                                    <span>El instructor no cuenta con ninguna profesion</span>
+                            @endforelse
+                        </span>
                     </article>
 
                 </article>

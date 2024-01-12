@@ -22,6 +22,11 @@ class StoreInstructor extends FormRequest{
             'apellido' => 'required|string',
             'genero' => 'required',
             'estado_civil' => 'required',
+            // Before_or_equal indicara que el usuario debera ingresar una
+            // fehca igual o menor a la proporcionada
+            'fecha_nacimiento' =>'required|before_or_equal:2010-01-01',
+            'direccion' => 'required',
+            'telefono' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
         ];
@@ -40,6 +45,10 @@ class StoreInstructor extends FormRequest{
             'apellido.string' => 'No se aceptan numeros',
             'genero.required' => 'Obligatorio',
             'estado_civil.required' => 'Obligatorio',
+            'fecha_nacimiento.required' => 'Obligatorio',
+            'fecha_nacimiento.before_or_equal' => 'Debe ser menor a 2010-01-01',
+            'direccion.required' => 'Obligatorio',
+            'telefono.request' => 'Obligatorio',
             'email.required' => 'Obligatorio',
             'email.email' => 'Debe ser un email',
             'email.unique' => 'Ya existe',

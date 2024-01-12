@@ -89,15 +89,13 @@
 }
 
 .contenedor-content .cuadro {
-    width: 57%;
-    height: 50%;
+    width: 50%;
+    height: 40%;
     background-color: white;
     box-shadow: 0 0 15px white;
     margin-top: 5%;
     border-radius: 15px;
     padding: 5% 4% 5% 4%;
-    position: relative;
-    left: 4%;
 }
 
 .contenedor-content .cuadro:hover{
@@ -111,24 +109,18 @@
     align-items: center;
     width: 100%;
     height: 20%;
-    position: relative;
-    top: -4%;
 }
 
 .contenedor-content .contenedor-imagen {
     display: flex;
-    width: 100%;
-    height: 100%;
     justify-content: center;
     margin-top: 2%;
+    width: 100%;
 }
 
 .contenedor-content .contenedor-imagen .imagen{
-    width: 70%;
-    height: 70%;
-    border-radius: 8px;
-    border: 3px solid black;
-    box-shadow: 0 0 10px black;
+    width: 100%;
+    object-fit: cover;
 }
 
 /*------------------------------------------------------------*/
@@ -211,7 +203,7 @@
 }
 
 .contenedor-sidebar .correo .valor {
-    font-size: 13pt;
+    font-size: 12pt;
 }
 
 .contenedor-sidebar .pais {
@@ -299,17 +291,20 @@
 }
 
 .contenedor-content .contenedor-boton .boton {
-    width: 100%;
-    margin-top: 8%;
-    position: relative;
-    top: 75%;
-    left: -370%;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    margin-top: 15%;
+    /* position: relative;
+    top: 68%;
+    left: -335%; */
 }
 
 .contenedor-content .contenedor-boton .boton {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 15%;
+    padding: 4%;
     text-decoration: none;
     color: black;
     background-color: #FFD966;

@@ -7,13 +7,14 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Candidato;
 use App\Models\Municipio;
+use App\Models\Profesion;
 use App\Models\Instructor;
 use App\Models\Departamento;
 use App\Models\SuperUsuario;
-use App\Http\Requests\StoreSuperUsuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\StoreSuperUsuario;
 
 class SuperUsuarioController extends Controller{
     // -------------------------- METODO INDEX ------------------------------
@@ -137,15 +138,18 @@ class SuperUsuarioController extends Controller{
 
 
     public function sintesisInstructor($id){
-        $instructor = User::find($id);    
-        $imagen = null;
-        if($instructor->genero == 'Masculino'){
-            $imagen = asset('imagenes\Icono-hombre.png');
-        }else{
-            $imagen = asset('imagenes\Icono-mujer.png');
-        }
-        return view('super.sintesisInstructor', ['instructor' => $instructor,
-            'imagen' => $imagen]);
+        $instructor = User::find($id);
+        // $instructor2 = Instructor::where('user_id', $instructor->id)->get();
+        // $instructoor = $instructor2->first();
+        // $profesionInstructor = Profesion::where('instructor_id', $instructoor->id)->get();
+        // $imagen = null;
+        // if($instructor->genero == 'Masculino'){
+        //     $imagen = asset('imagenes\Icono-hombre.png');
+        // }else{
+        //     $imagen = asset('imagenes\Icono-mujer.png');
+        // }
+        // return view('super.sintesisInstructor', ['instructor' => $instructor,
+        //     'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor]);
     }
     
 

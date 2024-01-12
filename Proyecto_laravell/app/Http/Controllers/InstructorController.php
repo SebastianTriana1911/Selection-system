@@ -88,7 +88,7 @@ class InstructorController extends Controller{
         $profesion -> titulado = $request -> titulado;
         $profesion -> institucion = $request -> institucion;
 
-        $documento = $request->file('documento')->store('public\storage');
+        $documento = $request->file('documento')->store('storage');
         $profesion -> documento = $documento;
         $profesion -> save();
 
