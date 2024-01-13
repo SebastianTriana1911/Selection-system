@@ -23,7 +23,7 @@ class StoreInstructor extends FormRequest{
             'genero' => 'required',
             'estado_civil' => 'required',
             // Before_or_equal indicara que el usuario debera ingresar una
-            // fehca igual o menor a la proporcionada
+            // fecha igual o menor a la proporcionada
             'fecha_nacimiento' =>'required|before_or_equal:2010-01-01',
             'direccion' => 'required',
             'telefono' => 'required',
@@ -35,8 +35,8 @@ class StoreInstructor extends FormRequest{
     public function messages(){
         return [
             'num_documento.required' => 'Obligatorio',
-            'num_documento.max:11' => 'Debe ser menos de 11',
-            'num_documento.min:7' => 'Debe ser mas de 7',
+            'num_documento.max' => 'Debe ser menos de 11',
+            'num_documento.min' => 'Debe ser mas de 7',
             'num_documento.unique' => 'Ya existe',
             'tipo_documento.required' => 'Obligatorio',
             'nombre.required' => 'Obligatorio',

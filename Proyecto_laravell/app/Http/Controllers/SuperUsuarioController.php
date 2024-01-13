@@ -138,18 +138,32 @@ class SuperUsuarioController extends Controller{
 
 
     public function sintesisInstructor($id){
-        $instructor = User::find($id);
-        // $instructor2 = Instructor::where('user_id', $instructor->id)->get();
-        // $instructoor = $instructor2->first();
-        // $profesionInstructor = Profesion::where('instructor_id', $instructoor->id)->get();
-        // $imagen = null;
-        // if($instructor->genero == 'Masculino'){
-        //     $imagen = asset('imagenes\Icono-hombre.png');
-        // }else{
-        //     $imagen = asset('imagenes\Icono-mujer.png');
-        // }
-        // return view('super.sintesisInstructor', ['instructor' => $instructor,
-        //     'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor]);
+        // Como las profesiones de un instructor pueden ser muchas se desea guardar
+        // por cada profesion la ruta del documento que subio
+        $rutas = [];
+
+        $user = User::find($id);
+        $instructor = Instructor::where('user_id', $user->id)->get();
+        $instructor = $instructor->first();
+
+        $profesionInstructor = Profesion::where('instructor_id', $instructor->id)->get();
+        foreach ($profesionInstructor as $profesion){
+            if ($profesion->documento == null){
+                continue;
+            }else{
+                $rutas[] = basename($profesion->documento);
+            }
+        }
+        $imagen = null;
+
+        if($user->genero == 'Masculino'){
+            $imagen = asset('imagenes\Icono-hombre.png');
+        }else{
+            $user = asset('imagenes\Icono-mujer.png');
+        }
+
+        return view('super.sintesisInstructor', ['user' => $user, 'instructor' => $instructor,
+            'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor,'rutas' => $rutas]);
     }
     
 

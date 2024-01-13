@@ -88,11 +88,20 @@ class InstructorController extends Controller{
         $profesion -> titulado = $request -> titulado;
         $profesion -> institucion = $request -> institucion;
 
-        $documento = $request->file('documento')->store('storage');
-        $profesion -> documento = $documento;
-        $profesion -> save();
+        if ($request->hasFile('documento')){
+            $documento = $request->file('documento');
+            $ruta = $documento->store('documentos', 'public');
+            $profesion -> documento = $ruta;
+            $profesion -> save();
 
-        return redirect()->route('super.index');
+            return redirect()->route('super.index');
+        }else {
+            $profesion -> documento = null;
+            $profesion->save();
+        
+            return redirect()->route('super.index');
+        }
+        
     }
     // ----------------------------------------------------------
 
