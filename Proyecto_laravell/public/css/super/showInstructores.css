@@ -189,19 +189,12 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-bote {
-    display: flex;
-    justify-content: end;
-    align-items: center;
     border: none;
     background-color: transparent;
-    width: 10%;
-    height: 100%;
-    position: relative;
-    left: -3%;
 }
 
 .contenedor-content .contenedor-informacion .contenedor-instructor .contenedor-bote i {
-    font-size: 20pt;
+    font-size: 14pt;
     cursor: pointer;
 }
 
@@ -219,6 +212,14 @@ body::-webkit-scrollbar-thumb{
     font-weight: bolder;
     text-decoration: none;
     color: black;
+}
+
+.opciones{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+    font-size: 14pt;
 }
 
 .contenedor-boton  { 

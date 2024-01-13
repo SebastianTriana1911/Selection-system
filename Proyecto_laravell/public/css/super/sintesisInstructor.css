@@ -96,6 +96,8 @@
     margin-top: 5%;
     border-radius: 15px;
     padding: 5% 4% 5% 4%;
+    position: relative;
+    left: -4%;
 }
 
 .contenedor-content .cuadro:hover{
@@ -148,7 +150,7 @@
 }
 
 .contenedor-sidebar .contenedor-cuadro{
-    width: 57%;
+    width: 70%;
     height: 80%;
     background-color: white;
     box-shadow: 0 0 15px white;
@@ -156,6 +158,7 @@
     position: relative;
     top: -4%;
     border-radius: 15px 0px 0px 15px;
+    padding-bottom: 2%;
 }
 
 .contenedor-sidebar .contenedor-cuadro:hover {
@@ -185,11 +188,25 @@
 }
 
 .contenedor-sidebar .contenedor-cuadro .contenedor-informacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 4%;
     width: 90%;
     position: relative;
     left: 5%;
     margin-bottom: 5%;
+}
+
+.flex-1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.flex-2{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .contenedor-sidebar .correo {
@@ -204,90 +221,7 @@
 
 .contenedor-sidebar .correo .valor {
     font-size: 12pt;
-}
-
-.contenedor-sidebar .pais {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .pais .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .pais .valor {
-    font-size: 13pt;
-}
-
-.contenedor-sidebar .departamento {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .departamento .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .departamento .valor {
-    font-size: 13pt;
-}
-
-.contenedor-sidebar .municipio {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .municipio .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .municipio .valor {
-    font-size: 13pt;
-}
-
-.contenedor-sidebar .profesion {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .profesion .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .profesion .valor {
-    font-size: 13pt;
-}
-
-.contenedor-sidebar .perfil-profesional {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .perfil-profesional .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .perfil-profesional .valor {
-    font-size: 13pt;
-}
-
-.contenedor-sidebar .experiencia {
-    display: grid;
-    gap: 7%;
-    margin-bottom: 3%;
-}
-
-.contenedor-sidebar .experiencia .clave {
-    font-size: 15pt;
-}
-
-.contenedor-sidebar .experiencia .valor {
-    font-size: 13pt;
+    text-decoration: none;
 }
 
 .contenedor-content .contenedor-boton .boton {

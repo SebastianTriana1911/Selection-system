@@ -40,12 +40,12 @@
             <article class="cuadro">
 
                 <article class="contenedor-nombre">
-                    <h1 class="nombre">{{$user->nombre }}</h1>
+                    <h1 class="nombre">{{ $user->nombre }}</h1>
                 </article>
 
                 <article class="contenedor-imagen">
                     <!-- Logica ´para mostrar la imagen segun el sexo-->
-                    <img class="imagen" src="{{$imagen}}"/>
+                    <img class="imagen" src="{{ $imagen }}" />
                 </article>
 
                 <article class="contenedor-boton">
@@ -54,7 +54,7 @@
 
             </article>
 
-            
+
 
         </section>
 
@@ -68,111 +68,106 @@
 
                 <article class="contenedor-informacion">
 
-                    <article class="correo">
-                        <h1 class="clave">Nombre completo</h1>
-                        <span class="valor">{{$user->nombre}} {{$user->apellido}}</span>
+
+                    <article class="flex-1">
+                        <article class="correo">
+                            <h1 class="clave">Nombre completo</h1>
+                            <span class="valor">{{ $user->nombre }} {{ $user->apellido }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Numero documento</h1>
+                            <span class="valor">{{ $user->num_documento }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Genero</h1>
+                            <span class="valor">{{ $user->genero }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Fecha de nacimiento</h1>
+                            <span class="valor">{{ $user->instructor->fecha_nacimiento }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Telefono</h1>
+                            <span class="valor">{{ $user->instructor->telefono }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Direccion</h1>
+                            <span class="valor">{{ $user->instructor->direccion }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Correo electronico</h1>
+                            <span class="valor">{{ $user->email }}</span>
+                        </article>
                     </article>
 
-                    <article class="correo">
-                        <h1 class="clave">Numero documento</h1>
-                        <span class="valor">{{$user->num_documento}}</span>
-                    </article>
+                    <article class="flex-2">
+                        <article class="correo">
+                            <h1 class="clave">Municipio</h1>
+                            <span class="valor">{{ $user->municipio->nombre }}</span>
+                        </article>
 
-                    <article class="correo">
-                        <h1 class="clave">Genero</h1>
-                        <span class="valor">{{$user->genero}}</span>
-                    </article>
+                        <article class="correo">
+                            <h1 class="clave">Profesion</h1>
+                            <span class="valor">
+                                @forelse($profesionInstructor as $profesion)
+                                    @if ($profesion->titulado == null)
+                                        <li class="valor">No hay profesion registrada</li>
+                                    @else
+                                        <li class="valor">{{ $profesion->titulado }}</li>
+                                    @endif
 
-                    <article class="correo">
-                        <h1 class="clave">Fecha de nacimiento</h1>
-                        <span class="valor">{{$user->instructor->fecha_nacimiento}}</span>
-                    </article>
+                                @empty
+                                    <span class="valor">El instructor no cuenta con ninguna profesion</span>
+                                @endforelse
+                            </span>
+                        </article>
 
-                    <article class="correo">
-                        <h1 class="clave">Telefono</h1>
-                        <span class="valor">{{$user->instructor->telefono}}</span>
-                    </article>
-
-                    <article class="correo">
-                        <h1 class="clave">Direccion</h1>
-                        <span class="valor">{{$user->instructor->direccion}}</span>
-                    </article>
-
-                    <article class="correo">
-                        <h1 class="clave">Correo electronico</h1>
-                        <span class="valor">{{$user->email}}</span>
-                    </article>
-
-                    <article class="pais">
-                        <h1 class="clave">Pais</h1>
-                        <span class="valor">{{$user->municipio->departamento->pais->nombre}}</span>
-                    </article>
-
-                    <article class="departamento">
-                        <h1 class="clave">Departamento</h1>
-                        <span class="valor">{{$user->municipio->departamento->nombre}}</span>
-                    </article>
-
-                    <article class="municipio">
-                        <h1 class="clave">Municipio</h1>
-                        <span class="valor">{{$user->municipio->nombre}}</span>
-                    </article>
-
-                    <article class="profesion">
-                        <h1 class="clave">Profesion</h1>
-                        <span class="valor">
+                        <article class="correo">
+                            <h1 class="clave">Institucion egresado</h1>
                             @forelse($profesionInstructor as $profesion)
-                                @if($profesion->titulado == null)
-                                    <li>No hay profesion registrada</li>
+                                @if ($profesion->institucion == null)
+                                    <li class="valor">No hay ninguna institucion registrada</li>
                                 @else
-                                    <li>{{$profesion->titulado}}</li>
+                                    <li class="valor">{{ $profesion->institucion }}</li>
                                 @endif
 
-                                @empty
-                                    <span>El instructor no cuenta con ninguna profesion</span>
+                            @empty
+                                <span class="valor">El instructor no cuenta con ninguna profesion</span>
                             @endforelse
-                        </span>
-                    </article>
+                        </article>
 
-                    <article class="perfil-profesional">
-                        <h1 class="clave">Institucion egresado</h1>
-                        @forelse($profesionInstructor as $profesion)
-                                @if($profesion->institucion == null)
-                                    <li>No hay ninguna institucion registrada</li>
-                                @else
-                                    <li>{{$profesion->institucion}}</li>
-                                @endif
+                        <article class="correo  ">
+                            <h1 class="clave">Perfil profesional</h1>
+                            @if ($user->instructor->perfil_profesional == null)
+                                <p class="valor">El instructor no contiene un perfil profesional</p>
+                            @else
+                                <p class="valor">{{ $user->instructor->perfil_profesional }}</p>
+                            @endif
+                        </article>
 
+                        <article class="correo">
+                            <h1 class="clave">Documentos</h1>
+                            <span class="valor">
+                                @php
+                                    $contador = 1;
+                                @endphp
+                                @forelse($rutas as $ruta)
+                                    <li>
+                                        <a class="valor" href="{{ asset('storage/documentos/' . $ruta) }}" target="_blank">Documento
+                                            {{ $contador++ }}</a>
+                                    </li>
                                 @empty
-                                    <span>El instructor no cuenta con ninguna profesion</span>
-                            @endforelse
+                                    <span class="valor">No se cuenta con documentos que validen algun titulo profesional</span>
+                                @endforelse
+                            </span>
+                        </article>
                     </article>
-
-                    <article class="perfil-profesional">
-                        <h1 class="clave">Perfil profesional</h1>
-                        @if($user->instructor->perfil_profesional == null)
-                            <p class="valor">El instructor no contiene un perfil profesional</p>    
-                        @else
-                            <p class="valor">{{$user->instructor->perfil_profesional}}</p>
-                        @endif
-                    </article>
-
-                    <article class="experiencia">
-                        <h1 class="clave">Documentos</h1>
-                        <span class="valor">
-                            @php
-                                $contador = 1;
-                            @endphp
-                            @forelse($rutas as $ruta)
-                                <li>
-                                    <a href="{{asset('storage/documentos/' . $ruta)}}" target="_blank">Documento {{$contador++}}</a>
-                                </li>
-                                @empty
-                                    <span>No se cuenta con documentos que validen algun titulo profesional</span>
-                            @endforelse
-                        </span>
-                    </article>
-
                 </article>
 
             </article>
