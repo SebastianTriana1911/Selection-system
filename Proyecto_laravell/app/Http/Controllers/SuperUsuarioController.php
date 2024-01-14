@@ -137,6 +137,15 @@ class SuperUsuarioController extends Controller{
     // -----------------------------------------------------------------------
 
 
+    // ---------------------- METODOS SINTESISINSTRUCTOR ----------------------
+    // Al llamar el metodo sintesisInstructor se hace la busqueda por medio del
+    // metodo estatico where para hayar la primera coinsidencia. Primero se haya
+    // el usuario con el id correspondiente para despues comparar ese usuario con
+    // el campo de user_id del instructor. Luego hayamos todas las profesiones del
+    // instructor que se acabo de allar para iterar todas las listas correspondientes
+    // a sus profesiones y se hace la validacion donde si el documento es null siga
+    // iterando y cuando no sea nulo que se suba solo la ruta del documento que se
+    // subio (Esto se logra con el metodo basename)
     public function sintesisInstructor($id){
         // Como las profesiones de un instructor pueden ser muchas se desea guardar
         // por cada profesion la ruta del documento que subio
@@ -165,6 +174,8 @@ class SuperUsuarioController extends Controller{
         return view('super.sintesisInstructor', ['user' => $user, 'instructor' => $instructor,
             'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor,'rutas' => $rutas]);
     }
+    // -----------------------------------------------------------------------
+
     
 
     public function show(string $id){

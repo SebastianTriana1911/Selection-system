@@ -69,7 +69,7 @@
                         <article class="opciones">
 
                             <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                            <a href=""><i class="fa-solid fa-pencil" style="color: black;"></i></a>
+                            <a href="{{ route('instructor.edit', ['id' => $instructor->id])}}"><i class="fa-solid fa-pencil" style="color: black;"></i></a>
                             <a href=""><i class="fa-solid fa-plus" style="color: black;"></i></a>
                             <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}" method="POST">
                                 @csrf

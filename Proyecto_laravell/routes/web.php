@@ -68,6 +68,8 @@ Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashbo
 // --------------------------- RUTAS DEL CONTROLADOR INSTRUCTORES ------------------------------
 Route::get('instructor/create', [InstructorController::class, 'create'])->name('instructor.create')->middleware('auth');
 Route::post('instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
+Route::get('instructor/edit/{id}', [InstructorController::class, 'edit'])->name('instructor.edit')->middleware('auth');
+Route::put('instructor/update/{id}', [InstructorController::class, 'update'])->name('instructor.update');
 // ----------------------------------------------------------------------------------------------
 
 
