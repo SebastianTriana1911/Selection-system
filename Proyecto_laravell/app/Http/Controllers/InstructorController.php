@@ -122,13 +122,24 @@ class InstructorController extends Controller{
 
 
     // ---------------------- METODO EDIT -----------------------
+    // Al llamar el metodo edit este nos retornara una vista con 
+    // diferentes instancias como lo son el usuario autenticado para
+    // poder mostrar el nombre del administrador de ese momento, los 
+    // paises departamentos y municipios para que se puedan seleccionar
+    // y actualizar dichos campos, el instructor para colocar los campos
+    // que ya tenian creados en el metodo value old() y el perfil_profesional
+    // para que realizar la validacion donde si este campo esta vacio
+    // muestre un mensaje
     public function edit(string $id){
+        // Instancias
         $userAutenticado = Auth::user();
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
         $instructor = Instructor::find($id);
         $idInstructor = $instructor->id;
+
+        // Validacion del perfil_profesional
         $perfil_profesional = '';
         if($instructor->perfil_profesional == null){
             $perfil_profesional = 'El instructor no tiene perfil profesional';
@@ -136,12 +147,34 @@ class InstructorController extends Controller{
             $perfil_profesional = $instructor->perfil_profesional;
         }
 
-        return view('instructor.edit', ['instructor' => $instructor, "administrador" => $userAutenticado,
-        'paises' => $paises, 'departamentos' => $departamentos, 'municipios' => $municipios, 'perfil_profesional' => $perfil_profesional,
+        return view('instructor.edit', ['instructor' => $instructor, 
+        "administrador" => $userAutenticado, 'paises' => $paises, 
+        'departamentos' => $departamentos, 'municipios' => $municipios,
+        'perfil_profesional' => $perfil_profesional,
         'idInstructor' => $idInstructor]);
     }
+    // ------------------------------------------------------------------------
 
+
+    // ---------------------- METODO UPDATE -----------------------------------
+    // Al llamar el metodo update se registrara la actualizacion del
+    // registro ya existente por los nuevos registros que se hicieron
+    // en el formulario que suministra la vista que retornava el metodo
+    // edit, a diferencia de que a la hora de subir el numero de documento
+    // decia que ya existia y es verdad, pero si no se actualizo dicho
+    // numero no debia por que arrojar dicho error de validacion, por eso
+    // en dicho campo utilizamos el Rule::unique()->ignore, este metodo
+    // lo que quiere dar a enteneder es que al hayar un registro de un
+    // formulario con el mismo valor que el registro que se encuentra en
+    // la base de datos lo va a ignorar. Por ejemplo en la base de datos
+    // como numero de documento aparece el 1 y en el formulario de actualizacion
+    // es el mismo 1, como normalmente daria un error de validacion por que el
+    // numero de documento ya existe por que ya se encuentre el 1 en la BD, lo
+    // que hace dicho metodo es ignorar la regla de validacion cuando dicha
+    // comparacion coincida
     public function update(Request $request, $id){
+        // Instancia de la clase de instructor donde se actualizan
+        // los campos correspondientes a dicha tabla
         $instructor = Instructor::find($id);
         $instructor->fecha_nacimiento = $request -> fecha_nacimiento;
         $instructor->direccion = $request -> direccion;
@@ -149,7 +182,13 @@ class InstructorController extends Controller{
         $instructor->perfil_profesional = $request -> perfil_profesional;
         $instructor->save();
 
+        // Instancia de la tabla user buscando el registro que coincida
+        // con el valor que tiene el campo user_id en la tabla instructores 
         $user = User::find($instructor->user_id);
+
+        // Reglas de validacion con el plus del metodo Rule::unique()->ignore()
+        // para saltar reglas de validacion siempre y cuando cumplan con una
+        // condicion
         $request->validate([
             'num_documento' => [
                 'required',
@@ -209,8 +248,5 @@ class InstructorController extends Controller{
         
         return redirect()->route('super.index');
     }
-
-    public function destroy(string $id){
-        
-    }
+    // ------------------------------------------------------------------------
 }

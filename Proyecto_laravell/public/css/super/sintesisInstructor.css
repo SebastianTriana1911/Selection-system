@@ -224,10 +224,15 @@
     text-decoration: none;
 }
 
+.valor-a{
+    color: black;
+}
+
 .contenedor-content .contenedor-boton .boton {
     display: flex;
     justify-content: center;
     width: 25%;
+    color: black;
     margin-top: 15%;
     /* position: relative;
     top: 68%;

@@ -1,4 +1,4 @@
-<!-- VISTA PARA CREAR UN INSTRUCTOR -->
+<!-- VISTA PARA ACTUALIZAR EL REGISTRO DE ALGUN UN INSTRUCTOR -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/Candidato/Css/hoja-vida.css">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/instructor/edit.css') }}">
-    <title>Insert instructor</title>
+    <title>Update instructor</title>
 </head>
 
 <body>

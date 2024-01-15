@@ -14,6 +14,7 @@ use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\VacanteController;
 use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\OcupacionController;
+use App\Http\Controllers\ProfesionController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\NewPasswordController;
@@ -70,6 +71,13 @@ Route::get('instructor/create', [InstructorController::class, 'create'])->name('
 Route::post('instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
 Route::get('instructor/edit/{id}', [InstructorController::class, 'edit'])->name('instructor.edit')->middleware('auth');
 Route::put('instructor/update/{id}', [InstructorController::class, 'update'])->name('instructor.update');
+// ----------------------------------------------------------------------------------------------
+
+
+// --------------------------- RUTAS DEL CONTROLADOR PROFESIONES --------------------------------
+Route::get('profesion/create/{idInstructor}/{idUsuario}', [ProfesionController::class, 'create'])->name('profesion.create')->middleware('auth');
+Route::post('profesion/store/{id}', [ProfesionController::class, 'store'])->name('profesion.store');
+Route::delete('profesion/destroy/{id}', [ProfesionController::class, 'destroy'])->name('profesion.destroy');
 // ----------------------------------------------------------------------------------------------
 
 

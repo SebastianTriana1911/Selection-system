@@ -6,10 +6,6 @@ use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
 class OcupacionController extends Controller{
-    public function index(){
-        
-    }
-
     public function create(){
         $ocupaciones = Ocupacion::all();
         return view('ocupacion.create', ['ocupaciones' => $ocupaciones]);
@@ -32,10 +28,6 @@ class OcupacionController extends Controller{
         // para que me retorne por medio de una variable un array y iterarlo en la vista
         $funciones = $ocupacion -> funcion;
         return view('ocupacion.show', ['ocupacion' => $ocupacion, 'funciones' => $funciones]);
-    }
-
-    public function edit(string $id){
-
     }
 
     public function update(Request $request, string $id){

@@ -159,7 +159,7 @@
                                 @endphp
                                 @forelse($rutas as $ruta)
                                     <li>
-                                        <a class="valor" href="{{ asset('storage/documentos/' . $ruta) }}" target="_blank">Documento
+                                        <a class="valor-a" href="{{ asset('storage/documentos/' . $ruta) }}" target="_blank">Documento
                                             {{ $contador++ }}</a>
                                     </li>
                                 @empty
