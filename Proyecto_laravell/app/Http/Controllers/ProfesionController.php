@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProfesion;
+use App\Http\Requests\UpdateProfesion;
 use App\Models\User;
 use App\Models\Profesion;
 use App\Models\Instructor;
@@ -25,10 +27,10 @@ class ProfesionController extends Controller{
 
         return view('profesion.create', ['titulo' => $titulo, 'usuario' => $usuario,
         'instructor' => $instructor, 'profesiones' => $profesiones, 'titulo2' => $titulo2,
-        'idInstructor' => $idInstructor]);
+        'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]);
     }
 
-    public function store(Request $request, $id){
+    public function store(StoreProfesion $request, $id){
         $profesion = new Profesion();
 
         $profesion -> titulado = $request -> titulado;
@@ -50,16 +52,42 @@ class ProfesionController extends Controller{
         }
     }
 
-    public function show(string $id){
+    public function edit(string $id, $idInstructor, $idUsuario){
+        $profesion = Profesion::find($id);
+        $instructor = Instructor::find($idInstructor);
+        $nombreInstructor = $instructor->user->nombre;
+
+        $titulo = "";
+        if($instructor->user->genero == 'Masculino'){
+            $titulo = "correspondiente al instructor $nombreInstructor";
+        }else{
+            $titulo = "correspondiente a la instructora $nombreInstructor";
+        }
         
+        return view('profesion.edit', ['profesion'=>$profesion, 'titulo'=>$titulo,
+        'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]);
     }
 
-    public function edit(string $id){
-        
-    }
+    public function update(UpdateProfesion $request, string $id){
+        $profesion = Profesion::find($id);
 
-    public function update(Request $request, string $id){
-        
+        $profesion -> titulado = $request -> titulado;
+        $profesion -> institucion = $request -> institucion;
+        if ($request->hasFile('documento')){
+            $documento = $request->file('documento');
+            $ruta = $documento->store('documentos', 'public');
+            $profesion -> documento = $ruta;
+            $profesion -> save();
+            return redirect()->back();
+
+        // Si la condicional da que no se a subido ningun archivo entonces ese
+        // campo quedara como nulo
+        }else {
+            $profesion -> documento = null;
+            $profesion -> save();        
+            return redirect()->back();
+        }
+
     }
 
     public function destroy(string $id){

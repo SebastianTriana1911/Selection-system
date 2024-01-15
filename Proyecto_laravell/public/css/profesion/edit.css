@@ -7,7 +7,6 @@
 }
 
 .mensaje {
-    font-size: 10pt;
     color:red;
 }
 
@@ -270,114 +269,45 @@ body::-webkit-scrollbar-thumb{
     margin-top: 1%;
 }
 
-.contenedor-content .contenedor-ocupaciones{
+.contenedor-cuadro{
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.contenedor-cuadro .contenido{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    width: 90%;
-    height: 70%;
-    overflow: auto;
+    width: 100%;
+    height: 100%;
+    gap: 8%;
+    margin: auto;
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar{
-    width: 9px;
-}
-
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar-thumb{
-    background: white;
-}
-
-.contenedor-content .contenedor-ocupaciones .titulo-principal{
+.contenedor-titulado{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    margin-top: 3%;
-    font-size: 24pt;
-}
-
-.contenedor-content .content-2 .linea{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
-    margin-bottom: 4%;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    margin-top: 3%;
-    padding: 2%;
-    background-color: white;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
-    display: flex;
-    text-decoration: none;
-    color: black;
+    border: 3px solid black;
     box-shadow: 0 0 15px white;
+    background-color: white;
 }
 
-.content-2 .contenedor-ocupaciones .parte-1{
-    display: flex;
-    width: 85%;
-    gap: 3%;
+.contenedor-titulado .titulo{
+    font-size: 14pt;
 }
 
-.content-2 .contenedor-ocupaciones .ocupacion i{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-1 a{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 {
+.valor-a{
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom{
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a{
-    position: relative;
-    left: 95%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
-    font-weight: bolder;
-    box-shadow: 0 0 10px #FFD966;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a:hover{
-    background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    width: 70%;
 }
 
 .empty{

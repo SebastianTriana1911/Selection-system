@@ -126,6 +126,7 @@
     box-shadow: 0 0 10px white;
     cursor: pointer;
     text-decoration: none;
+    color: black;
     border: 4px solid black
 }
 
@@ -196,7 +197,7 @@
     background-color: #FFD966;
     border: none;
     border-radius: 15px;
-    padding: 0.7% 1.5%;
+    padding: 10px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
 }

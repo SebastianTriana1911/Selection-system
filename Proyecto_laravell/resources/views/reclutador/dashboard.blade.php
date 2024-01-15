@@ -26,6 +26,10 @@
     <!---------------------------------------------------------------->
     <section class="content">
         <section class="primera-columna">
+            <a class="contenedor-super" href="{{route('dashboard.super')}}">
+                <h1>Administradores</h1>
+            </a>
+
             <a class="contenedor-instructor" href="{{route('dashboard.instructor')}}">
                 <h1>Instructores</h1>
             </a>
@@ -49,11 +53,11 @@
 
         <section class="segunda-columna">
             <article class="contenedor-titulo">
-                <strong>Lista de instructores</strong>
+                <strong>Lista de reclutadores</strong>
             </article>
 
             <article class="contenedor-informacion">
-                @forelse($instructores as $instructor)
+                @forelse($reclutadores as $reclutador)
                     <article class="contenedor-instructor">
 
                         <article class="contenedor-logo">
@@ -61,11 +65,11 @@
                         </article>
 
                         <article class="contenedor-nombre">
-                            <h1 class="titulo">{{$instructor->user->nombre}} {{$instructor->user->apellido}}</h1>
+                            <h1 class="titulo">{{$reclutador->user->nombre}} {{$reclutador->user->apellido}}</h1>
                         </article>
 
                         <article class="contenedor-opciones">
-                            <form  class="formulario" action="{{route('user.destroy', ['id' => $instructor -> user_id])}}" method="POST">
+                            <form  class="formulario" action="{{route('user.destroy', ['id' => $reclutador -> user_id])}}" method="POST">
                                 @csrf
     
                                 @method('delete')
@@ -76,7 +80,7 @@
                             </form>
 
                             <article class="rol">
-                                <form  class="formulario-2" action="{{route('update.rol', ['id' => $instructor -> user_id])}}" method="POST">
+                                <form  class="formulario-2" action="{{route('update.rol', ['id' => $reclutador -> user_id])}}" method="POST">
                                     @csrf
                                     <select class="menu" name="menu">
                                         @foreach($roles as $rol)
@@ -92,7 +96,7 @@
                         </article>
                     </article>
                     @empty
-                    <h3 class="empty">No hay ningun instructor registrado</h3>
+                    <h3 class="empty">No hay ningun reglutador registrado</h3>
                 @endforelse
             </article>
         </section>

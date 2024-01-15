@@ -1,4 +1,4 @@
-<!-- VISTA PARA CREARLE LAS PROFESIONES A UN INSTRUCTOR -->
+<!-- VISTA PARA ACTUALIZAR UNA PROFESION -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/profesion/create.css') }}">
-    <title>Create profesiones</title>
+    <link rel="stylesheet" href="{{ asset('css/profesion/edit.css') }}">
+    <title>Update profesiones</title>
 </head>
 
 <body>
@@ -33,19 +33,22 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">{{ $titulo }}</h1>
+                    <h1 class="titulo-principal">Actualizacion de la profesion
+                        {{ $titulo }}</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{ route('profesion.store', ['id' => $idInstructor]) }}"
+                <form class="contenedor-hoja-vida" action="{{ route('profesion.update', ['id' => $profesion->id]) }}"
                     method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('put')
 
                     <section class="primera-linea">
                         <!--------- Campo nombre de la tabla ocupaciones ----------->
                         <article class="Nombre">
                             <h1>Titulado</h1>
-                            <input class="input" type="text" name="titulado" value="{{ old('titulado') }}" />
+                            <input class="input" type="text" name="titulado"
+                                value="{{ old('titulado', $profesion->titulado) }}" />
                             @error('titulado')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -55,7 +58,8 @@
                         <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Institucion</h1>
-                            <input class="input" type="text" name="institucion" value="{{ old('institucion') }}">
+                            <input class="input" type="text" name="institucion"
+                                value="{{ old('institucion', $profesion->institucion) }}">
                             @error('institucion')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -78,44 +82,41 @@
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{ route('listar.instructores') }}">Volver</a>
-                        <input class="input-2" type="submit" value="Crear">
+                        <a class="input-1"
+                            href="{{ route('profesion.create', ['idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">Volver</a>
+                        <input class="input-2" type="submit" value="Actualizar">
                     </section>
                 </form>
             </section>
 
             <section class="content-2">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">{{ $titulo2 }}</h1>
+                    <h1 class="titulo-principal">Datos sobre la profesion con id {{ $profesion->id }}</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <section class="contenedor-ocupaciones">
-                    @forelse($profesiones as $profesion)
-                        <article class="ocupacion">
-                            <article class="parte-1">
-                                <i class="fa-solid fa-gear" style="color: black"></i>
-                                <a
-                                    href="{{ route('profesion.edit', ['id' => $profesion->id, 'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">{{ $profesion->titulado }}</a>
-                            </article>
-
-                            <article class="parte-2">
-                                <form action="{{ route('profesion.destroy', ['id' => $profesion->id]) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>
-                                    </button>
-                                </form>
-                            </article>
+                <article class="contenedor-cuadro">
+                    <article class="contenido">
+                        <article class="contenedor-titulado">
+                            <h1 class="titulo">Titulado</h1>
+                            <p class="valor">{{ $profesion->titulado }}</p>
                         </article>
-                    @empty
-                        <h1 class="empty">El instructor no tiene profesiones</h1>
-                    @endforelse
-                </section>
-            </section>
 
+                        <article class="contenedor-titulado">
+                            <h1 class="titulo">Institucion egresado</h1>
+                            <p class="valor">{{ $profesion->institucion }}</p>
+                        </article>
+
+                        <article class="contenedor-titulado">
+                            <h1 class="titulo">Documento de comprobacion</h1>
+                            <a class="valor-a"
+                                href="{{ asset('storage/documentos/' . basename($profesion->documento)) }}"
+                                target="_blank">Documento comprobante</a>
+                        </article>
+                    </article>
+                </article>
+
+            </section>
         </section>
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->

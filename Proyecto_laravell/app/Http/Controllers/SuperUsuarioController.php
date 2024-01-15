@@ -9,6 +9,7 @@ use App\Models\Candidato;
 use App\Models\Municipio;
 use App\Models\Profesion;
 use App\Models\Instructor;
+use App\Models\Reclutador;
 use App\Models\Departamento;
 use App\Models\SuperUsuario;
 use Illuminate\Http\Request;
@@ -121,12 +122,12 @@ class SuperUsuarioController extends Controller{
         ['candidatos' => $candidatos, 'roles' => $roles]);
     }
 
-    // public function dashboardReclutador(){
-    //     $instructores = Reclutador::all();
-    //     $roles = Role::all();
-    //     return view('instructor.dashboard', 
-    //     ['instructores' => $instructores, 'roles' => $roles]);
-    // }
+    public function dashboardReclutador(){
+        $reclutadores = Reclutador::all();
+        $roles = Role::all();
+        return view('reclutador.dashboard', 
+        ['reclutadores' => $reclutadores, 'roles' => $roles]);
+    }
 
     // public function dashboardSeleccionador(){
     //     $instructores = Instructor::all();

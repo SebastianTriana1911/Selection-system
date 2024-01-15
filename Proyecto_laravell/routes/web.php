@@ -62,6 +62,7 @@ Route::get('super/listar/instructores', [SuperUsuarioController::class, 'listarI
 Route::get('super/sintesis/instructor/{id}', [SuperUsuarioController::class, 'sintesisInstructor'])->name('sintesis.instructor')->middleware('auth');
 Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSuper'])->name('dashboard.super')->middleware('auth');
 Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor')->middleware('auth');
+Route::get('super/dashboard/reclutador', [SuperUsuarioController::class, 'dashboardReclutador'])->name('dashboard.reclutador')->middleware('auth');
 Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
@@ -77,6 +78,8 @@ Route::put('instructor/update/{id}', [InstructorController::class, 'update'])->n
 // --------------------------- RUTAS DEL CONTROLADOR PROFESIONES --------------------------------
 Route::get('profesion/create/{idInstructor}/{idUsuario}', [ProfesionController::class, 'create'])->name('profesion.create')->middleware('auth');
 Route::post('profesion/store/{id}', [ProfesionController::class, 'store'])->name('profesion.store');
+Route::get('profesion/edit/{id}/{idInstructor}/{idUsuario}', [ProfesionController::class, 'edit'])->name('profesion.edit')->middleware('auth');
+Route::put('profesion/update/{id}', [ProfesionController::class, 'update'])->name('profesion.update');
 Route::delete('profesion/destroy/{id}', [ProfesionController::class, 'destroy'])->name('profesion.destroy');
 // ----------------------------------------------------------------------------------------------
 
@@ -87,6 +90,7 @@ Route::get('reclutador/empresa', [ReclutadorController::class, 'createEmpresa'])
 Route::post('reclutador/desvincular/{id}', [ReclutadorController::class, 'desvincular'])->name('reclutador.desvincular');
 Route::post('reclutador/postulacion/{empresa}', [ReclutadorController::class, 'postulacion'])->name('reclutador.postulacion');
 Route::post('reclutador/buscar', [ReclutadorController::class, 'buscar'])->name('reclutador.buscar');
+
 // ----------------------------------------------------------------------------------------------
 
 

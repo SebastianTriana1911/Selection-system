@@ -34,7 +34,7 @@
                 <h1>Instructores</h1>
             </a>
 
-            <a class="contenedor-reclutador">
+            <a class="contenedor-reclutador" href="{{route('dashboard.reclutador')}}">
                 <h1>Reclutadores</h1>
             </a>
 

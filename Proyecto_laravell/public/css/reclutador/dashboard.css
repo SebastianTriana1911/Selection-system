@@ -10,7 +10,7 @@
     display: grid;
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 74.5vh 15vh;
+    grid-template-rows: 10vh 74.4vh 15vh;
     grid-template-areas: 
     "header"
     "content"
@@ -72,15 +72,35 @@
     border-left: 5px solid white;
 }
 
+.content .primera-columna .contenedor-super{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    font-size: 15pt;
+    height: 20%;
+    cursor: pointer;
+    text-decoration: none;
+    color:black;
+    border: 4px solid black;
+    background-color: white;
+}
+
+.content .primera-columna .contenedor-super:hover {
+    background-color: black;
+    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+}
+
 .content .primera-columna .contenedor-instructor{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5%;
     font-size: 15pt;
-    background-color: #FFD966;
+    background-color: white;
     height: 20%;
-    box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
     color:black;
@@ -100,12 +120,13 @@
     align-items: center;
     gap: 5%;
     font-size: 15pt;
-    background-color: white;
     height: 20%;
-    box-shadow: 0 0 10px white;
     cursor: pointer;
     text-decoration: none;
-    border: 4px solid black
+    border: 4px solid black;
+    background-color: #FFD966;
+    box-shadow: 0 0 10px #FFD966;
+    color: black;
 }
 
 .content .primera-columna .contenedor-reclutador:hover {
@@ -113,6 +134,10 @@
     transition: 0.5s;
     color: white;
     box-shadow: 0 0 10px white;
+}
+
+.content .primera-columna .contenedor-reclutador h1{
+    color: black;
 }
 
 .content .primera-columna .contenedor-seleccionador{
@@ -147,7 +172,8 @@
     box-shadow: 0 0 10px white;
     cursor: pointer;
     text-decoration: none;
-    border: 4px solid black
+    border: 4px solid black;
+    color: black;
 }
 
 .content .primera-columna .contenedor-candidatos:hover {
@@ -174,7 +200,7 @@
     background-color: #FFD966;
     border: none;
     border-radius: 15px;
-    padding: 0.7% 1.5%;
+    padding: 10px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
 }
@@ -345,7 +371,7 @@
     grid-area: footer;
     background-color: #FFD966;
     height: 100%;
-    border-top: 5px solid white;
+    border-top: 4px solid white;
 }
 
 .footer:hover{
