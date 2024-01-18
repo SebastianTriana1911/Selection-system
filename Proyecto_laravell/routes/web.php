@@ -103,11 +103,13 @@ Route::put('empresa/update/{id}', [EmpresaController::class, 'update'])->name('e
 Route::delete('empresa/destroy/{id}', [EmpresaController::class, 'destroy'])->name('empresa.destroy');
 // ----------------------------------------------------------------------------------------------
 
+
 // --------------------- RUTAS PARA EL CONTROLADOR DE CONTRASEÑA NUEVA --------------------------
 Route::get('restablecer/create', [RestablecerController::class, 'create'])->name('restablecer.create')->middleware('guest');
 Route::post('restablecer/store', [RestablecerController::class, 'store'])->name('restablecer.store');
 Route::get('restablecer/enviar/{id}/{token}', [RestablecerController::class, 'enviar'])->name('restablecer.enviar');
 // ----------------------------------------------------------------------------------------------
+
 
 // --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
 Route::get('ocupacion/create', [OcupacionController::class, 'create'])->name('ocupacion.create')->middleware('auth');
@@ -117,6 +119,7 @@ Route::put('ocupacion/update/{id}', [OcupacionController::class, 'update'])->nam
 Route::delete('ocupacion/destroy/{id}', [OcupacionController::class, 'destroy'])->name('ocupacion.destroy');
 // ---------------------------------------------------------------------------------------------------
 
+
 // --------------------------- RUTAS DEL CONTROLADOR FUNCIONES ---------------------------------------
 Route::get('funcion/create/{id}', [FuncionController::class, 'create'])->name('funcion.create')->middleware('auth');
 Route::post('funcion/store/{id}', [FuncionController::class, 'store'])->name('funcion.store');
@@ -124,6 +127,7 @@ Route::get('funcion/edit/{ocupacion}/{id}', [FuncionController::class, 'edit'])-
 Route::put('funcion/update/{id}', [FuncionController::class, 'update'])->name('funcion.update');
 Route::delete('funcion/destroy/{id}', [FuncionController::class, 'destroy'])->name('funcion.destroy');
 // ---------------------------------------------------------------------------------------------------
+
 
 // --------------------------- RUTAS DEL CONTROLADOR CARGOS ----------------------------------------
 Route::get('cargo/create/{id}', [CargoController::class, 'create'])->name('cargo.create')->middleware('auth');

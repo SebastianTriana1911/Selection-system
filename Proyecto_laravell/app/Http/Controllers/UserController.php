@@ -66,8 +66,8 @@ class UserController extends Controller{
         $usuario = User::find($id);
 
         if ($usuario->role_id == 1) {
-            $candidato = SuperUsuario::where('user_id',  $usuario->id)->first();
-            $candidato->delete();
+            $administrador = SuperUsuario::where('user_id',  $usuario->id)->first();
+            $administrador->delete();
 
             if ($request->menu == 2) {
                 $usuario->role_id = $request->menu;
@@ -106,7 +106,7 @@ class UserController extends Controller{
                 $reclutador->user_id = $usuario->id;
 
                 $reclutador->save();
-                return redirect()->route('super.index');
+                return redirect()->back();
             }
         }
 
@@ -199,6 +199,21 @@ class UserController extends Controller{
 
                 $reclutador->save();
                 return redirect()->route('super.index');
+            }
+        }
+
+        if ($usuario->role_id == 5){
+            $reclutador = Reclutador::where('user_id', $usuario->id)->first();
+            $reclutador->delete();
+
+            if($request->menu == 1){
+                $usuario->role_id = $request->menu;
+                $usuario->save();
+
+                $administrador = new SuperUsuario();
+                $administrador->user_id = $usuario->id;
+                $administrador->save();
+                return redirect()->back();
             }
         }
     }

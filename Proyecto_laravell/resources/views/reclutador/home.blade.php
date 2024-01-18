@@ -34,6 +34,8 @@
 
             <article class="segundo-contenedor">
                 
+                <a class="boton-a" href="{{route('restaurar.create')}}">Cambiar contraseña</a>
+
                 <form action="{{route('reclutador.desvincular', ['id' => $empresaId])}}" method="POST">
                     @csrf
                     <button class="boton">Desvincularme</button>

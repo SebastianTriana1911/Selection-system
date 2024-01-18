@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFunciones;
+use App\Http\Requests\UpdateFunciones;
 use App\Models\Funcion;
 use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
 class FuncionController extends Controller{
-    public function index(){
-        
-    }
-
     public function create($id){
         $ocupaciones = Ocupacion::find($id);
         $funciones = Funcion::all();
@@ -19,19 +17,14 @@ class FuncionController extends Controller{
         'funciones' => $funciones]);
     }
 
-    public function store(Request $request, $id){
+    public function store(StoreFunciones $request, $id){
         $ocupacion = Ocupacion::find($id);
         $funcion = new Funcion();
         $funcion -> funcion = $request -> funcion;
         $funcion -> ocupacion_id = $ocupacion -> id;
-
         $funcion -> save();
 
         return redirect()->back();
-    }
-
-    public function show(string $id){
-        
     }
 
     public function edit($ocupacion, $id){
@@ -40,7 +33,7 @@ class FuncionController extends Controller{
         return view('funcion.edit', ['funcion' => $funcion, 'ocupacion' => $ocupacion]);
     }
 
-    public function update(Request $request, string $id){
+    public function update(UpdateFunciones $request, string $id){
         $funcion = Funcion::find($id);
         $funcion -> funcion = $request -> funcion;
 

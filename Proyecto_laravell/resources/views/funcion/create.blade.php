@@ -47,6 +47,9 @@
                         <article class="funcion">
                             <h1>Funcion de la ocupacion</h1>
                             <input class="input" type="text" name="funcion" placeholder="" value="{{ old('funcion')}}" />
+                            @error('funcion')
+                                <strong class="mensaje">{{$message}}</strong>
+                            @enderror
                         </article>
                         <!---------------------------------------------------------->
                     </section>

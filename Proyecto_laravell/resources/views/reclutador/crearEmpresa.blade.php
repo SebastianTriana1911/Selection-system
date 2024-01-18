@@ -1,6 +1,7 @@
 <!-- VISTA PARA CREAR UNA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/reclutador/crearEmpresa.css') }}">
     <title>Reclutador Create empresa</title>
 </head>
+
 <body>
     <main class="page">
 
@@ -33,41 +35,43 @@
                 <h1 class="linea"></h1>
             </article>
 
-            <form class="contenedor-hoja-vida" action="{{route('empresa.store')}}" method="POST">
+            <form class="contenedor-hoja-vida" action="{{ route('empresa.store') }}" method="POST">
                 @csrf
                 <section class="primera-linea">
-                    
+
                     <section class="linea-1">
                         <!--------- Campo nombre de la tabla empresa -------->
                         <article class="contenedor-nit">
-                            <input class="input" type="text" name="nit" placeholder="Nit"value="{{ old('nit') }}" />
+                            <input class="input" type="text" name="nit"
+                                placeholder="Nit"value="{{ old('nit') }}" />
+                            @error('nit')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('nombre')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!-------------------------------------------------->
 
                         <!------ Campo num_documento de la tabla empresa --------->
                         <article class="contenedor-nombre">
-                            <input class="input" type="text" name="nombre"
-                                placeholder="Nombre" value="{{ old('nombre') }}" />
+                            <input class="input" type="text" name="nombre" placeholder="Nombre"
+                                value="{{ old('nombre') }}" />
+                            @error('nombre')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('nombre')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!------------------------------------------------------>
                     </section>
 
                     <section class="linea-2">
                         <!--------- Campo direccion de la tabla empresa -------->
                         <article class="contenedor-direccion">
-                            <input class="input" type="text" name="direccion" placeholder="Direccion" value="{{ old('direccion') }}" />
+                            <input class="input" type="text" name="direccion" placeholder="Direccion"
+                                value="{{ old('direccion') }}" />
+                            @error('direccion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('direccion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!---------------------------------------------------->
-                    
+
                         <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
                         <article class="contenedor-pais">
                             <select class="menu-pais">
@@ -97,19 +101,19 @@
                                     <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                                 @endforeach
                             </select>
+                            @error('municipio_id')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        @error('municipio_id')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
                         <!--------------------------------------------------------->
                     </section>
-                
 
-                <section class="contenedor-boton">
-                    <a  class="input-1" href="{{route('reclutador.index')}}">Atras</a>
-                    <input class="input-2" type="submit" value="Crear"/>
+
+                    <section class="contenedor-boton">
+                        <a class="input-1" href="{{ route('reclutador.index') }}">Atras</a>
+                        <input class="input-2" type="submit" value="Crear" />
+                    </section>
                 </section>
-            </section>
             </form>
         </section>
 
@@ -210,4 +214,5 @@
 
     </main>
 </body>
+
 </html>

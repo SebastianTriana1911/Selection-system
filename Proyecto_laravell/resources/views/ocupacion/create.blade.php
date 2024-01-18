@@ -43,6 +43,9 @@
                         <article class="Nombre">
                             <h1>Nombre de la ocupacion</h1>
                             <input class="input" type="text" name="nombre" placeholder="" value="{{ old('nombre')}}" />
+                            @error('nombre')
+                                <strong class="mensaje">{{$message}}</strong>
+                            @enderror
                         </article>
                         <!---------------------------------------------------------->
 
@@ -50,6 +53,9 @@
                         <article class="descripcion">
                             <h1>Descripcion</h1>
                             <textarea name="descripcion" rows="7"></textarea>
+                            @error('descripcion')
+                                <strong class="mensaje">{{$message}}</strong>
+                            @enderror
                         </article>
                         <!---------------------------------------------------------->
                     </section>

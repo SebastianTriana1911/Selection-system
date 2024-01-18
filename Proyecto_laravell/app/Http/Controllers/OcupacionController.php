@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOcupacion;
 use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class OcupacionController extends Controller{
         return view('ocupacion.create', ['ocupaciones' => $ocupaciones]);
     }
 
-    public function store(Request $request){
+    public function store(StoreOcupacion $request){
         $ocupacion = new Ocupacion();
 
         $ocupacion -> nombre = $request -> nombre;

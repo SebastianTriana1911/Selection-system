@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmpresa;
 use App\Models\Pais;
 use App\Models\Role;
 use App\Models\Empresa;
@@ -28,7 +29,7 @@ class EmpresaController extends Controller{
     }
 
     // ---------------------- METODO STORE -------------------------
-    public function store(Request $request){
+    public function store(StoreEmpresa $request){
         // Al llamar el metodo store significa que se creara un
         // nuevo regitro de la tabla empresas, como la empresa 
         // la crea un reclutador y esta esta asociada a este,
