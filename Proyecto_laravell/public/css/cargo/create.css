@@ -161,14 +161,13 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo .input{
     width: 75%;
     height: 40%;
-    padding: 1.5%;
+    padding: 0.3%;
     padding-left: 6%;
     padding-right: 6%;
     border-radius: 7px;
     font-weight: bolder;
     border: none;
     box-shadow: 0 0 4px black;
-    margin-bottom: 12%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo .input:hover{
@@ -405,7 +404,6 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 100%;
     margin-top: 3%;
     padding: 2%;
     background-color: white;

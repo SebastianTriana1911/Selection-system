@@ -1,6 +1,7 @@
 <!-- VISTA PARA CREAR Y VER LOS CARGOS -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/cargo/create.css') }}">
     <title>Create cargos</title>
 </head>
+
 <body>
     <main class="page">
 
@@ -35,7 +37,7 @@
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{route('cargo.store')}}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{ route('cargo.store') }}" method="POST">
                     @csrf
 
                     <section class="primera-linea">
@@ -43,18 +45,25 @@
                             <!--------- Campo nombre de la tabla cargos ----------->
                             <article class="cargo">
                                 <h1 class="titulo">Nombre del cargo</h1>
-                                <input class="input" type="text" name="cargo" placeholder="" value="{{ old('cargo')}}" />
+                                <input class="input" type="text" name="cargo" value="{{ old('cargo') }}" />
+                                @error('cargo')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
                             </article>
 
                             <section class="contenedor-select">
                                 <h1 class="titulo">Ocupaciones</h1>
-                                    <select class="ocupacion_id" name="ocupacion_id">
-                                        @forelse($ocupaciones as $ocupacion)
-                                            <option class="input" value="{{$ocupacion -> id}}">{{$ocupacion -> nombre }}</option>
-                                        @empty
-                                            <h1>No hay ocupaciones</h1>
+                                <select class="ocupacion_id" name="ocupacion_id">
+                                    @forelse($ocupaciones as $ocupacion)
+                                        <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
+                                        </option>
+                                    @empty
+                                        <h1>No hay ocupaciones</h1>
                                     @endforelse
-                                    </select>
+                                    @error('ocupacion_id')
+                                        <strong class="mensaje">{{$message}}</strong>
+                                    @enderror
+                                </select>
                             </section>
                             <!---------------------------------------------------------->
                         </section>
@@ -63,23 +72,29 @@
                             <!------ Campo descripcion de la tabla cargos --------->
                             <article class="descripcion">
                                 <h1 class="titulo">Habilidades</h1>
-                                <textarea name="habilidad" rows="1"></textarea>
+                                <textarea name="habilidad" rows="1">{{old('habilidad')}}</textarea>
+                                @error('habilidad')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror
                             </article>
                             <!---------------------------------------------------------->
 
                             <!------ Campo descripcion de la tabla cargos --------->
                             <article class="descripcion-1">
                                 <h1 class="titulo">Competencias</h1>
-                                <textarea name="competencia" rows="2"></textarea>
+                                <textarea name="competencia" rows="2">{{old('competencia')}}</textarea>
+                                @error('competencia')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror   
                             </article>
                             <!---------------------------------------------------------->
                         </section>
                     </section>
 
-                    <input type="number" name="empresa_id" value="{{$empresa -> id}}" hidden>
+                    <input type="number" name="empresa_id" value="{{ $empresa->id }}" hidden>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{route('reclutador.index')}}">Volver</a>
+                        <a class="input-1" href="{{ route('reclutador.index') }}">Volver</a>
                         <input class="input-2" type="submit" value="Crear">
                     </section>
                 </form>
@@ -95,21 +110,21 @@
                     @forelse($cargos as $cargo)
                         <article class="ocupacion">
                             <article class="parte-1">
-                                <i class="fa-solid fa-plus"  style="color: black"></i>
-                                <a href="{{route('cargo.show', ['id' => $cargo -> id])}}">{{$cargo -> cargo}}</a>
+                                <i class="fa-solid fa-plus" style="color: black"></i>
+                                <a href="{{ route('cargo.show', ['id' => $cargo->id]) }}">{{ $cargo->cargo }}</a>
                             </article>
 
                             <article class="parte-2">
-                                <form action="{{route('cargo.destroy', ['id' => $cargo -> id])}}" method="POST">
+                                <form action="{{ route('cargo.destroy', ['id' => $cargo->id]) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>        
+                                        <i class="fa-solid fa-trash" style="color: black"></i>
                                     </button>
                                 </form>
                             </article>
                         </article>
-                        @empty
+                    @empty
                         <h1 class="empty">No hay cargos creados</h1>
                     @endforelse
                 </section>
@@ -214,4 +229,5 @@
 
     </main>
 </body>
+
 </html>

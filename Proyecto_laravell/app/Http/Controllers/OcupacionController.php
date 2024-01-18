@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOcupacion;
+use App\Http\Requests\UpdateOcupacion;
 use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class OcupacionController extends Controller{
         return view('ocupacion.show', ['ocupacion' => $ocupacion, 'funciones' => $funciones]);
     }
 
-    public function update(Request $request, string $id){
+    public function update(UpdateOcupacion $request, string $id){
         $ocupacion = Ocupacion::find($id);
         $ocupacion->update($request->all());
         

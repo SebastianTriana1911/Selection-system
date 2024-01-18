@@ -44,6 +44,9 @@
                         <article class="Nombre">
                             <h1>Nombre de la ocupacion</h1>
                             <input class="input" type="text" name="nombre" placeholder="" value="{{ old('nombre', $ocupacion -> nombre)}}" />
+                            @error('nombre')
+                                <strong class="mensaje">{{$message}}</strong>
+                            @enderror
                         </article>
                         <!---------------------------------------------------------->
 

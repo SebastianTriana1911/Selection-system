@@ -36,7 +36,6 @@ class FuncionController extends Controller{
     public function update(UpdateFunciones $request, string $id){
         $funcion = Funcion::find($id);
         $funcion -> funcion = $request -> funcion;
-
         $funcion -> save();
 
         return redirect()->back();

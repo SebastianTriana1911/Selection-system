@@ -6,6 +6,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCargo;
+use App\Http\Requests\UpdateCargo;
 use App\Models\Cargo;
 use App\Models\Empresa;
 use App\Models\Ocupacion;
@@ -25,7 +27,7 @@ class CargoController extends Controller{
 
 
     // --------------------- STORE ------------------------
-    public function store(Request $request){
+    public function store(StoreCargo $request){
         $cargo = new Cargo();
 
         $cargo -> cargo = $request -> cargo;
@@ -52,7 +54,7 @@ class CargoController extends Controller{
 
 
     // -------------------- UPDATE -------------------------
-    public function update(Request $request, string $id){
+    public function update(UpdateCargo $request, string $id){
         $cargo = Cargo::find($id);
 
         $cargo -> cargo = $request -> cargo;

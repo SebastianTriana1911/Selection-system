@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('cargos', function (Blueprint $table) {
             $table->id();
             $table->string('cargo');
-            $table->text('habilidad');
-            $table->text('competencia');
+            $table->text('habilidad')->nullable();
+            $table->text('competencia')->nullable();
             $table->foreignId('ocupacion_id')->references('id')->on('ocupaciones')->onDelete('cascade');
             $table->foreignId('empresa_id')->references('id')->on('empresas')->onDelete('cascade');
             $table->timestamps();

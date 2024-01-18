@@ -375,7 +375,6 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 100%;
     margin-top: 3%;
     padding: 2%;
     background-color: white;
