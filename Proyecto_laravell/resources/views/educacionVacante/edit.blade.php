@@ -37,7 +37,9 @@
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{ route('eduvacante.update', ['educacion' => $educacion ->id, 'vacante' => $vacante -> id]) }}" method="POST">
+                <form class="contenedor-hoja-vida"
+                    action="{{ route('eduvacante.update', ['educacion' => $educacion->id, 'vacante' => $vacante->id]) }}"
+                    method="POST">
                     @csrf
                     @method('put')
 
@@ -60,27 +62,34 @@
 
                             <article class="puntos">
                                 <h1>Puntos</h1>
-                                <input class="input" type="number" name="puntos" value="{{old('puntos', $educacion -> puntos)}}">
+                                <input class="input" type="number" name="puntos"
+                                    value="{{ old('puntos', $educacion->puntos) }}">
+                                @error('puntos')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
                             </article>
                         </article>
-                        @error('puntos')
-                            <strong class="mensaje">{{$message}}</strong>
-                        @enderror
-                        
+
+
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="4">{{old('descripcion', $educacion -> descripcion)}}</textarea>
+                            @if ($educacion->descripcion == null)
+                                <textarea name="descripcion" rows="4" placeholder="Esta educacion no tiene descripcion">{{ old('descripcion', $educacion->descripcion) }}</textarea>
+                            @else
+                                <textarea name="descripcion" rows="4">{{ old('descripcion', $educacion->descripcion) }}</textarea>
+                            @endif
+                            @error('descripcion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        @error('descripcion')
-                            <strong class="mensaje">{{$message}}</strong>
-                        @enderror
-                        
-                        <input type="text" name="vacante_id" value="{{$vacante -> id}}" hidden>
-                        
+
+                        <input type="text" name="vacante_id" value="{{ $vacante->id }}" hidden>
+
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{ route('eduvacante.create', ['vacante' => $vacante -> id, 'empresa' => $empresa -> id]) }}">Volver</a>
+                        <a class="input-1"
+                            href="{{ route('eduvacante.create', ['vacante' => $vacante->id, 'empresa' => $empresa->id]) }}">Volver</a>
                         <input class="input-2" type="submit" value="Actualizar">
                     </section>
                 </form>
@@ -97,19 +106,23 @@
                         <article class="primera-linea">
                             <article class="nivel">
                                 <h1 class="titulo">Nivel de educacion</h1>
-                                <p>{{$educacion -> nivel_estudio}}</p>
+                                <p>{{ $educacion->nivel_estudio }}</p>
                             </article>
 
                             <article class="puntos">
                                 <h1 class="titulo">Puntos</h1>
-                                <p>{{$educacion -> puntos}}</p>
+                                <p>{{ $educacion->puntos }}</p>
                             </article>
                         </article>
 
                         <article class="segunda-linea">
                             <article class="descripcion">
                                 <h1 class="titulo">Descripcion de la educacion</h1>
-                                <p>{{$educacion -> descripcion}}</p>
+                                @if ($educacion->descripcion == null)
+                                    <p>Esta educacion no tiene una descripcion</p>
+                                @else
+                                    <p>{{ $educacion->descripcion }}</p>
+                                @endif
                             </article>
                         </article>
                     </article>

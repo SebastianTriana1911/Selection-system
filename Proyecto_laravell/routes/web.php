@@ -143,7 +143,7 @@ Route::delete('cargo/destroy/{id}', [CargoController::class, 'destroy'])->name('
 Route::get('vacante.index/{id}', [VacanteController::class, 'index'])->name('vacante.index')->middleware('auth');
 Route::get('vacante.create/{id}', [VacanteController::class, 'create'])->name('vacante.create')->middleware('auth');
 Route::post('vacante.store', [VacanteController::class, 'store'])->name('vacante.store');
-Route::get('vacante/show/{id}/{empresa}', [VacanteController::class, 'show'])->name('vacante.show')->middleware();
+Route::get('vacante/show/{id}/{empresa}', [VacanteController::class, 'show'])->name('vacante.show')->middleware('auth');
 Route::post('vacante/buscar/{id}', [VacanteController::class, 'buscar'])->name('vacante.buscar');
 Route::get('vacante/edit/{id}/{empresa}', [VacanteController::class, 'edit'])->name('vacante.edit')->middleware('auth');
 Route::put('vacante/update/{id}/{empresa}', [VacanteController::class, 'update'])->name('vacante.update');

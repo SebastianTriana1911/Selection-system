@@ -211,7 +211,10 @@ class VacanteController extends Controller{
     // --------------------------------------------------------------
 
 
-    // ----------------------- METODO UPDATE ------------------------
+    // ----------------------- METODO DESTROY ------------------------
+    // Al llamar el metodo destroy se busca la vacante con el tipo de
+    // id correspondiente y al encontrar el registro este se eliminara
+    // gracias al metodo delete
     public function destroy(Vacante $id){
         $id -> delete();
         return redirect()->back();

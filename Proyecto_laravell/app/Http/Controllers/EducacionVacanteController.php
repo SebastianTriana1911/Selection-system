@@ -116,7 +116,7 @@ class EducacionVacanteController extends Controller{
         $educacion -> puntos = $request -> puntos;
         $educacion -> descripcion = $request -> descripcion;
         $educacion -> vacante_id = $vacante -> id;
-        $educacion -> update();
+        $educacion -> save();
 
         return redirect()->back();
     }

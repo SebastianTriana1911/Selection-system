@@ -17,7 +17,13 @@ class UpdateEducacionVacante extends FormRequest{
     public function rules(): array{
         return [
             'puntos' => 'required|min:0',
-            'descripcion' => 'required|string'
+        ];
+    }
+
+    public function messages(){
+        return [
+            'puntos.required' => 'Obligatorio',
+            'puntos.min' => 'Minimo 0',
         ];
     }
 }
