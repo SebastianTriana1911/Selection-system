@@ -69,7 +69,7 @@
 
                             <article class="contenedor-salario">
                                 <h1 class="titulo">Salario: </h1>
-                                <p>{{ $vacante->salario }}</p>
+                                <p>${{ $vacante->salario }}</p>
                             </article>
 
                             <article class="contenedor-tipo-salario">
@@ -160,7 +160,7 @@
                     </article>
                 </article>
 
-                
+
                 <article class="datos-educacion">
                     <article class="encabezado">
                         <h1 class="titulo">Educacion requerida</h1>
@@ -168,21 +168,29 @@
                     </article>
 
                     @forelse($educaciones as $educacion)
-                            <article class="informacion-educacion">
+                        <article class="informacion-educacion">
 
-                                <article class="nivel">
-                                    <h1 class="titulo">Nivel de estudio: </h1>
-                                    <p>{{$educacion -> nivel_estudio}}</p>
-                                </article>
+                            <article class="nivel">
+                                <h1 class="titulo">Nivel de estudio: </h1>
+                                <p>{{ $educacion->nivel_estudio }}</p>
+                            </article>
 
+                            @if ($educacion->descripcion == null)
                                 <article class="descripcion">
                                     <h1 class="titulo">Descripcion: </h1>
-                                    <p>{{$educacion -> descripcion}}</p>
+                                    <p>Esta educacion no contiene descripcion</p>
                                 </article>
+                            @else
+                                <article class="descripcion">
+                                    <h1 class="titulo">Descripcion: </h1>
+                                    <p>{{$educacion->descripcion}}</p>
+                                </article>
+                            @endif
 
-                            </article>
-                        @empty
-                            <h1 class="empty">No hay educacion requerida para esta vacante</h1>
+
+                        </article>
+                    @empty
+                        <h1 class="empty">No hay educacion requerida para esta vacante</h1>
                     @endforelse
                 </article>
 
@@ -205,7 +213,7 @@
                 </article>
 
                 <article class="contenedor-boton">
-                    <a class="boton" href="{{route('vacante.index', ['id' => $empresa -> id])}}">Volver</a>
+                    <a class="boton" href="{{ route('vacante.index', ['id' => $empresa->id]) }}">Volver</a>
                 </article>
             </article>
 

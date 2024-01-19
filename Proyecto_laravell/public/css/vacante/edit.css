@@ -6,6 +6,11 @@
     padding: 0px;
 }
 
+.mensaje{
+    color: red;
+    font-size: 12pt;
+}
+
 .page {
     display: grid;
     height: 100%;
@@ -157,6 +162,10 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
 }
 
+.formulario .contenedor-datos .grid-1 .contenedor-codigo{
+    margin-bottom: 6%;
+}
+
 .formulario .contenedor-datos .grid-1 .contenedor-codigo .titulo{
     font-size: 13pt;
 }
@@ -173,12 +182,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 6px;
     border: none;
     margin-top: 2%;
-    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-codigo .input:hover {
     box-shadow: 0 0 10px black;
     transition: 0.5s;
+}
+
+.formulario .contenedor-datos .grid-1 .contenedor-num_vacante{
+    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-num_vacante .titulo{
@@ -197,12 +209,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 6px;
     border: none;
     margin-top: 2%;
-    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-num_vacante .input:hover {
     box-shadow: 0 0 10px black;
     transition: 0.5s;
+}
+
+.formulario .contenedor-datos .grid-1 .contenedor-meses_experiencia{
+    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-meses_experiencia .titulo{
@@ -221,12 +236,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 6px;
     border: none;
     margin-top: 2%;
-    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-meses_experiencia .input:hover {
     box-shadow: 0 0 10px black;
     transition: 0.5s;
+}
+
+.formulario .contenedor-datos .grid-1 .contenedor-salario{
+    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-salario .titulo{
@@ -245,7 +263,6 @@ body::-webkit-scrollbar-thumb{
     border-radius: 6px;
     border: none;
     margin-top: 2%;
-    margin-bottom: 6%;
 }
 
 .formulario .contenedor-datos .grid-1 .contenedor-salario .input:hover {

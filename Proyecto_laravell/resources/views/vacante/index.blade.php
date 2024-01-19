@@ -40,7 +40,8 @@
                 </article>
 
                 <article class="contenedor-input">
-                    <form class="buscar" action="{{route('vacante.buscar', ['id' => $empresa -> id])}}" method="POST">
+                    <form class="buscar" action="{{ route('vacante.buscar', ['id' => $empresa->id]) }}"
+                        method="POST">
                         @csrf
                         <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
                         <button class="boton">
@@ -61,71 +62,79 @@
                     @forelse($vacantes as $vacante)
                         <article class="informacion-vacante">
 
-                            
-                                <article class="grid-1">
-                                    <article class="contenedor-codigo">
-                                        <h1 class="titulo">{{ $vacante->codigo }}</h1>
-                                    </article>
+
+                            <article class="grid-1">
+                                <article class="contenedor-codigo">
+                                    <h1 class="titulo">{{ $vacante->codigo }}</h1>
                                 </article>
-
-                                <article class="grid-2">
-                                    
-                                        <article class="contenedor-cargo">
-                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
-                                        </article>
-
-                                    <article class="info">
-                                        <article class="contenedor-salario">
-                                            <h1 class="titulo">$ {{ $vacante->salario }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-experiencia">
-                                            <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
-                                            </h1>
-                                        </article>
-
-                                        <article class="contenedor-contrato">
-                                            <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-lugar">
-                                            <h1>{{ $vacante->municipio->nombre }}</h1>
-                                            <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-num-vac">
-                                            <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-postulados">
-                                            <h1 class="titulo"> Postulados 0</h1>
-                                        </article>
-
-                                    </article>
-                                </article>
-
-
-                                <article class="contenedor-botones">
-                                    <a href="{{route('vacante.show', ['id' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                                    <a href="{{route('vacante.edit', ['id' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-pencil" style="color: #000000;"></i></a>
-                                    <a href="{{route('eduvacante.create', ['vacante' => $vacante -> id, 'empresa' => $empresa -> id])}}"><i class="fa-solid fa-plus" style="color: #000000;"></i></a>
-                                    <form action="{{route('vacante.destroy', ['id' => $vacante -> id])}}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="boton">
-                                            <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                                        </button>
-                                    </form>
-                                </article>
-
                             </article>
+
+                            <article class="grid-2">
+
+                                <article class="contenedor-cargo">
+                                    <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
+                                </article>
+
+                                <article class="info">
+                                    <article class="contenedor-salario">
+                                        <h1 class="titulo">$ {{ $vacante->salario }}</h1>
+                                    </article>
+
+                                    <article class="contenedor-experiencia">
+                                        <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
+                                        </h1>
+                                    </article>
+
+                                    <article class="contenedor-contrato">
+                                        <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
+                                    </article>
+
+                                    <article class="contenedor-lugar">
+                                        <h1>{{ $vacante->municipio->nombre }}</h1>
+                                        <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
+                                    </article>
+
+                                    <article class="contenedor-num-vac">
+                                        <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
+                                    </article>
+
+                                    <article class="contenedor-postulados">
+                                        <h1 class="titulo"> Postulados 0</h1>
+                                    </article>
+
+                                </article>
+                            </article>
+
+
+                            <article class="contenedor-botones">
+                                <a
+                                    href="{{ route('vacante.show', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
+                                        class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                                <a
+                                    href="{{ route('vacante.edit', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
+                                        class="fa-solid fa-pencil" style="color: #000000;"></i></a>
+                                <a
+                                    href="{{ route('eduvacante.create', ['vacante' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
+                                        class="fa-solid fa-plus" style="color: #000000;"></i></a>
+                                <form action="{{ route('vacante.destroy', ['id' => $vacante->id]) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="boton">
+                                        <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                    </button>
+                                </form>
+                            </article>
+
+                        </article>
                     @empty
-                        <h1>No hay vacantes registradas</h1>
+                        <article class="contenedor-empty">
+                            <h1 class="empty">No hay vacantes registradas</h1>
+                        </article>
                     @endforelse
                 </article>
 
                 <article class="contenedor-volver">
-                    <a  class="a" href="{{route('reclutador.index')}}">Volver</a>
+                    <a class="a" href="{{ route('reclutador.index') }}">Volver</a>
                 </article>
             </article>
         </section>

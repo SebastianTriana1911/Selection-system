@@ -6,6 +6,21 @@
     padding: 0px;
 }
 
+.contenedor-empty{
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    width: 65%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px white;
+    background-color: white;
+}
+
+.empty{
+    font-size: 14pt;
+    color: black;
+}
+
 .page {
     display: grid;
     height: 100%;

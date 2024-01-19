@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('nivel_estudio',['Bachiller', 'Tecnico', 'Tecnologo',
             'Pregrado', 'Posgrado', 'Especializacion', 'Doctorado']);
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->bigInteger('puntos');
             $table->foreignId('vacante_id')->references('id')->on('vacantes')->onDelete('cascade');
             $table->timestamps();

@@ -35,7 +35,6 @@
 
             <form class="formulario" action="{{route('vacante.update', ['id' => $vacante -> id,
             'empresa' => $empresa -> id])}}" method="POST">
-
                 @csrf
                 @method('put')
                 
@@ -51,6 +50,9 @@
                                     <h1 class="titulo">Codigo</h1>
                                     <input id="" class="input" type="text" name="codigo" value="{{old('codigo', $vacante -> codigo)}}">
                                 </label>
+                                @error('codigo')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror
                             </article>
 
                             <article class="contenedor-num_vacante">
@@ -58,6 +60,9 @@
                                     <h1 class="titulo">Numero de vacantes</h1>
                                     <input class="input" type="text" name="num_vacante" value="{{old('num_vacante', $vacante -> num_vacante)}}">
                                 </label>
+                                @error('num_vacante')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror
                             </article>
 
                             <article class="contenedor-meses_experiencia">
@@ -65,6 +70,9 @@
                                     <h1 class="titulo">Meses de experiencia</h1>
                                     <input class="input" type="text" name="meses_experiencia" value="{{old('meses_experiencia', $vacante -> meses_experiencia)}}">
                                 </label>
+                                @error('meses_experiencia')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror
                             </article>
 
                             <article class="contenedor-salario">
@@ -72,6 +80,9 @@
                                     <h1 class="titulo">Salario</h1>
                                     <input class="input" type="text" name="salario" value="{{old('salario', $vacante -> salario)}}">
                                 </label>
+                                @error('salario')
+                                    <strong class="mensaje">{{$message}}</strong>
+                                @enderror
                             </article>
                         </article>
 

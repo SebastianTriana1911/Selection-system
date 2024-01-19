@@ -692,7 +692,7 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-boton {
     position: relative;
-    top: 6%;
+    top: 8%;
     display: flex;
     justify-content: center;
     width: 100%;

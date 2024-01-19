@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('codigo')->unique();
             $table->bigInteger('num_vacante');
-            $table->string('meses_experiencia');
+            $table->string('meses_experiencia')->nullable();
             $table->string('salario');
             $table->enum('tipo_salario',['Salario fijo',
             'Salario mixto', 'Salario en especie',
