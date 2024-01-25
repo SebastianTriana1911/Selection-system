@@ -16,7 +16,7 @@ class Reclutador extends Model{
     protected $guarded = [];
 
     public function empresa(): BelongsTo{
-        return $this -> belongsTo(Empresa::class, 'empresa_id', 'id');
+        return $this -> belongsTo(Empresa::class);
     }
 
     public function user(): BelongsTo{

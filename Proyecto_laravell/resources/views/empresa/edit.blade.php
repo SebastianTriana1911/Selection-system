@@ -1,6 +1,7 @@
 <!-- VISTA PARA ACTUALIZAR DATOS DE LA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/empresa/edit.css') }}">
     <title>Update empresa</title>
 </head>
+
 <body>
     <main class="page">
 
@@ -29,47 +31,50 @@
         <section class="contenedor-content">
 
             <article class="contenedor-titulo">
-                <h1 class="titulo-principal">Actualizar datos de la empresa {{$empresa -> nombre}}</h1>
+                <h1 class="titulo-principal">Actualizar datos de la empresa {{ $empresa->nombre }}</h1>
                 <h1 class="linea"></h1>
             </article>
 
-            <form class="contenedor-hoja-vida" action="{{route('empresa.update', ['id' => $empresa -> id])}}" method="POST">
+            <form class="contenedor-hoja-vida" action="{{ route('empresa.update', ['id' => $empresa->id]) }}"
+                method="POST">
                 @csrf
 
                 @method('put')
                 <section class="primera-linea">
-                    
+
                     <section class="linea-1">
                         <!--------- Campo nombre de la tabla empresa -------->
                         <article class="contenedor-nit">
-                            <input class="input" type="text" name="nit" placeholder="Nit" value="{{ old('nit', $empresa->nit)}}" />
+                            <input class="input" type="text" name="nit"
+                                placeholder="Nit"value="{{ old('nit', $empresa->nit) }}" />
+                            @error('nit')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('nombre')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!-------------------------------------------------->
 
                         <!------ Campo num_documento de la tabla empresa --------->
                         <article class="contenedor-nombre">
-                            <input class="input" type="text" name="nombre"
-                                placeholder="Nombre" value="{{ old('nombre', $empresa->nombre) }}" />
+                            <input class="input" type="text" name="nombre" placeholder="Nombre"
+                                value="{{ old('nombre', $empresa->nombre) }}" />
+                            @error('nombre')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('nombre')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!------------------------------------------------------>
                     </section>
 
                     <section class="linea-2">
                         <!--------- Campo direccion de la tabla empresa -------->
                         <article class="contenedor-direccion">
-                            <input class="input" type="text" name="direccion" placeholder="Direccion" value="{{ old('direccion', $empresa->direccion) }}" />
+                            <input class="input" type="text" name="direccion" placeholder="Direccion"
+                                value="{{ old('direccion', $empresa->direccion) }}" />
+                            @error('direccion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        {{-- @error('direccion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror --}}
                         <!---------------------------------------------------->
-                    
+
                         <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
                         <article class="contenedor-pais">
                             <select class="menu-pais">
@@ -94,24 +99,24 @@
 
                         <!--------- Campo municipio_id de la tabla users -------->
                         <article class="contenedor-municipio">
-                            <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id', $empresa->municipio->nombre) }}">
+                            <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id') }}">
                                 @foreach ($municipios as $municipio)
                                     <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                                 @endforeach
                             </select>
+                            @error('municipio_id')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        @error('municipio_id')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
                         <!--------------------------------------------------------->
                     </section>
-                
 
-                <section class="contenedor-boton">
-                    <a  class="input-1" href="{{route('empresa.show', ['id' => $empresa -> id])}}">Atras</a>
-                    <input class="input-2" type="submit" value="Actualizar"/>
+
+                    <section class="contenedor-boton">
+                        <a class="input-1" href="{{ route('empresa.show', ['id' => $empresa->id]) }}">Atras</a>
+                        <input class="input-2" type="submit" value="Actualizar" />
+                    </section>
                 </section>
-            </section>
             </form>
         </section>
 
@@ -212,4 +217,5 @@
 
     </main>
 </body>
+
 </html>

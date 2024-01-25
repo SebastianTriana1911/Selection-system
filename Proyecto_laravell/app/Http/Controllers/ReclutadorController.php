@@ -134,10 +134,14 @@ class ReclutadorController extends Controller{
     public function buscar(Request $request){
         $busqueda = $request -> busqueda;
         $contador = 0;
-        
-        $resultado = Reclutador::whereHas('empresa', function ($query) use ($busqueda){
-            $query->where('nombre', 'like', '%'.$busqueda.'%');
-        })->get();
+
+        // Se realiza una busqueda entre todos los campos del modelo Empresa,
+        // se filtra por el nombre con el metodo where y como se desea hacer
+        // otra filtracion con el campo nit se hace con el metodo orWhere
+        $resultado = Empresa::where('nombre', 'like', '%'.$busqueda.'%')
+            ->orWhere('nit', 'like', '%'.$busqueda.'%')
+            ->get();
+
         $encontrado = $resultado -> isNotEmpty();
 
         if ($encontrado == 0){

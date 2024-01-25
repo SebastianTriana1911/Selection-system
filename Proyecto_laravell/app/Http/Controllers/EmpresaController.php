@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEmpresa;
 use App\Models\Pais;
 use App\Models\Role;
 use App\Models\Empresa;
@@ -10,6 +9,8 @@ use App\Models\Municipio;
 use App\Models\Reclutador;
 use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Http\Requests\StoreEmpresa;
 use Illuminate\Support\Facades\Auth;
 
 class EmpresaController extends Controller{
@@ -128,6 +129,21 @@ class EmpresaController extends Controller{
     // por el metodo update actualizarlos en la base de datos
     public function update(Request $request, string $id){
         $empresa = Empresa::find($id);
+        $request->validate([
+            'nit' => [
+                'required',
+                Rule::unique('empresas')->ignore($empresa->id),
+            ],
+            'nombre' => 'required',
+            'direccion' => 'required',
+            'municipio_id' => 'required'
+        ], [
+            'nit.required' => 'Obligatorio',
+            'nit.unique' => 'Ya existe',
+            'nombre.required' => 'Obligatorio',
+            'direccion.required' => 'Obligatorio',
+            'minicipio_id.required' => 'Obligatorio'
+        ]);
         $empresa->update($request->all());
 
         return redirect()->route('empresa.show', $empresa -> id);

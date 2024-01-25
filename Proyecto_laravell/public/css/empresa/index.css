@@ -6,6 +6,24 @@
     padding: 0px;
 }
 
+.empty{
+    width: 60%;
+    height: 25%;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    box-shadow: 0 0 15px white;
+    display: flex;
+    justify-content: center;
+}
+
+.empty-titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14pt;
+}
+
 .page {
     display: grid;
     height: 100%;
@@ -172,9 +190,11 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     gap: 10%;
     width: 45%;
-    height: 80%;
+    height: 400px;
     padding-top: 1%;
     padding-bottom: 1%;
+    position: relative;
+    top: -4%;
     overflow-y: auto;
 }
 
@@ -266,7 +286,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     width: 100%;
     height: 40px;
-    margin-top: 2%;
+    margin-top: 0.5%;
 }
 
 .contenedor-volver .a{

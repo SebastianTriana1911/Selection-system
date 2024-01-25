@@ -16,7 +16,7 @@ class StoreEmpresa extends FormRequest{
      */
     public function rules(): array{
         return [
-            'nit' => 'required|unique:empresas',
+            'nit' => 'required|unique:empresas,nit',
             'nombre' => 'required',
             'direccion' => 'required',
             'municipio_id' => 'required'

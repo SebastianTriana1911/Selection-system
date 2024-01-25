@@ -545,7 +545,7 @@ body::-webkit-scrollbar-thumb{
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
-    height: 10%;
+    height: 20%;
     border-radius: 13px 13px 13px 13px;
     border: 3px solid white;
     box-shadow: 0 0 10px white;
@@ -630,7 +630,7 @@ body::-webkit-scrollbar-thumb{
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
-    height: 10%;
+    height: 20%;
     border-radius: 13px 13px 13px 13px;
     border: 3px solid white;
     box-shadow: 0 0 10px white;

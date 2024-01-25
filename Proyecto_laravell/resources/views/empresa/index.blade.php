@@ -97,17 +97,19 @@
                             </article>
 
                         </article>
-                
-            @empty
-                <h1>No hay empresas registradas registradas</h1>
-                @endforelse
+
+                    @empty
+                        <article class="empty">
+                            <h1 class="empty-titulo">No hay empresas registradas registradas</h1>
+                        </article>
+                    @endforelse
+                </article>
+
+                <article class="contenedor-volver">
+                    <a class="a" href="{{ route('reclutador.index') }}">Volver</a>
+                </article>
+
             </article>
-            
-            <article class="contenedor-volver">
-                <a class="a" href="{{ route('reclutador.index') }}">Volver</a>
-            </article>
-            
-        </article>
 
         </section>
 

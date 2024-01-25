@@ -187,7 +187,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     gap: 10%;
     width: 45%;
-    height: 80%;
+    height: 400px;
     padding-top: 1%;
     padding-bottom: 1%;
     overflow-y: auto;

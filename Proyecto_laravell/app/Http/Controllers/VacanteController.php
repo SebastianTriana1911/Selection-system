@@ -116,7 +116,9 @@ class VacanteController extends Controller{
 
             // Se busca la coincidencia que tiene todos los cargos con la
             // busqueda que nosotros realizamos
-            $query->where('cargo', 'like', '%'.$busqueda.'%');
+            $query->where('cargo', 'like', '%'.$busqueda.'%')
+            
+            ->orWhere('codigo', 'like', '%'.$busqueda.'%');
         })->get();
         $encontrado = $resultado -> isNotEmpty();
 

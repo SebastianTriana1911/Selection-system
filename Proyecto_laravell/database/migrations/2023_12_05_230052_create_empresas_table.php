@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
-            $table->string('nit');
+            $table->string('nit')->unique();
             $table->string('nombre');
             $table->string('direccion');            
             $table->foreignId('municipio_id')->references('id')->on('municipios')->onDelete('cascade');

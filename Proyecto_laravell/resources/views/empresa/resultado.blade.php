@@ -64,24 +64,24 @@
 
                             <article class="grid-1">
                                 <article class="contenedor-codigo">
-                                    <h1 class="titulo">{{ $result->empresa->nit }}</h1>
+                                    <h1 class="titulo">{{ $result->nit }}</h1>
                                 </article>
                             </article>
 
                             <article class="grid-2">
 
                                 <article class="contenedor-cargo">
-                                    <h1 class="titulo">{{ $result->empresa->nombre }}</h1>
+                                    <h1 class="titulo">{{ $result->nombre }}</h1>
                                 </article>
 
                                 <article class="info">
                                     <article class="contenedor-salario">
-                                        <h1 class="titulo">{{ $result->empresa->direccion }}</h1>
+                                        <h1 class="titulo">{{ $result->direccion }}</h1>
                                     </article>
 
                                     <article class="contenedor-lugar">
-                                        <h1>{{ $result->empresa->municipio->nombre }}</h1>
-                                        <h1>{{ $result->empresa->municipio->departamento->pais->nombre }}</h1>
+                                        <h1>{{ $result->municipio->nombre }}</h1>
+                                        <h1>{{ $result->municipio->departamento->pais->nombre }}</h1>
                                     </article>
 
                                     <form class="contenedor-boton"
