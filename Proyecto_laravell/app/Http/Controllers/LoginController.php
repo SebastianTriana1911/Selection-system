@@ -49,9 +49,9 @@ class LoginController extends Controller{
             return redirect()->route('super.index');
         }
         // Role_id == 2 = Candidato
-        // else if($user -> role_id ==2){
-        //     return redirect()->route('candidato.home');
-        // }
+        else if($user -> role_id ==2){
+            return redirect()->route('candidato.index');
+        }
         // Role_id == 3 = Instructor
         // else if($user -> role_id ==3){
         //     return redirect()->route('instructor.home');

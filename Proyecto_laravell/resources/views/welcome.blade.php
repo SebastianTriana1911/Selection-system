@@ -25,7 +25,6 @@
 
                     <article class="botones">
                         <a class="registrarse" href="{{route('login')}}">Registrarse</a>
-                        <a class="inspeccionar" href="#">Inspeccionar</a>
                         <a class="inspeccionar" href="{{route('user.create')}}"">Crear Usuario</a>
                     </article>
 

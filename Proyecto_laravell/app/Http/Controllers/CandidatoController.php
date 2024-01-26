@@ -6,11 +6,22 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Candidato;
+use App\Models\Profesion;
+use App\Models\Postulacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreCandidato;
 
 class CandidatoController extends Controller{
+    public function index(){
+        $user = Auth::user();
+        $candidato =  $user->candidato;
+        $postulaciones = $candidato->postulacion;
+
+        return view('candidato.index', ['candidato' => $candidato, 'postulaciones' => $postulaciones]);
+    }
+
     // -------------------- METODO STORE ------------------------
     public function store(StoreCandidato $request){
         // Al llamar el metodo store se instanciara un objeto de

@@ -5,8 +5,10 @@ namespace App\Models;
 use App\Models\Cargo;
 use App\Models\Empresa;
 use App\Models\Municipio;
+use App\Models\Postulacion;
 use App\Models\EducacionVacante;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -27,5 +29,9 @@ class Vacante extends Model{
 
     public function educacionVacante(){
         return $this -> hasMany(EducacionVacante::class, 'vacante_id', 'id');
+    }
+
+    public function postulacion(): HasMany{
+        return $this -> hasMany(Postulacion::class);
     }
 }

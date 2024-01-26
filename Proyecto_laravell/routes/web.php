@@ -67,6 +67,12 @@ Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashbo
 // ----------------------------------------------------------------------------------------------
 
 
+// ------------------------------ RUTAS DEL CONTROLADOR CANDIDATOS ------------------------------
+Route::get('candidato/index', [CandidatoController::class, 'index'])->name('candidato.index')->middleware('auth');
+
+// ----------------------------------------------------------------------------------------------
+
+
 // --------------------------- RUTAS DEL CONTROLADOR INSTRUCTORES ------------------------------
 Route::get('instructor/create', [InstructorController::class, 'create'])->name('instructor.create')->middleware('auth');
 Route::post('instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
