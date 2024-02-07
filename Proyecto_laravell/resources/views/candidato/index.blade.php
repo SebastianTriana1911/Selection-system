@@ -104,7 +104,7 @@
                             </article>
 
                             <article class="contenedor-boton">
-                                <a href="">Crear</a>
+                                <a href="{{route('educacionCandidato.index', ['id' => $candidato->id])}}">Crear</a>
                             </article>
                         </article>
 

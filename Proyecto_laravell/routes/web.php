@@ -21,6 +21,7 @@ use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\RestablecerController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\EducacionVacanteController;
+use App\Http\Controllers\CandidatoEducacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,12 @@ Route::get('candidato/hojavida/{id}', [CandidatoController::class, 'hojaVida'])-
 Route::get('candidato/edit/{id}', [CandidatoController::class, 'edit'])->name('candidato.edit')->middleware('auth');
 Route::put('candidato/update/{id}', [CandidatoController::class, 'update'])->name('candidato.update');
 Route::delete('candidato/destroy/{id}', [CandidatoController::class, 'destroy'])->name('candidato.destroy');
+// -----------------------------------------------------------------------------------------------
+
+
+// ------------------------- RUTAS DEL CONTROLADOR EDUCACION CANDIDATO ---------------------------
+Route::get('educacion/candidato/{id}', [CandidatoEducacionController::class, 'index'])->name('educacionCandidato.index')->middleware('auth');
+
 // -----------------------------------------------------------------------------------------------
 
 
