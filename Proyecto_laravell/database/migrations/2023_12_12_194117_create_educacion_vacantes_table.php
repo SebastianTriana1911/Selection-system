@@ -17,6 +17,7 @@ return new class extends Migration
             'Pregrado', 'Posgrado', 'Especializacion', 'Doctorado']);
             $table->text('descripcion')->nullable();
             $table->bigInteger('puntos');
+            $table->string('titulado');
             $table->foreignId('vacante_id')->references('id')->on('vacantes')->onDelete('cascade');
             $table->timestamps();
         });

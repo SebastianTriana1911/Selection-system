@@ -21,6 +21,7 @@ class StoreVacante extends FormRequest{
             'meses_experiencia' => 'min:1',
             'salario' => 'required',
             'puntos' => 'required|min:0',
+            'titulado' => 'required|min:5'
         ];
     }
 
@@ -36,6 +37,8 @@ class StoreVacante extends FormRequest{
             'salario.required' => 'Obligatorio',
             'puntos.required' => 'Obligatorio',
             'puntos.min' => 'Minimo 0',
+            'titulado.required' => 'Obligatorio',
+            'titulado.min' => 'Minimo 5'
         ];
     }
 }

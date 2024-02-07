@@ -278,6 +278,8 @@ class UserController extends Controller{
 
         if ($user->role_id == 1) {
             return redirect()->route('super.index');
+        }elseif($user->role_id == 2) {
+            return redirect()->route('candidato.index');
         }
     }
     // -------------------------------------------------------------------

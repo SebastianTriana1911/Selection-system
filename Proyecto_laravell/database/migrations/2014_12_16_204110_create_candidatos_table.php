@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('fecha_nacimiento')->nullable();
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
-            $table->string('perfil_ocupacional')->nullable();
+            $table->text('perfil_ocupacional')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

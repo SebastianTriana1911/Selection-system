@@ -170,23 +170,31 @@
                     @forelse($educaciones as $educacion)
                         <article class="informacion-educacion">
 
-                            <article class="nivel">
-                                <h1 class="titulo">Nivel de estudio: </h1>
-                                <p>{{ $educacion->nivel_estudio }}</p>
+                            <article class="grid">
+                                <article class="nivel">
+                                    <h1 class="titulo">Nivel de estudio: </h1>
+                                    <p>{{ $educacion->nivel_estudio }}</p>
+                                </article>
+
+                                <article class="titulacion">
+                                    <h1 class="titulo">Titulacion: </h1>
+                                    <p>{{ $educacion->titulado }}</p>
+                                </article>
                             </article>
 
-                            @if ($educacion->descripcion == null)
-                                <article class="descripcion">
-                                    <h1 class="titulo">Descripcion: </h1>
-                                    <p>Esta educacion no contiene descripcion</p>
-                                </article>
-                            @else
-                                <article class="descripcion">
-                                    <h1 class="titulo">Descripcion: </h1>
-                                    <p>{{$educacion->descripcion}}</p>
-                                </article>
-                            @endif
-
+                            <article class="grid-2">
+                                @if ($educacion->descripcion == null)
+                                    <article class="descripcion">
+                                        <h1 class="titulo">Descripcion: </h1>
+                                        <p>Esta educacion no contiene descripcion</p>
+                                    </article>
+                                @else
+                                    <article class="descripcion">
+                                        <h1 class="titulo">Descripcion: </h1>
+                                        <p>{{ $educacion->descripcion }}</p>
+                                    </article>
+                                @endif
+                            </article>
 
                         </article>
                     @empty
@@ -214,6 +222,11 @@
 
                 <article class="contenedor-boton">
                     <a class="boton" href="{{ route('vacante.index', ['id' => $empresa->id]) }}">Volver</a>
+                    <form action="{{route('vacante.estado', ['id' => $vacante->id])}}" method="POST">
+                        @csrf
+
+                        <button class="boton">Cambiar estado</button>
+                    </form>
                 </article>
             </article>
 

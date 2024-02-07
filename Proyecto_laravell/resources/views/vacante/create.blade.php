@@ -196,27 +196,40 @@
                     </article>
 
                     <article class="grid">
-                        <article class="contenedor-nivel">
-                            <h1 class="titulo">Nivel de educacion</h1>
-                            <select class="nivel" name="nivel_estudio">
-                                <option value="Bachiller">Bachiller</option>
-                                <option value="Tecnico">Tecnico</option>
-                                <option value="Tecnologo">Tecnologo</option>
-                                <option value="Pregrado">Pregrado</option>
-                                <option value="Posgrado">Posgrado</option>
-                                <option value="Especializacion">Especializacion</option>
-                                <option value="Doctorado">Doctorado</option>
-                            </select>
+                        <article class="linea-1">
+                            <article class="contenedor-nivel">
+                                <h1 class="titulo">Nivel de educacion</h1>
+                                <select class="nivel" name="nivel_estudio">
+                                    <option value="Bachiller">Bachiller</option>
+                                    <option value="Tecnico">Tecnico</option>
+                                    <option value="Tecnologo">Tecnologo</option>
+                                    <option value="Pregrado">Pregrado</option>
+                                    <option value="Posgrado">Posgrado</option>
+                                    <option value="Especializacion">Especializacion</option>
+                                    <option value="Doctorado">Doctorado</option>
+                                </select>
+                            </article>
+
+
+                            <article class="contenedor-puntos">
+                                <h1 class="titulo">Puntuacion para la educacion</h1>
+                                <input class="puntos" type="number" name="puntos" min="0"
+                                    value="{{ old('puntos') }}">
+                                @error('puntos')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
                         </article>
 
-
-                        <article class="contenedor-puntos">
-                            <h1 class="titulo">Puntuacion para la educacion</h1>
-                            <input class="puntos" type="number" name="puntos" min="0"
-                                value="{{ old('puntos') }}">
-                            @error('puntos')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
+                        <article class="linea-2">
+                            <article class="contenedor-titulado">
+                                <h1 class="titulo">Titulado requerido</h1>
+                                <input class="titulado" type="text" name="titulado"
+                                    value="{{ old('titulado') }}">
+                                @error('titulado')
+                                    <strong class="mensaje-titulado">{{ $message }}</strong>
+                                @enderror
+                            </article>
                         </article>
                     </article>
 

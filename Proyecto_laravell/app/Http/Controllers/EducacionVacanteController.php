@@ -64,6 +64,7 @@ class EducacionVacanteController extends Controller{
         $educacion = new EducacionVacante();
         $educacion -> nivel_estudio = $request -> nivel_estudio;
         $educacion -> puntos = $request -> puntos;
+        $educacion -> titulado = $request -> titulado;
         $educacion -> descripcion = $request -> descripcion;
         $educacion -> vacante_id = $vacante -> id;
         $educacion -> save();
@@ -115,6 +116,7 @@ class EducacionVacanteController extends Controller{
         $educacion -> nivel_estudio = $request -> nivel_estudio;
         $educacion -> puntos = $request -> puntos;
         $educacion -> descripcion = $request -> descripcion;
+        $educacion -> titulado = $request -> titulado;
         $educacion -> vacante_id = $vacante -> id;
         $educacion -> save();
 

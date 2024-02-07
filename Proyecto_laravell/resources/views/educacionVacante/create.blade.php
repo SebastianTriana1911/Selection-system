@@ -37,7 +37,8 @@
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{ route('eduvacante.store', ['vacante' => $vacante ->id]) }}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{ route('eduvacante.store', ['vacante' => $vacante->id]) }}"
+                    method="POST">
                     @csrf
 
                     <section class="primera-linea">
@@ -59,23 +60,32 @@
 
                             <article class="puntos">
                                 <h1>Puntos</h1>
-                                <input class="input" type="number" name="puntos" min="0" value="{{old('puntos')}}">
+                                <input class="input" type="number" name="puntos" min="0"
+                                    value="{{ old('puntos') }}">
+                                @error('puntos')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+
+                            <article class="puntos">
+                                <h1>Titulado</h1>
+                                <input class="input" type="text" name="titulado" value="{{ old('titulado') }}">
+                                @error('titulado')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
                             </article>
                         </article>
-                        @error('puntos')
-                            <strong class="mensaje">{{$message}}</strong>
-                        @enderror
-                        
+
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="4">{{old('descripcion')}}</textarea>
+                            <textarea name="descripcion" rows="4">{{ old('descripcion') }}</textarea>
                         </article>
                         @error('descripcion')
-                            <strong class="mensaje">{{$message}}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                         @enderror
-                        
-                        <input type="text" name="vacante_id" value="{{$vacante -> id}}" hidden>
-                        
+
+                        <input type="text" name="vacante_id" value="{{ $vacante->id }}" hidden>
+
                     </section>
 
                     <section class="contenedor-boton">
@@ -96,11 +106,13 @@
                         <article class="ocupacion">
                             <article class="parte-1">
                                 <i class="fa-solid fa-gear" style="color: black"></i>
-                                <a href="{{route('eduvacante.edit', ['educacion' => $educacion -> id, 'vacante' => $vacante -> id, 'empresa' => $empresa -> id])}}">{{ $educacion->nivel_estudio }}</a>
+                                <a
+                                    href="{{ route('eduvacante.edit', ['educacion' => $educacion->id, 'vacante' => $vacante->id, 'empresa' => $empresa->id]) }}">{{ $educacion->nivel_estudio }}</a>
                             </article>
 
                             <article class="parte-2">
-                                <form action="{{route('eduvacante.destroy', ['id' => $educacion -> id])}}" method="POST">
+                                <form action="{{ route('eduvacante.destroy', ['id' => $educacion->id]) }}"
+                                    method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="buttom">
@@ -109,7 +121,7 @@
                                 </form>
                             </article>
                         </article>
-                        @empty
+                    @empty
                         <article class="contenedor-empty">
                             <h1 class="empty">No hay educaciones para esta vacante</h1>
                         </article>

@@ -32,8 +32,18 @@
                 <h1>TI: {{ $candidato->user->num_documento }}</h1>
             </article>
 
-            <article class="segundo-contenedor">
+            <article class="contenedor-estado">
+                <div class="estado">
+                    <h1>Disponible</h1>
+                </div>
+            </article>
 
+            <article class="segundo-contenedor">
+                <form class="destroy" action="{{route('candidato.destroy', ['id' => $candidato->user_id])}}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" value="Eliminar cuenta">
+                </form>
                 <a class="boton-a" href="{{ route('restaurar.create') }}">Cambiar contraseña</a>
                 <article class="contenedor-logout">
                     <form action="{{ route('logout') }}" method="POST">
@@ -64,7 +74,7 @@
                             </article>
 
                             <article class="contenedor-boton">
-                                <a href="">Ver</a>
+                                <a href="{{ route('candidato.hojavida', ['id' => $candidato->id]) }}">Ver</a>
                             </article>
                         </article>
 
@@ -78,7 +88,7 @@
                             </article>
 
                             <article class="contenedor-boton">
-                                <a href="">Actualizar</a>
+                                <a href="{{route('candidato.edit', ['id' => $candidato->id])}}">Actualizar</a>
                             </article>
                         </article>
                     </article>
@@ -100,11 +110,11 @@
 
                         <article class="contenedor-update-educacion">
                             <article class="contenedor-titulo">
-                                <i class="fa-solid fa-arrows-rotate" style="color: black;"></i>
-                                <h1 class="titulo">Actualizar educacion</h1>
+                                <i class="fa-solid fa-gears" style="color: black;"></i>
+                                <h1 class="titulo">Agregar experiencia</h1>
                             </article>
                             <article class="contenedor-p">
-                                <p>En esta sección podras actualizar los datos de tu educacion</p>
+                                <p>En esta sección podras agregar la experiencia que ha tenido</p>
                             </article>
 
                             <article class="contenedor-boton">
@@ -112,40 +122,58 @@
                             </article>
                         </article>
                     </article>
-
                 </article>
 
+
                 <article class="grid-2">
-                    <article class="contenedor-titulo">
-                        <h1>Mis postulaciones</h1>
 
-                        <article class="postulaciones">
-                            @forelse($postulaciones as $postulacion)
-                                <article class="contenedor-titulo">
-                                    <h1 class="titulo">{{ $postulacion->vacante->cargo->cargo }}</h1>
-                                </article>
-
-                                <article class="contenedor-codigo">
-                                    <h1 class="titulo">Codigo vacante</h1>
-                                    <p>{{ $postulacion->vacante->codigo }}</p>
-                                </article>
-
-                                <article class="contenedor-empresa">
-                                    <h1>Empresa</h1>
-                                    <p>{{ $postulacion->vacante->empresa->nombre }}</p>
-                                </article>
-
-                                <article class="contenedor-nit">
-                                    <h1 class="titulo">Nit de la empresa</h1>
-                                    <p>{{ $postulacion->vacante->empresa->nit }}</p>
+                    <article class="contenedor-buscar">
+                        <article class="contenedor-titulo">
+                            <h1 class="titulo">Buscar vacantes</h1>
+                            <h1 class="linea"></h1>
+                            <form class="formulario" action="" method="POST">
+                                <article class="conjunto">
+                                    <input class="buscar" type="text" name="busqueda" placeholder="Buscar vacante">
+                                    <i class="fa-solid fa-magnifying-glass" style="color: white"></i>
                                 </article>
 
                                 <article class="contenedor-boton">
-                                    <a class="boton" href="">Info</a>
+                                    <a href="">Vacantes</a>
+                                    <input class="boton" type="submit" value="Buscar">
                                 </article>
+                            </form>
+                        </article>
+                    </article>
 
+                    <article class="contenedor-titulo">
+                        <h1 class="titulo-principal">Mis postulaciones</h1>
+                        <h1 class="linea"></h1>
+                        @php
+                            $contador = 0;
+                        @endphp
+                        <article class="contenedor-postulaciones">
+                            @forelse($desvinculaciones as $desvinculacion)
+                                <article class="postulaciones">
+                                    @php
+                                        $contador++;
+                                    @endphp
+                                    <article class="contenedor-titulo">
+                                        <h1 class="titulo">Postulacion {{ $contador }}</h1>
+                                    </article>
+
+                                    <p class="info"> Si deseas ver los datos de esta postulacion da click al boton
+                                        informacion</p>
+
+                                    <article class="contenedor-boton">
+                                        <a class="boton" href="">Desvincularme</a>
+                                        <a class="boton" href="">Info</a>
+                                    </article>
+
+                                </article>
                             @empty
-                                <h1>No te haz postulado a ninguna vacante por el momento</h1>
+                                <article class="contenedor-empty">
+                                    <h1 class="empty">No te haz postulado a ninguna vacante por el momento</h1>
+                                </article>
                             @endforelse
                         </article>
                     </article>

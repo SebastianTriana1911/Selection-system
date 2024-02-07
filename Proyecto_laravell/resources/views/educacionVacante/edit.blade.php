@@ -68,6 +68,14 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
+
+                            <article class="puntos">
+                                <h1>Titulado</h1>
+                                <input class="input" type="text" name="titulado" value="{{ old('titulado', $educacion->titulado) }}">
+                                @error('titulado')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
                         </article>
 
 
@@ -112,6 +120,11 @@
                             <article class="puntos">
                                 <h1 class="titulo">Puntos</h1>
                                 <p>{{ $educacion->puntos }}</p>
+                            </article>
+
+                            <article class="puntos">
+                                <h1 class="titulo">Titulado</h1>
+                                <p>{{ $educacion->titulado }}</p>
                             </article>
                         </article>
 

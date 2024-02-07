@@ -81,6 +81,7 @@ class VacanteController extends Controller{
         $educacion -> nivel_estudio = $request -> nivel_estudio;
         $educacion -> descripcion = $request -> descripcion;
         $educacion -> puntos = $request -> puntos;
+        $educacion -> titulado = $request -> titulado;
         $educacion -> vacante_id = $vacante -> id;
         $educacion -> save();
 
@@ -220,6 +221,21 @@ class VacanteController extends Controller{
     public function destroy(Vacante $id){
         $id -> delete();
         return redirect()->back();
+    }
+    // --------------------------------------------------------------
+
+
+    // ------------------------ METODO ESTADO -----------------------
+    public function estado($id){
+        $vacante = Vacante::find($id);
+        if($vacante->estado == 0){
+            $vacante->estado = 1;
+        }else{
+            $vacante->estado = 0;
+        }
+        $vacante->save();
+
+        return redirect()->route('reclutador.index');
     }
     // --------------------------------------------------------------
 }

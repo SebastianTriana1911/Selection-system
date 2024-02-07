@@ -50,7 +50,12 @@ Route::get('user/home/restaurar', [UserController::class, 'restaurarHome'])->nam
 
 
 // ----------------------------- RUTAS DEL CONTROLADOR CANDIDATO ---------------------------------
+Route::get('candidato/index', [CandidatoController::class, 'index'])->name('candidato.index')->middleware('auth');
 Route::post('candidato/store', [CandidatoController::class, 'store'])->name('candidato.store');
+Route::get('candidato/hojavida/{id}', [CandidatoController::class, 'hojaVida'])->name('candidato.hojavida')->middleware('auth');
+Route::get('candidato/edit/{id}', [CandidatoController::class, 'edit'])->name('candidato.edit')->middleware('auth');
+Route::put('candidato/update/{id}', [CandidatoController::class, 'update'])->name('candidato.update');
+Route::delete('candidato/destroy/{id}', [CandidatoController::class, 'destroy'])->name('candidato.destroy');
 // -----------------------------------------------------------------------------------------------
 
 
@@ -64,12 +69,6 @@ Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSu
 Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor')->middleware('auth');
 Route::get('super/dashboard/reclutador', [SuperUsuarioController::class, 'dashboardReclutador'])->name('dashboard.reclutador')->middleware('auth');
 Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato')->middleware('auth');
-// ----------------------------------------------------------------------------------------------
-
-
-// ------------------------------ RUTAS DEL CONTROLADOR CANDIDATOS ------------------------------
-Route::get('candidato/index', [CandidatoController::class, 'index'])->name('candidato.index')->middleware('auth');
-
 // ----------------------------------------------------------------------------------------------
 
 
@@ -154,6 +153,7 @@ Route::post('vacante/buscar/{id}', [VacanteController::class, 'buscar'])->name('
 Route::get('vacante/edit/{id}/{empresa}', [VacanteController::class, 'edit'])->name('vacante.edit')->middleware('auth');
 Route::put('vacante/update/{id}/{empresa}', [VacanteController::class, 'update'])->name('vacante.update');
 Route::delete('vacante/destroy/{id}', [VacanteController::class, 'destroy'])->name('vacante.destroy');
+Route::post('vacante/estado/{id}', [VacanteController::class, 'estado'])->name('vacante.estado');
 // ---------------------------------------------------------------------------------------------------
 
 

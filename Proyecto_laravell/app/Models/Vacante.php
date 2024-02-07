@@ -7,6 +7,7 @@ use App\Models\Empresa;
 use App\Models\Municipio;
 use App\Models\Postulacion;
 use App\Models\EducacionVacante;
+use App\Models\CandidatoDesvinculacion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -33,5 +34,9 @@ class Vacante extends Model{
 
     public function postulacion(): HasMany{
         return $this -> hasMany(Postulacion::class);
+    }
+
+    public function candidatoDesvinculacion(): HasMany{
+        return $this -> hasMany(CandidatoDesvinculacion::class);
     }
 }

@@ -569,25 +569,23 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-datos .datos-educacion .informacion-educacion{
-    display: flex;
-    padding-left: 5%;
+    display: grid;
+    grid-template-columns: 40% 70%;
     gap: 2%;
-    width: 100%;
     margin-bottom: 5%;
     margin-top: 6%;
 }
 
-.contenedor-datos .datos-educacion .informacion-educacion{
-    display: flex;
-    margin-top: 5%;
-    margin-bottom: 6%;
+.contenedor-datos .datos-educacion .informacion-educacion .grid{
+    padding-left: 13%;
 }
 
 .contenedor-datos .datos-educacion .informacion-educacion .nivel{
     display: flex;
     align-items: center;
     gap: 2%;
-    width: 45%;
+    width: 100%;
+    margin-bottom: 7%;
 }
 
 .contenedor-datos .datos-educacion .informacion-educacion .nivel .titulo{
@@ -598,11 +596,29 @@ body::-webkit-scrollbar-thumb{
     font-size: 13pt;
 }
 
+.contenedor-datos .datos-educacion .informacion-educacion .titulacion{
+    display: flex;
+    gap: 2%;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.contenedor-datos .datos-educacion .informacion-educacion .titulacion .titulo{
+    font-size: 13pt;
+}
+
+.contenedor-datos .datos-educacion .informacion-educacion .titulacion p{
+    font-size: 13pt;
+}
+
+.contenedor-datos .datos-educacion .informacion-educacion .grid-2{
+    display: flex;
+    width: 100%;
+}
+
 .contenedor-datos .datos-educacion .informacion-educacion .descripcion{
     display: flex;
-    align-items: center;
     gap: 2%;
-    width: 45%;
 }
 
 .contenedor-datos .datos-educacion .informacion-educacion .descripcion .titulo{
@@ -610,6 +626,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-datos .datos-educacion .informacion-educacion .descripcion p{
+    width: 100%;
     font-size: 13pt;
 }
 
@@ -692,11 +709,12 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-boton {
     position: relative;
-    top: 8%;
+    top: 7%;
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 5%;
+    gap: 10%;
 }
 
 .contenedor-boton .boton{
@@ -706,6 +724,19 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 10px;
     padding: 11px;
+    font-weight: bolder;
+    box-shadow: 0 0 10px #FFD966;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.contenedor-boton form .boton{
+    display: flex;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;

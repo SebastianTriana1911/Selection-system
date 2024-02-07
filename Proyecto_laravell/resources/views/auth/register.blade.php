@@ -238,9 +238,10 @@
                     <article class="datos-profesionales">
                         <!------- Campo perfil_ocupacional de la tabla candidatos ------->
                         <article class="perfil-ocupacional">
-                            <h3 class="titulo">Perfil ocupacional</h3>
-                            <p class="sintesis">Aqui podra redactar su hoja de vida, preferiblemente que sea del ultimo
-                                empleo o estudio especificando su experiencia su labor y el conocimiento que adquirio
+                            <h3 class="titulo">Sobre mi</h3>
+                            <p class="sintesis">Aqui podra redactar todas sus cualidades y las razones por las cuales se caracteriza,
+                                como tambien todas sus acta profesional, como tambien empleado. Sientase en el libre derecho de colocar
+                                la informacion que a usted le parezca prudente que abarque todos los campos de quien es usted.
                             </p>
                             <textarea class="textarea" name="perfil_ocupacional" value="{{ old('perfil_ocupacional') }}"></textarea>
                         </article>

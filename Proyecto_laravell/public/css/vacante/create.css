@@ -501,10 +501,59 @@ body::-webkit-scrollbar-thumb{
 }
 
 .formulario .contenedor-educacion-requerida .grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     padding: 3%;
     padding-left: 15%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulo{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulado{
+    margin: auto;
+    width: 25%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 6px;
+    border: none;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .mensaje-titulado{
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulado:hover {
+    box-shadow: 0 0 10px black;
+    transition: 0.5s;
 }
 
 .formulario .contenedor-educacion-requerida .grid .contenedor-nivel .titulo{
@@ -634,9 +683,6 @@ body::-webkit-scrollbar-thumb{
     transition: 0.5s;
     color: #FFD966;
 }
-
-
-
 
 /*------------------------------------------------------------*/
 
