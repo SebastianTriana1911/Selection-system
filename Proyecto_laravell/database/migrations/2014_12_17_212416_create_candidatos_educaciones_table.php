@@ -14,7 +14,7 @@ return new class extends Migration{
             $table->string('titulado');
             $table->enum('nivel_estudio',['Bachiller', 'Tecnico', 'Tecnologo',
             'Pregrado', 'Posgrado', 'Especializacion', 'Doctorado']);
-            $table->string('documento');    
+            $table->string('documento')->nullable();    
             $table->foreignId('candidato_id')->references('id')->on('candidatos')->onDelete('cascade');
             $table->timestamps();
         });

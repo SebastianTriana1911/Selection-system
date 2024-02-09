@@ -288,18 +288,19 @@ body::-webkit-scrollbar-thumb{
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    padding-bottom: 2%;
 }
 
 .contenedor-content .contenedor-hoja .linea-3 .seccion-estudios{
     display: flex;
     flex-direction: column;
-    width: 49%;
+    width: 70%;
     margin-top: 2%;
     padding-top: 2%;
     padding-bottom: 2%;
     border: 3px solid black;
-    border-radius: 7px;
-    background-color: rgb(220, 222, 224);
+    border-radius: 10px;
+    box-shadow: 0 0 15px black;
 }
 
 .contenedor-content .contenedor-hoja .linea-3 .seccion-estudios .grupo-1{
@@ -307,7 +308,7 @@ body::-webkit-scrollbar-thumb{
     grid-template-columns: 1fr 1fr;
     width: 90%;
     margin: auto;
-    padding-bottom: 7%;
+    padding-bottom: 5%;
 }
 
 .contenedor-content .contenedor-hoja .linea-3 .seccion-estudios .grupo-1 .nivel .titulo{
@@ -350,7 +351,7 @@ body::-webkit-scrollbar-thumb{
     grid-template-columns: 1fr 1fr;
     width: 90%;
     margin: auto;
-    padding-bottom: 7%;
+    padding-bottom: 4%;
 }
 
 .contenedor-content .contenedor-hoja .linea-3 .seccion-estudios .grupo-2 .institucion .titulo{
@@ -389,6 +390,17 @@ body::-webkit-scrollbar-thumb{
     color: black;
     font-size: 12pt;
 }
+
+.documento{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 3%;
+    color: black;
+    font-size: 12pt;
+}
+
 
 .contenedor-content .contenedor-hoja .linea-3 .seccion-estudios .grupo-3{
     display: grid;

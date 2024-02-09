@@ -22,6 +22,7 @@ use App\Http\Controllers\RestablecerController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\CandidatoEducacionController;
+use App\Models\CandidatoEducacion;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,10 @@ Route::delete('candidato/destroy/{id}', [CandidatoController::class, 'destroy'])
 
 // ------------------------- RUTAS DEL CONTROLADOR EDUCACION CANDIDATO ---------------------------
 Route::get('educacion/candidato/{id}', [CandidatoEducacionController::class, 'index'])->name('educacionCandidato.index')->middleware('auth');
-
+Route::post('educacion/candidato/store/{id}', [CandidatoEducacionController::class, 'store'])->name('educacionCandidato.store');
+Route::get('educacion/candidato/edit/{id}', [CandidatoEducacionController::class, 'edit'])->name('educacionCandidato.edit')->middleware('auth');
+Route::put('educacion/candidato/update/{id}', [CandidatoEducacionController::class, 'update'])->name('educacionCandidato.update');
+Route::delete('educacion/candidato/destroy/{id}', [CandidatoEducacionController::class, 'destroy'])->name('educacionCandidato.destroy');
 // -----------------------------------------------------------------------------------------------
 
 

@@ -99,6 +99,7 @@ class CandidatoController extends Controller
         foreach ($educaciones as $educacion) {
             if ($educacion->candidato_id == $id) {
                 array_push($candidatoEducacion, $educacion);
+
             } else {
                 continue;
             }

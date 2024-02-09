@@ -124,7 +124,10 @@
 
                                         <article class="titulado">
                                             <h1 class="titulo">Documento</h1>
-                                            <p>{{ $educacion->documento }}</p>
+                                            @php
+                                                $ruta = $educacion->documento
+                                            @endphp
+                                            <a class="documento" href="{{ asset('storage/' . $ruta) }}" target="_blank">Documento</a>
                                         </article>
                                     </article>
 

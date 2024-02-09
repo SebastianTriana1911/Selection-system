@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/candidatoEducacion/index.css') }}">
-    <title>Index educacion</title>
+    <link rel="stylesheet" href="{{ asset('css/candidatoEducacion/edit.css') }}">
+    <title>Update educacion</title>
 </head>
 
 <body>
@@ -30,13 +30,17 @@
 
         <section class="contenedor-content">
             <article class="contenedor-titulo">
-                <h1>Formulario de educaciones</h1>
+                <h1>Actualizacion de datos sobre la educacion</h1>
                 <h1 class="linea"></h1>
             </article>
 
             <article class="contenedor-padre-formulario">
-                <form class="contenedor-formulario" action="{{route('educacionCandidato.store', ['id' => $candidato->id])}}" method="POST" enctype="multipart/form-data">
+                <form class="contenedor-formulario"
+                    action="{{ route('educacionCandidato.update', ['id' => $candidatoEducacion->id]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
+                    @method('put')
+
                     <article class="contenedor-nivel">
                         <h1>Nivel de estudio</h1>
                         <select class="nivel" name="nivel_estudio">
@@ -52,7 +56,8 @@
 
                     <article class="contenedor-institucion">
                         <h1>Institucion egresado</h1>
-                        <input class="institucion" type="text" name="institucion" value="{{old('institucion')}}">
+                        <input class="institucion" type="text" name="institucion"
+                            value="{{ old('institucion', $candidatoEducacion->institucion) }}">
                         @error('institucion')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
@@ -60,7 +65,8 @@
 
                     <article class="contenedor-titulado">
                         <h1>Titulado</h1>
-                        <input class="titulado" type="text" name="titulado" value="{{old('titulado')}}">
+                        <input class="titulado" type="text" name="titulado"
+                            value="{{ old('titulado', $candidatoEducacion->titulado) }}">
                         @error('titulado')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
@@ -71,7 +77,8 @@
                         <article class="texto">
                             <i class="fa-solid fa-download" style="color: #000000;"></i>
                             <label for="input">Archivo</label>
-                            <input id="input" class="label-input" type="file" name="documento" value="{{old('documento')}}">
+                            <input id="input" class="label-input" type="file" name="documento"
+                                value="{{ old('documento', $candidatoEducacion->documento) }}">
                         </article>
                         @error('documento')
                             <strong class="mensaje">{{ $message }}</strong>
@@ -80,7 +87,8 @@
 
                     <article class="contenedor-inicio">
                         <h1>Año de inicio</h1>
-                        <input class="fecha-inicio" type="date" name="año_inicio" value="{{old('año_inicio')}}">
+                        <input class="fecha-inicio" type="date" name="año_inicio"
+                            value="{{ old('año_inicio', $candidatoEducacion->año_inicio) }}">
                         @error('año_inicio')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
@@ -88,15 +96,16 @@
 
                     <article class="contenedor-fin">
                         <h1>Año de finalizacion</h1>
-                        <input class="fecha-fin" type="date" name="año_finalizacion" value="{{old('año_finalizacion')}}">
+                        <input class="fecha-fin" type="date" name="año_finalizacion"
+                            value="{{ old('año_finalizacion', $candidatoEducacion->año_finalizacion) }}">
                         @error('año_finalizacion')
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="{{ route('candidato.index') }}">Volver</a>
-                        <input class="enviar" type="submit" value="Crear">
+                        <a href="{{ route('educacionCandidato.index', ['id' => $candidato->id]) }}">Volver</a>
+                        <input class="enviar" type="submit" value="Actualizar">
                     </article>
 
                 </form>
@@ -105,35 +114,51 @@
 
         <section class="content-2">
             <article class="contenedor-titulo">
-                <h1>{{ $titulo }} {{ $candidato->user->nombre }} esta es su
-                    educacion</h1>
+                <h1>Visualizacion sobre actualizacion</h1>
                 <h1 class="linea"></h1>
             </article>
-
-            <section class="contenedor-educacion">
-                @forelse ($educaciones as $educacion)
-                    <article class="ocupacion">
-                        <article class="parte-1">
-                            <i class="fa-solid fa-gear" style="color: black"></i>
-                            <a href="{{route('educacionCandidato.edit', ['id' => $educacion->id])}}">{{ $educacion->nivel_estudio }}</a>
+            <article class="contenedor-informacion">
+                <article class="informacion">
+                    <article class="grid-1">
+                        <article class="nivel">
+                            <h1>Nivel de estudio</h1>
+                            <p>{{ $candidatoEducacion->nivel_estudio }}</p>
                         </article>
 
-                        <article class="parte-2">
-                            <form action="{{route('educacionCandidato.destroy', ['id' => $educacion->id])}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="buttom">
-                                    <i class="fa-solid fa-trash" style="color: black"></i>
-                                </button>
-                            </form>
+                        <article class="institucion">
+                            <h1>Institucion egresado</h1>
+                            <p>{{ $candidatoEducacion->institucion }}</p>
                         </article>
                     </article>
-                @empty
-                    <article class="contenedor-empty">
-                        <h1 class="empty">Usted no cuenta con educaciones registradas</h1>
+
+                    <article class="grid-2">
+                        <article class="titulado">
+                            <h1>Titulado</h1>
+                            <p>{{ $candidatoEducacion->titulado }}</p>
+                        </article>
+
+                        <article class="documento">
+                            <h1>Documento</h1>
+                            @php
+                                $ruta = $candidatoEducacion->documento;
+                            @endphp
+                            <a class="documento" href="{{ asset('storage/' . $ruta) }}" target="_blank">Documento</a>
+                        </article>
                     </article>
-                @endforelse
-            </section>
+
+                    <article class="grid-3">
+                        <article class="año_inicio">
+                            <h1>Año de inicio</h1>
+                            <p>{{$candidatoEducacion->año_inicio}}</p>
+                        </article>
+
+                        <article class="año_finalizacion">
+                            <h1>Año de finalizacion</h1>
+                            <p>{{$candidatoEducacion->año_finalizacion}}</p>
+                        </article>
+                    </article>
+                </article>
+            </article>
         </section>
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('direccion');
             $table->string('telefono');
-            $table->text('perfil_profesional')->nullable()->default('No cuenta con un perfil profesional');
+            $table->text('perfil_profesional')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

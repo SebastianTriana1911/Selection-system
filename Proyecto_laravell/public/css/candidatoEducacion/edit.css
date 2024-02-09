@@ -345,7 +345,7 @@ body::-webkit-scrollbar-thumb{
 
 .content-2 .contenedor-titulo{
     width: 100%;
-    height: 18%;
+    height: 28%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -368,91 +368,136 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px white;
 }
 
-.content-2 .contenedor-educacion{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 90%;
-    height: 65%;
-    overflow: auto;
-}
-
-.content-2 .contenedor-educacion::-webkit-scrollbar{
-    width: 9px;
-}
-
-.content-2 .contenedor-educacion::-webkit-scrollbar-thumb{
-    background: white;
-}
-
-.content-2 .contenedor-educacion .ocupacion{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    margin-top: 3%;
-    padding: 2%;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    text-decoration: none;
-    color: black;
-    box-shadow: 0 0 15px white;
-}
-
-.content-2 .contenedor-educacion .parte-1{
-    display: flex;
-    width: 85%;
-    gap: 3%;
-}
-
-.content-2 .contenedor-educacion .ocupacion i{
+.content-2 .contenedor-informacion{
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-1 a{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 7%;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-2 form .buttom{
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16pt;
-    position: relative;
-    left: -200%;
-}
-
-.empty{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    margin-top: 3%;
-    padding: 4%;
+    height: 100%;
+    margin-top: 2%;
+}
+
+.content-2 .contenedor-informacion .informacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 60%;
+    
     background-color: white;
     border-radius: 15px;
-    display: flex;
-    text-decoration: none;
-    color: black;
-    font-size: 14pt;
     box-shadow: 0 0 15px white;
+    gap: 15%;
 }
+
+.content-2 .contenedor-informacion .informacion .grid-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    gap: 10%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-1 .nivel h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-1 .nivel p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-1 .institucion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-1 .institucion p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    gap: 10%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-2 .titulado h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-2 .titulado p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-2 .documento h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-2 .documento a{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+    align-items: center;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    gap: 10%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-3 .año_inicio h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-3 .año_inicio p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+    align-items: center;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-3 .año_finalizacion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 13pt;
+    margin-bottom: 4%;
+}
+
+.content-2 .contenedor-informacion .informacion .grid-3 .año_finalizacion p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 11pt;
+    align-items: center;
+}
+
 
 /*------------------------------------------------------------*/
 

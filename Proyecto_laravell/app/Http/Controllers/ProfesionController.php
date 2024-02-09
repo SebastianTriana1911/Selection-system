@@ -36,6 +36,7 @@ class ProfesionController extends Controller{
         $profesion -> titulado = $request -> titulado;
         $profesion -> institucion = $request -> institucion;
         $profesion -> instructor_id = $id;
+        return $request->documento;
         if ($request->hasFile('documento')){
             $documento = $request->file('documento');
             $ruta = $documento->store('documentos', 'public');
