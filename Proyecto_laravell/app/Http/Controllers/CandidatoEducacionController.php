@@ -10,7 +10,18 @@ class CandidatoEducacionController extends Controller{
     public function index(){
         $user = Auth::user();
         $candidato = $user->candidato;
+        $titulo = '';
 
-        return view('candidatoEducacion.index');
+        if($user->genero == 'Masculino'){
+            $titulo = 'Señor';
+        }else{
+            $titulo = 'Señora';
+        }
+
+        $educaciones = $candidato->candidatoEducacion;
+
+
+        return view('candidatoEducacion.index', ['titulo' => $titulo, 
+        'candidato' => $candidato, 'educaciones' => $educaciones]);
     }
 }

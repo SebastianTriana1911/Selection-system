@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/funcion/create.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidatoEducacion/index.css') }}">
     <title>Index educacion</title>
 </head>
 
@@ -33,30 +33,108 @@
                 <h1>Formulario de educaciones</h1>
                 <h1 class="linea"></h1>
             </article>
-            <form class="contenedor-formulario" action="" method="POST">
-                <article class="contenedor-nivel">
-                    <h1>Nivel de estudio</h1>
-                    <select class="nivel" name="nivel_estudio">
-                        <option value="Bachiller">Bachiller</option>
-                        <option value="Tecnico">Tecnico</option>
-                        <option value="Tecnologo">Tecnologo</option>
-                        <option value="Pregrado">Pregrado</option>
-                        <option value="Posgrado">Posgrado</option>
-                        <option value="Especializacion">Especializacion</option>
-                        <option value="Doctorado">Doctorado</option>
-                    </select>
 
-                </article class="contenedor-institucion">
-                    <h1>Institucion egresado</h1>
-                    
-                <article>
-                    
-                </article>
-            </form>
+            <article class="contenedor-padre-formulario">
+                <form class="contenedor-formulario" action="" method="POST">
+                    <article class="contenedor-nivel">
+                        <h1>Nivel de estudio</h1>
+                        <select class="nivel" name="nivel_estudio">
+                            <option value="Bachiller">Bachiller</option>
+                            <option value="Tecnico">Tecnico</option>
+                            <option value="Tecnologo">Tecnologo</option>
+                            <option value="Pregrado">Pregrado</option>
+                            <option value="Posgrado">Posgrado</option>
+                            <option value="Especializacion">Especializacion</option>
+                            <option value="Doctorado">Doctorado</option>
+                        </select>
+                    </article>
+
+                    <article class="contenedor-institucion">
+                        <h1>Institucion egresado</h1>
+                        <input class="institucion" type="text" name="institucion">
+                        @error('institucion')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-titulado">
+                        <h1>Titulado</h1>
+                        <input class="titulado" type="text" name="titulado">
+                        @error('titulado')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-documento">
+                        <h1 class="titulo">Diploma</h1>
+                        <article class="texto">
+                            <i class="fa-solid fa-download" style="color: #000000;"></i>
+                            <label for="input">Archivo</label>
+                            <input id="input" class="label-input" type="file" name="documento">
+                        </article>
+                        @error('documento')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-inicio">
+                        <h1>Año de inicio</h1>
+                        <input class="fecha-inicio" type="date" name="año_inicio">
+                        @error('año_inicio')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-fin">
+                        <h1>Año de finalizacion</h1>
+                        <input class="fecha-fin" type="date" name="año_finalizacion">
+                        @error('año_finalizacion')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-boton">
+                        <a href="{{ route('candidato.index') }}">Volver</a>
+                        <input class="enviar" type="submit" value="Crear">
+                    </article>
+
+                    <input type="number" name="candidato_id" value="{{ $candidato->id }}" hidden>
+
+                </form>
+            </article>
         </section>
 
-        <section class="contenedor-content-2">
+        <section class="content-2">
+            <article class="contenedor-titulo">
+                <h1>{{ $titulo }} {{ $candidato->user->nombre }} esta es su
+                    educacion</h1>
+                <h1 class="linea"></h1>
+            </article>
 
+            <section class="contenedor-educacion">
+                @forelse ($educaciones as $educacion)
+                    <article class="ocupacion">
+                        <article class="parte-1">
+                            <i class="fa-solid fa-gear" style="color: black"></i>
+                            <a href="">{{ $educacion->nivel_estudio }}</a>
+                        </article>
+
+                        <article class="parte-2">
+                            <form action="" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="buttom">
+                                    <i class="fa-solid fa-trash" style="color: black"></i>
+                                </button>
+                            </form>
+                        </article>
+                    </article>
+                @empty
+                    <article class="contenedor-empty">
+                        <h1 class="empty">Usted no cuenta con educaciones registradas</h1>
+                    </article>
+                @endforelse
+            </section>
         </section>
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
