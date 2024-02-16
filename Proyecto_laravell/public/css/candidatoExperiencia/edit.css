@@ -109,8 +109,8 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario{
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 70%;
+    width: 60%;
+    height: 80%;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 15px white;
@@ -167,24 +167,46 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px black;
 }
 
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado{
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4%;
 }
 
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado h1{
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .grid{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado{
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion h1{
+    width: 100%;
+    font-size: 13pt;
+    margin-bottom: 2%;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion p{
+    font-size: 11pt;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .titulado{
     width: 100%;
     border: none;
     padding: 7px;
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    resize: none;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .titulado::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .titulado::-webkit-scrollbar-thumb{
+    background: black;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado:hover{
@@ -196,6 +218,11 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.contenedor-documento h1{
+    display: flex;
+    margin-bottom: 4%;
 }
 
 .label-input {
@@ -368,92 +395,162 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px white;
 }
 
-.content-2 .contenedor-educacion{
+.content-2 .contenedor-informacion{
+    background-color: white;
+    width: 65%;
+    padding: 5%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px white;
+}
+
+.content-2 .contenedor-informacion .info .flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-2 .contenedor-informacion .info .flex .nombre{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
+}
+
+.content-2 .contenedor-informacion .info .flex .nombre h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .flex .nombre p{
+    margin-top: 2%;
+    font-size: 13pt;
+    text-align: center;
     width: 90%;
-    height: 65%;
+}
+
+.content-2 .contenedor-informacion .info .flex .meses{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-2 .contenedor-informacion .info .flex .meses h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .flex .meses p{
+    margin-top: 2%;
+    font-size: 13pt;
+    text-align: center;
+    width: 90%;
+}
+
+.content-2 .contenedor-informacion .info .flex .certificado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-2 .contenedor-informacion .info .flex .certificado h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .flex .certificado a{
+    margin-top: 2%;
+    font-size: 13pt;
+    text-align: center;
+    width: 90%;
+    color: black;
+}
+
+.content-2 .contenedor-informacion .info .fechas{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    margin-top: 5%;
+}
+
+.content-2 .contenedor-informacion .info .fechas .inicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-2 .contenedor-informacion .info .fechas .inicio h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .fechas .inicio p{
+    margin-top: 2%;
+    font-size: 13pt;
+    text-align: center;
+    width: 90%;
+    color: black;
+}
+
+.content-2 .contenedor-informacion .info .fechas .fin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-2 .contenedor-informacion .info .fechas .fin h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .fechas .fin p{
+    margin-top: 2%;
+    font-size: 13pt;
+    text-align: center;
+    width: 90%;
+    color: black;
+}
+
+.content-2 .contenedor-informacion .info .contenedor-descripcion{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    margin-top: 5%;
+}
+
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion h1{
+    font-size: 12pt;
+}
+
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion .p{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
     overflow: auto;
 }
 
-.content-2 .contenedor-educacion::-webkit-scrollbar{
-    width: 9px;
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion .p::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
 }
 
-.content-2 .contenedor-educacion::-webkit-scrollbar-thumb{
-    background: white;
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion .p::-webkit-scrollbar-thumb{
+    background: black;
 }
 
-.content-2 .contenedor-educacion .ocupacion{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    margin-top: 3%;
-    padding: 2%;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    text-decoration: none;
-    color: black;
-    box-shadow: 0 0 15px white;
-}
-
-.content-2 .contenedor-educacion .parte-1{
-    display: flex;
-    width: 85%;
-    gap: 3%;
-}
-
-.content-2 .contenedor-educacion .ocupacion i{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-1 a{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 7%;
-}
-
-.content-2 .contenedor-educacion .ocupacion .parte-2 form .buttom{
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16pt;
-    position: relative;
-    left: -200%;
-}
-
-.empty{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 3%;
-    padding: 5%;
-    background-color: white;
-    border-radius: 15px;
-    display: flex;
-    text-decoration: none;
-    color: black;
+.content-2 .contenedor-informacion .info .contenedor-descripcion .descripcion p{
+    margin-top: 2%;
     font-size: 13pt;
-    box-shadow: 0 0 15px white;
+    text-align: center;
+    width: 90%;
+    color: black;
 }
-
 /*------------------------------------------------------------*/
 
 .footer {

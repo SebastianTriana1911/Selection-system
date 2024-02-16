@@ -3,6 +3,7 @@
 use App\Models\SuperUsuario;
 use App\Models\EducacionVacante;
 use App\Mail\ContactanosMailable;
+use App\Models\CandidatoEducacion;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\RestablecerController;
 use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\CandidatoEducacionController;
-use App\Models\CandidatoEducacion;
+use App\Http\Controllers\CandidatoExperienciaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,15 @@ Route::post('educacion/candidato/store/{id}', [CandidatoEducacionController::cla
 Route::get('educacion/candidato/edit/{id}', [CandidatoEducacionController::class, 'edit'])->name('educacionCandidato.edit')->middleware('auth');
 Route::put('educacion/candidato/update/{id}', [CandidatoEducacionController::class, 'update'])->name('educacionCandidato.update');
 Route::delete('educacion/candidato/destroy/{id}', [CandidatoEducacionController::class, 'destroy'])->name('educacionCandidato.destroy');
+// -----------------------------------------------------------------------------------------------
+
+
+// ------------------------ RUTAS DEL CONTROLADOR EXPERIENCIA CANDIDATO --------------------------
+Route::get('experiencia/candidato/{id}', [CandidatoExperienciaController::class, 'index'])->name('experienciaCandidado.index')->middleware('auth');
+Route::post('experiencia/candidato/store/{id}', [CandidatoExperienciaController::class, 'store'])->name('experienciaCandidato.store');
+Route::get('experiencia/candidato/edit/{id}', [CandidatoExperienciaController::class, 'edit'])->name('experienciaCandidato.edit')->middleware('auth');
+Route::put('experiencia/candidato/update/{id}', [CandidatoExperienciaController::class, 'update'])->name('experienciaCandidato.update');
+Route::delete('experiencia/candidato/destroy/{id}', [CandidatoExperienciaController::class, 'destroy'])->name('experienciaCandidato.destroy');
 // -----------------------------------------------------------------------------------------------
 
 

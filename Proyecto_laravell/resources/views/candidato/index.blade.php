@@ -118,7 +118,7 @@
                             </article>
 
                             <article class="contenedor-boton">
-                                <a href="">Actualizar</a>
+                                <a href="{{route('experienciaCandidado.index', ['id' => $candidato->id])}}">Crear</a>
                             </article>
                         </article>
                     </article>
