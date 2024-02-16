@@ -205,4 +205,19 @@ class CandidatoController extends Controller
 
         return redirect()->route('welcome');
     }
+
+    public function showVacantes(){
+        $vacantes  = Vacante::all();
+        $cantidad = 0;
+
+        foreach($vacantes as $vacante){
+            if($vacante->estado==1){
+                $cantidad = $cantidad + 1;
+            }else{
+                continue;
+            }
+        }
+
+        return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);        
+    }
 }

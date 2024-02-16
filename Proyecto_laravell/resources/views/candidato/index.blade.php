@@ -138,7 +138,7 @@
                                 </article>
 
                                 <article class="contenedor-boton">
-                                    <a href="">Vacantes</a>
+                                    <a href="{{route('vacantesShowCandidato.showVacantes')}}">Vacantes</a>
                                     <input class="boton" type="submit" value="Buscar">
                                 </article>
                             </form>
