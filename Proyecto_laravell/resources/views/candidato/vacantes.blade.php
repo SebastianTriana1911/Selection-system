@@ -94,6 +94,9 @@
                                         </article>
                                     </article>
 
+                                    <article class="contenedor-boton-vacante">
+                                        <a href="">Sintesis</a>
+                                    </article>
                                 </article>
                             @else
                                 @continue
