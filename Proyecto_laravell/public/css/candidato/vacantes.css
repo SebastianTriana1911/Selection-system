@@ -170,8 +170,30 @@
     background-color: white;
 }
 
-.informacion-vacante .{
+.informacion-vacante .contenedor-boton-vacante{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 3px solid black;
+    width: 100%;
+}
 
+.informacion-vacante .contenedor-boton-vacante .boton{
+    padding: 15%;
+    border-radius: 10px;
+    background-color: #FFD966;
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+    box-shadow: 0 0 5px #FFD966;
+    transition: 0.5s;
+}
+
+.informacion-vacante .contenedor-boton-vacante .boton:hover{
+    transition: 0.5s;
+    background-color: black;
+    color: #FFD966;
+}
 
 .informacion-vacante .grid-1 {
     display: flex;

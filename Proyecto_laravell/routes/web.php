@@ -59,7 +59,8 @@ Route::get('candidato/hojavida/{id}', [CandidatoController::class, 'hojaVida'])-
 Route::get('candidato/edit/{id}', [CandidatoController::class, 'edit'])->name('candidato.edit')->middleware('auth');
 Route::put('candidato/update/{id}', [CandidatoController::class, 'update'])->name('candidato.update');
 Route::delete('candidato/destroy/{id}', [CandidatoController::class, 'destroy'])->name('candidato.destroy');
-Route::get('vacantes/show/candidato', [CandidatoController::class, 'showVacantes'])->name('vacantesShowCandidato.showVacantes');
+Route::get('vacantes/show/candidato', [CandidatoController::class, 'showVacantes'])->name('vacantesShowCandidato.showVacantes')->middleware('auth');
+Route ::get('vacantes/sintesis/candidato/{id}', [CandidatoController::class, 'sintesis'])->name('sintesisVacante.sintesis')->middleware('auth');
 // -----------------------------------------------------------------------------------------------
 
 

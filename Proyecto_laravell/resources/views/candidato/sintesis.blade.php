@@ -1,13 +1,13 @@
-<!-- DASHBOARD DEL CANDIDATO -->
+<!-- VISTA PARA VER TODAS LAS VACANTES QUE TIENE UNA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/candidato/vacantes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidato/sintesis.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show vacantes</title>
+    <title>Sintesis Vacantes</title>
 </head>
 
 <body>
@@ -28,94 +28,128 @@
 
         <!---------------------------------------------------------------->
 
-        <section class="contenedor-content">
-            <article class="nav">
-                <article class="conjunto">
-                    <article class="cantidad">
-                        <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
-                    </article>
-                    <article class="contenedor-titulo">
-                        <h1>Lista de vacantes disponibles</h1>
-                        <h1 class="linea"></h1>
-                    </article>
-                    <article>
-                        <h1></h1>
-                    </article>
-                </article>
-            </article>
+        <section class="nav">
+            <h1>Sintesis de la vacante</h1>
+            <h1 class="linea"></h1>
+        </section>
 
-            <article class="content">
-                <article class="contenedor-vacante">
-                    <article class="vacantes">
-                        @forelse($vacantes as $vacante)
-                            @if ($vacante->estado == 1)
-                                <article class="informacion-vacante">
+        <!---------------------------------------------------------------->
 
-
-                                    <article class="grid-1">
-                                        <article class="contenedor-codigo">
-                                            <h1 class="titulo">{{ $vacante->codigo }}</h1>
-                                        </article>
-                                    </article>
-
-                                    <article class="grid-2">
-
-                                        <article class="contenedor-cargo">
-                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
-                                        </article>
-
-                                        <article class="info">
-                                            <article class="contenedor-salario">
-                                                <h1 class="titulo">$ {{ $vacante->salario }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-experiencia">
-                                                <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
-                                                </h1>
-                                            </article>
-
-                                            <article class="contenedor-contrato">
-                                                <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-lugar">
-                                                <h1>{{ $vacante->municipio->nombre }}</h1>
-                                                <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-num-vac">
-                                                <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-postulados">
-                                                <h1 class="titulo"> Postulados 0</h1>
-                                            </article>
-
-                                        </article>
-                                    </article>
-
-                                    <article class="contenedor-boton-vacante">
-                                        <a class="boton" href="{{route('sintesisVacante.sintesis', ['id' => $vacante->id])}}">Ver</a>
-                                    </article>
-                                </article>
-                            @else
-                                @continue
-                            @endif
-                        @empty
-                            <article class="contenedor-empty">
-                                <h1 class="empty">No hay vacantes registradas</h1>
+        <section class="content">
+            <article class="division">
+                <article class="grid">
+                    <article class="informacion">
+                        <article class="datos-principales">
+                            <article class="contenedor-titulo">
+                                <h1>Datos principales</h1>
+                                <h1 class="linea"></h1>
                             </article>
-                        @endforelse
+                            <article class="info">
+
+                                <article class="codigo">
+                                    <h1>Codigo</h1>
+                                    <p>{{$vacante->codigo}}</p>
+                                </article>
+
+                                <article class="num_vacante">
+                                    <h1>Vacantes disponibles</h1>
+                                    <p>{{$vacante->num_vacante}}</p>
+                                </article>
+
+                                <article class="meses">
+                                    <h1>Meses de experiencia</h1>
+                                    <p>{{$vacante->meses_experiencia}}</p>
+                                </article>
+
+                                <article class="salario">
+                                    <h1>Salario</h1>
+                                    <p>{{$vacante->salario}}</p>
+                                </article>
+
+                                <article class="tipo">
+                                    <h1>Tipo de salario</h1>
+                                    <p>{{$vacante->tipo_salario}}</p>
+                                </article>
+
+                                <article class="contrato">
+                                    <h1>Tipo de contrato</h1>
+                                    <p>{{$vacante->tipo_contrato}}</p>
+                                </article>
+
+                                <article class="jornada">
+                                    <h1>Tipo de jornada</h1>
+                                    <p>{{$vacante->tipo_jornada}}</p>
+                                </article>
+
+                                <article class="empresa">
+                                    <h1>Empresa</h1>
+                                    <p>{{$vacante->empresa->nombre}}</p>
+                                </article>
+                            </article>
+                        </article>
+
+                        <article class="lugar-ejecucion">
+                            <article class="contenedor-titulo">
+                                <h1>Lugar de ejecucion</h1>
+                                <h1 class="linea"></h1>
+                            </article>
+
+                            <article class="info">
+                                <article class="pais">
+                                    <h1>Pais</h1>
+                                    <p>{{$vacante->municipio->departamento->pais->nombre }}</p>
+                                </article>
+                                <article class="departamento">
+                                    <h1>Departamento</h1>
+                                    <p>{{$vacante->municipio->departamento->nombre }}</p>
+                                </article>
+                                <article class="municipio">
+                                    <h1>Municipio</h1>
+                                    <p>{{$vacante->municipio->nombre }}</p>
+                                </article>
+                            </article>
+                        </article>
+
+                        <article class="datos-cargo">
+                            <article class="contenedor-titulo">
+                                <h1>Datos sobre el cargo</h1>
+                                <h1 class="linea"></h1>
+                            </article>
+
+                            <article class="cargo">
+                                <h1>Cargo</h1>
+                                <p>{{$vacante->cargo->cargo}}</p>
+                            </article>
+
+                            <article class="habilidad">
+                                <h1>Habilidades</h1>
+                                <p>{{$vacante->cargo->habilidad}}</p>
+                            </article>
+
+                            <article class="competencia">
+                                <h1>Competencias</h1>
+                                <p>{{$vacante->cargo->competencia}}</p>
+                            </article>
+
+                            <article class="funciones">
+                                @forelse ($funciones as $funcion)
+                                    <ul>
+                                        <li>{{$funcion->funcion}}</li>
+                                    </ul>
+                                @empty
+                                    <p>No hay funciones</p>
+                                @endforelse
+                            </article>
+                        </article>
                     </article>
                 </article>
+                <article class="grid-2">
 
-                <article class="contenedor-boton">
-                    <a href="{{ route('candidato.index') }}">Volver</a>
                 </article>
             </article>
         </section>
 
-        <!----------------------------------------------------------------->
+        <!---------------------------------------------------------------->
 
         <footer class="footer">
             <section class="contenedor-footer">

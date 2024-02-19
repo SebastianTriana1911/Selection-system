@@ -220,4 +220,15 @@ class CandidatoController extends Controller
 
         return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);        
     }
+
+    public function sintesis($id){
+        $user = Auth::user();
+        $candidato = $user->candidato;
+        $vacante = Vacante::find($id);
+        $funciones = $vacante->cargo->ocupacion->funcion;
+        $educaciones = $vacante -> educacionVacante;
+        
+        return view('candidato.sintesis', ['vacante'=>$vacante, 'educaciones' => $educaciones,
+        'funciones' => $funciones]);
+    }
 }
