@@ -32,78 +32,83 @@
             <article class="nav">
                 <article class="conjunto">
                     <article class="cantidad">
-                        <h1>Cantidad de vacantes {{ $cantidad }}</h1>
+                        <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
                     </article>
                     <article class="contenedor-titulo">
                         <h1>Lista de vacantes disponibles</h1>
                         <h1 class="linea"></h1>
                     </article>
+                    <article>
+                        <h1></h1>
+                    </article>
                 </article>
             </article>
 
-            <article class="contenedor-vacante">
-                <article class="vacantes">
-                    @forelse($vacantes as $vacante)
-                        @if ($vacante->estado == 1)
-                            <article class="informacion-vacante">
+            <article class="content">
+                <article class="contenedor-vacante">
+                    <article class="vacantes">
+                        @forelse($vacantes as $vacante)
+                            @if ($vacante->estado == 1)
+                                <article class="informacion-vacante">
 
 
-                                <article class="grid-1">
-                                    <article class="contenedor-codigo">
-                                        <h1 class="titulo">{{ $vacante->codigo }}</h1>
+                                    <article class="grid-1">
+                                        <article class="contenedor-codigo">
+                                            <h1 class="titulo">{{ $vacante->codigo }}</h1>
+                                        </article>
                                     </article>
+
+                                    <article class="grid-2">
+
+                                        <article class="contenedor-cargo">
+                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
+                                        </article>
+
+                                        <article class="info">
+                                            <article class="contenedor-salario">
+                                                <h1 class="titulo">$ {{ $vacante->salario }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-experiencia">
+                                                <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
+                                                </h1>
+                                            </article>
+
+                                            <article class="contenedor-contrato">
+                                                <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-lugar">
+                                                <h1>{{ $vacante->municipio->nombre }}</h1>
+                                                <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-num-vac">
+                                                <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-postulados">
+                                                <h1 class="titulo"> Postulados 0</h1>
+                                            </article>
+
+                                        </article>
+                                    </article>
+
                                 </article>
-
-                                <article class="grid-2">
-
-                                    <article class="contenedor-cargo">
-                                        <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
-                                    </article>
-
-                                    <article class="info">
-                                        <article class="contenedor-salario">
-                                            <h1 class="titulo">$ {{ $vacante->salario }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-experiencia">
-                                            <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
-                                            </h1>
-                                        </article>
-
-                                        <article class="contenedor-contrato">
-                                            <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-lugar">
-                                            <h1>{{ $vacante->municipio->nombre }}</h1>
-                                            <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-num-vac">
-                                            <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
-                                        </article>
-
-                                        <article class="contenedor-postulados">
-                                            <h1 class="titulo"> Postulados 0</h1>
-                                        </article>
-
-                                    </article>
-                                </article>
-
+                            @else
+                                @continue
+                            @endif
+                        @empty
+                            <article class="contenedor-empty">
+                                <h1 class="empty">No hay vacantes registradas</h1>
                             </article>
-                        @else
-                            @continue
-                        @endif
-                    @empty
-                        <article class="contenedor-empty">
-                            <h1 class="empty">No hay vacantes registradas</h1>
-                        </article>
-                    @endforelse
+                        @endforelse
+                    </article>
                 </article>
-            </article>
 
-            <article class="contenedor-boton">
-                <a href="{{ route('candidato.index') }}">Volver</a>
+                <article class="contenedor-boton">
+                    <a href="{{ route('candidato.index') }}">Volver</a>
+                </article>
             </article>
         </section>
 
