@@ -60,7 +60,7 @@
 
                             <article class="puntos">
                                 <h1>Puntos</h1>
-                                <input class="input" type="number" name="puntos" min="0"
+                                <input class="input" type="number" name="puntos" min="1" max="10" 
                                     value="{{ old('puntos') }}">
                                 @error('puntos')
                                     <strong class="mensaje">{{ $message }}</strong>

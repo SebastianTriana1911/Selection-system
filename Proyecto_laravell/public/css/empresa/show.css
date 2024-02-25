@@ -17,7 +17,6 @@
     "footer";
 }
 
-
 .header {
     display: flex;
     grid-area: header;
@@ -78,11 +77,11 @@
 }
 
 .content .contenedor-titulo .linea{
-    background-color: #FFD966;
+    background-color: white;
     width: 20%;
     height: 4px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #FFD966;
+    box-shadow: 0 0 10px white;
 }
 
 .content .contenedor-informacion{
@@ -225,7 +224,7 @@
 
 .content .contenedor-informacion .reclutadores{
     display: flex;
-    width: 100%;
+    width: 55%;
     gap: 4%;
 }
 
@@ -234,6 +233,20 @@
 }
 
 .content .contenedor-informacion .reclutadores p{
+    font-size: 13pt;
+}
+
+.content .contenedor-informacion .seleccionador{
+    display: flex;
+    width: 45%;
+    gap: 4%;
+}
+
+.content .contenedor-informacion .seleccionador .titulo{
+    font-size: 13pt;
+}
+
+.content .contenedor-informacion .seleccionador p{
     font-size: 13pt;
 }
 

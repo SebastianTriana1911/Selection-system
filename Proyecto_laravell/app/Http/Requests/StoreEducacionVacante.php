@@ -16,7 +16,7 @@ class StoreEducacionVacante extends FormRequest{
      */
     public function rules(): array{
         return [
-            'puntos' => 'required|min:0',
+            'puntos' => 'required|min:1|max:10',
             'titulado' => 'required|min:5'
         ];
     }
@@ -24,7 +24,8 @@ class StoreEducacionVacante extends FormRequest{
     public function messages(){
         return [
             'puntos.required' => 'Obligatorio',
-            'puntos.min' => 'Minimo 0',
+            'puntos.min' => 'Minimo 1',
+            'puntos.max' => 'Maximo 10',
             'titulado.required' => 'Obligatorio',
             'titulado.min' => 'Minimo 5'
         ];

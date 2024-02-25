@@ -89,8 +89,8 @@ body::-webkit-scrollbar-thumb{
 .nav .contenedor-titulo .linea{
     width: 25%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 7px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 7px white;
     margin-top: 0.5%;
 }
 
@@ -133,6 +133,18 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px white;
 }
 
+.formulario .encabezado .contenedor-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario .encabezado .contenedor-titulo i{
+    font-size: 17pt;
+    position: relative;
+    left: -4%;
+}
+
 .formulario .encabezado .titulo{
     width: 100%;
     display: flex;
@@ -145,6 +157,7 @@ body::-webkit-scrollbar-thumb{
 .formulario .encabezado .linea{
     width: 20%;
     height: 4px;
+    margin-top: 0.5%;
     background-color: white;
     box-shadow: 0 0 7px white;
 }
@@ -375,10 +388,10 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3%;
+    gap: 8%;
     width: 99.3%;
     background-color: black;
-    height: 20%;
+    height: 25%;
     border-radius: 13px 13px 13px 13px;
     border: 3px solid white;
     box-shadow: 0 0 10px white;
@@ -405,6 +418,8 @@ body::-webkit-scrollbar-thumb{
     grid-template-columns: 1fr 1fr 1fr;
     padding: 3%;
     padding-left: 15%;
+    margin-bottom: 3%;
+    margin-top: 2%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .titulo{
@@ -628,6 +643,15 @@ body::-webkit-scrollbar-thumb{
     border: none;
     margin-top: 2%;
     resize: none;
+}
+
+.formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion::-webkit-scrollbar{
+    width:4px;
+    background-color: white;
+}
+
+.formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion::-webkit-scrollbar-thumb{
+    background: black;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion:hover {

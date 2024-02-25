@@ -111,8 +111,8 @@ body::-webkit-scrollbar-thumb{
 .nav .contenedor-nav .titulo-principal .linea{
     width: 45%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 10px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 10px white;
     margin-top: 1%;
 }
 

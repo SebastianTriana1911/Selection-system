@@ -115,8 +115,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: -3%;
 }
 
@@ -147,7 +147,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-hoja-vida .primera-linea .input{
     display: flex;
     width: 86%;
-    height: 60%;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     padding-left: 7%;
@@ -282,8 +282,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: 4%;
 }
 
@@ -303,7 +303,7 @@ body::-webkit-scrollbar-thumb{
 
 .content-2 .contenedor-ocupaciones .parte-1{
     display: flex;
-    width: 85%;
+    width: 100%;
     gap: 3%;
 }
 
@@ -318,6 +318,8 @@ body::-webkit-scrollbar-thumb{
     text-decoration: none;
     font-weight: bold;
     color: black;
+    text-align: center;
+
 }
 
 .content-2 .contenedor-ocupaciones .ocupacion .parte-2 {

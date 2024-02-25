@@ -40,7 +40,10 @@
                 @csrf
 
                 <article class="encabezado">
-                    <h1 class="titulo">Datos de la vacante</h1>
+                    <article class="contenedor-titulo">
+                        <i class="fa-regular fa-newspaper" style="color: #ffffff;"></i>
+                        <h1 class="titulo">Datos de la vacante</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -141,7 +144,10 @@
 
                 <article class="contenedor-ubicacion">
                     <article class="encabezado">
-                        <h1 class="titulo">Datos de la ubicacion</h1>
+                        <article class="contenedor-titulo">
+                            <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+                            <h1 class="titulo">Datos de la ubicacion</h1>
+                        </article>
                         <h1 class="linea-2"></h1>
                     </article>
 
@@ -184,7 +190,10 @@
                 <article class="contenedor-educacion-requerida">
 
                     <article class="encabezado">
-                        <h1 class="titulo">Datos de educacion requerida</h1>
+                        <article class="contenedor-titulo">
+                            <i class="fa-solid fa-school" style="color: #ffffff;"></i>
+                            <h1 class="titulo">Datos de educacion requerida</h1>
+                        </article>
                         <h1 class="linea"></h1>
                     </article>
 
@@ -213,7 +222,7 @@
 
                             <article class="contenedor-puntos">
                                 <h1 class="titulo">Puntuacion para la educacion</h1>
-                                <input class="puntos" type="number" name="puntos" min="0"
+                                <input class="puntos" type="number" name="puntos" min="1" max="10"
                                     value="{{ old('puntos') }}">
                                 @error('puntos')
                                     <strong class="mensaje">{{ $message }}</strong>

@@ -88,7 +88,17 @@
                                             </article>
 
                                             <article class="contenedor-postulados">
-                                                <h1 class="titulo"> Postulados 0</h1>
+                                                @php
+                                                    $postuladosVacante = 0;
+                                                @endphp
+                                                @forelse ($vacante->postulacion as $postulados)
+                                                    @php
+                                                        $postuladosVacante = $postuladosVacante + 1;
+                                                    @endphp
+                                                @empty
+                                                    
+                                                @endforelse
+                                                    <h1 class="titulo">Postulados: {{$postuladosVacante}}</h1>
                                             </article>
 
                                         </article>

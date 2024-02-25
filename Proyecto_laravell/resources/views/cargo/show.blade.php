@@ -153,21 +153,6 @@
                             </article>
                         </article>
                     </article>
-
-                    {{-- <h1 class="titulo-funciones">FUNCIONES</h1>
-                    <article class="tercera-linea">
-                        
-                        <article class="funcion">
-                            @forelse ($funciones as $funcion)
-                                <ul>
-                                    <li>
-                                        <p class="info">{{$funcion -> funcion}}</p>
-                                    </li>
-                                </ul>
-                            @empty
-                                <p class="empty">No hay funciones</p>
-                            @endforelse
-                        </article> --}}
                 </article>
 
                 </article>

@@ -162,9 +162,9 @@
 
 .informacion-vacante {
     display: grid;
-    grid-template-columns: 25% 1fr 9%;
+    grid-template-columns: 22% 1fr 11%;
     padding: 1%;
-    width: 75%;
+    width: 80%;
     border-radius: 15px;
     box-shadow: 0 0 10px white;
     background-color: white;
@@ -250,6 +250,23 @@
     background-color: black;
     transition: 0.5s;
     color: #FFD966;
+}
+
+.contenedor-empty{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 60%;
+    padding: 3%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px white;
+    position: relative;
+    left: 5%;
+}
+
+.contenedor-empty .empty{
+    font-size: 14pt;
+    font-weight: bolder;
 }
 
 /*------------------------------------------------------------*/

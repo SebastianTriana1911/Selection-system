@@ -15,23 +15,27 @@ use Illuminate\Http\Request;
 use App\Models\EducacionVacante;
 use App\Models\Funcion;
 
-class VacanteController extends Controller{
+class VacanteController extends Controller
+{
     // ---------------------- METODO INDEX -------------------------
     // Al llamar el metodo index se desea mostar en una vista en donde
     // se itera por medio de un forelse todas las vacantes creadas en
     // la BD ademas el contador de cuantas vacantes son creadas y cuantas
     // se muestran
-    public function index($id){
+    public function index($id)
+    {
         $empresa = Empresa::find($id);
         $vacantes = Vacante::all();
         $contador = 0;
 
-        foreach($vacantes as $vacante){
+        foreach ($vacantes as $vacante) {
             $contador = $contador + 1;
         }
 
-        return view('vacante.index', ['vacantes' => $vacantes,
-        'empresa' => $empresa, 'contador' => $contador]);
+        return view('vacante.index', [
+            'vacantes' => $vacantes,
+            'empresa' => $empresa, 'contador' => $contador
+        ]);
     }
     // --------------------------------------------------------------
 
@@ -42,16 +46,19 @@ class VacanteController extends Controller{
     // cargos creados para relacionarlos con la vacante el pais, el
     // departamento y la municipio de donde sera el lugar en que se 
     // se debe realizar el trabajo
-    public function create($id){
+    public function create($id)
+    {
         $empresa = Empresa::find($id);
         $cargos = Cargo::all();
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
-        
-        return view('vacante.create', ['empresa' => $empresa,
-        'cargos' => $cargos, 'paises' => $paises, 
-        'departamentos' => $departamentos, 'municipios' => $municipios]);
+
+        return view('vacante.create', [
+            'empresa' => $empresa,
+            'cargos' => $cargos, 'paises' => $paises,
+            'departamentos' => $departamentos, 'municipios' => $municipios
+        ]);
     }
     // --------------------------------------------------------------
 
@@ -63,27 +70,28 @@ class VacanteController extends Controller{
     // las educaciones que se debe de tener para poder postularse a la
     // vacante, se crea una nueva instancia del modelo Educacion vacante
     // para subir dichos datos a los campos relacionados en la bd
-    public function store(StoreVacante $request){
+    public function store(StoreVacante $request)
+    {
         $vacante = new Vacante();
-        $vacante -> codigo = $request -> codigo;
-        $vacante -> num_vacante = $request -> num_vacante;
-        $vacante -> meses_experiencia = $request -> meses_experiencia;
-        $vacante -> salario = $request -> salario;
-        $vacante -> tipo_salario = $request -> tipo_salario;
-        $vacante -> tipo_contrato = $request -> tipo_contrato;
-        $vacante -> tipo_jornada = $request -> tipo_jornada;
-        $vacante -> empresa_id = $request -> empresa_id; 
-        $vacante -> cargo_id = $request -> cargo_id;
-        $vacante -> municipio_id = $request -> municipio_id;
-        $vacante -> save();
+        $vacante->codigo = $request->codigo;
+        $vacante->num_vacante = $request->num_vacante;
+        $vacante->meses_experiencia = $request->meses_experiencia;
+        $vacante->salario = $request->salario;
+        $vacante->tipo_salario = $request->tipo_salario;
+        $vacante->tipo_contrato = $request->tipo_contrato;
+        $vacante->tipo_jornada = $request->tipo_jornada;
+        $vacante->empresa_id = $request->empresa_id;
+        $vacante->cargo_id = $request->cargo_id;
+        $vacante->municipio_id = $request->municipio_id;
+        $vacante->save();
 
         $educacion = new EducacionVacante();
-        $educacion -> nivel_estudio = $request -> nivel_estudio;
-        $educacion -> descripcion = $request -> descripcion;
-        $educacion -> puntos = $request -> puntos;
-        $educacion -> titulado = $request -> titulado;
-        $educacion -> vacante_id = $vacante -> id;
-        $educacion -> save();
+        $educacion->nivel_estudio = $request->nivel_estudio;
+        $educacion->descripcion = $request->descripcion;
+        $educacion->puntos = $request->puntos;
+        $educacion->titulado = $request->titulado;
+        $educacion->vacante_id = $vacante->id;
+        $educacion->save();
 
         return redirect()->route('reclutador.index');
     }
@@ -106,31 +114,34 @@ class VacanteController extends Controller{
     // esta buscando y por el metodo get() lo muestre como un objeto. Esta
     // busqueda se logra con el metodo like que funciona de la misma
     // manera a como funciona el del SQL (%$busqueda%)
-    public function buscar(Request $request, $id){
+    public function buscar(Request $request, $id)
+    {
         $empresa = Empresa::find($id);
-        $busqueda = $request -> busqueda;
+        $busqueda = $request->busqueda;
         $contador = 0;
-        
+
         // Se busca la tabla con la cual tiene relacion el modelo principal
         // por medio del metodo estatico whereHas
-        $resultado = Vacante::whereHas('cargo', function ($query) use ($busqueda){
+        $resultado = Vacante::whereHas('cargo', function ($query) use ($busqueda) {
 
             // Se busca la coincidencia que tiene todos los cargos con la
             // busqueda que nosotros realizamos
-            $query->where('cargo', 'like', '%'.$busqueda.'%')
-            
-            ->orWhere('codigo', 'like', '%'.$busqueda.'%');
-        })->get();
-        $encontrado = $resultado -> isNotEmpty();
+            $query->where('cargo', 'like', '%' . $busqueda . '%')
 
-        if ($encontrado == 0){
-            return redirect()->route('vacante.index', $empresa -> id);
-        }else{
-            foreach ($resultado as $resul){
+                ->orWhere('codigo', 'like', '%' . $busqueda . '%');
+        })->get();
+        $encontrado = $resultado->isNotEmpty();
+
+        if ($encontrado == 0) {
+            return redirect()->route('vacante.index', $empresa->id);
+        } else {
+            foreach ($resultado as $resul) {
                 $contador = $contador + 1;
             }
-            return view('vacante.resultado', ['resultado' => $resultado,
-            'contador' => $contador, 'empresa' => $empresa]);
+            return view('vacante.resultado', [
+                'resultado' => $resultado,
+                'contador' => $contador, 'empresa' => $empresa
+            ]);
         }
     }
     // --------------------------------------------------------------
@@ -141,26 +152,38 @@ class VacanteController extends Controller{
     // relacionada con la vacante, en esta vista se mostrara aparte de
     // los datos de la vacante, los datos del cargo relacionado a la
     // vacante y los datos de la ocupacion relacionadas con el cargo
-    public function show(Vacante $id, Empresa $empresa){
-        $educaciones = $id -> educacionVacante;
+    public function show(Vacante $id, Empresa $empresa)
+    {
+        $educaciones = $id->educacionVacante;
+        $postulaciones = $id->postulacion;
+        $postuladosVacante = 0;
 
-        return view('vacante.show', ['vacante' => $id, 
-        'empresa' => $empresa, 'educaciones' => $educaciones]);
+        foreach ($postulaciones as $postulacion) {
+            $postuladosVacante = $postuladosVacante + 1;
+        }
+
+        return view('vacante.show', [
+            'vacante' => $id,
+            'empresa' => $empresa, 'educaciones' => $educaciones, 'postulados' => $postuladosVacante
+        ]);
     }
     // --------------------------------------------------------------
-    
+
 
     // ------------------------ METODO EDIT -------------------------
-    public function edit(Vacante $id, Empresa $empresa){
+    public function edit(Vacante $id, Empresa $empresa)
+    {
         $cargos = Cargo::all();
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
-        
-        return view('vacante.edit', ['empresa' => $empresa,
-        'cargos' => $cargos, 'paises' => $paises, 
-        'departamentos' => $departamentos, 'municipios' => $municipios,
-        'vacante' => $id]);
+
+        return view('vacante.edit', [
+            'empresa' => $empresa,
+            'cargos' => $cargos, 'paises' => $paises,
+            'departamentos' => $departamentos, 'municipios' => $municipios,
+            'vacante' => $id
+        ]);
     }
     // --------------------------------------------------------------
 
@@ -174,7 +197,8 @@ class VacanteController extends Controller{
     // se asigno como tipo de dato en la migracion, seguido de esto se
     // hace el cambio del valor de los campos que hayan en la tabla
     // vacantes con la que se ingreso en el formulario y se salva (save())
-    public function update(Request $request, Vacante $id, Empresa $empresa){
+    public function update(Request $request, Vacante $id, Empresa $empresa)
+    {
         $request->validate([
             'codigo' => [
                 'required',
@@ -185,7 +209,7 @@ class VacanteController extends Controller{
             'num_vacante' => 'required|min:1',
             'meses_experiencia' => 'min:1',
             'salario' => 'required',
-        ],[
+        ], [
             'codigo.required' => 'Obligatorio',
             'codigo.unique' => 'Ya existe',
             'codigo.min' => 'Mínimo 8',
@@ -197,19 +221,19 @@ class VacanteController extends Controller{
             'puntos.required' => 'Obligatorio',
         ]);
 
-        $id -> codigo = $request -> codigo;
-        $id -> num_vacante = $request -> num_vacante;
-        $id -> meses_experiencia = $request -> meses_experiencia;
-        $id -> salario = $request -> salario;
-        $id -> tipo_salario = $request -> tipo_salario;
-        $id -> tipo_contrato = $request -> tipo_contrato;
-        $id -> tipo_jornada = $request -> tipo_jornada;
-        $id -> empresa_id = $request -> empresa_id; 
-        $id -> cargo_id = $request -> cargo_id;
-        $id -> municipio_id = $request -> municipio_id;
+        $id->codigo = $request->codigo;
+        $id->num_vacante = $request->num_vacante;
+        $id->meses_experiencia = $request->meses_experiencia;
+        $id->salario = $request->salario;
+        $id->tipo_salario = $request->tipo_salario;
+        $id->tipo_contrato = $request->tipo_contrato;
+        $id->tipo_jornada = $request->tipo_jornada;
+        $id->empresa_id = $request->empresa_id;
+        $id->cargo_id = $request->cargo_id;
+        $id->municipio_id = $request->municipio_id;
 
-        $id -> save();
-        return redirect()->route('vacante.index', $empresa -> id);
+        $id->save();
+        return redirect()->route('vacante.index', $empresa->id);
     }
     // --------------------------------------------------------------
 
@@ -218,19 +242,21 @@ class VacanteController extends Controller{
     // Al llamar el metodo destroy se busca la vacante con el tipo de
     // id correspondiente y al encontrar el registro este se eliminara
     // gracias al metodo delete
-    public function destroy(Vacante $id){
-        $id -> delete();
+    public function destroy(Vacante $id)
+    {
+        $id->delete();
         return redirect()->back();
     }
     // --------------------------------------------------------------
 
 
     // ------------------------ METODO ESTADO -----------------------
-    public function estado($id){
+    public function estado($id)
+    {
         $vacante = Vacante::find($id);
-        if($vacante->estado == 0){
+        if ($vacante->estado == 0) {
             $vacante->estado = 1;
-        }else{
+        } else {
             $vacante->estado = 0;
         }
         $vacante->save();

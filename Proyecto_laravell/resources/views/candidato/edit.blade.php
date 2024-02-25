@@ -26,12 +26,16 @@
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <article class="contenedor-content">
-            <form class="contenedor-put" action="{{route('candidato.update', ['id' => $candidato->id])}}" method="POST">
+            <form class="contenedor-put" action="{{ route('candidato.update', ['id' => $candidato->id]) }}"
+                method="POST">
                 @csrf
                 @method('put')
 
                 <article class="contenedor-titulo">
-                    <h1 class="titulo">Actualizacion de datos</h1>
+                    <article class="content">
+                        <i class="fa-solid fa-rotate-right" style="color: #ffffff;"></i>
+                        <h1 class="titulo">Actualizacion de datos</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -94,7 +98,8 @@
 
                     <article class="contenedor-estado">
                         <h1>Estado civil</h1>
-                        <select class="menu-estado-civil" name="estado_civil" value="{{ old('estado_civil', $candidato->user->estado_civil) }}">
+                        <select class="menu-estado-civil" name="estado_civil"
+                            value="{{ old('estado_civil', $candidato->user->estado_civil) }}">
                             <option value="Soltero">Soltero</option>
                             <option value="Casado">Casado</option>
                             <option value="Union de hecho">Union de hecho</option>
@@ -103,7 +108,7 @@
                             <option value="Viudo">Viudo</option>
                         </select>
                         @error('estado_civil')
-                            <strong class="mensaje">{{$message}}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
 
@@ -134,9 +139,9 @@
 
                     <article class="contenedor-email">
                         <h1>Email</h1>
-                        <input type="email" name="email" value="{{old('email', $candidato->user->email)}}">
+                        <input type="email" name="email" value="{{ old('email', $candidato->user->email) }}">
                         @error('email')
-                            <strong class="mensaje">{{$message}}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
 

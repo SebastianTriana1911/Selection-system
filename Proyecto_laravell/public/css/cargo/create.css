@@ -115,8 +115,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: -3%;
 }
 
@@ -319,7 +319,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     position: relative;
     width: 90%;
-    height: 400px;
+    height: 380px;
     overflow: auto;
 }
 
@@ -346,8 +346,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: 4%;
 }
 

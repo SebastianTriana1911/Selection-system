@@ -98,6 +98,18 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
 }
 
+.contenedor-content .contenedor-put .contenedor-titulo .content{
+    display: flex;
+}
+
+.contenedor-content .contenedor-put .contenedor-titulo .content i{
+    display: flex;
+    align-items: center;
+    font-size: 16pt;
+    position: relative;
+    left: -3%;
+}
+
 .contenedor-content .contenedor-put .contenedor-titulo .titulo{
     font-size: 18pt;
 }

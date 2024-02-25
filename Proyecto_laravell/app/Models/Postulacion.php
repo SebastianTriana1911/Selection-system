@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Models\Candidato;
+use App\Models\Ponderacion;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -18,5 +20,9 @@ class Postulacion extends Model{
 
     public function vacante(): BelongsTo{
         return $this -> belongsTo(Vacante::class);
+    }
+
+    public function ponderacion(): HasMany{
+        return $this ->hasMany(Ponderacion::class); 
     }
 }

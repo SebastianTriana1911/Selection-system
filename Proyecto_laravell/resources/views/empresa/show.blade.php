@@ -40,37 +40,41 @@
 
                 <article class="linea-1">
                     <article class="id">
-                        <h1 class="titulo">ID</h1>
+                        <h1 class="titulo">Id: </h1>
                         <p> {{$empresa -> id}}</p>
                     </article>
 
                     <article class="nit">
-                        <h1 class="titulo">NIT</h1>
+                        <h1 class="titulo">Nit: </h1>
                         <p> {{$empresa -> nit}}</p>
                     </article>
                 
                     <article class="nombre">
-                        <h1 class="titulo">NOMBRE</h1>
+                        <h1 class="titulo">Nombre: </h1>
                         <p> {{$empresa -> nombre}}</p>
                     </article>
                 </article>
 
                 <article class="linea-2">
                     <article class="direccion">
-                        <h1 class="titulo">DIRECCION</h1>
+                        <h1 class="titulo">Direccion: </h1>
                         <p> {{$empresa -> direccion}}</p>
                     </article>
                     
                     <article class="municipio">
-                        <h1 class="titulo">MUNICIPIO</h1>
+                        <h1 class="titulo">Municipio:</h1>
                         <p> {{$empresa -> municipio -> nombre}}</p>
                     </article>
                 </article>
 
                 <article class="linea-3">
                     <article class="reclutadores">
-                        <h1 class="titulo">Reclutadores</h1>
+                        <h1 class="titulo">Reclutadores: </h1>
                         <p>{{$contador}}</p>
+                    </article>
+
+                    <article class="seleccionador">
+                        <h1 class="titulo">Seleccionador: </h1>
                     </article>
                 </article>
                 </article>

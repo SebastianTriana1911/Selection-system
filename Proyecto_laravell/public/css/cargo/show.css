@@ -98,6 +98,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     width: 100%;
+    position: relative;
+    top: 3%;
 }
 
 .contenedor-content .titulo-principal{
@@ -106,7 +108,6 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     text-align: center;
     color: white;
-    margin-top: 3%;
     font-size: 24pt;
 }
 
@@ -116,9 +117,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
-    margin-bottom: -3%;
+    background-color: white;
+    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida{
@@ -127,10 +127,12 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
     margin: auto;
     width: 55%;
-    height: 60%;
+    height: 50%;
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 0 15px white;
+    position: relative;
+    top: -10%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea{
@@ -256,7 +258,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 20%;
+    top: 40%;
     gap: 10%;
 }
 

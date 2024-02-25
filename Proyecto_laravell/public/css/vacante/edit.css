@@ -90,8 +90,8 @@ body::-webkit-scrollbar-thumb{
 .nav .contenedor-titulo .linea{
     width: 25%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 7px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 7px white;
     margin-top: 0.5%;
 }
 
@@ -134,6 +134,18 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px white;
 }
 
+.formulario .encabezado .contenedor-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario .encabezado .contenedor-titulo i{
+    font-size: 17pt;
+    position: relative;
+    left: -4%;
+}
+
 .formulario .encabezado .titulo{
     width: 100%;
     display: flex;
@@ -145,7 +157,8 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .encabezado .linea{
     width: 20%;
-    height: 4px;
+    height: 2px;
+    margin-top: 0.5%;
     background-color: white;
     box-shadow: 0 0 7px white;
 }
@@ -376,10 +389,10 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3%;
+    gap: 8%;
     width: 99.3%;
     background-color: black;
-    height: 20%;
+    height: 25%;
     border-radius: 13px 13px 13px 13px;
     border: 3px solid white;
     box-shadow: 0 0 10px white;
@@ -396,7 +409,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .encabezado .linea-2{
     width: 20%;
-    height: 4px;
+    height: 2px;
     background-color: white;
     box-shadow: 0 0 7px white;
 }

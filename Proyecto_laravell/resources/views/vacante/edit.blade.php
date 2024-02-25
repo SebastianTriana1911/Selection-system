@@ -39,7 +39,10 @@
                 @method('put')
                 
                     <article class="encabezado">
-                        <h1 class="titulo">Datos de la vacante</h1>
+                        <article class="contenedor-titulo">
+                            <i class="fa-regular fa-newspaper" style="color: #ffffff;"></i>
+                            <h1 class="titulo">Datos de la vacante</h1>
+                        </article>
                         <h1 class="linea"></h1>
                     </article>
 
@@ -135,7 +138,10 @@
 
                     <article class="contenedor-ubicacion">
                         <article class="encabezado">
-                            <h1 class="titulo">Datos de la ubicacion</h1>
+                            <article class="contenedor-titulo">
+                                <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+                                <h1 class="titulo">Datos de la ubicacion</h1>
+                            </article>
                             <h1 class="linea-2"></h1>
                         </article>
 

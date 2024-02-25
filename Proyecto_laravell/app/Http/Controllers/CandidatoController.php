@@ -8,15 +8,16 @@ use App\Models\User;
 use App\Models\Vacante;
 use App\Models\Candidato;
 use App\Models\Profesion;
+use App\Models\Ponderacion;
 use App\Models\Postulacion;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\CandidatoEducacion;
 use App\Models\CandidatoExperiencia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreCandidato;
 use App\Models\CandidatoDesvinculacion;
-use Illuminate\Validation\Rule;
 
 class CandidatoController extends Controller
 {
@@ -29,9 +30,30 @@ class CandidatoController extends Controller
         $estado = $candidato->postulacion;
         if (count($estado)) {
             $estadoCandidato = 'En proceso';
-            // Me retornara la vista en la que no puede postularse a ninguna otra vacante
+            $desvinculaciones = $candidato->candidatoDesvinculacion;
+            $postulacionFind = '';
+            foreach ($candidato->postulacion as $post){
+                $postulacionFind = $post->id;
+            }
 
-            return 5;
+            $postulacion = Postulacion::find($postulacionFind);
+            $cont = 0;
+
+            $postulacionesAll = Postulacion::all();
+            foreach ($postulacionesAll as $all){
+                if($all->vacante_id == $postulacion->vacante_id){
+                    $cont ++;
+                }else{
+                    continue;
+                }
+            }
+
+            return view('candidato.proceso', [
+                'candidato' => $candidato, 'desvinculaciones' => $desvinculaciones,
+                'estadoCandidato' => $estadoCandidato, 'postulacion' => $postulacion,
+                'cont' => $cont
+            ]);
+
         } else {
             $estadoCandidato = 'Disponible';
             $desvinculaciones = $candidato->candidatoDesvinculacion;
@@ -84,7 +106,8 @@ class CandidatoController extends Controller
     }
     // ----------------------------------------------------------
 
-    public function hojavida(string $id){
+    public function hojavida(string $id)
+    {
         $candidato = Candidato::find($id);
 
         $sexo = "";
@@ -99,7 +122,6 @@ class CandidatoController extends Controller
         foreach ($educaciones as $educacion) {
             if ($educacion->candidato_id == $id) {
                 array_push($candidatoEducacion, $educacion);
-
             } else {
                 continue;
             }
@@ -189,46 +211,150 @@ class CandidatoController extends Controller
         $user->apellido = $request->apellido;
         $user->genero = $request->genero;
         $user->estado_civil = $request->estado_civil;
-        if($user->email == $request -> email){
+        if ($user->email == $request->email) {
             $user->save();
             return redirect()->route('candidato.index');
-        }else{
+        } else {
             $user->email = $request->email;
             $user->save();
             return redirect()->route('login');
         }
     }
 
-    public function destroy(string $id){
+    public function destroy(string $id)
+    {
         $usuario = User::find($id);
         $usuario->delete();
 
         return redirect()->route('welcome');
     }
 
-    public function showVacantes(){
+    public function showVacantes()
+    {
         $vacantes  = Vacante::all();
         $cantidad = 0;
 
-        foreach($vacantes as $vacante){
-            if($vacante->estado==1){
+        foreach ($vacantes as $vacante) {
+            if ($vacante->estado == 1) {
                 $cantidad = $cantidad + 1;
-            }else{
+            } else {
                 continue;
             }
         }
 
-        return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);        
+        return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);
     }
 
-    public function sintesis($id){
+    public function sintesis($id)
+    {
         $user = Auth::user();
         $candidato = $user->candidato;
+        $candidatoEducacion = $candidato->candidatoEducacion;
+        $candidatoExperiencia = $candidato->candidatoExperiencia;
         $vacante = Vacante::find($id);
+        $postulaciones = $vacante->postulacion;
+        $candidatosPostulados = 0;
+        foreach ($postulaciones as $postulacion){
+            $candidatosPostulados = $candidatosPostulados = 1;
+        }
+
         $funciones = $vacante->cargo->ocupacion->funcion;
-        $educaciones = $vacante -> educacionVacante;
-        
-        return view('candidato.sintesis', ['vacante'=>$vacante, 'educaciones' => $educaciones,
-        'funciones' => $funciones]);
+        $educaciones = $vacante->educacionVacante;
+        $conteoEducacion = count($educaciones);
+        $comparacionExitosaNivel = 0;
+
+        $nivel_estudio = false;
+        $ponderacionNivel = [];
+        $conteoNivel = 0;
+        foreach ($educaciones as $educacion) {
+            foreach ($candidatoEducacion as $candiEdu) {
+                if ($educacion->nivel_estudio == $candiEdu->nivel_estudio) {
+                    $comparacionExitosaNivel = $comparacionExitosaNivel + 1;
+                    array_push($ponderacionNivel, $educacion->puntos);
+                }
+            }
+        };
+        if($comparacionExitosaNivel >= ($conteoEducacion/2)){
+            $nivel_estudio = true;
+            foreach ($ponderacionNivel as $ponderacion){
+                $conteoNivel = $conteoNivel + $ponderacion;
+            }
+        }
+
+
+        $titulado = false;
+        $comparacionExitosaTitulo = 0;
+        $ponderacionTitulo = [];
+        $conteoTitulo = 0;
+        foreach ($educaciones as $educacion) {
+            foreach ($candidatoEducacion as $candiEdu) {
+                similar_text($educacion->titulado, $candiEdu->titulado, $similitud);
+                $umbralSimilitud = 70;
+                if ($similitud >= $umbralSimilitud){
+                    $comparacionExitosaTitulo = $comparacionExitosaTitulo + 1;
+                    array_push($ponderacionTitulo, $educacion->puntos);
+                }
+            }
+        };
+        if($comparacionExitosaTitulo >= ($conteoEducacion/2)){
+            $titulado = true;
+            foreach ($ponderacionTitulo as $ponderacion){
+                $conteoTitulo = $conteoTitulo + $ponderacion;
+            }
+        }
+
+        $meses = false;
+        $conteoMeses = 0; 
+        foreach ($candidatoExperiencia as $candiEx) {
+            if ($candiEx->meses >= $vacante->meses_experiencia) {
+                $meses = true;
+                $conteoMeses = $conteoMeses + 5;
+            }
+        };
+
+        $postulacion = false;
+        $sumaTotalPonderacion = 0;
+        if($nivel_estudio || $titulado && $meses == true){
+            $sumaTotalPonderacion = $conteoNivel + $conteoTitulo + $conteoMeses; 
+            $postulacion = true;
+        }
+
+        return view('candidato.sintesis', [
+            'vacante' => $vacante, 'educaciones' => $educaciones,
+            'funciones' => $funciones, 'candidato' => $candidato,
+            'nivel' => $nivel_estudio, 'titulado' => $titulado,
+            'meses' => $meses, 'postulacion' => $postulacion,
+            'candidatosPostulados' => $candidatosPostulados,
+            'sumaTotalPonderacion' => $sumaTotalPonderacion
+        ]);
+    }
+
+    public function postulacion($idCandidato, $idVacante, $puntos){
+        $candidato = Candidato::find($idCandidato);
+        $vacante = Vacante::find($idVacante);
+
+        $postulacion = new Postulacion();
+        $postulacion->candidato_id = $candidato->id;
+        $postulacion->vacante_id = $vacante->id;
+        $postulacion->save();
+
+        $ponderacion = new Ponderacion();
+        $ponderacion->ponderacion = $puntos;
+        $ponderacion->postulacion_id = $postulacion->id;
+        $ponderacion->save();
+
+        return redirect()->route('candidato.index');
+    }
+
+    public function desvinculacion($idCandidato, $idVacante, $idPostulacion){
+        $postulacion = Postulacion::find($idPostulacion);
+        $postulacion -> delete();
+
+        $desvinculacion = new CandidatoDesvinculacion();
+        $desvinculacion->candidato_id = $idCandidato;
+        $desvinculacion->vacante_id = $idVacante;
+        $desvinculacion->save();
+
+        return redirect()->route('login');
     }
 }

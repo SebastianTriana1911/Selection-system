@@ -116,8 +116,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: -12%;
 }
 
@@ -267,8 +267,8 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 30%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    background-color: white;
+    box-shadow: 0 0 15px white;
     margin-bottom: -6%;
     margin-top: 1%;
 }
@@ -280,7 +280,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     background-color: white;
     border: 3px solid black;
-    width: 50%;
+    width: 65%;
     height: 250px;
     margin-top: 10%;
     border-radius: 15px;
