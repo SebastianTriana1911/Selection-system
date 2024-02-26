@@ -151,13 +151,16 @@
     overflow-y: auto;
 }
 
-.contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar {
-    width: 7px;
-    background-color: black;
+.contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar{
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
 }
 
-.contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar-thumb {
+.contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar-thumb{
+    width: 10px;
     background: white;
+    border-radius: 5px;
 }
 
 .informacion-vacante {

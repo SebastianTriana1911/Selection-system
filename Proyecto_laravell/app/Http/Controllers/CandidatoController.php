@@ -289,7 +289,7 @@ class CandidatoController extends Controller
         foreach ($educaciones as $educacion) {
             foreach ($candidatoEducacion as $candiEdu) {
                 similar_text($educacion->titulado, $candiEdu->titulado, $similitud);
-                $umbralSimilitud = 70;
+                $umbralSimilitud = 60;
                 if ($similitud >= $umbralSimilitud){
                     $comparacionExitosaTitulo = $comparacionExitosaTitulo + 1;
                     array_push($ponderacionTitulo, $educacion->puntos);
@@ -304,7 +304,7 @@ class CandidatoController extends Controller
         }
 
         $meses = false;
-        $conteoMeses = 0; 
+        $conteoMeses = 0;
         foreach ($candidatoExperiencia as $candiEx) {
             if ($candiEx->meses >= $vacante->meses_experiencia) {
                 $meses = true;
@@ -315,7 +315,7 @@ class CandidatoController extends Controller
         $postulacion = false;
         $sumaTotalPonderacion = 0;
         if($nivel_estudio || $titulado && $meses == true){
-            $sumaTotalPonderacion = $conteoNivel + $conteoTitulo + $conteoMeses; 
+            $sumaTotalPonderacion = $conteoNivel + $conteoTitulo + $conteoMeses;
             $postulacion = true;
         }
 
@@ -356,5 +356,39 @@ class CandidatoController extends Controller
         $desvinculacion->save();
 
         return redirect()->route('login');
+    }
+
+
+    public function buscar(Request $request)
+    {
+        $busqueda = $request->busqueda;
+        $contador = 0;
+        $postulados = 0;
+
+        // Se busca la tabla con la cual tiene relacion el modelo principal
+        // por medio del metodo estatico whereHas
+        $vacante = Vacante::whereHas('cargo', function ($query) use ($busqueda) {
+
+            // Se busca la coincidencia que tiene todos los cargos con la
+            // busqueda que nosotros realizamos
+            $query->where('cargo', 'like', '%' . $busqueda . '%')
+
+                ->orWhere('codigo', 'like', '%' . $busqueda . '%');
+        })->get();
+        $encontrado = $vacante->isNotEmpty();
+
+        if ($encontrado == 0 || $busqueda== null) {
+            return redirect()->route('candidato.index');
+        } else {
+            foreach ($vacante as $resul) {
+                $contador = $contador + 1;
+                $postulados = $postulados + 1;
+            }
+            return view('candidato.resultado', [
+                'vacantes' => $vacante,
+                'contador' => $contador,
+                'postulados' => $postulados
+            ]);
+        }
     }
 }

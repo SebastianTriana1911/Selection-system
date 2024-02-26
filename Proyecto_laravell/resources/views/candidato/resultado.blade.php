@@ -1,13 +1,13 @@
-<!-- DASHBOARD DEL CANDIDATO -->
+<!-- VISTA PARA VER TODAS LAS VACANTES QUE TIENE UNA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/candidato/vacantes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidato/resultado.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show vacantes</title>
+    <title>Busqueda Vacantes</title>
 </head>
 
 <body>
@@ -27,22 +27,32 @@
         </header>
 
         <!---------------------------------------------------------------->
+        <nav class="nav">
+            <section class="contenedor-nav">
+                <article class="contador-vacantes">
+                    <h1 class="titulo">Resultados encontrados: {{ $contador }}</h1>
+                </article>
+
+                <article class="titulo-principal">
+                    <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+                    <h1 class="linea"></h1>
+                </article>
+
+                <article class="contenedor-input">
+                    <form class="buscar" action="{{ route('candidatoResultado.buscar') }}"
+                        method="POST">
+                        @csrf
+                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
+                        <button class="boton">
+                            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+                        </button>
+                    </form>
+                </article>
+            </section>
+        </nav>
+        <!---------------------------------------------------------------->
 
         <section class="contenedor-content">
-            <article class="nav">
-                <article class="conjunto">
-                    <article class="cantidad">
-                        <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
-                    </article>
-                    <article class="contenedor-titulo">
-                        <h1>Lista de vacantes disponibles</h1>
-                        <h1 class="linea"></h1>
-                    </article>
-                    <article>
-                        <h1></h1>
-                    </article>
-                </article>
-            </article>
 
             <article class="content">
                 <article class="contenedor-vacante">
@@ -96,16 +106,16 @@
                                                         $postuladosVacante = $postuladosVacante + 1;
                                                     @endphp
                                                 @empty
-
                                                 @endforelse
-                                                    <h1 class="titulo">Postulados: {{$postuladosVacante}}</h1>
+                                                <h1 class="titulo">Postulados: {{ $postuladosVacante }}</h1>
                                             </article>
 
                                         </article>
                                     </article>
 
                                     <article class="contenedor-boton-vacante">
-                                        <a class="boton" href="{{route('sintesisVacante.sintesis', ['id' => $vacante->id])}}">Ver</a>
+                                        <a class="boton"
+                                            href="{{ route('sintesisVacante.sintesis', ['id' => $vacante->id]) }}">Ver</a>
                                     </article>
                                 </article>
                             @else
@@ -125,7 +135,7 @@
             </article>
         </section>
 
-        <!----------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <footer class="footer">
             <section class="contenedor-footer">

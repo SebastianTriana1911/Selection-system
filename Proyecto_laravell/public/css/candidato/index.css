@@ -11,7 +11,7 @@
     height: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 10vh 65vh 15vh;
-    grid-template-areas: 
+    grid-template-areas:
     "header"
     "navbar"
     "content"
@@ -695,11 +695,15 @@
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones::-webkit-scrollbar{
-    width: 4px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones::-webkit-scrollbar-thumb{
+    width: 10px;
     background: white;
+    border-radius: 5px;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones{
@@ -837,7 +841,7 @@
 
 .footer .contenedor-footer .informacion article .apps i {
     color: black;
-    
+
 }
 
 .footer .contenedor-footer .informacion article .apps i:hover {

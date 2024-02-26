@@ -131,7 +131,8 @@
                         <article class="contenedor-titulo">
                             <h1 class="titulo">Buscar vacantes</h1>
                             <h1 class="linea"></h1>
-                            <form class="formulario" action="" method="POST">
+                            <form class="formulario" action="{{route('candidatoResultado.buscar')}}" method="POST">
+                                @csrf
                                 <article class="conjunto">
                                     <input class="buscar" type="text" name="busqueda" placeholder="Buscar vacante">
                                     <i class="fa-solid fa-magnifying-glass" style="color: white"></i>

@@ -45,7 +45,7 @@ Route::get('/', function () {
 // ---------------------------- RUTAS DEL CONTROLADOR USER ---------------------------------------
 Route::get('user/create', [UserController::class, 'create'])->name('user.create')->middleware('guest');
 Route::delete('user/destroy/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::post('user/uptade/rol/{id}', [UserController::class, 'cambioRol'])->name('update.rol');  
+Route::post('user/uptade/rol/{id}', [UserController::class, 'cambioRol'])->name('update.rol');
 Route::get('user/restaurar/create', [UserController::class, 'restaurarCreate'])->name('restaurar.create')->middleware('auth');
 Route::post('user/restaurar/contraseña', [UserController::class, 'restaurarContraseña'])->name('restaurar.contraseña');
 Route::get('user/home/restaurar', [UserController::class, 'restaurarHome'])->name('home.restaurar');
@@ -63,6 +63,7 @@ Route::get('vacantes/show/candidato', [CandidatoController::class, 'showVacantes
 Route::get('vacantes/sintesis/candidato/{id}', [CandidatoController::class, 'sintesis'])->name('sintesisVacante.sintesis')->middleware('auth');
 Route::post('postulacion/candidato/{idCandidato}/{idVacante}/{puntos}', [CandidatoController::class, 'postulacion'])->name('postulacionCandidato.postulacion');
 Route::delete('desvinculacion/candidato/{idCandidato}/{idVacante}/{idPostulacion}', [CandidatoController::class, 'desvinculacion'])->name('candidato.desvinculacion');
+Route::post('candidato/resultado/busqueda', [CandidatoController::class, 'buscar'])->name('candidatoResultado.buscar');
 // -----------------------------------------------------------------------------------------------
 
 

@@ -27,14 +27,19 @@ class VacanteController extends Controller
         $empresa = Empresa::find($id);
         $vacantes = Vacante::all();
         $contador = 0;
+        $candidatosPostulados = 0;
 
         foreach ($vacantes as $vacante) {
             $contador = $contador + 1;
+            foreach ($vacante->postulacion as $postulacion){
+                $candidatosPostulados = $candidatosPostulados + 1;
+            }
         }
 
         return view('vacante.index', [
             'vacantes' => $vacantes,
-            'empresa' => $empresa, 'contador' => $contador
+            'empresa' => $empresa, 'contador' => $contador,
+            'postulados' => $candidatosPostulados
         ]);
     }
     // --------------------------------------------------------------
@@ -42,9 +47,9 @@ class VacanteController extends Controller
 
     // ------------------------- METODO CREATE ----------------------
     // Al llamar el metodo create se retorna la vista en la que se
-    // crean todas las vacantes, en este caso se llaman todos los 
+    // crean todas las vacantes, en este caso se llaman todos los
     // cargos creados para relacionarlos con la vacante el pais, el
-    // departamento y la municipio de donde sera el lugar en que se 
+    // departamento y la municipio de donde sera el lugar en que se
     // se debe realizar el trabajo
     public function create($id)
     {
@@ -104,12 +109,12 @@ class VacanteController extends Controller
     // este metodo funcionara buscando desde el modelo Vacante con el
     // metodo estatico whereHas ('Este metodo funciona para filtrar entre
     // tablas relacionadas, como vacantes esta relacionada con cargos
-    // deseamos hacer una busqueda por medio del cargo por esa razon 
+    // deseamos hacer una busqueda por medio del cargo por esa razon
     // utlizamos dicho metodo'), como parametro le asignamos la tabla
     // por la cual deseamos que filtre la busqueda y que esta la relacione
-    // con lo que nosotros hayamos colocado en el buscador, luego de 
+    // con lo que nosotros hayamos colocado en el buscador, luego de
     // esta consulta al query se le asigna el metodo where para que busque
-    // un cargo (Recordemos que ya estamos en la tabla cargos) que se 
+    // un cargo (Recordemos que ya estamos en la tabla cargos) que se
     // tenga alguna letra o palabra correspondiente al cargo que se
     // esta buscando y por el metodo get() lo muestre como un objeto. Esta
     // busqueda se logra con el metodo like que funciona de la misma
@@ -148,7 +153,7 @@ class VacanteController extends Controller
 
 
     // ------------------------ METODO SHOW -------------------------
-    // Al llamar el metodo show se mostrara toda la informacion 
+    // Al llamar el metodo show se mostrara toda la informacion
     // relacionada con la vacante, en esta vista se mostrara aparte de
     // los datos de la vacante, los datos del cargo relacionado a la
     // vacante y los datos de la ocupacion relacionadas con el cargo

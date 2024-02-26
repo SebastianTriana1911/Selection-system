@@ -167,7 +167,7 @@
                                         </article>
 
                                         <article class="contenedor-postulados">
-                                            <h1 class="titulo"> Postulados 0</h1>
+                                            <h1 class="titulo">Postulados {{$postulados}} </h1>
                                         </article>
 
                                     </article>
