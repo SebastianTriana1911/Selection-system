@@ -12,10 +12,10 @@
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 10vh 65vh 15vh;
     grid-template-areas:
-    "header"
-    "navbar"
-    "content"
-    "footer";
+        "header"
+        "navbar"
+        "content"
+        "footer";
 }
 
 
@@ -88,14 +88,14 @@
     cursor: pointer;
 }
 
-.nav .contenedor-estado{
+.nav .contenedor-estado {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 10%;
 }
 
-.nav .contenedor-estado .estado{
+.nav .contenedor-estado .estado {
     background-color: #33FF53;
     padding: 7%;
     border-radius: 10px;
@@ -103,16 +103,16 @@
     color: black;
 }
 
-.nav .contenedor-estado .estado h1{
+.nav .contenedor-estado .estado h1 {
     font-size: 14pt;
 }
 
-.nav .contenedor-estado .estado:hover{
+.nav .contenedor-estado .estado:hover {
     box-shadow: 0 0 20px #00ff55;
     transition: 0.5s;
 }
 
-.segundo-contenedor{
+.segundo-contenedor {
     position: relative;
     right: 2%;
     display: flex;
@@ -122,7 +122,7 @@
     width: 35%;
 }
 
-.destroy input{
+.destroy input {
     display: flex;
     justify-content: center;
     padding: 13px;
@@ -139,14 +139,14 @@
     font-size: 12pt;
 }
 
-.destroy input:hover{
+.destroy input:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.contenedor-logout .boton{
+.contenedor-logout .boton {
     display: flex;
     justify-content: center;
     padding: 13px;
@@ -159,14 +159,14 @@
     box-shadow: 0 0 10px #FFD966;
 }
 
-.contenedor-logout .boton:hover{
+.contenedor-logout .boton:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.segundo-contenedor .boton-a{
+.segundo-contenedor .boton-a {
     display: flex;
     justify-content: center;
     padding: 13px;
@@ -180,14 +180,14 @@
     box-shadow: 0 0 10px #FFD966;
 }
 
-.segundo-contenedor .boton-a:hover{
+.segundo-contenedor .boton-a:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.segundo-contenedor .boton{
+.segundo-contenedor .boton {
     display: flex;
     justify-content: center;
     padding: 13px;
@@ -201,7 +201,7 @@
     font-size: 12pt;
 }
 
-.segundo-contenedor .boton:hover{
+.segundo-contenedor .boton:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
@@ -210,17 +210,17 @@
 
 /*------------------------------------------------------------*/
 
-.contenedor-content{
+.contenedor-content {
     display: grid;
     grid-area: content;
 }
 
-.contenedor-content .division{
+.contenedor-content .division {
     display: grid;
     grid-template-columns: 50% 1fr;
 }
 
-.contenedor-content .division .grid-1{
+.contenedor-content .division .grid-1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -228,7 +228,7 @@
     background-color: black;
 }
 
-.contenedor-content .division .grid-1 .flex-1{
+.contenedor-content .division .grid-1 .flex-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,7 +238,7 @@
     margin-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja {
     width: 35%;
     height: 70%;
     background-color: white;
@@ -248,28 +248,28 @@
     padding-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja i{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,12 +277,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -309,7 +309,7 @@
     transition: 0.5s;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update {
     width: 35%;
     height: 70%;
     background-color: white;
@@ -319,28 +319,28 @@
     padding-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update i{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -348,12 +348,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -380,7 +380,7 @@
     transition: 0.5s;
 }
 
-.contenedor-content .division .grid-1 .flex-2{
+.contenedor-content .division .grid-1 .flex-2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -390,7 +390,7 @@
     margin-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion {
     width: 35%;
     height: 67%;
     background-color: white;
@@ -400,28 +400,28 @@
     padding-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion i{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -429,12 +429,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -461,7 +461,7 @@
     transition: 0.5s;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion {
     width: 35%;
     height: 67%;
     background-color: white;
@@ -471,28 +471,28 @@
     padding-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion i{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -500,12 +500,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -534,7 +534,7 @@
 
 /*------------------------------------------------------------*/
 
-.grid-2{
+.grid-2 {
     display: grid;
     grid-template-areas: content;
     grid-template-rows: 37% 62%;
@@ -543,12 +543,12 @@
     border-left: 0px;
 }
 
-.grid-2 .contenedor-buscar{
+.grid-2 .contenedor-buscar {
     background-color: black;
     border-bottom: 4px solid white;
 }
 
-.grid-2 .contenedor-buscar .titulo{
+.grid-2 .contenedor-buscar .titulo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -558,7 +558,7 @@
     margin-bottom: 0.5%;
 }
 
-.grid-2 .contenedor-buscar .linea{
+.grid-2 .contenedor-buscar .linea {
     margin: auto;
     width: 20%;
     height: 3px;
@@ -567,7 +567,7 @@
     box-shadow: 0 0 15px white;
 }
 
-.grid-2 .contenedor-buscar .formulario{
+.grid-2 .contenedor-buscar .formulario {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -575,20 +575,20 @@
     margin-top: -1%;
 }
 
-.grid-2 .contenedor-buscar .formulario .conjunto{
+.grid-2 .contenedor-buscar .formulario .conjunto {
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 2%;
 }
 
-.grid-2 .contenedor-buscar .formulario .conjunto i{
+.grid-2 .contenedor-buscar .formulario .conjunto i {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.grid-2 .contenedor-buscar .formulario .buscar{
+.grid-2 .contenedor-buscar .formulario .buscar {
     color: white;
     width: 40%;
     padding: 5px;
@@ -600,18 +600,18 @@
     font-weight: bolder;
 }
 
-.grid-2 .contenedor-buscar .formulario .buscar::placeholder{
+.grid-2 .contenedor-buscar .formulario .buscar::placeholder {
     color: white;
     font-weight: bolder;
     text-align: center;
 }
 
-.grid-2 .contenedor-buscar .formulario .buscar:hover{
+.grid-2 .contenedor-buscar .formulario .buscar:hover {
     transition: 0.5s;
     box-shadow: 0 0 20px white;
 }
 
-.grid-2 .contenedor-buscar .formulario .contenedor-boton{
+.grid-2 .contenedor-buscar .formulario .contenedor-boton {
     margin-top: 2%;
     width: 100%;
     display: flex;
@@ -619,7 +619,7 @@
     gap: 10%;
 }
 
-.grid-2 .contenedor-buscar .formulario .contenedor-boton a{
+.grid-2 .contenedor-buscar .formulario .contenedor-boton a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -634,14 +634,14 @@
     box-shadow: 0 0 10px #FFD966;
 }
 
-.grid-2 .contenedor-buscar .formulario .contenedor-boton a:hover{
+.grid-2 .contenedor-buscar .formulario .contenedor-boton a:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
     cursor: pointer;
 }
 
-.grid-2 .contenedor-buscar .formulario .contenedor-boton .boton{
+.grid-2 .contenedor-buscar .formulario .contenedor-boton .boton {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -656,7 +656,7 @@
     box-shadow: 0 0 10px #FFD966;
 }
 
-.grid-2 .contenedor-buscar .formulario .contenedor-boton .boton:hover{
+.grid-2 .contenedor-buscar .formulario .contenedor-boton .boton:hover {
     background-color: black;
     color: #FFD966;
     transition: 0.5s;
@@ -665,7 +665,7 @@
 
 /*------------------------------------------------------------*/
 
-.grid-2 .contenedor-titulo .titulo-principal{
+.grid-2 .contenedor-titulo .titulo-principal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -692,11 +692,13 @@
     height: 190px;
     margin: auto;
     overflow: auto;
+    position: relative;
+    top: -4%;
 }
 
-.grid-2 .contenedor-titulo .contenedor-postulaciones::-webkit-scrollbar{
+.grid-2 .contenedor-titulo .contenedor-postulaciones::-webkit-scrollbar {
     border-radius: 5px;
-    width:7px;
+    width: 7px;
     background-color: rgb(207, 193, 193, 0.2);
 }
 
@@ -707,13 +709,15 @@
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones{
-    width: 60%;
+    width: 65%;
     border-radius: 15px;
     background-color: aliceblue;
     margin: auto;
     margin-top: 0.3%;
     margin-bottom: 4%;
     padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
     padding-bottom: 3%;
     box-shadow: 0 0 10px white;
 }
@@ -738,6 +742,7 @@
     align-items: center;
     width: 100%;
     text-align: center;
+    font-size: 12pt;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones .contenedor-boton{
@@ -770,13 +775,13 @@
     cursor: pointer;
 }
 
-.contenedor-empty{
+.contenedor-empty {
     display: flex;
     justify-content: center;
     margin-top: 2%;
 }
 
-.empty{
+.empty {
     display: flex;
     justify-content: center;
     background-color: white;
@@ -786,6 +791,7 @@
     box-shadow: 0 0 15px white;
     font-size: 16px;
 }
+
 /*------------------------------------------------------------*/
 
 .footer {
@@ -794,7 +800,7 @@
     height: 100%;
 }
 
-.footer:hover{
+.footer:hover {
     box-shadow: 0 0 30px #FFD966;
     transition: 0.5s;
 }
@@ -812,7 +818,7 @@
     height: 100%;
 }
 
-.footer .contenedor-footer .contenedor-imagen .logo-png{
+.footer .contenedor-footer .contenedor-imagen .logo-png {
     width: 65%;
     height: 95%;
 }
@@ -825,7 +831,10 @@
     align-items: center;
 }
 
-.sebas,.william,.peter,.capera {
+.sebas,
+.william,
+.peter,
+.capera {
     display: flex;
     align-items: center;
     flex-direction: column;

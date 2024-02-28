@@ -162,12 +162,11 @@
                                         <h1 class="titulo">Postulacion {{ $contador }}</h1>
                                     </article>
 
-                                    <p class="info"> Si deseas ver los datos de esta postulacion da click al boton
-                                        informacion</p>
+                                    <p class="info"> Esta es la va vacante numero {{$contador}} a la que intentaste postularte, si deseas
+                                        ver mas informacion dale click a este boton</p>
 
                                     <article class="contenedor-boton">
-                                        <a class="boton" href="">Desvincularme</a>
-                                        <a class="boton" href="">Info</a>
+                                        <a class="boton" href="{{route('desvinculado.show', ['id' => $desvinculacion->id] )}}">Informacion</a>
                                     </article>
 
                                 </article>

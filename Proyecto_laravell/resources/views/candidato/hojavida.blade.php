@@ -59,7 +59,7 @@
                                 </article>
 
                                 <article class="grid-2">
-                                    
+
                                     <article class="tipo-doc">
                                         <i class="fa-solid fa-address-card" style="color:black"></i>
                                         <p>{{ $candidato->user->tipo_documento }}</p>
@@ -125,9 +125,10 @@
                                         <article class="titulado">
                                             <h1 class="titulo">Documento</h1>
                                             @php
-                                                $ruta = $educacion->documento
+                                                $ruta = $educacion->documento;
                                             @endphp
-                                            <a class="documento" href="{{ asset('storage/' . $ruta) }}" target="_blank">Documento</a>
+                                            <a class="documento" href="{{ asset('storage/' . $ruta) }}"
+                                                target="_blank">Documento</a>
                                         </article>
                                     </article>
 
@@ -186,7 +187,11 @@
 
                                         <article class="grupo-2">
                                             <article class="certificado">
-                                                <p>Certificado</p>
+                                                @php
+                                                    $ruta = $experiencia->certificacion_laboral;
+                                                @endphp
+                                                <a class="documento_experiencia" href="{{ asset('storage/' . $ruta) }}"
+                                                    target="_blank">Certificado</a>
                                             </article>
                                         </article>
                                     </article>

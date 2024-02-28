@@ -154,7 +154,7 @@ body{
 
 .contenedor-content .content {
     display: grid;
-    grid-template-rows: 90% 10%;
+    grid-template-rows: 80% 10%;
     grid-template-areas:
         'vacante'
         'boton';
@@ -277,7 +277,7 @@ body{
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    top: -40%;
+    top: -70%;
 }
 
 .contenedor-boton a:hover {

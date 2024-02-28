@@ -24,6 +24,7 @@ use App\Http\Controllers\SuperUsuarioController;
 use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\CandidatoEducacionController;
 use App\Http\Controllers\CandidatoExperienciaController;
+use App\Http\Controllers\CandidatoDesvinculadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,11 @@ Route::post('experiencia/candidato/store/{id}', [CandidatoExperienciaController:
 Route::get('experiencia/candidato/edit/{id}', [CandidatoExperienciaController::class, 'edit'])->name('experienciaCandidato.edit')->middleware('auth');
 Route::put('experiencia/candidato/update/{id}', [CandidatoExperienciaController::class, 'update'])->name('experienciaCandidato.update');
 Route::delete('experiencia/candidato/destroy/{id}', [CandidatoExperienciaController::class, 'destroy'])->name('experienciaCandidato.destroy');
+// -----------------------------------------------------------------------------------------------
+
+
+// ----------------------- RUTAS DEL CONTROLADOR DESVINCULADO CANDIDATO --------------------------
+Route::get('desvinculado/candidato/show/{id}', [CandidatoDesvinculadoController::class, 'show'])->name('desvinculado.show')->middleware('auth');
 // -----------------------------------------------------------------------------------------------
 
 

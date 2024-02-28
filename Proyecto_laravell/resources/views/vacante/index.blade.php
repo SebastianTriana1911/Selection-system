@@ -99,7 +99,13 @@
                                         </article>
 
                                         <article class="contenedor-postulados">
-                                            <h1 class="titulo"> Postulados 0</h1>
+                                            @php
+                                                $contadorPostulaciones = 0;
+                                                foreach ($vacante->postulacion as $postulacion) {
+                                                    $contadorPostulaciones = $contadorPostulaciones + 1;
+                                                }
+                                            @endphp
+                                            <h1 class="titulo"> Postulados {{ $contadorPostulaciones }}</h1>
                                         </article>
 
                                     </article>
@@ -167,7 +173,7 @@
                                         </article>
 
                                         <article class="contenedor-postulados">
-                                            <h1 class="titulo">Postulados {{$postulados}} </h1>
+                                            <h1 class="titulo">Postulados {{ $postulados }} </h1>
                                         </article>
 
                                     </article>

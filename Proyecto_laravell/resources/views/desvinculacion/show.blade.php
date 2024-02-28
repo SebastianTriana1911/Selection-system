@@ -1,13 +1,10 @@
-<!-- VISTA PARA VER TODAS LAS VACANTES QUE TIENE UNA EMPRESA -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/vacante/index.css') }}">
+    <title>Show Desvinculacion</title>
+    <link rel="stylesheet" href="{{ asset('css/desvinculacion/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Vacantes</title>
 </head>
 
 <body>
@@ -26,118 +23,64 @@
 
         </header>
 
-        <!---------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
-        <nav class="nav">
-            <section class="contenedor-nav">
-                <article class="contador-vacantes">
-                    <h1 class="titulo">Resultados encontrados {{ $contador }}</h1>
-                </article>
-
-                <article class="titulo-principal">
-                    <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+        <section class="contenedor-content">
+            <article class="informacion">
+                <article class="contenedor-titulo">
+                    <h1>Consulta de postulacion</h1>
                     <h1 class="linea"></h1>
                 </article>
 
-                <article class="contenedor-input">
-                    <form class="buscar" action="{{ route('vacante.buscar', ['id' => $empresa->id]) }}"
-                        method="POST">
-                        @csrf
-                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
-                        <button class="boton">
-                            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-                        </button>
-                    </form>
-                </article>
-            </section>
-        </nav>
-
-        <!---------------------------------------------------------------->
-
-        <section class="contenedor-content">
-
-            <article class="contenedor-vacante">
-
-                <article class="vacantes">
-                    @foreach ($resultado as $resul)
-                        <article class="informacion-vacante">
-
-
-                            <article class="grid-1">
-                                <article class="contenedor-codigo">
-                                    <h1 class="titulo">{{ $resul->codigo }}</h1>
-                                </article>
-                            </article>
-
-                            <article class="grid-2">
-
-                                <article class="contenedor-cargo">
-                                    <h1 class="titulo">{{ $resul->cargo->cargo }}</h1>
-                                </article>
-
-                                <article class="info">
-                                    <article class="contenedor-salario">
-                                        <h1 class="titulo">$ {{ $resul->salario }}</h1>
-                                    </article>
-
-                                    <article class="contenedor-experiencia">
-                                        <h1 class="titulo">Experiencia {{ $resul->meses_experiencia }} meses
-                                        </h1>
-                                    </article>
-
-                                    <article class="contenedor-contrato">
-                                        <h1 class="titulo">{{ $resul->tipo_contrato }}</h1>
-                                    </article>
-
-                                    <article class="contenedor-lugar">
-                                        <h1>{{ $resul->municipio->nombre }}</h1>
-                                        <h1>{{ $resul->municipio->departamento->pais->nombre }}</h1>
-                                    </article>
-
-                                    <article class="contenedor-num-vac">
-                                        <h1 class="titulo"> Num vacantes {{ $resul->num_vacante }}</h1>
-                                    </article>
-
-                                    <article class="contenedor-postulados">
-                                        @php
-                                            $contadorPostulaciones = 0;
-                                            foreach ($resul->postulacion as $postulacion) {
-                                                $contadorPostulaciones = $contadorPostulaciones + 1;
-                                            }
-                                        @endphp
-                                        <h1 class="titulo"> Postulados {{$contadorPostulaciones}}</h1>
-                                    </article>
-
-                                </article>
-                            </article>
-
-
-                            <article class="contenedor-botones">
-                                <a
-                                    href="{{ route('vacante.show', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                                <a
-                                    href="{{ route('vacante.edit', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-pencil" style="color: #000000;"></i></a>
-                                <a
-                                    href="{{ route('eduvacante.create', ['vacante' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-plus" style="color: #000000;"></i></a>
-                                <form action="{{ route('vacante.destroy', ['id' => $resul->id]) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="boton">
-                                        <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                                    </button>
-                                </form>
-                            </article>
-
-
+                <article class="informacion-vacante">
+                    <article class="titulo">
+                        <article class="flex">
+                            <i class="fa-solid fa-eye" style="color: #ffffff;"></i>
+                            <h1>Detalle del proceso de seleccion</h1>
                         </article>
-                    @endforeach
-                </article>
+                        <h1 class="linea"></h1>
+                    </article>
 
-                <article class="contenedor-volver">
-                    <a class="a" href="{{ route('vacante.index', ['id' => $empresa->id]) }}">Volver</a>
+                    <article class="info">
+                        <article class="primera-linea">
+                            <article class="cargo">
+                                <h1>Especialidad: </h1>
+                                <p>{{ $desvinculacion->vacante->cargo->cargo }}</p>
+                            </article>
+
+                            <article class="departamento">
+                                <h1>Departamento: </h1>
+                                <p>{{ $desvinculacion->vacante->municipio->departamento->nombre }}</p>
+                            </article>
+                        </article>
+
+                        <article class="segunda-linea">
+                            <article class="habilidades">
+                                <h1>Habilidades que debe de contar el aspirante: </h1>
+                                <p>{{$desvinculacion->vacante->cargo->habilidad}}</p>
+                            </article>
+
+                            <article class="competencia">
+                                <h1>Competencias que debe de contar el aspirante:</h1>
+                                <p>{{$desvinculacion->vacante->cargo->competencia}}</p>
+                            </article>
+                        </article>
+
+                        <article class="tercera_linea">
+                            <article class="estado">
+                                <h1>Estado: </h1>
+                                @php
+                                    $estado = '';
+                                    if($desvinculacion->vacante->estado == 0){
+                                        $estado = 'Terminado';
+                                    }else{
+                                        $estado = 'Activo';
+                                    }
+                                @endphp
+                                <p>{{$estado}}</p>
+                            </article>
+                        </article>
+                    </article>
                 </article>
             </article>
         </section>

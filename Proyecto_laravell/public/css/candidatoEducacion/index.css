@@ -379,11 +379,15 @@ body::-webkit-scrollbar-thumb{
 }
 
 .content-2 .contenedor-educacion::-webkit-scrollbar{
-    width: 9px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
 }
 
 .content-2 .contenedor-educacion::-webkit-scrollbar-thumb{
+    width: 10px;
     background: white;
+    border-radius: 5px;
 }
 
 .content-2 .contenedor-educacion .ocupacion{
