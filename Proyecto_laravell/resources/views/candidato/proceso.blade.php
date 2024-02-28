@@ -204,7 +204,7 @@
                                         ver mas informacion dale click a este boton</p>
 
                                     <article class="contenedor-boton">
-                                        <a class="boton" href="">Informacion</a>
+                                        <a class="boton" href="{{route('desvinculado.show', ['id' => $desvinculacion->id] )}}">Informacion</a>
                                     </article>
 
                                 </article>

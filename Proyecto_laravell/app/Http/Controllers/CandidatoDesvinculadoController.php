@@ -12,8 +12,9 @@ class CandidatoDesvinculadoController extends Controller{
         $candidato = $user->candidato;
 
         $desvinculacion = CandidatoDesvinculacion::find($id);
+        $funciones = $desvinculacion->vacante->cargo->ocupacion->funcion;
 
         return view('desvinculacion.show', ['candidato' => $candidato,
-        'desvinculacion' => $desvinculacion]);
+        'desvinculacion' => $desvinculacion, 'funciones' => $funciones]);
     }
 }
