@@ -21,6 +21,10 @@ class Empresa extends Model{
         return $this -> hasMany(Reclutador::class, 'empresa_id', 'id');
     }
 
+    public function seleccionador(): HasMany{
+        return $this -> hasMany(Seleccionador::class);
+    }
+
     public function municipio(): BelongsTo{
         return $this -> belongsTo(Municipio::class, 'municipio_id', 'id');
     }

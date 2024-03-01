@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller{
     public function index(){
-        
+
     }
 
     // --------------------- METODO CREATE -------------------------
     public function create(){
-        // El metodo create solo retorna la vista que 
-        // contiene el formulario donde se logueara los 
+        // El metodo create solo retorna la vista que
+        // contiene el formulario donde se logueara los
         // usuarios
         return view('auth.login');
     }
@@ -43,7 +43,7 @@ class LoginController extends Controller{
         // registro del usuario que se autentico y se accede al
         // campo role_id para que segun el rol se le muestre su
         // vista correspondiente
-        
+
         // Role_id == 1 = Administador
         if($user -> role_id == 1){
             return redirect()->route('super.index');
@@ -57,9 +57,9 @@ class LoginController extends Controller{
         //     return redirect()->route('instructor.home');
         // }
         // Role_id == 4 = Seleccionador
-        // else if($user -> role_id ==4){
-        //     return redirect()->route('seleccionador.home');
-        // }
+        else if($user -> role_id ==4){
+            return redirect()->route('seleccionador.index');
+        }
         // Role_id == 5 = Reclutador
         else if($user->role_id==5){
             return redirect()->route('reclutador.index');
@@ -67,20 +67,20 @@ class LoginController extends Controller{
     }
     // --------------------------------------------------------------
 
-    
+
     public function show(string $id){
-        
+
     }
 
     public function edit(string $id){
-        
+
     }
 
     public function update(Request $request, string $id){
-        
+
     }
 
     public function destroy(string $id){
-        
+
     }
 }

@@ -21,6 +21,7 @@ use App\Http\Controllers\ReclutadorController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\RestablecerController;
 use App\Http\Controllers\SuperUsuarioController;
+use App\Http\Controllers\SeleccionadorController;
 use App\Http\Controllers\EducacionVacanteController;
 use App\Http\Controllers\CandidatoEducacionController;
 use App\Http\Controllers\CandidatoExperienciaController;
@@ -196,6 +197,12 @@ Route::get('eduvacante/edit/{educacion}/{vacante}/{empresa}', [EducacionVacanteC
 Route::put('eduvacante/update/{vacante}/{educacion}', [EducacionVacanteController::class, 'update'])->name('eduvacante.update');
 Route::delete('eduvacante/destroy/{id}', [EducacionVacanteController::class, 'destroy'])->name('eduvacante.destroy');
 // ---------------------------------------------------------------------------------------------------
+
+
+// --------------------------- RUTAS DEL CONTROLADOR SELECCIONADOR -------------------------------
+Route::get('seleccionador/index', [SeleccionadorController::class, 'index'])->name('seleccionador.index')->middleware('auth');
+Route::post('seleccionador/vincular/{id}', [SeleccionadorController::class, 'vincular'])->name('seleccionador.vincular');
+// ----------------------------------------------------------------------------------------------
 
 
 // --------------------------- RUTAS DEL CONTROLADOR LOGIN Y LOGOUTS ------------------------------
