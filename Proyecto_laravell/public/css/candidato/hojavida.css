@@ -26,7 +26,6 @@ body::-webkit-scrollbar-thumb{
     background: white;
 }
 
-
 .header {
     display: flex;
     grid-area: header;

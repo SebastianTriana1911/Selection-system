@@ -30,6 +30,17 @@ class UserSeeder extends Seeder{
             'email' => 'camilo@gmail.com',
             'password' => Hash::make('camilo'),
             'role_id' => '5',
+            'municipio_id' => '1'],
+
+            ['num_documento' => '1012140550',
+            'tipo_documento' => 'Cedula de ciudadania',
+            'nombre' => 'Duvan',
+            'apellido' => 'Triana',
+            'genero' => 'Masculino',
+            'estado_civil' => 'Soltero',
+            'email' => 'duver@gmail.com',
+            'password' => Hash::make('duver'),
+            'role_id' => '4',
             'municipio_id' => '1']
         ];
 

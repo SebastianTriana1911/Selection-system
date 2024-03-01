@@ -87,7 +87,7 @@
                                                 <li>{{ $funcion->funcion }}</li>
                                             </ul>
                                         @empty
-                                            <p>A este cargo no se le han asignado funciones</p>
+                                            <p class="empty-if">A este cargo no se le han asignado funciones</p>
                                         @endforelse
                                     </article>
                                 </article>
@@ -115,9 +115,10 @@
                         </article>
                     </article>
                 </article>
-                <article class="contenedor-boton">
-                    <a class="boton" href="{{ route('candidato.index') }}">Volver</a>
-                </article>
+            </article>
+
+            <article class="contenedor-boton">
+                <a class="boton" href="{{ route('candidato.index') }}">Volver</a>
             </article>
         </section>
 
