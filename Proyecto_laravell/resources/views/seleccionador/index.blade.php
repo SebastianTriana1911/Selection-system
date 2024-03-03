@@ -34,9 +34,10 @@
 
             <article class="segundo-contenedor">
 
+                
                 <a class="boton-a" href="{{route('restaurar.create')}}">Cambiar contraseña</a>
 
-                <form action="" method="POST">
+                <form action="{{route('seleccionador.desvincular')}}" method="POST">
                     @csrf
                     <button class="boton">Desvincularme</button>
                 </form>
@@ -67,11 +68,11 @@
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <p>En este campo podra visualizar todos los datos correspondientes a la empresa a la que te has postulado.</p>
+                        <p>En este campo podra visualizar todos los datos correspondientes a la empresa a la que te has postulado. Ten en cuenta que no podras modificar ninguno de estos datos solo observarlos</p>
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="">Inspeccionar</a>
+                        <a href="{{route('seleccionador.showEmpresa')}}">Inspeccionar</a>
                     </article>
 
                 </article>
@@ -79,11 +80,11 @@
                 <article class="cuadro-2">
 
                     <article class="contenedor-logo">
-                        <i class="fa-solid fa-house" style="color: #000000;"></i>
+                        <i class="fa-solid fa-globe" style="color: #000000;"></i>
                     </article>
 
                     <article class="contenedor-titulo">
-                        <h1 class="titulo">Vacantes</h1>
+                        <h1 class="titulo">Observar vacantes creadas</h1>
                     </article>
 
                     <article class="contenedor-descripcion">
@@ -91,7 +92,7 @@
                     </article>
 
                     <article class="contenedor-boton">
-                        <a href="">Observar</a>
+                        <a href="{{route('seleccionador.vacante')}}">Observar</a>
                     </article>
 
                 </article>

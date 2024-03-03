@@ -39,4 +39,47 @@ class SeleccionadorController extends Controller
 
         return redirect()->route('seleccionador.index');
     }
+
+    public function desvincular(){
+        $user = Auth::user();
+        $seleccionador = $user -> seleccionador;
+
+        $seleccionador -> empresa_id = null;
+        $seleccionador -> save();
+
+        return redirect()->route('seleccionador.index');
+    }
+
+    public function showEmpresa(){
+        $user = Auth::user();
+        $seleccionador = $user -> seleccionador;
+        $empresa = $seleccionador->empresa;
+
+        $reclutadores = 0;
+        foreach($empresa->reclutador as $reclutador){
+            $reclutadores = $reclutadores + 1;
+        }
+
+        $seleccionadores = 0;
+        foreach($empresa->seleccionador as $selecc){
+            $seleccionadores = $seleccionadores + 1;
+        }
+
+        return view('seleccionador.showEmpresa', ['empresa' => $empresa, 
+        'reclutadores' => $reclutadores, 'seleccionadores' => $seleccionadores]);
+    }
+
+    public function vacantes(){
+        $user = Auth::user();
+        $seleccionador = $user -> seleccionador;
+        $empresa = Empresa::find($seleccionador->empresa_id);
+        $vacantes = $empresa->vacante;
+        $cantidad = 0;
+        foreach($vacantes as $vacante){
+            $cantidad = $cantidad + 1;
+        }
+
+        return view('seleccionador.vacantes', ['cantidad' => $cantidad,
+        'empresa' => $empresa, 'vacantes' => $vacantes]);
+    }
 }

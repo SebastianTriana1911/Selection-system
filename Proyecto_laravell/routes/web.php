@@ -202,6 +202,9 @@ Route::delete('eduvacante/destroy/{id}', [EducacionVacanteController::class, 'de
 // --------------------------- RUTAS DEL CONTROLADOR SELECCIONADOR -------------------------------
 Route::get('seleccionador/index', [SeleccionadorController::class, 'index'])->name('seleccionador.index')->middleware('auth');
 Route::post('seleccionador/vincular/{id}', [SeleccionadorController::class, 'vincular'])->name('seleccionador.vincular');
+Route::post('seleccionador/desvincular', [SeleccionadorController::class, 'desvincular'])->name('seleccionador.desvincular');
+Route::get('seleccionador/show/empresa', [SeleccionadorController::class, 'showEmpresa'])->name('seleccionador.showEmpresa')->middleware('auth');
+Route::get('seleccionador/show/vacantes', [SeleccionadorController::class, 'vacantes'])->name('seleccionador.vacante')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
 

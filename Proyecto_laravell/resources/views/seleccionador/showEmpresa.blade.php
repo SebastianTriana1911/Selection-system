@@ -1,12 +1,11 @@
 <!-- VISTA DE LA EMPRESA A LA QUE ESTA VINCULADO EL RECLUTADOR -->
-<!-- VISTA LOGIN -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/empresa/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/seleccionador/showEmpresa.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Show empresa</title>
 </head>
@@ -70,26 +69,18 @@
                 <article class="linea-3">
                     <article class="reclutadores">
                         <h1 class="titulo">Reclutadores: </h1>
-                        <p>{{$contador}}</p>
+                        <p>{{$reclutadores}}</p>
                     </article>
 
                     <article class="seleccionador">
                         <h1 class="titulo">Seleccionador:</h1>
-                        <p> {{$contadorSeleccionadores}}</p>
+                        <p> {{$seleccionadores}}</p>
                     </article>
                 </article>
                 </article>
 
             <article class="contenedor-boton">
-                <a class="boton" href="{{route('reclutador.index')}}">Volver</a>
-                <a class="boton" href="{{route('empresa.edit', ['id' => $empresa -> id])}}">Actualizar</a>
-                <form action="{{route('empresa.destroy', ['id' => $empresa -> id])}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button class="form">
-                        Eliminar
-                    </button>
-                </form>
+                <a class="boton" href="{{route('seleccionador.index')}}">Volver</a>
             </article>
 
         </section>

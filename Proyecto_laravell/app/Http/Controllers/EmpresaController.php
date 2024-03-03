@@ -97,8 +97,13 @@ class EmpresaController extends Controller{
             }
         }
 
+        $contadorSeleccionadores = 0;
+        foreach($empresa->seleccionador as $seleccionador){
+            $contadorSeleccionadores = $contadorSeleccionadores + 1; 
+        }
+
         return view('empresa.show', ['empresa' => $empresa, 
-        'contador' => $contador]);
+        'contador' => $contador, 'contadorSeleccionadores' => $contadorSeleccionadores]);
     }
     // -------------------------------------------------------------
 

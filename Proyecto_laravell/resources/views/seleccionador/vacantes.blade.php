@@ -1,14 +1,13 @@
-<!-- VISTA DE LA EMPRESA A LA QUE ESTA VINCULADO EL RECLUTADOR -->
-<!-- VISTA LOGIN -->
+<!-- DASHBOARD DEL CANDIDATO -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/empresa/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/candidato/vacantes.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show empresa</title>
+    <title>Show vacantes</title>
 </head>
 
 <body>
@@ -29,69 +28,100 @@
 
         <!---------------------------------------------------------------->
 
-        <section class="content">
-
-            <article class="contenedor-titulo">
-                <h1 class="titulo">Informacion de la empresa {{$empresa -> nombre}}</h1>
-                <h1 class="linea"></h1>
+        <section class="contenedor-content">
+            <article class="nav">
+                <article class="conjunto">
+                    <article class="cantidad">
+                        <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
+                    </article>
+                    <article class="contenedor-titulo">
+                        <h1>Lista de vacantes creadas por la empresa</h1>
+                        <h1 class="linea"></h1>
+                    </article>
+                    <article>
+                        <h1></h1>
+                    </article>
+                </article>
             </article>
 
-            <article class="contenedor-informacion">
+            <article class="content">
+                <article class="contenedor-vacante">
+                    <article class="vacantes">
+                        @forelse($vacantes as $vacante)
+                            @if ($vacante->estado == 1)
+                                <article class="informacion-vacante">
 
-                <article class="linea-1">
-                    <article class="id">
-                        <h1 class="titulo">Id: </h1>
-                        <p> {{$empresa -> id}}</p>
-                    </article>
 
-                    <article class="nit">
-                        <h1 class="titulo">Nit: </h1>
-                        <p> {{$empresa -> nit}}</p>
-                    </article>
-                
-                    <article class="nombre">
-                        <h1 class="titulo">Nombre: </h1>
-                        <p> {{$empresa -> nombre}}</p>
+                                    <article class="grid-1">
+                                        <article class="contenedor-codigo">
+                                            <h1 class="titulo">{{ $vacante->codigo }}</h1>
+                                        </article>
+                                    </article>
+
+                                    <article class="grid-2">
+
+                                        <article class="contenedor-cargo">
+                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
+                                        </article>
+
+                                        <article class="info">
+                                            <article class="contenedor-salario">
+                                                <h1 class="titulo">$ {{ $vacante->salario }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-experiencia">
+                                                <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
+                                                </h1>
+                                            </article>
+
+                                            <article class="contenedor-contrato">
+                                                <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-lugar">
+                                                <h1>{{ $vacante->municipio->nombre }}</h1>
+                                                <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-num-vac">
+                                                <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
+                                            </article>
+
+                                            <article class="contenedor-postulados">
+                                                @php
+                                                    $cantidadPostulados = 0;
+                                                    $vacanteId = $vacante->id;
+                                                    $postulados = $vacanteId->postulacion;
+
+                                                    foreach ($postulados as $postulado) {
+                                                        $cantidadPostulados = $cantidadPostulados + 1;
+                                                    }
+                                                @endphp
+                                                    <h1 class="titulo">Postulados: {{$cantidadPostulados}}</h1>
+                                            </article>
+
+                                        </article>
+                                    </article>
+
+                                    <article class="contenedor-boton-vacante">
+                                        <a class="boton" href="{{route('sintesisVacante.sintesis', ['id' => $vacante->id])}}">Ver</a>
+                                    </article>
+                                </article>
+                            @else
+                                @continue
+                            @endif
+                        @empty
+                            <article class="contenedor-empty">
+                                <h1 class="empty">No hay vacantes registradas</h1>
+                            </article>
+                        @endforelse
                     </article>
                 </article>
 
-                <article class="linea-2">
-                    <article class="direccion">
-                        <h1 class="titulo">Direccion: </h1>
-                        <p> {{$empresa -> direccion}}</p>
-                    </article>
-                    
-                    <article class="municipio">
-                        <h1 class="titulo">Municipio:</h1>
-                        <p> {{$empresa -> municipio -> nombre}}</p>
-                    </article>
+                <article class="contenedor-boton">
+                    <a href="{{ route('candidato.index') }}">Volver</a>
                 </article>
-
-                <article class="linea-3">
-                    <article class="reclutadores">
-                        <h1 class="titulo">Reclutadores: </h1>
-                        <p>{{$contador}}</p>
-                    </article>
-
-                    <article class="seleccionador">
-                        <h1 class="titulo">Seleccionador:</h1>
-                        <p> {{$contadorSeleccionadores}}</p>
-                    </article>
-                </article>
-                </article>
-
-            <article class="contenedor-boton">
-                <a class="boton" href="{{route('reclutador.index')}}">Volver</a>
-                <a class="boton" href="{{route('empresa.edit', ['id' => $empresa -> id])}}">Actualizar</a>
-                <form action="{{route('empresa.destroy', ['id' => $empresa -> id])}}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button class="form">
-                        Eliminar
-                    </button>
-                </form>
             </article>
-
         </section>
 
         <!----------------------------------------------------------------->
@@ -190,4 +220,5 @@
         </footer>
     </main>
 </body>
+
 </html>

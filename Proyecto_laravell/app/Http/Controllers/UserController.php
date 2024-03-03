@@ -280,6 +280,10 @@ class UserController extends Controller{
             return redirect()->route('super.index');
         }elseif($user->role_id == 2) {
             return redirect()->route('candidato.index');
+        }elseif($user->role_id == 4){
+            return redirect()->route('seleccionador.index');
+        }elseif($user->role_id == 5) {
+            return redirect()->route('reclutador.index');
         }
     }
     // -------------------------------------------------------------------

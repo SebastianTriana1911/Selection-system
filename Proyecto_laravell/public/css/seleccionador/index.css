@@ -81,11 +81,6 @@
     gap: 8%;
 }
 
-.nav .segundo-contenedor {
-    position: relative;
-    right: 2%;
-}
-
 .nav .segundo-contenedor i {
     cursor: pointer;
 }
@@ -112,23 +107,65 @@
 }
 
 .segundo-contenedor{
-    position: relative;
-    left: -6.5%;
     display: flex;
-    justify-content: end;
+    justify-content: space-around;
     align-items: center;
-    width: 20%;
+    position: relative;
+    right: 2%;
+    width: 40%;
 }
 
-.contenedor-logout{
-    width: 40%;
+.contenedor-logout .boton{
+    width: 120%;
+}
+
+.boton-a{
+    position: relative;
+    left: 3%;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    font-size: 12.5pt;
+    box-shadow: 0 0 10px #FFD966;
+}
+
+.boton-a:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+form .boton{
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+}
+
+form .boton:hover{
+    background-color: black;
+    color: #FFD966;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .contenedor-logout .boton{
     display: flex;
     justify-content: center;
-    width: 120%;
-    padding: 9%;
+    padding: 10%;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
