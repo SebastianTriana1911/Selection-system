@@ -21,12 +21,11 @@ body::-webkit-scrollbar-thumb{
 .page {
     display: grid;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: 10vh auto 15vh;
     grid-template-areas:
-    "header    header"
-    "content   content"
-    "footer    footer";
+    "header"
+    "content"
+    "footer";
 }
 
 
@@ -74,50 +73,69 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-content .contenedor-principal{
     background-color: white;
-    width: 55%;
-    margin-top: 5%;
-    margin-bottom: 13%;
+    width: 45%;
+    margin-top: 3%;
+    margin-bottom: 7%;
     border-radius: 15px;
+    transition: 0.3s;
+}
+
+.contenedor-content .contenedor-principal:hover{
     box-shadow: 0 0 20px white;
+    transition: 0.3s;
 }
 
 .contenedor-content .contenedor-principal .titulo-principal{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: black;
-    height: 12%;
     border-radius: 15px 15px 15px 15px;
     color: white;
+    height: 130px;
+    border: 4px solid white;
 }
 
-.contenedor-hoja-vida .contenedor-informacion{
+.contenedor-content .contenedor-principal .titulo-principal .titulo{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+}
+
+.contenedor-content .contenedor-principal .titulo-principal .titulo i{
+    position: relative;
+    left: -2%;
+}
+
+.contenedor-content .contenedor-principal .titulo-principal .linea{
+    height: 4px;
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
+    margin-top: 1%;
+}
+
+.contenedor-hoja-vida .contenedor-informacion .info-1{
     display: flex;
     flex-direction: column;
-    padding-bottom: 18%;
-}
-
-.contenedor-hoja-vida .contenedor-informacion .primera-fila{
-    display: flex;
-    margin-top: 3%;
-    width: 100%;
-    justify-content: space-evenly;
+    padding: 3% 5% 1% 5%;
 }
 
 .contenedor-numero-identificacion{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-numero-identificacion .num-identificacion{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-right: 4%;
-    padding-left: 4%;
-    margin-top: 3%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 64%;
 }
 
 .contenedor-numero-identificacion .num-identificacion:hover{
@@ -127,16 +145,19 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-tipo-identificacion{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-tipo-identificacion .menu-identificacion{
     border: none;
-    width: 80%;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 2%;
-    margin-top: 1.8%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 70%;
+    font-weight: bolder;
 }
 
 .contenedor-tipo-identificacion .menu-identificacion:hover{
@@ -144,44 +165,22 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-pais{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-pais .munu-pais{
-    border: none;
-    width: 140%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
-}
-
-.contenedor-pais .munu-pais:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-content .segunda-fila{
-    display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 .contenedor-departamento{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    font-size: 14pt;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-departamento .munu-departamentos{
     border: none;
-    width: 140%;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-departamento .munu-departamentos:hover{
@@ -189,28 +188,11 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-municipio{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-municipio .munu-municipios{
-    border: none;
-    width: 140%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
-}
-
-.contenedor-municipio .munu-municipios:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
 .contenedor-nombre{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-nombre .titulo{
@@ -221,8 +203,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-nombre .input:hover{
@@ -230,16 +214,11 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-hoja-vida .contenedor-informacion .tercera-fila{
-    display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 .contenedor-apellido-1{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-apellido-1 .titulo{
@@ -250,8 +229,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-apellido-1 .input:hover{
@@ -261,7 +242,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-genero{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-genero .titulo{
@@ -269,12 +252,13 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-genero .menu-generos{
-    width: 120%;
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 6%;
-    margin-top: 7%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-genero .menu-generos:hover{
@@ -282,16 +266,11 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-hoja-vida .contenedor-informacion .quinta-fila{
-    display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 .contenedor-fecha{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-fecha .titulo{
@@ -302,8 +281,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 72%;
+    font-weight: bolder;
 }
 
 .contenedor-fecha .input:hover{
@@ -313,7 +294,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-direccion{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-direccion .titulo{
@@ -324,8 +307,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-direccion .input:hover{
@@ -335,7 +320,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-telefono{
     display: flex;
-    flex-direction: column;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 3%;
 }
 
 .contenedor-telefono .titulo{
@@ -346,8 +333,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-telefono .input:hover{
@@ -355,17 +344,11 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-hoja-vida .contenedor-informacion .cuarta-fila{
-    display: flex;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 .contenedor-estado{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-estado .titulo{
@@ -376,8 +359,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 81%;
+    font-weight: bolder;
 }
 
 .contenedor-estado .menu-estado-civil:hover{
@@ -387,7 +372,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-email {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-email .titulo{
@@ -398,8 +385,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 71.5%;
+    font-weight: bolder;
 }
 
 .contenedor-email .input:hover{
@@ -409,7 +398,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-contraseña {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-contraseña .titulo{
@@ -420,8 +411,9 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
     font-weight: bolder;
 }
 
@@ -432,34 +424,51 @@ body::-webkit-scrollbar-thumb{
 
 /* ---------------------------------------------------------------- */
 
-.primera{
-    width: 100%;
-}
-
-.primera .contenedor-titulo-profesion{
+.contenedor-titulo-profesion{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: black;
-    height: 145px;
     border-radius: 15px 15px 15px 15px;
     color: white;
+    height: 130px;
+    border: 4px solid white;
 }
 
-.primera .contenedor-titulo-profesion .titulo{
+.contenedor-titulo-profesion .titulo{
     font-size: 20pt;
+}
+
+.contenedor-titulo-profesion .contenedor{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+}
+.contenedor-titulo-profesion .contenedor i{
+    position: relative;
+    left: -2%;
+}
+
+.contenedor-titulo-profesion .linea{
+    height: 4px;
+    background-color: white;
+    width: 28%;
+    border-radius: 10px;
+    margin-top: 1%;
 }
 
 .segunda{
     display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 3% 5% 1% 5%;
 }
 
 .contenedor-titulado {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-titulado .titulo{
@@ -470,8 +479,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 100%;
+    font-weight: bolder;
 }
 
 .contenedor-titulado .input:hover{
@@ -481,7 +492,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-institucion {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-institucion .titulo{
@@ -492,8 +505,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 0.5%;
+    transition: 0.5s;
+    width: 69%;
+    font-weight: bolder;
 }
 
 .contenedor-institucion .input:hover{
@@ -503,9 +518,9 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-documento {
     display: flex;
-    gap: 3%;
-    flex-direction: column;
-
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
 .contenedor-documento .titulo{
@@ -520,11 +535,10 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     box-shadow: 0 0 8px black;
-    padding: 10%;
-    margin-top: 7%;
+    padding: 1%;
     display: flex;
-    width: 120%;
-    gap: 8%;
+    width: 100%;
+    gap: 2%;
     font-weight: bolder;
     cursor: pointer;
 }
@@ -547,45 +561,39 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.tercer{
+.contenedor-perfil{
     display: flex;
-    margin-top: 5%;
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.tercer .contenedor-perfil{
-    width: 100%;
-    height: 100%;
-}
-
-.tercer .contenedor-perfil .titulo{
-    display: flex;
-    justify-content: center;
+.contenedor-perfil .titulo{
     font-size: 14pt;
 }
 
-.tercer .contenedor-perfil .input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.contenedor-perfil .input{
     margin: auto;
     border: none;
     border-radius: 7px;
     padding: 3%;
     box-shadow: 0 0 8px black;
-    margin-top: 4%;
+    margin-top: 2%;
     resize: none;
     overflow-y: auto;
+    width: 100%;
 }
 
-.tercer .contenedor-perfil .input::-webkit-scrollbar{
-    width: 4px;
+.contenedor-perfil .input::-webkit-scrollbar{
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(27, 27, 27, 0.945);
 }
 
-.tercer .contenedor-perfil .input::-webkit-scrollbar-thumb{
-    background: black;
+.contenedor-perfil .input::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgb(226, 226, 226);
+    border-radius: 5px;
 }
 
 /* ---------------------------------------------------------------- */
@@ -595,6 +603,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-bottom: 4%;
 }
 
 .contenedor-boton .atras{
@@ -611,12 +620,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     margin-right: 100px;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-boton .atras:hover{
     transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-boton .input {
@@ -635,7 +646,8 @@ body::-webkit-scrollbar-thumb{
 .contenedor-boton .input:hover {
     transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .mensaje{

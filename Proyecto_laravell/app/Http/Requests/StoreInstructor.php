@@ -48,7 +48,7 @@ class StoreInstructor extends FormRequest{
             'fecha_nacimiento.required' => 'Obligatorio',
             'fecha_nacimiento.before_or_equal' => 'Debe ser menor a 2010-01-01',
             'direccion.required' => 'Obligatorio',
-            'telefono.request' => 'Obligatorio',
+            'telefono.required' => 'Obligatorio',
             'email.required' => 'Obligatorio',
             'email.email' => 'Debe ser un email',
             'email.unique' => 'Ya existe',

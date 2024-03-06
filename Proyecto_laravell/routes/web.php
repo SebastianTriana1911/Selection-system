@@ -205,6 +205,7 @@ Route::post('seleccionador/vincular/{id}', [SeleccionadorController::class, 'vin
 Route::post('seleccionador/desvincular', [SeleccionadorController::class, 'desvincular'])->name('seleccionador.desvincular');
 Route::get('seleccionador/show/empresa', [SeleccionadorController::class, 'showEmpresa'])->name('seleccionador.showEmpresa')->middleware('auth');
 Route::get('seleccionador/show/vacantes', [SeleccionadorController::class, 'vacantes'])->name('seleccionador.vacante')->middleware('auth');
+Route::get('seleccionador/candidatos/postulados/{id}', [SeleccionadorController::class, 'candidatosPostulados'])->name('seleccionador.candidatosPostulados')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
 

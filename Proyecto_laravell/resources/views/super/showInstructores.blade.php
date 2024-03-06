@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/super/showInstructores.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Listar instructores</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -21,40 +22,31 @@
                 <span>Selection</span>
                 <section class="system">System</section>
             </section>
-
         </header>
-
-        <!---------------------------------------------------------------->
-
-        <nav class="nav">
-
-            <article class="primer-contenedor">
-                <h1>Administrador {{ $user->nombre }} {{ $user->apellido }}</h1>
-            </article>
-
-            <article class="segundo-contenedor">
-
-                <article class="contenedor-logout">
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button class="boton">Cerrar sesion</button>
-                    </form>
-                </article>
-            </article>
-
-        </nav>
 
         <!------------------------------------------------------------------------------------------------------------------------------------>
 
         <section class="contenedor-content">
 
-            <article class="contenedor-titulo">
-                <h1 class="titulo">Listados de instructores</h1>
-                <h1 class="barra"></h1>
+            <article class="contenedor-nav">
+
+                <article class="contenedor-rol">
+                    <h1>Administrador {{ $user->nombre }} {{ $user->apellido }}</h1>
+                </article>
+
+                <article class="contenedor-titulo">
+                    <article class="titulo">
+                        <i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i>
+                        <h1 class="titulo">Listados de instructores</h1>
+                    </article>
+                    <h1 class="barra"></h1>
+                </article>
+
             </article>
 
             <article class="contenedor-informacion">
 
+                <article class="scroll">
                 @forelse($instructores as $instructor)
                     <article class="contenedor-instructor">
 
@@ -68,9 +60,13 @@
 
                         <article class="opciones">
 
-                            <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                            <a href="{{ route('instructor.edit', ['id' => $instructor->id])}}"><i class="fa-solid fa-pencil" style="color: black;"></i></a>
-                            <a href="{{route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id])}}"><i class="fa-solid fa-plus" style="color: black;"></i></a>
+                            <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i
+                                    class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                            <a href="{{ route('instructor.edit', ['id' => $instructor->id]) }}"><i
+                                    class="fa-solid fa-pencil" style="color: black;"></i></a>
+                            <a
+                                href="{{ route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id]) }}"><i
+                                    class="fa-solid fa-plus" style="color: black;"></i></a>
                             <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}" method="POST">
                                 @csrf
 
@@ -87,11 +83,108 @@
                     <h3 class="empty">No hay ningun instructor registrado</h3>
                 @endforelse
             </article>
+        </article>
 
             <article class="contenedor-boton">
                 <a class="volver" href="{{ route('super.index') }}">Volver</a>
             </article>
         </section>
+
+        <!------------------------------------------------------------------------------------------------------------------------------------>
+
+
+        <footer class="footer">
+            <section class="contenedor-footer">
+
+                <article class="contenedor-imagen">
+                    <img class="logo-png" src="{{ asset('imagenes/Logo-negro.png') }}" alt="Logo" />
+                </article>
+
+                <section class="informacion">
+
+                    <article class="sebas">
+                        <h3 class="titulo-sebas">Sebastian Triana</h3>
+                        <span>3214860900</span>
+
+                        <section class="apps">
+                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href= "https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
+
+                    <article class="william">
+                        <h3>William Lozano</h3>
+                        <span>3153504473</span>
+
+                        <section class="apps">
+                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href= "https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
+
+                    <article class="peter">
+                        <h3>Peter Bustamante</h3>
+                        <span>3044479143</span>
+
+                        <section class="apps">
+                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href= "https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
+
+                    <article class="capera">
+                        <h3>Diego Capera</h3>
+                        <span>3005301839</span>
+
+                        <section class="apps">
+                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href= "https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
+
+                </section>
+            </section>
+        </footer>
     </main>
 </body>
 

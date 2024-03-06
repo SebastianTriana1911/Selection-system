@@ -165,15 +165,19 @@ class SuperUsuarioController extends Controller{
             }
         }
         $imagen = null;
+        $titulo = "";
 
         if($user->genero == 'Masculino'){
             $imagen = asset('imagenes\Icono-hombre.png');
+            $titulo = "Perfil del instructor";
         }else{
             $user = asset('imagenes\Icono-mujer.png');
+            $titulo = "Perfil de la instructora";
         }
 
         return view('super.sintesisInstructor', ['user' => $user, 'instructor' => $instructor,
-            'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor,'rutas' => $rutas]);
+            'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor,'rutas' => $rutas,
+            'titulo' => $titulo]);
     }
     // -----------------------------------------------------------------------
 }

@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="/Candidato/Css/hoja-vida.css">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/instructor/create.css') }}">
-    <title>Insert instructor</title>
+    <title>Registrar instructor</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -29,89 +30,21 @@
 
         <section class="contenedor-content">
             <article class="contenedor-principal">
-                <article class="titulo-principal">
-                    <h2>Registro de instructor</h2>
-                </article>
-                <form class="contenedor-hoja-vida" action="{{ route('instructor.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="contenedor-hoja-vida" action="{{ route('instructor.store') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
 
-                    <section class="contenedor-informacion">
-                        <article class="primera-fila">
-                            <!------ Campo num_documento de la tabla users --------->
-                            <article class="contenedor-numero-identificacion">
-                                <h4 class="titulo">N identificacion</h4>
-                                <input class="num-identificacion" type="text" name="num_documento"
-                                    value="{{ old('num_documento') }}" />
-                                @error('num_documento')
-                                    <strong class="mensaje">{{ $message }}</strong>
-                                @enderror
-                            </article>
-                            <!------------------------------------------------------>
-
-                            <!------ Campo tipo_documento de la tabla users -------->
-                            <article class="contenedor-tipo-identificacion">
-                                <h4 class="titulo">Tipo identificacion</h4>
-                                <select class="menu-identificacion" name="tipo_documento"
-                                    value="{{ old('tipo_documento') }}">
-                                    <option value="cedula de ciudadania">Cedula de ciudadania</option>
-                                    <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-                                    <option value="cedula de extranjeria">Cedula de extranjeria</option>
-                                    <option value="cedula de extranjeria">Cedula de extranjeria</option>
-                                    <option value="Otro documento de identidad">Otro doumento de identidad</option>
-                                    <option value="Otro documento de identidad">Otro doumento de identidad</option>
-                                    <option value="Permiso especial de permanencia">Permiso especial de permanencia
-                                    </option>
-                                    <option value="Permiso especial de permanencia">Permiso especial de permanencia
-                                    </option>
-                                    <option value="Permiso por proteccion temporal">Permiso por proteccion temporal
-                                    </option>
-                                </select>
-                                @error('tipo_documento')
-                                    <strong class="mensaje">{{ $message }}</strong>
-                                @enderror
-                            </article>
-                            <!------------------------------------------------------>
-
-                            <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
-                            <article class="contenedor-pais">
-                                <h4 class="titulo-pais">Pais</h4>
-                                <select class="munu-pais">
-                                    @foreach ($paises as $pais)
-                                        <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
-                                    @endforeach
-                                </select>
-                            </article>
-                            <!------------------------------------------------------------------------->
+                    <article class="titulo-principal">
+                        <article class="titulo">
+                            <i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i>
+                            <h2>Formulario para el registro de un instructor</h2>
                         </article>
+                        <h1 class="linea"></h1>
+                    </article>
 
+                    <section class="contenedor-informacion">
 
-                        <article class="segunda-fila">
-                            <!---- Campo departamento que corresponde al campo que se ingrese en municipio ---->
-                            <article class="contenedor-departamento">
-                                <h4 class="titulo">Departamento</h4>
-                                <select class="munu-departamentos">
-                                    @foreach ($departamentos as $departamento)
-                                        <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
-                                    @endforeach
-                                </select>
-                            </article>
-                            <!---------------------------------------------------------------------------------->
-
-                            <!--------- Campo municipio_id de la tabla users -------->
-                            <article class="contenedor-municipio">
-                                <h4 class="titulo-muni">Municipio</h4>
-                                <select class="munu-municipios" name="municipio_id" value="{{ old('municipio_id') }}">
-                                    @foreach ($municipios as $municipio)
-                                        <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
-                                    @endforeach
-                                </select>
-                                @error('municipio_id')
-                                    <strong class="mensaje">{{ $message }}</strong>
-                                @enderror
-                            </article>
-                            <!--------------------------------------------------------->
-
-                            <!--------- Campo nombre de la tabla users -------->
+                        <article class="info-1">
                             <article class="contenedor-nombre">
                                 <h3 class="titulo">Nombre</h3>
                                 <input class="input" type="text" name="nombre" value="{{ old('nombre') }}" />
@@ -119,11 +52,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------->
-                        </article>
 
-                        <article class="tercera-fila">
-                            <!--------- Campo apellido de la tabla users -------->
                             <article class="contenedor-apellido-1">
                                 <h3 class="titulo">Apellido</h3>
                                 <input class="input" type="text" name="apellido" value="{{ old('apellido') }}" />
@@ -131,44 +60,124 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------->
 
-                            <!--------- Campo genero de la tabla users -------->
+                            <article class="contenedor-numero-identificacion">
+                                <h4 class="titulo">Numero de identificacion</h4>
+                                <input class="num-identificacion" type="text" name="num_documento"
+                                    value="{{ old('num_documento') }}" />
+                                @error('num_documento')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+
+                            <article class="contenedor-tipo-identificacion">
+                                <h4 class="titulo">Tipo de identificacion</h4>
+                                <select class="menu-identificacion" name="tipo_documento"
+                                    value="{{ old('tipo_documento') }}">
+                                    <option value="cedula de ciudadania"
+                                        {{ 'cedula de ciudadania' == old('tipo_documento') ? 'selected' : '' }}>Cedula
+                                        de
+                                        ciudadania</option>
+                                    <option value="Tarjeta de identidad"
+                                        {{ 'Tarjeta de identidad' == old('tipo_documento') ? 'selected' : '' }}>Tarjeta
+                                        de
+                                        identidad</option>
+                                    <option value="cedula de extranjeria"
+                                        {{ 'Cedula de extranjeria' == old('tipo_documento') ? 'selected' : '' }}>Cedula
+                                        de
+                                        extranjeria</option>
+                                    <option value="Otro documento de identidad"
+                                        {{ 'Otro documento de identidad' == old('tipo_documento') ? 'selected' : '' }}>
+                                        Otro
+                                        doumento de identidad</option>
+                                    <option value="Permiso especial de permanencia"
+                                        {{ 'Permiso especial de permanencia' == old('tipo_documento') ? 'selected' : '' }}>
+                                        Permiso especial de permanencia</option>
+                                    <option value="Permiso por proteccion temporal"
+                                        {{ 'Permiso por proteccion temporal' == old('tipo_documento') ? 'selected' : '' }}>
+                                        Permiso por proteccion temporal</option>
+                                </select>
+                                @error('tipo_documento')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
+
+                            <article class="contenedor-departamento">
+                                <h4 class="titulo">Pais</h4>
+                                <select class="munu-departamentos" name="pais_id">
+                                    @foreach ($paises as $pais)
+                                        <option value="{{ $pais->id }}"
+                                            {{ "$pais->id" == old('pais_id') ? 'selected' : '' }}>
+                                            {{ $pais->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </article>
+
+                            <article class="contenedor-departamento">
+                                <h4 class="titulo">Departamento</h4>
+                                <select class="munu-departamentos" name="departamento_id">
+                                    @foreach ($departamentos as $departamento)
+                                        <option value="{{ $departamento->id }}"
+                                            {{ "$departamento->id" == old('departamento_id') ? 'selected' : '' }}>
+                                            {{ $departamento->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </article>
+
+                            <article class="contenedor-departamento">
+                                <h4 class="titulo">Municipio</h4>
+                                <select class="munu-departamentos" name="municipio_id"
+                                    value="{{ old('municipio_id') }}">
+                                    @foreach ($municipios as $municipio)
+                                        <option value="{{ $municipio->id }}"
+                                            {{ "$municipio->id" == old('municipio_id') ? 'selected' : '' }}>
+                                            {{ $municipio->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </article>
+
                             <article class="contenedor-genero">
                                 <h3 class="titulo">Genero</h3>
                                 <select class="menu-generos" name="genero" value="{{ old('genero') }}">
-                                    <option value="Masculino">Masculino</option>
-                                    <option value="Femenino">Femenino</option>
+                                    <option value="Masculino" {{ 'Masculino' == old('genero') ? 'selected' : '' }}>
+                                        Masculino
+                                    </option>
+                                    <option value="Femenino" {{ 'Femenino' == old('genero') ? 'selected' : '' }}>
+                                        Femenino
+                                    </option>
                                 </select>
                                 @error('genero')
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------->
 
-                            <!------- Campo estado_civil de la tabla users ------->
                             <article class="contenedor-estado">
                                 <h3 class="titulo">Estado civil</h3>
                                 <select class="menu-estado-civil" name="estado_civil"
                                     value="{{ old('estado_civil') }}">
-                                    <option value="Soltero">Soltero</option>
-                                    <option value="Casado">Casado</option>
-                                    <option value="Union de hecho">Union de hecho</option>
-                                    <option value="Seoarado">Seorado</option>
-                                    <option value="Divorciado">Divorciado</option>
-                                    <option value="Viudo">Viudo</option>
+                                    <option value="Soltero" {{ 'Soltero' == old('estado_civil') ? 'selected' : '' }}>
+                                        Soltero
+                                    </option>
+                                    <option value="Casado" {{ 'Casado' == old('estado_civil') ? 'selected' : '' }}>
+                                        Casado
+                                    </option>
+                                    <option value="Union de hecho"
+                                        {{ 'Union de echo' == old('estado_civil') ? 'selected' : '' }}>Union de hecho
+                                    </option>
+                                    <option value="Seoarado" {{ 'Seorado' == old('estado_civil') ? 'selected' : '' }}>
+                                        Seorado
+                                    </option>
+                                    <option value="Divorciado"
+                                        {{ 'Divorciado' == old('estado_civil') ? 'selected' : '' }}>
+                                        Divorciado</option>
+                                    <option value="Viudo" {{ 'Viudo' == old('estado_civil') ? 'selected' : '' }}>Viudo
+                                    </option>
                                 </select>
                                 @error('estado_civil')
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!---------------------------------------------------->
 
-
-                        </article>
-
-                        <article class="quinta-fila">
-                            <!--------- Campo fecha_nacimiento de la tabla instructores -------->
                             <article class="contenedor-fecha">
                                 <h3 class="titulo">Fecha nacimiento</h3>
                                 <input class="input" type="date" name="fecha_nacimiento"
@@ -177,9 +186,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------->
 
-                            <!--------- Campo direccion de la tabla instructores -------->
                             <article class="contenedor-direccion">
                                 <h3 class="titulo">Direccion</h3>
                                 <input class="input" type="text" name="direccion"
@@ -188,9 +195,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!---------------------------------------------------->
 
-                            <!--------- Campo direccion de la tabla users -------->
                             <article class="contenedor-telefono">
                                 <h3 class="titulo">Telefono</h3>
                                 <input class="input" type="tel" name="telefono"
@@ -199,11 +204,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!---------------------------------------------------->
-                        </article>
 
-                        <article class="cuarta-fila">
-                            <!---------- Campo email de la tabla users ----------->
                             <article class="contenedor-email">
                                 <h3 class="titulo">Correo electronico</h3>
                                 <input class="input" type="email" name="email" value="{{ old('email') }}" />
@@ -211,9 +212,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!---------------------------------------------------->
 
-                            <!------- Campo contraseña de la tabla users --------->
                             <article class="contenedor-contraseña">
                                 <h3 class="titulo">Contraseña</h3>
                                 <input class="input" type="password" name="password"
@@ -222,20 +221,18 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!---------------------------------------------------->
                         </article>
 
-
-                        <!-- Desde este punto empieza la insercion a la tabla Profesiones -->
-                        <article class="primera">
-                            <article class="contenedor-titulo-profesion">
+                        
+                        <article class="contenedor-titulo-profesion">
+                            <article class="contenedor">
+                                <i class="fa-solid fa-book" style="color: #ffffff;"></i>
                                 <h1 class="titulo">Datos sobre su profesion</h1>
                             </article>
+                            <h1 class="linea"></h1>
                         </article>
 
                         <article class="segunda">
-
-                            <!------- Campo titulado de la tabla profesiones --------->
                             <article class="contenedor-titulado">
                                 <h1 class="titulo">Titulado</h1>
                                 <input class="input" type="text" name="titulado" value="{{ old('titulado') }}">
@@ -243,9 +240,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------------->
 
-                            <!------- Campo institucion de la tabla profesiones --------->
                             <article class="contenedor-institucion">
                                 <h1 class="titulo">Institucion egresado</h1>
                                 <input class="input" type="text" name="institucion"
@@ -254,9 +249,7 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                            <!-------------------------------------------------------->
 
-                            <!------- Campo documento de la tabla profesiones --------->
                             <article class="contenedor-documento">
                                 <h1 class="titulo">Diploma</h1>
                                 <article class="texto">
@@ -268,14 +261,12 @@
                                     @enderror
                                 </article>
                             </article>
-                            <!-------------------------------------------------------->
-                        </article>
 
-                        <article class="tercer">
                             <article class="contenedor-perfil">
                                 <article class="perfil">
                                     <h1 class="titulo">Perfil profesional</h1>
-                                    <textarea class="input" name="perfil_profesional"cols="30" rows="4" placeholder="En este campo podras redactar tu como persona como te sientes en el ambito profesional y el ser un profesional">{{ old('perfil_profesional') }}</textarea>
+                                    <textarea class="input" name="perfil_profesional" cols="70" rows="4"
+                                        placeholder="En este campo podras redactar tu como persona como te sientes en el ambito profesional y el ser un profesional">{{ old('perfil_profesional') }}</textarea>
                                 </article>
                             </article>
                         </article>
@@ -287,7 +278,7 @@
 
                     <section class="contenedor-boton">
                         <a class="atras" href="{{ route('super.index') }}">Atras</a>
-                        <input class="input" type="submit" value="Crear" />
+                        <input class="input" type="submit" value="Registrar" />
                     </section>
                 </form>
             </article>

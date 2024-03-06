@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/super/home.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Home Administrador</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 <body>
     <main class="page">

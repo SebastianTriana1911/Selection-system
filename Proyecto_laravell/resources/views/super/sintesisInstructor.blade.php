@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/super/sintesisInstructor.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Sintesis instructor</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
 
         <nav class="nav">
 
-            <h1 class="titulo">Perfil de instructor</h1>
+            <h1 class="titulo">{{ $titulo }}</h1>
             <h1 class="barra"></h1>
 
         </nav>
@@ -53,9 +54,6 @@
                 </article>
 
             </article>
-
-
-
         </section>
 
         <section class="contenedor-sidebar">
@@ -63,7 +61,11 @@
             <article class="contenedor-cuadro">
 
                 <article class="contenedor-titulo">
-                    <h1 class="titulo">Informacion del instructor</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-circle-info" style="color: #ffffff;"></i>
+                        <h1 class="titulo">Informacion del instructor</h1>
+                    </article>
+                    <h1 class="linea"></h1>
                 </article>
 
                 <article class="contenedor-informacion">
@@ -159,11 +161,13 @@
                                 @endphp
                                 @forelse($rutas as $ruta)
                                     <li>
-                                        <a class="valor-a" href="{{ asset('storage/documentos/' . $ruta) }}" target="_blank">Documento
+                                        <a class="valor-a" href="{{ asset('storage/documentos/' . $ruta) }}"
+                                            target="_blank">Documento
                                             {{ $contador++ }}</a>
                                     </li>
                                 @empty
-                                    <span class="valor">No se cuenta con documentos que validen algun titulo profesional</span>
+                                    <span class="valor">No se cuenta con documentos que validen algun titulo
+                                        profesional</span>
                                 @endforelse
                             </span>
                         </article>

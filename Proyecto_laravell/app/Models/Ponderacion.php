@@ -6,6 +6,7 @@ use App\Models\Postulacion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Ponderacion extends Model{
     use HasFactory;
@@ -13,7 +14,7 @@ class Ponderacion extends Model{
     protected $table = 'ponderaciones';
 
 
-    public function postulacion(): BelongsTo{
-        return $this -> belongsTo(Postulacion::class);
+    public function postulacion(): HasOne{
+        return $this -> hasOne(Postulacion::class);
     }
 }

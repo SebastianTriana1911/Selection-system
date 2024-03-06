@@ -26,4 +26,21 @@ class StoreSuperUsuario extends FormRequest{
             'password' => 'required',
         ];
     }
+
+    public function messages(){
+        return [
+            'num_documento.required' => 'Obligatorio',
+            'num_documento.max' => 'Maximo 11',
+            'num_documento.min' => 'Minimo 7',
+            'num_documento.unique' => 'Ya existe',
+            'tipo_documento.required' => 'Obligatorio',
+            'nombre.required' => 'Obligatorio',
+            'apellido.required' => 'Obligatorio',
+            'estado_civil.required' => 'Obligatorio',
+            'email.required' => 'Obligatorio',
+            'email.email' => 'Asegurese que es un email',
+            'email.unique' => 'Ya existe',
+            'password.required' => 'Obligatorio'
+        ];
+    }
 }

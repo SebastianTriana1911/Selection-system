@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/seleccionador/vacante.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/seleccionador/postulados.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show vacantes</title>
+    <title>Show postulados</title>
 </head>
 
 <body>
@@ -47,72 +47,93 @@
             <article class="content">
                 <article class="contenedor-vacante">
                     <article class="vacantes">
-                        @forelse($vacantes as $vacante)
-                            @if ($vacante->estado == 1)
-                                <article class="informacion-vacante">
+                        @forelse($vacantes as $postulacion)
+                            <article class="informacion-vacante">
 
-
-                                    <article class="grid-1">
-                                        <article class="contenedor-codigo">
-                                            <h1 class="titulo">{{ $vacante->codigo }}</h1>
+                                <article class="grid-1">
+                                    <article class="contenedor-codigo">
+                                        @php
+                                            $imagen = '';
+                                            if ($postulacion->candidato->user->genero == 'Masculino') {
+                                                $imagen = '/imagenes/icono-hombre.png';
+                                            } else {
+                                                $imagen = '/imagenes/icono-mujer.png';
+                                            }
+                                        @endphp
+                                        <article class="contenedor-imagen">
+                                            <img src="{{ $imagen }}" alt="icono">
                                         </article>
-                                    </article>
-
-                                    <article class="grid-2">
-
-                                        <article class="contenedor-cargo">
-                                            <h1 class="titulo">{{ $vacante->cargo->cargo }}</h1>
-                                        </article>
-
-                                        <article class="info">
-                                            <article class="contenedor-salario">
-                                                <h1 class="titulo">$ {{ $vacante->salario }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-experiencia">
-                                                <h1 class="titulo">Experiencia {{ $vacante->meses_experiencia }} meses
-                                                </h1>
-                                            </article>
-
-                                            <article class="contenedor-contrato">
-                                                <h1 class="titulo">{{ $vacante->tipo_contrato }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-lugar">
-                                                <h1>{{ $vacante->municipio->nombre }}</h1>
-                                                <h1>{{ $vacante->municipio->departamento->pais->nombre }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-num-vac">
-                                                <h1 class="titulo"> Num vacantes {{ $vacante->num_vacante }}</h1>
-                                            </article>
-
-                                            <article class="contenedor-postulados">
-                                                @php
-                                                    $cantidadPostulados = 0;
-                                                    $postulados = $vacante->postulacion;
-                                                    $cantidadPostulados = 0;
-
-                                                    foreach ($postulados as $postulado) {
-                                                        $cantidadPostulados = $cantidadPostulados + 1;
-                                                    }
-                                                @endphp
-                                                    <h1 class="titulo">Postulados: {{$cantidadPostulados }}</h1>
-                                            </article>
-
-                                        </article>
-                                    </article>
-
-                                    <article class="contenedor-boton-vacante">
-                                        <a class="boton"
-                                            href="{{route('seleccionador.candidatosPostulados', ['id' => $vacante->id])}}">
-                                            <i class="fa-solid fa-users"></i>
-                                        </a>
                                     </article>
                                 </article>
-                            @else
-                                @continue
-                            @endif
+
+                                <article class="grid-2">
+
+                                    <article class="contenedor-cargo">
+                                        <h1 class="titulo">{{ $postulacion->candidato->user->nombre }}
+                                            {{ $postulacion->candidato->user->apellido }}</h1>
+                                    </article>
+
+                                    <article class="info">
+                                        <article class="contenedor-salario">
+                                            <h1 class="titulo">Num documento:
+                                                {{ $postulacion->candidato->user->num_documento }}</h1>
+                                        </article>
+
+                                        <article class="contenedor-experiencia">
+                                            @php
+                                                $fechaCandidato = $postulacion->candidato->fecha_nacimiento;
+
+                                                // Crear objetos DateTime para la fecha de nacimiento y la fecha actual
+                                                $fechaNacimiento = new DateTime($fechaCandidato);
+                                                $fechaActual = new DateTime();
+
+                                                // Calcular la diferencia entre las fechas
+                                                $diferencia = $fechaNacimiento->diff($fechaActual);
+
+                                                // Obtener la edad exacta
+                                                $edadExacta = $diferencia->y;
+                                            @endphp
+                                            <h1 class="titulo">Edad: {{ $edadExacta }} </h1>
+                                        </article>
+
+                                        <article class="contenedor-contrato">
+                                            <h1 class="titulo">Telefono: {{ $postulacion->candidato->telefono }}</h1>
+                                        </article>
+
+                                        <article class="contenedor-lugar">
+                                            <h1>{{ $postulacion->candidato->user->municipio->nombre }}
+                                                {{ $postulacion->candidato->user->municipio->departamento->nombre }}
+                                            </h1>
+                                        </article>
+
+                                        <article class="contenedor-num-vac">
+                                            <h1 class="titulo">Direccion: {{ $postulacion->candidato->direccion }}</h1>
+                                        </article>
+
+                                        <article class="contenedor-postulados">
+                                            {{-- @php
+                                                $ponderacion = $postulacion->ponderacion;
+                                                $lista = [];
+
+                                                foreach($postulacion->ponderacion as $ponderacion){
+                                                array_push($lista, $ponderacion->ponderacion);
+                                                }
+                                            @endphp
+                                            @foreach($lista as $ponderaciones)
+                                                <h1>Ponderacion: {{$ponderaciones}}</h1>
+                                            @endforeach --}}
+                                            <h1>Ponderacion: {{$postulacion->ponderacion->ponderacion}}</h1>
+                                        </article>
+
+                                    </article>
+                                </article>
+
+                                <article class="contenedor-boton-vacante">
+                                    <a class="boton" href="">
+                                        <i class="fa-solid fa-users"></i>
+                                    </a>
+                                </article>
+                            </article>
                         @empty
                             <article class="contenedor-empty">
                                 <h1 class="empty">No hay vacantes registradas</h1>
@@ -122,7 +143,7 @@
                 </article>
 
                 <article class="contenedor-boton">
-                    <a href="{{ route('seleccionador.index') }}">Volver</a>
+                    <a href="{{ route('seleccionador.vacante') }}">Volver</a>
                 </article>
             </article>
         </section>

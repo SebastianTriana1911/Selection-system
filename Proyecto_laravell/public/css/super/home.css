@@ -113,14 +113,16 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.5s;
     font-size: 11pt;
 }
 
 .boton-restablecer:hover{
     background-color: black;
-    color: #FFD966;
+    color: white;
     transition: 0.5s;
     cursor: pointer;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-create{
@@ -141,14 +143,16 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.5s;
     font-size: 11pt;
 }
 
 .boton-create:hover{
     background-color: black;
-    color: #FFD966;
+    color: white;
     transition: 0.5s;
     cursor: pointer;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-logout{
@@ -158,6 +162,7 @@
 }
 
 .boton-logout{
+    transition: 0.5s;
     width: 150%;
     display: flex;
     justify-content: center;
@@ -174,9 +179,10 @@
 
 .boton-logout:hover{
     background-color: black;
-    color: #FFD966;
+    color: white;
     transition: 0.5s;
     cursor: pointer;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
@@ -223,6 +229,7 @@
     border: none;
     border-radius: 15px;
     font-weight: 1000;
+    transition: 0.5s;
     box-shadow: 0 0 10px #FFD966;
     font-size: 11pt;
 }
@@ -246,6 +253,7 @@
     padding: 10%;
     text-decoration: none;
     color: black;
+    transition: 0.5s;
     background-color: #FFD966;
     border: none;
     border-radius: 15px;
@@ -266,14 +274,14 @@
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo {
@@ -315,6 +323,7 @@
     padding: 3%;
     text-decoration: none;
     color: black;
+    transition: 0.5s;
     background-color: #FFD966;
     border: none;
     border-radius: 15px;
@@ -324,7 +333,8 @@
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
     transition: 0.5s;
 }
 
@@ -334,14 +344,14 @@
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-logo {
@@ -386,6 +396,7 @@
     color: black;
     background-color: #FFD966;
     border: none;
+    transition: 0.5s;
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
@@ -393,7 +404,8 @@
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
     transition: 0.5s;
 }
 
@@ -403,14 +415,14 @@
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-logo {
@@ -468,12 +480,14 @@
     border: none;
     border-radius: 15px;
     font-weight: 1000;
+    transition: 0.5s;
     box-shadow: 0 0 10px #FFD966;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
     transition: 0.5s;
 }
 

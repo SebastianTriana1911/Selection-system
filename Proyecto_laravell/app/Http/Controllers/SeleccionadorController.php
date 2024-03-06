@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use App\Models\Vacante;
+use App\Models\Postulacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,7 +75,8 @@ class SeleccionadorController extends Controller
         $user = Auth::user();
         $seleccionador = $user -> seleccionador;
         $empresa = Empresa::find($seleccionador->empresa_id);
-        $vacantes = $empresa->vacante;
+        // Ordena de manera descente
+        $vacantes = $empresa->vacante()->latest('created_at')->get();
         $cantidad = 0;
         foreach($vacantes as $vacante){
             $cantidad = $cantidad + 1;
@@ -81,5 +84,17 @@ class SeleccionadorController extends Controller
 
         return view('seleccionador.vacantes', ['cantidad' => $cantidad,
         'empresa' => $empresa, 'vacantes' => $vacantes]);
+    }
+
+    public function candidatosPostulados($id){
+        $vacante = Vacante::find($id);
+        $cantidad = 0;
+        foreach($vacante->postulacion as $post){
+            $cantidad = $cantidad + 1;
+        }
+
+        $vacantes = $vacante->postulacion()->latest('created_at')->get();
+
+        return view('seleccionador.postulados', ['cantidad' => $cantidad, 'vacantes' => $vacantes]);
     }
 }
