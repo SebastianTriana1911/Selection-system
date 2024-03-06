@@ -47,7 +47,7 @@
             <article class="contenedor-informacion">
 
                 <article class="scroll">
-                @forelse($instructores as $instructor)
+                    @forelse($instructores as $instructor)
                     <article class="contenedor-instructor">
 
                         <article class="contenedor-logo">
@@ -60,30 +60,31 @@
 
                         <article class="opciones">
 
-                            <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i
-                                    class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                            <a href="{{ route('instructor.edit', ['id' => $instructor->id]) }}"><i
-                                    class="fa-solid fa-pencil" style="color: black;"></i></a>
-                            <a
-                                href="{{ route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id]) }}"><i
-                                    class="fa-solid fa-plus" style="color: black;"></i></a>
-                            <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}" method="POST">
-                                @csrf
+                            <article class="contenedor-1">
+                                <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i id="ojito" class="fa-solid fa-eye"></i></a>
+                                <a href="{{ route('instructor.edit', ['id' => $instructor->id]) }}"><i id="lapiz" class="fa-solid fa-pencil"></i></a>
+                            </article>
 
-                                @method('delete')
+                            <article class="contenedor-2">
+                                <a href="{{ route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id]) }}"><i id="mas" class="fa-solid fa-plus"></i></a>
+                                <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}" method="POST">
+                                    @csrf
 
-                                <button class="contenedor-bote">
-                                    <i class="fa-solid fa-trash" style="color: #000000;"></i>
-                                </button>
-                            </form>
+                                    @method('delete')
+
+                                    <button class="contenedor-bote">
+                                        <i id="caneca" class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </article>
                         </article>
                     </article>
 
-                @empty
+                    @empty
                     <h3 class="empty">No hay ningun instructor registrado</h3>
-                @endforelse
+                    @endforelse
+                </article>
             </article>
-        </article>
 
             <article class="contenedor-boton">
                 <a class="volver" href="{{ route('super.index') }}">Volver</a>
@@ -107,16 +108,16 @@
                         <span>3214860900</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -127,16 +128,16 @@
                         <span>3153504473</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -147,16 +148,16 @@
                         <span>3044479143</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -167,16 +168,16 @@
                         <span>3005301839</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>

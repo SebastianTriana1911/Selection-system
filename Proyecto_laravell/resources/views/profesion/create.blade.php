@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/profesion/create.css') }}">
-    <title>Create profesiones</title>
+    <title>Crear profesiones</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>

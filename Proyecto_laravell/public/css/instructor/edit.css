@@ -71,8 +71,8 @@ body::-webkit-scrollbar-thumb{
     height: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: black;
     color: white;
+    background-color: black;
 }
 
 .nav .primer-contenedor {
@@ -82,43 +82,12 @@ body::-webkit-scrollbar-thumb{
     height: 100%;
     justify-content: center;
     padding-left: 1.5%;
+    font-size: 16pt;
 }
 
 .nav .segundo-contenedor {
     position: relative;
     right: 2%;
-}
-
-.nav .segundo-contenedor i {
-    cursor: pointer;
-}
-
-.contenedor-logout{
-    position: relative;
-    width: 100%;
-    margin-top: 20%;
-    left: -16%;
-}
-
-.contenedor-logout .boton{
-    display: flex;
-    justify-content: center;
-    width: 120%;
-    padding: 10%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.contenedor-logout .boton:hover{
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
 }
 
 /* ---------------------------------------------------------------- */
@@ -132,125 +101,180 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-principal{
-    margin-top: 2%;
     background-color: white;
-    width: 55%;
-    margin-bottom: 10%;
+    width: 45%;
+    margin-bottom: 5%;
     border-radius: 15px;
+    transition: 0.4s;
+    padding-bottom: 6%;
+}
+
+.contenedor-content .contenedor-principal:hover{
     box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-principal .titulo-principal{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: black;
-    height: 15%;
-    border-radius: 15px 15px 15px 15px;
+    width: 99%;
+    height: 13%;
+    border-radius: 15px;
     color: white;
+    border: 4px solid white;
 }
 
-.contenedor-content .contenedor-principal .titulo-principal h2{
+.contenedor-content .contenedor-principal .titulo-principal .titulo{
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 3%;
-    width: 70%;
-    height: 100%;
+}
+
+.contenedor-content .contenedor-principal .titulo-principal .titulo i{
+    position: relative;
+    left: -3%;
+    font-size: 15pt;
+}
+
+.contenedor-content .contenedor-principal .titulo-principal .linea{
+    height: 4px;
+    width: 30%;
+    border-radius: 10px;
+    margin-top: 0.5%;
+    background-color: white;
 }
 
 .contenedor-hoja-vida .contenedor-informacion{
     display: flex;
     flex-direction: column;
-    padding-bottom: 18%;
+    padding: 3% 5% 3% 5%;
 }
 
-.contenedor-hoja-vida .contenedor-informacion .primera-fila{
+.contenedor-nombre{
     display: flex;
-    margin-top: 3%;
-    width: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-nombre h1{
+    font-size: 14pt;
+}
+
+.contenedor-nombre input{
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+}
+
+.contenedor-nombre input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 10px black;
 }
 
 .contenedor-numero-identificacion{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-numero-identificacion .num-identificacion{
+.contenedor-numero-identificacion h1{
+    font-size: 14pt;
+}
+
+.contenedor-numero-identificacion input{
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    padding-right: 4%;
-    padding-left: 4%;
-    margin-top: 3%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 66%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
-.contenedor-numero-identificacion .num-identificacion:hover{
+.contenedor-numero-identificacion input:hover{
     transition: 0.5s;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 10px black;
 }
 
 .contenedor-tipo-identificacion{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-tipo-identificacion h1{
+    font-size: 14pt;
 }
 
 .contenedor-tipo-identificacion .menu-identificacion{
     border: none;
-    width: 80%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 2%;
-    margin-top: 1.8%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 76%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
 .contenedor-tipo-identificacion .menu-identificacion:hover{
     transition: 0.5s;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 10px black;
 }
 
 .contenedor-pais{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-pais .munu-pais{
+.contenedor-pais h1{
+    font-size: 14pt;
+}
+
+.contenedor-pais .munu-departamentos{
     border: none;
-    width: 140%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 90%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
-.contenedor-pais .munu-pais:hover{
+.contenedor-pais .munu-departamentos:hover{
     transition: 0.5s;
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-content .segunda-fila{
-    display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
 .contenedor-departamento{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-departamento h1{
+    font-size: 14pt;
 }
 
 .contenedor-departamento .munu-departamentos{
     border: none;
-    width: 140%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 90%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
 .contenedor-departamento .munu-departamentos:hover{
@@ -260,90 +284,49 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-municipio{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-municipio .munu-municipios{
-    border: none;
-    width: 140%;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 5%;
-    margin-top: 7%;
-}
-
-.contenedor-municipio .munu-municipios:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-nombre{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-nombre .titulo{
+.contenedor-municipio h1{
     font-size: 14pt;
 }
 
-.contenedor-nombre .input{
+.contenedor-municipio .munu-departamentos{
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 90%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
-.contenedor-nombre .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-hoja-vida .contenedor-informacion .tercera-fila{
-    display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
-}
-
-.contenedor-apellido-1{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-apellido-1 .titulo{
-    font-size: 14pt;
-}
-
-.contenedor-apellido-1 .input{
-    border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
-}
-
-.contenedor-apellido-1 .input:hover{
+.contenedor-municipio .munu-departamentos:hover{
     transition: 0.5s;
     box-shadow: 0 0 15px black;
 }
 
 .contenedor-genero{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-genero .titulo{
+.contenedor-genero h1{
     font-size: 14pt;
 }
 
 .contenedor-genero .menu-generos{
-    width: 120%;
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 6%;
-    margin-top: 7%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
 .contenedor-genero .menu-generos:hover{
@@ -351,102 +334,51 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-hoja-vida .contenedor-informacion .quinta-fila{
+.contenedor-apellido-1{
     display: flex;
-    margin-top: 5%;
-    width: 100%;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-fecha{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-fecha .titulo{
+.contenedor-apellido-1 h1{
     font-size: 14pt;
 }
 
-.contenedor-fecha .input{
+.contenedor-apellido-1 .input{
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
-.contenedor-fecha .input:hover{
+.contenedor-apellido-1 .input:hover{
     transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-direccion{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-direccion .titulo{
-    font-size: 14pt;
-}
-
-.contenedor-direccion .input{
-    border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
-}
-
-.contenedor-direccion .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-telefono{
-    display: flex;
-    flex-direction: column;
-}
-
-.contenedor-telefono .titulo{
-    font-size: 14pt;
-}
-
-.contenedor-telefono .input{
-    border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
-}
-
-.contenedor-telefono .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-hoja-vida .contenedor-informacion .cuarta-fila{
-    display: flex;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 100%;
-    justify-content: space-evenly;
+    box-shadow: 0 0 10px black;
 }
 
 .contenedor-estado{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-estado .titulo{
+.contenedor-estado h1{
     font-size: 14pt;
 }
 
 .contenedor-estado .menu-estado-civil{
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 81%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
 .contenedor-estado .menu-estado-civil:hover{
@@ -454,71 +386,137 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px black;
 }
 
-.contenedor-email {
+.contenedor-fecha{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-email .titulo{
+.contenedor-fecha h1{
+    font-size: 14pt;
+}
+
+.contenedor-fecha .input{
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+    width: 71%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+}
+
+.contenedor-fecha .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-direccion{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-direccion h1{
+    font-size: 14pt;
+}
+
+.contenedor-direccion .input{
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+}
+
+.contenedor-direccion .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-telefono{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-telefono h1{
+    font-size: 14pt;
+}
+
+.contenedor-telefono .input{
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+}
+
+.contenedor-telefono .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-email{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-email h1{
     font-size: 14pt;
 }
 
 .contenedor-email .input{
     border: none;
-    border-radius: 7px;
-    box-shadow: 0 0 8px black;
-    padding: 3%;
-    margin-top: 4%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
 }
 
 .contenedor-email .input:hover{
     transition: 0.5s;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 10px black;
 }
 
-/* ---------------------------------------------------------------- */
-
-.tercer{
+.contenedor-perfil{
     display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.tercer .contenedor-perfil{
-    width: 100%;
-    height: 100%;
-}
-
-.tercer .contenedor-perfil .titulo{
-    display: flex;
-    justify-content: center;
+.contenedor-perfil h1{
     font-size: 14pt;
+    margin-bottom: 2%;
 }
 
-.tercer .contenedor-perfil .input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+.contenedor-perfil .input{
     border: none;
-    border-radius: 7px;
-    padding: 3%;
-    box-shadow: 0 0 8px black;
-    margin-top: 2%;
+    padding: 5px;
+    border-radius: 15px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
     resize: none;
-    overflow-y: auto;
 }
 
-.tercer .contenedor-perfil .input::-webkit-scrollbar{
-    width: 4px;
+.contenedor-perfil .input:hover{
+    transition: 0.5s;
+    box-shadow: 0 0 10px black;
 }
-
-.tercer .contenedor-perfil .input::-webkit-scrollbar-thumb{
-    background: black;
-}
-
-/* ---------------------------------------------------------------- */
 
 .contenedor-boton{
     display: flex;
@@ -526,6 +524,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     margin-top: -3%;
+    gap: 10%;
 }
 
 .contenedor-boton .atras{
@@ -536,17 +535,19 @@ body::-webkit-scrollbar-thumb{
     background-color: #FFD966;
     border: none;
     border-radius: 10px;
-    padding: 11px;
+    padding: 13px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-boton .atras:hover{
     transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-boton .input {
@@ -559,67 +560,15 @@ body::-webkit-scrollbar-thumb{
     font-size: 13pt;
     font-weight: 1000;
     box-shadow: 0 0 15px #FFD966;
+    transition: 0.4s;
     cursor: pointer;
 }
 
 .contenedor-boton .input:hover {
     transition: 0.4s;
     background-color: black;
-    color: #FFD966;
-}
-
-.mensaje{
-    color: red;
-}
-
-/* ---------------------------------------------------------------- */
-
-.contenedor-boton{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.contenedor-boton .atras{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 10px;
-    padding: 11px;
-    font-weight: bolder;
-    box-shadow: 0 0 10px #FFD966;
-    cursor: pointer;
-    margin-right: 100px;
-    text-decoration: none;
-}
-
-.contenedor-boton .atras:hover{
-    transition: 0.4s;
-    background-color: black;
-    color: #FFD966;
-}
-
-.contenedor-boton .input {
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    padding: 13px;
-    font-size: 13pt;
-    font-weight: 1000;
-    box-shadow: 0 0 15px #FFD966;
-    cursor: pointer;
-}
-
-.contenedor-boton .input:hover {
-    transition: 0.4s;
-    background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .mensaje{
