@@ -91,6 +91,10 @@ class InstructorController extends Controller{
         // una nueva instancia a el modelo Profesion para asi relacionarlos
         // entre los dos
         $profesion = new Profesion();
+        if($profesion->titulado && $profesion->institucion && $profesion->documento == null){
+            return redirect()->route('super.index');
+        }
+
         $profesion -> instructor_id = $instructor -> id;
         $profesion -> titulado = $request -> titulado;
         $profesion -> institucion = $request -> institucion;
@@ -102,7 +106,9 @@ class InstructorController extends Controller{
         // que se pueda mostrar mediante una nueva vista
         if ($request->hasFile('documento')){
             $documento = $request->file('documento');
-            $ruta = $documento->store('documentos', 'public');
+            $documentoNombre = $documento->getClientOriginalName();
+            $documento->storeAs('public', $documentoNombre);
+            $ruta = 'storage/' . $documentoNombre;
             $profesion -> documento = $ruta;
             $profesion -> save();
 

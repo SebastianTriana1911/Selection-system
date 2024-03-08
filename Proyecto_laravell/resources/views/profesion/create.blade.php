@@ -43,7 +43,6 @@
                     @csrf
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
                         <article class="Nombre">
                             <h1>Titulado</h1>
                             <input class="input" type="text" name="titulado" value="{{ old('titulado') }}" />
@@ -51,9 +50,7 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Institucion</h1>
                             <input class="input" type="text" name="institucion" value="{{ old('institucion') }}">
@@ -61,9 +58,7 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------- Campo documento de la tabla profesiones --------->
                         <article class="contenedor-documento">
                             <h1 class="titulo">Diploma</h1>
                             <article class="texto">
@@ -75,7 +70,6 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!-------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
@@ -93,24 +87,28 @@
 
                 <section class="contenedor-ocupaciones">
                     @forelse($profesiones as $profesion)
-                        <article class="ocupacion">
-                            <article class="parte-1">
-                                <i class="fa-solid fa-gear" style="color: black"></i>
-                                <a
-                                    href="{{ route('profesion.edit', ['id' => $profesion->id, 'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">{{ $profesion->titulado }}</a>
-                            </article>
+                        @if ($profesion->titulado && $profesion->institucion && $profesion->docummento == null)
+                            <article class="ocupacion">
+                                <article class="parte-1">
+                                    <i class="fa-solid fa-gear" style="color: black"></i>
+                                    <a
+                                        href="{{ route('profesion.edit', ['id' => $profesion->id, 'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">{{ $profesion->titulado }}</a>
+                                </article>
 
-                            <article class="parte-2">
-                                <form action="{{ route('profesion.destroy', ['id' => $profesion->id]) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>
-                                    </button>
-                                </form>
+                                <article class="parte-2">
+                                    <form action="{{ route('profesion.destroy', ['id' => $profesion->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="buttom">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </article>
                             </article>
-                        </article>
+                        @else
+                            @continue
+                        @endif
                     @empty
                         <h1 class="empty">El instructor no tiene profesiones</h1>
                     @endforelse

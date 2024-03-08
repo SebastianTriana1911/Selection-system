@@ -106,18 +106,18 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
+    margin-top: 5%;
+    font-size: 20pt;
 }
 
 .contenedor-content .linea{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 40%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .contenedor-content .contenedor-hoja-vida{
@@ -126,10 +126,15 @@ body::-webkit-scrollbar-thumb{
     flex-direction: column;
     margin: auto;
     margin-top: 6%;
-    width: 40%;
-    height: 50%;
+    width: 50%;
+    height: 65%;
     background-color: white;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 
@@ -140,14 +145,27 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     width: 100%;
     height: 100%;
-    gap: 10%;
-    margin-top: 8%;
+    gap: 8%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .Nombre h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+    margin-bottom: 1%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .descripcion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+    margin-bottom: 1%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea .input{
     display: flex;
-    width: 86%;
-    height: 60%;
+    width: 85%;
+    height: 25px;
     flex-direction: column;
     justify-content: center;
     padding-left: 7%;
@@ -156,17 +174,26 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
-    margin-top: 3%;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea .input:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-documento{
-    position: relative;
-    left: -15%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-documento .titulo{
+    display: flex;
+    justify-content: left;
+    font-size: 12pt;
+    margin-bottom: 1%;
 }
 
 .label-input {
@@ -178,12 +205,20 @@ body::-webkit-scrollbar-thumb{
     border-radius: 7px;
     padding: 8%;
     width: 205%;
-    box-shadow: 0 0 8px black;
+    box-shadow: 0 0 5px black;
     margin-top: 5%;
     display: flex;
     font-weight: bolder;
     cursor: pointer;
-    gap: 10%;
+    gap: 7%;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+}
+
+.contenedor-documento .texto:hover {
+    box-shadow: 0 0 8px black;
+    transition: 0.4s;
 }
 
 .contenedor-documento .texto i {
@@ -206,13 +241,12 @@ body::-webkit-scrollbar-thumb{
 
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 27%;
     gap: 10%;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1{
@@ -226,12 +260,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2{
@@ -246,12 +282,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 14pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/

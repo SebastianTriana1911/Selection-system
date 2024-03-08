@@ -33,8 +33,7 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Actualizacion de la profesion
-                        {{ $titulo }}</h1>
+                    <h1 class="titulo-principal">{{ $titulo }}</h1>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -44,7 +43,6 @@
                     @method('put')
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
                         <article class="Nombre">
                             <h1>Titulado</h1>
                             <input class="input" type="text" name="titulado"
@@ -53,9 +51,7 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Institucion</h1>
                             <input class="input" type="text" name="institucion"
@@ -64,9 +60,7 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------- Campo documento de la tabla profesiones --------->
                         <article class="contenedor-documento">
                             <h1 class="titulo">Diploma</h1>
                             <article class="texto">
@@ -78,7 +72,6 @@
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!-------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
@@ -91,7 +84,7 @@
 
             <section class="content-2">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Datos sobre la profesion con id {{ $profesion->id }}</h1>
+                    <h1 class="titulo-principal">Datos sobre la profesion</h1>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -110,7 +103,7 @@
                         <article class="contenedor-titulado">
                             <h1 class="titulo">Documento de comprobacion</h1>
                             <a class="valor-a"
-                                href="{{ asset('storage/documentos/' . basename($profesion->documento)) }}"
+                                href="{{ asset('storage/' . basename($profesion->documento)) }}"
                                 target="_blank">Documento comprobante</a>
                         </article>
                     </article>
