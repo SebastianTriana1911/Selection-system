@@ -9,7 +9,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class ReclutadorSeeder extends Seeder{
     public function run(): void{
         $reclutador = [
-            'user_id' => '2',
+            ['user_id' =>'4']
         ];
 
         DB::table('reclutadores')->insert($reclutador);

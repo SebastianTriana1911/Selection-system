@@ -93,7 +93,7 @@ class ProfesionController extends Controller
             // Ruta relativa al enlace simbólico creado por Laravel
             $rutaArchivo = 'public/' . $urlModificada;
             $rutaArchivoCodificada = rawurldecode($rutaArchivo);            
-            Storage::delete($rutaArchivo);
+            Storage::delete($rutaArchivoCodificada);
             if ($request->hasFile('documento')) {
                 $documento = $request->file('documento');
                 $documentoNombre = $documento->getClientOriginalName();

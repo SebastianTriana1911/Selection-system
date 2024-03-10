@@ -1,14 +1,13 @@
-<!-- VISTA PARA ACTUALIZAR UNA PROFESION -->
+<!-- DASHBOARD RECLUTADOR -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/seleccionador/dashboar.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/profesion/edit.css') }}">
-    <title>Actualizar profesiones</title>
+    <title>Dashboard Seleccionadores</title>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
@@ -28,91 +27,92 @@
 
         </header>
 
-        <!--------------------------------------------------------------------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------->
+        <section class="content">
+            <section class="primera-columna">
+                <a class="contenedor-super" href="{{ route('dashboard.super') }}">
+                    <h1>Administradores</h1>
+                </a>
 
-        <section class="contenedor-content">
+                <a class="contenedor-instructor" href="{{ route('dashboard.instructor') }}">
+                    <h1>Instructores</h1>
+                </a>
 
-            <section class="content">
-                <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">{{ $titulo }}</h1>
-                    <h1 class="linea"></h1>
+                <a class="contenedor-reclutador" href="{{ route('dashboard.reclutador')}}">
+                    <h1>Reclutadores</h1>
+                </a>
+
+                <a class="contenedor-seleccionador" href="{{ route('dashboard.seleccionador') }}">
+                    <h1>Seleccionadores</h1>
+                </a>
+
+                <a class="contenedor-candidatos" href="{{ route('dashboard.candidato')}}">
+                    <h1>Candidatos</h1>
+                </a>
+
+                <article class="contenedor-boton">
+                    <a class="volver" href="{{ route('super.index') }}">Volver</a>
                 </article>
-
-                <form class="contenedor-hoja-vida" action="{{ route('profesion.update', ['id' => $profesion->id]) }}"
-                    method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-
-                    <section class="primera-linea">
-                        <article class="Nombre">
-                            <h1>Titulado</h1>
-                            <input class="input" type="text" name="titulado"
-                                value="{{ old('titulado', $profesion->titulado) }}" />
-                            @error('titulado')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-
-                        <article class="descripcion">
-                            <h1>Institucion</h1>
-                            <input class="input" type="text" name="institucion"
-                                value="{{ old('institucion', $profesion->institucion) }}">
-                            @error('institucion')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-
-                        <article class="contenedor-documento">
-                            <h1 class="titulo">Diploma</h1>
-                            <article class="texto">
-                                <i class="fa-solid fa-download" style="color: #000000;"></i>
-                                <label for="input">Archivo</label>
-                                <input id="input" class="label-input" type="file" name="documento">
-                            </article>
-                            @error('documento')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-                    </section>
-
-                    <section class="contenedor-boton">
-                        <a class="input-1"
-                            href="{{ route('profesion.create', ['idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">Volver</a>
-                        <input class="input-2" type="submit" value="Actualizar">
-                    </section>
-                </form>
             </section>
 
-            <section class="content-2">
+            <section class="segunda-columna">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Datos sobre la profesion</h1>
-                    <h1 class="linea"></h1>
-                </article>
-
-                <article class="contenedor-cuadro">
-                    <article class="contenido">
-                        <article class="contenedor-titulado">
-                            <h1 class="titulo">Titulado</h1>
-                            <p class="valor">{{ $profesion->titulado }}</p>
-                        </article>
-
-                        <article class="contenedor-titulado">
-                            <h1 class="titulo">Institucion egresado</h1>
-                            <p class="valor">{{ $profesion->institucion }}</p>
-                        </article>
-
-                        <article class="contenedor-titulado">
-                            <h1 class="titulo">Documento de comprobacion</h1>
-                            <a class="valor-a"
-                                href="{{ asset('storage/' . basename($profesion->documento)) }}"
-                                target="_blank">Documento comprobante</a>
-                        </article>
+                    <article class="titulo">
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                        <strong>Lista de seleccionadores</strong>
                     </article>
                 </article>
 
+                <article class="contenedor-informacion">
+                    @forelse($seleccionadores as $seleccionador)
+                        <article class="contenedor-instructor">
+
+                            <article class="contenedor-logo">
+                                <i class="fa-solid fa-user"></i>
+                            </article>
+
+                            <article class="contenedor-nombre">
+                                <h1 class="titulo">{{ $seleccionador->user->nombre }} {{ $seleccionador->user->apellido }}
+                                </h1>
+                            </article>
+
+                            <article class="contenedor-opciones">
+                                <form class="formulario"
+                                    action="{{ route('user.destroy', ['id' => $seleccionador->user_id]) }}"
+                                    method="POST">
+                                    @csrf
+
+                                    @method('delete')
+
+                                    <button class="contenedor-bote">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+
+                                <article class="rol">
+                                    <form class="formulario-2"
+                                        action="{{ route('update.rol', ['id' => $seleccionador->user_id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        <select class="menu" name="menu">
+                                            @foreach ($roles as $rol)
+                                                <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <button class="cambiar">
+                                            Cambiar
+                                        </button>
+                                    </form>
+                                </article>
+                            </article>
+                        </article>
+                    @empty
+                        <h3 class="empty">No hay ningun seleccionador registrado</h3>
+                    @endforelse
+                </article>
             </section>
         </section>
-
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <footer class="footer">
@@ -207,7 +207,6 @@
                 </section>
             </section>
         </footer>
-
     </main>
 </body>
 

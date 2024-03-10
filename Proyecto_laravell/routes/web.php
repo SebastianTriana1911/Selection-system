@@ -102,6 +102,7 @@ Route::get('super/dashboard/super', [SuperUsuarioController::class, 'dashboardSu
 Route::get('super/dashboard/instructor', [SuperUsuarioController::class, 'dashboardInstructor'])->name('dashboard.instructor')->middleware('auth');
 Route::get('super/dashboard/reclutador', [SuperUsuarioController::class, 'dashboardReclutador'])->name('dashboard.reclutador')->middleware('auth');
 Route::get('super/dashboard/candidatos', [SuperUsuarioController::class, 'dashboardCandidato'])->name('dashboard.candidato')->middleware('auth');
+Route::get('super/dashboard/seleccionador', [SuperUsuarioController::class, 'dashboardSeleccionador'])->name('dashboard.seleccionador')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
 

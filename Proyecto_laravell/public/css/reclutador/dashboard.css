@@ -76,111 +76,109 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    font-size: 15pt;
+    font-size: 13pt;
+    font-weight: bolder;
+    background-color: white;
+    border: 4px solid black;
     height: 20%;
+    border-bottom: 4px solid white;
+    color: black;
     cursor: pointer;
     text-decoration: none;
-    color:black;
-    border: 4px solid black;
-    background-color: white;
 }
 
 .content .primera-columna .contenedor-super:hover {
-    background-color: black;
-    transition: 0.5s;
-    color: white;
-    box-shadow: 0 0 10px white;
+    background-color: white;
+    transition: 0.4s;
+    color: black;
+    border: 1px solid white;
 }
 
 .content .primera-columna .contenedor-instructor{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    font-size: 15pt;
+    font-size: 13pt;
+    font-weight: bolder;
     background-color: white;
+    border: 4px solid black;
     height: 20%;
+    border-bottom: 4px solid black;
+    color: black;
     cursor: pointer;
     text-decoration: none;
-    color:black;
-    border: 4px solid black
 }
 
 .content .primera-columna .contenedor-instructor:hover {
-    background-color: black;
-    transition: 0.5s;
-    color: white;
-    box-shadow: 0 0 10px white;
+    background-color: white;
+    transition: 0.4s;
+    color: black;
+    border: 1px solid white; 
 }
 
 .content .primera-columna .contenedor-reclutador{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    font-size: 15pt;
+    font-size: 13pt;
+    font-weight: bolder;
+    background-color: black;
+    border: 1px solid white;
     height: 20%;
+    color: white;
     cursor: pointer;
     text-decoration: none;
-    border: 4px solid black;
-    background-color: #FFD966;
-    box-shadow: 0 0 10px #FFD966;
-    color: black;
+    transition: 0.4s;
 }
 
 .content .primera-columna .contenedor-reclutador:hover {
-    background-color: black;
-    transition: 0.5s;
-    color: white;
-    box-shadow: 0 0 10px white;
-}
-
-.content .primera-columna .contenedor-reclutador h1{
-    color: black;
+    background-color: white;
+    transition: 0.4s;
+    color: black;    
 }
 
 .content .primera-columna .contenedor-seleccionador{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    font-size: 15pt;
+    font-size: 13pt;
+    font-weight: bolder;
     background-color: white;
+    border: 4px solid black;
     height: 20%;
-    box-shadow: 0 0 10px white;
+    border-bottom: 4px solid white;
+    color: black;
     cursor: pointer;
     text-decoration: none;
-    border: 4px solid black
 }
 
 .content .primera-columna .contenedor-seleccionador:hover {
-    background-color: black;
-    transition: 0.5s;
-    color: white;
-    box-shadow: 0 0 10px white;
+    background-color: white;
+    transition: 0.4s;
+    color: black;
+    border: 1px solid white; 
 }
 
 .content .primera-columna .contenedor-candidatos{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    font-size: 15pt;
+    font-size: 13pt;
+    font-weight: bolder;
     background-color: white;
+    border: 4px solid black;
     height: 20%;
-    box-shadow: 0 0 10px white;
+    border-bottom: 4px solid black;
+    color: black;
     cursor: pointer;
     text-decoration: none;
-    border: 4px solid black;
-    color: black;
 }
 
 .content .primera-columna .contenedor-candidatos:hover {
-    background-color: black;
-    transition: 0.5s;
-    color: white;
-    box-shadow: 0 0 10px white;
+    background-color: white;
+    transition: 0.4s;
+    color: black;
+    border: 1px solid white; 
 }
 
 .contenedor-boton  { 
@@ -203,17 +201,22 @@
     padding: 10px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-boton .volver:hover {
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
 
 .content .segunda-columna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-area: content;
     width: 100%;
     background-color: black;
@@ -222,10 +225,22 @@
 
 .content .segunda-columna .contenedor-titulo{
     display: flex;
+    align-items: center;
     justify-content: center;
     font-size: 19pt;
     color: white;
     margin-top: 3%;
+}
+
+.content .segunda-columna .contenedor-titulo .titulo {
+    display: flex;
+    align-items: center;
+}
+
+.content .segunda-columna .contenedor-titulo .titulo i{
+    position: relative;
+    left: -3%;
+    font-size: 16pt;
 }
 
 .segunda-columna .contenedor-informacion{
@@ -234,16 +249,21 @@
     align-items: center;    
     position: relative;
     top: 4%;
+    width: 90%;
     height: 70%;
     overflow: auto;
 }
 
 .segunda-columna .contenedor-informacion::-webkit-scrollbar{
-    width: 9px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
 }
 
 .segunda-columna .contenedor-informacion::-webkit-scrollbar-thumb{
+    width: 10px;
     background: white;
+    border-radius: 5px;
 }
 
 .segunda-columna .contenedor-instructor {
@@ -262,7 +282,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12%;
+    width: 10%;
 }
 
 .segunda-columna .contenedor-instructor .contenedor-logo i {
@@ -272,8 +292,7 @@
 .segunda-columna .contenedor-instructor .contenedor-nombre{
     display: flex;
     align-items: center;
-    position: relative;
-    left: 8%;
+    margin-left: 4%;
     width: 100%;
 }
 
@@ -292,13 +311,19 @@
     background-color: transparent;
     width: 10%;
     height: 100%;
-    position: relative;
-    left: -50%;
+    transition: 0.4s;
 }
 
 .segunda-columna .contenedor-instructor .contenedor-bote i {
-    font-size: 20pt;
+    font-size: 18pt;
     cursor: pointer;
+    transition: 0.4s;
+    color: black;
+}
+
+.segunda-columna .contenedor-instructor .contenedor-bote i:hover{
+    transition: 0.4s;
+    color: rgb(197, 19, 19);
 }
 
 .segunda-columna .contenedor-instructor .contenedor-opciones{
@@ -339,27 +364,30 @@
     color: black;
     background-color: #FFD966;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     font-weight: bolder;
+    transition: 0.4s;
     box-shadow: 0 0 10px #FFD966;
 }
 
 .rol .formulario-2 .cambiar:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
     cursor: pointer;
+    box-shadow: 0 0 10px white;
 }
 
 .empty{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 40%;
     height: 15%;
-    margin-top: 3%;
+    margin-top: 2%;
     background-color: white;
     border-radius: 15px;
+    font-size: 14pt;
     padding: 1%;
     text-decoration: none;
     color: black;

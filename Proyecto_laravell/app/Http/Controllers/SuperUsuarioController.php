@@ -16,10 +16,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreSuperUsuario;
+use App\Models\Seleccionador;
 
-class SuperUsuarioController extends Controller{
+class SuperUsuarioController extends Controller
+{
     // -------------------------- METODO INDEX ------------------------------
-    public function index(){
+    public function index()
+    {
         // Para hayar algun campo que corresponda al usuario autenticado
         // se hace la validacion de quien este autenticado para mostrar
         // dicho usuario con el campo correspondiente en la vista
@@ -30,14 +33,17 @@ class SuperUsuarioController extends Controller{
 
 
     // -------------------------- METODO CREATE ------------------------------
-    public function create(){
+    public function create()
+    {
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
-        
-        return view('super.create', ['paises' => $paises, 
-        'departamentos' => $departamentos,
-        'municipios' => $municipios]);
+
+        return view('super.create', [
+            'paises' => $paises,
+            'departamentos' => $departamentos,
+            'municipios' => $municipios
+        ]);
     }
     // -----------------------------------------------------------------------
 
@@ -47,26 +53,27 @@ class SuperUsuarioController extends Controller{
     // primero el registro de la tabla usuarios para asi proceder con la 
     // insercion de la tabla super usuarios ya que esta depende de los
     // registros de la tabla usuarios
-    public function store(StoreSuperUsuario $request){
+    public function store(StoreSuperUsuario $request)
+    {
 
         // Se instancia un objeto de la case User
         $user = new User();
 
         // Se hace la insercion de cada uno de los campos dependiendo
         // de la informacion que se traiga desde el formulario
-        $user -> num_documento = $request -> num_documento;
-        $user -> tipo_documento = $request -> tipo_documento;
-        $user -> nombre = $request -> nombre;
-        $user -> apellido = $request -> apellido;
-        $user -> genero = $request -> genero;
-        $user -> estado_civil = $request -> estado_civil;
-        $user -> email = $request -> email;
-        $user -> password = Hash::make($request->password);
-        $user -> municipio_id = $request -> municipio_id;
-        $user -> role_id = $request -> role_id;
-        
+        $user->num_documento = $request->num_documento;
+        $user->tipo_documento = $request->tipo_documento;
+        $user->nombre = $request->nombre;
+        $user->apellido = $request->apellido;
+        $user->genero = $request->genero;
+        $user->estado_civil = $request->estado_civil;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->municipio_id = $request->municipio_id;
+        $user->role_id = $request->role_id;
+
         // Se salva el registro para que se visualize en la bd 
-        $user -> save();
+        $user->save();
 
         // Como la tabla super usuarios solo tiene un campo y es
         // la relacion que tiene con la tabla usuarios se hace la
@@ -74,8 +81,8 @@ class SuperUsuarioController extends Controller{
         // y se accede al campo user_id pa que esta sea igual al id
         // del registro anterior que salvamos
         $super = new SuperUsuario();
-        $super -> user_id = $user -> id;
-        $super -> save();
+        $super->user_id = $user->id;
+        $super->save();
 
         return redirect()->route('super.index');
     }
@@ -87,12 +94,15 @@ class SuperUsuarioController extends Controller{
     // hay en la base de datos, esto se consigue accediendo al modelo Instructor
     // que es el que contiene cada uno de los registros y con el metodo estatico
     // all me llama cada uno de los registros por medio de un array
-    public function listarInstructores(){
+    public function listarInstructores()
+    {
         $instructores = Instructor::all();
         $user = Auth::user();
 
-        return view('super.showInstructores', 
-        ['instructores' => $instructores, 'user' => $user]);
+        return view(
+            'super.showInstructores',
+            ['instructores' => $instructores, 'user' => $user]
+        );
     }
     // -----------------------------------------------------------------------
 
@@ -101,40 +111,76 @@ class SuperUsuarioController extends Controller{
     // El metodo dashboard hace la misma funcion que la de listar el unico cambio
     // es que dicha funcion retorna una vista la cual permite cambiarle el rol
     // al ROL que contenga el dashboard en ese momento
-    public function dashboardSuper(){
+    public function dashboardSuper()
+    {
         $supers = SuperUsuario::all();
         $roles = Role::all();
-        return view('super.dashboard',
-        ['supers' => $supers , 'roles' => $roles]);
+        return view(
+            'super.dashboard',
+            ['supers' => $supers, 'roles' => $roles]
+        );
     }
 
-    public function dashboardInstructor(){
+    public function dashboardInstructor()
+    {
         $instructores = Instructor::all();
         $roles = Role::all();
-        return view('instructor.dashboard',
-        ['instructores' => $instructores, 'roles' => $roles]);
+
+        // Mover el rol "Instructor" al principio del array
+        $roles = $roles->sortByDesc(function ($rol) {
+            return $rol->rol === 'Instructor';
+        });
+
+        return view(
+            'instructor.dashboard',
+            ['instructores' => $instructores, 'roles' => $roles]
+        );
     }
 
-    public function dashboardCandidato(){
+    public function dashboardCandidato()
+    {
         $candidatos = Candidato::all();
         $roles = Role::all();
-        return view('candidato.dashboard', 
-        ['candidatos' => $candidatos, 'roles' => $roles]);
+
+        // Mover el rol "Instructor" al principio del array
+        $roles = $roles->sortByDesc(function ($rol) {
+            return $rol->rol === 'Candidato';
+        });
+
+        return view(
+            'candidato.dashboard',
+            ['candidatos' => $candidatos, 'roles' => $roles]
+        );
     }
 
-    public function dashboardReclutador(){
+    public function dashboardReclutador()
+    {
         $reclutadores = Reclutador::all();
         $roles = Role::all();
-        return view('reclutador.dashboard', 
-        ['reclutadores' => $reclutadores, 'roles' => $roles]);
+
+        // Mover el rol "Instructor" al principio del array
+        $roles = $roles->sortByDesc(function ($rol) {
+            return $rol->rol === 'Reclutador';
+        });
+
+        return view(
+            'reclutador.dashboard',
+            ['reclutadores' => $reclutadores, 'roles' => $roles]
+        );
     }
 
-    // public function dashboardSeleccionador(){
-    //     $instructores = Instructor::all();
-    //     $roles = Role::all();
-    //     return view('instructor.dashboard', 
-    //     ['instructores' => $instructores, 'roles' => $roles]);
-    // }    
+    public function dashboardSeleccionador(){
+        $seleccionadores = Seleccionador::all();
+        $roles = Role::all();
+
+        // Mover el rol "Instructor" al principio del array
+        $roles = $roles->sortByDesc(function ($rol) {
+            return $rol->rol === 'Seleccionador';
+        });
+
+        return view('seleccionador.dashboar', 
+        ['seleccionadores' => $seleccionadores, 'roles' => $roles]);
+    }    
     // -----------------------------------------------------------------------
 
 
@@ -147,7 +193,8 @@ class SuperUsuarioController extends Controller{
     // a sus profesiones y se hace la validacion donde si el documento es null siga
     // iterando y cuando no sea nulo que se suba solo la ruta del documento que se
     // subio (Esto se logra con el metodo basename)
-    public function sintesisInstructor($id){
+    public function sintesisInstructor($id)
+    {
         // Como las profesiones de un instructor pueden ser muchas se desea guardar
         // por cada profesion la ruta del documento que subio
         $rutas = [];
@@ -157,27 +204,29 @@ class SuperUsuarioController extends Controller{
         $instructor = $instructor->first();
 
         $profesionInstructor = Profesion::where('instructor_id', $instructor->id)->get();
-        foreach ($profesionInstructor as $profesion){
-            if ($profesion->documento == null){
+        foreach ($profesionInstructor as $profesion) {
+            if ($profesion->documento == null) {
                 continue;
-            }else{
+            } else {
                 $rutas[] = basename($profesion->documento);
             }
         }
         $imagen = null;
         $titulo = "";
 
-        if($user->genero == 'Masculino'){
+        if ($user->genero == 'Masculino') {
             $imagen = asset('imagenes\Icono-hombre.png');
             $titulo = "Perfil del instructor";
-        }else{
+        } else {
             $user = asset('imagenes\Icono-mujer.png');
             $titulo = "Perfil de la instructora";
         }
 
-        return view('super.sintesisInstructor', ['user' => $user, 'instructor' => $instructor,
-            'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor,'rutas' => $rutas,
-            'titulo' => $titulo]);
+        return view('super.sintesisInstructor', [
+            'user' => $user, 'instructor' => $instructor,
+            'imagen' => $imagen, 'profesionInstructor' => $profesionInstructor, 'rutas' => $rutas,
+            'titulo' => $titulo
+        ]);
     }
     // -----------------------------------------------------------------------
 }
