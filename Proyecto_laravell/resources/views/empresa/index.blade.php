@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/empresa/index.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Empresas</title>
+    <title>Buscador Empresas</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -35,7 +36,10 @@
                 </article>
 
                 <article class="titulo-principal">
-                    <h1 class="titulo">Lista de las empresas disponibles</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1 class="titulo">Lista de las empresas disponibles</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -61,27 +65,37 @@
                     @forelse($empresas as $empresa)
                         <article class="informacion-vacante">
 
-
-                            <article class="grid-1">
-                                <article class="contenedor-codigo">
-                                    <h1 class="titulo">{{ $empresa->nit }}</h1>
-                                </article>
-                            </article>
-
                             <article class="grid-2">
 
                                 <article class="contenedor-cargo">
-                                    <h1 class="titulo">{{ $empresa->nombre }}</h1>
+                                    <h1 class="titulo">{{ $empresa->nit }} - {{ $empresa->nombre }}</h1>
                                 </article>
 
                                 <article class="info">
-                                    <article class="contenedor-salario">
-                                        <h1 class="titulo">{{ $empresa->direccion }}</h1>
+
+                                    <article class="responsable_legal">
+                                        <h1>Responsable legal</h1>
+                                        <p>{{ $empresa->responsable_legal }}</p>
                                     </article>
 
-                                    <article class="contenedor-lugar">
-                                        <h1>{{ $empresa->municipio->nombre }}</h1>
-                                        <h1>{{ $empresa->municipio->departamento->pais->nombre }}</h1>
+                                    <article class="correo">
+                                        <h1>Correo electronico</h1>
+                                        <p>{{ $empresa->correo_electronico }}</p>
+                                    </article>
+
+                                    <article class="producto">
+                                        <h1>Producto-servicio</h1>
+                                        <p>{{ $empresa->producto_servicio }}</p>
+                                    </article>
+
+                                    <article class="telefono">
+                                        <h1>Telefono</h1>
+                                        <p>{{ $empresa->telefono }}</p>
+                                    </article>
+
+                                    <article class="contenedor-salario">
+                                        <h1>Direccion</h1>
+                                        <p class="titulo">{{ $empresa->direccion }}</p>
                                     </article>
 
                                     <form class="contenedor-boton"
@@ -95,9 +109,7 @@
 
                                 </article>
                             </article>
-
                         </article>
-
                     @empty
                         <article class="empty">
                             <h1 class="empty-titulo">No hay empresas registradas registradas</h1>

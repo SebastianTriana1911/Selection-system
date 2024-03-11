@@ -15,7 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('nit')->unique();
             $table->string('nombre');
-            $table->string('direccion');            
+            $table->set('tipo_empresa', ['Corporacion', 'Pequeña empresa',
+            'Mediana empresa', 'Startup', 'Sin fines de lucro',
+            'Privada', 'Publica']);
+            $table->string('telefono');
+            $table->string('correo_electronico');
+            $table->string('responsable_legal');
+            $table->string('direccion');      
+            $table->set('producto_servicio', ['Electrónicos', 'Ropa y Accesorios',
+            'Alimentos y Bebidas', 'Muebles y Decoración', 'Juguetes y Artículos para Niños',
+            'Automóviles y Accesorios', 'Herramientas y Equipamiento',
+            'Productos de Belleza y Cuidado Personal',
+            'Artículos Deportivos', 'Tecnología de la Información (TI)',
+            'Salud y Cuidado Personal', 'Educación', 'Finanzas', 'Viajes y Turismo',
+            'Hostelería y Restaurantes', 'Publicidad y Marketing', 'Consultoría Empresarial',
+            'Servicios Legales', 'Servicios de Mantenimiento del Hogar']);      
             $table->foreignId('municipio_id')->references('id')->on('municipios')->onDelete('cascade');
             $table->timestamps();
         });

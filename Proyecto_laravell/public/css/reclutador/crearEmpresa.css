@@ -72,167 +72,386 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     grid-area: content;
     width: 100%;
     height: 100%;
 }
 
-.contenedor-content .contenedor-titulo{
+.contenedor-titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 15%;
 }
 
-.contenedor-content .titulo-principal{
+.contenedor-titulo .contenedor{
+    display: flex;
+    align-items: center;
+    font-size: 16pt;
+}
+
+.contenedor-titulo .contenedor i{
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .contenedor .titulo-principal{
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
+    font-size: 19pt;
 }
 
 .contenedor-content .linea{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 15%;
     height: 4px;
-    background-color: #FFD966;
-    box-shadow: 0 0 15px #FFD966;
-    margin-bottom: -3%;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 0.4%;
 }
 
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
     justify-content: center;
-    margin: auto;
-    width: 30%;
-    height: 60%;
+    width: 38%;
+    height: 75%;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 15px 5px 5px 15px;
     box-shadow: 0 0 15px white;
+    overflow-y: auto;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5%;
+.contenedor-content .contenedor-hoja-vida::-webkit-scrollbar{
+    border-radius: 10px;
+    width:7px;
+    background-color: rgb(255, 255, 255);
 }
 
-.contenedor-content .contenedor-hoja-vida .linea-1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 13%;
+.contenedor-content .contenedor-hoja-vida::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgb(45, 45, 45);
+    border-radius: 5px;
+}
+
+.contenedor-content .contenedor-hoja-vida .info{
     width: 100%;
-    height: 30%;
+    padding-top: 7%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
-.contenedor-content .contenedor-hoja-vida .contenedor-nit .input{
+.contenedor-nit{
     display: flex;
-    flex-direction: column;
-    padding: 6px;
-    border-radius: 7px;
-    border: none;
-    box-shadow: 0 0 7px black;
-}
-.contenedor-content .contenedor-hoja-vida .contenedor-nit .input::placeholder{
-    color: black;
-    font-weight: bolder;
-}
-
-.contenedor-content .contenedor-hoja-vida .contenedor-nombre .input{
-    padding: 6px;
-    border-radius: 7px;
-    border: none;
-    box-shadow: 0 0 7px black;
-}
-.contenedor-content .contenedor-hoja-vida .contenedor-nombre .input::placeholder{
-    color: black;
-    font-weight: bolder;
-}
-
-.contenedor-content .contenedor-hoja-vida .linea-2{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 13%;
-    width: 100%;
-    height: 30%;
-    position: relative;
-    left: -10%;
+    gap: 5%;
+    margin-bottom: 3%;
 }
 
-.contenedor-content .contenedor-hoja-vida .contenedor-direccion .input{
-    display: flex;
-    flex-direction: column;
-    padding: 6px;
-    border-radius: 7px;
-    border: none;
-    box-shadow: 0 0 7px black;
+.contenedor-nit h1{
+    font-size: 14pt;
 }
-.contenedor-content .contenedor-hoja-vida .contenedor-direccion .input::placeholder{
-    color: black;
+
+.contenedor-nit input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 74%;    
     font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-nit input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-nombre{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-nombre h1{
+    font-size: 14pt;
+}
+
+.contenedor-nombre input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-nombre input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-tipo{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-tipo h1{
+    font-size: 14pt;
+}
+
+.contenedor-tipo .tipo_empresa{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 69.5%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-tipo .tipo_empresa:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-telefono{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-telefono h1{
+    font-size: 14pt;
+}
+
+.contenedor-telefono input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-telefono input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-correo{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-correo h1{
+    font-size: 14pt;
+}
+
+.contenedor-correo input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 65.5%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-correo input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-responsable{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-responsable h1{
+    font-size: 14pt;
+}
+
+.contenedor-responsable input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 90%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-responsable input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-direccion{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-direccion h1{
+    font-size: 14pt;
+}
+
+.contenedor-direccion input{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-direccion input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-producto{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-producto h1{
+    font-size: 14pt;
+}
+
+.contenedor-producto .producto_servicio{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-producto .producto_servicio:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-pais{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-pais h1{
+    font-size: 14pt;
 }
 
 .contenedor-pais .menu-pais{
-    position: relative;
-    left: -9%;
-    width: 180%;
-    padding: 5%;
-    border-radius: 7px;
-    font-weight: bolder;
     border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
 }
 
-.contenedor-content .contenedor-hoja-vida .linea-3{
+.contenedor-pais .menu-pais:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-departamento{
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 10%;
-    width: 145%;
-    height: 30%;
+    gap: 5%;
+    margin-bottom: 3%;
+}
+
+.contenedor-departamento h1{
+    font-size: 14pt;
 }
 
 .contenedor-departamento .menu-departamentos{
-    position: relative;
-    width: 190%;
-    left: -70%;
-    padding: 4%;
-    border-radius: 7px;
     border: none;
-    box-shadow: 0 0 7px black;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
     font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-departamento .menu-departamentos:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-municipio{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+}
+
+.contenedor-municipio h1{
+    font-size: 14pt;
 }
 
 .contenedor-municipio .menu-municipio{
-    position: relative;
-    left: 10%;
-    width: 160%;
-    padding: 4%;
-    border-radius: 7px;
-    font-weight: bolder;
     border: none;
-    box-shadow: 0 0 4px black;
-    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;    
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
+}
+
+.contenedor-municipio .menu-municipio:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 20%;
+    margin-top: 6%;
+    padding-bottom: 5%;
     gap: 10%;
 }
 
@@ -247,12 +466,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -268,12 +489,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 13pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 

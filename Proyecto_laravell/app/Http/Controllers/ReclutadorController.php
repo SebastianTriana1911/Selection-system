@@ -132,6 +132,9 @@ class ReclutadorController extends Controller{
     // -----------------------------------------------------------------
 
     public function buscar(Request $request){
+        if($request->busqueda == null){
+            return redirect()->route('empresa.index');
+        }
         $busqueda = $request -> busqueda;
         $contador = 0;
 
@@ -151,7 +154,7 @@ class ReclutadorController extends Controller{
                 $contador = $contador + 1;
             }
             return view('empresa.resultado', ['resultado' => $resultado,
-            'contador' => $contador]);
+            'contador' => $contador, 'busqueda' => $busqueda]);
         }
     }
     

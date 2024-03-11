@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('css/reclutador/index.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Index Reclutador</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 <body>
     <main class="page">
@@ -60,7 +61,7 @@
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <p>En este campo podra dirigirte a rodas las empresas creadas por los reclutadores de nuesta plataforma y poderte vincular a una de ellas.</p>
+                        <p>En este campo te dirigiras a una nueva pagina donde se te mostraran todas las empresas registradas y creadas por los reclutadores de nuestra plataforma.</p>
                     </article>
 
                     <article class="contenedor-boton">
@@ -80,7 +81,7 @@
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <p>Si no deseas postularte a ninguna de las empresas que te ofrece nuestro sistema podras crear tu propia empresa en Selection Systems</p>
+                        <p>Si no deseas postularte a ninguna de las empresas que te ofrece nuestro sistema podras crear tu propia empresa para interactuar con las personas que escojan nuesta plataforma Selection Systems.</p>
                     </article>
 
                     <article class="contenedor-boton">

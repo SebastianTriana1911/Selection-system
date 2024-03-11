@@ -40,7 +40,12 @@ class EmpresaController extends Controller{
 
         $empresa -> nit = $request -> nit;
         $empresa -> nombre = $request -> nombre;
+        $empresa -> tipo_empresa = $request -> tipo_empresa;
+        $empresa -> telefono = $request -> telefono;
+        $empresa -> correo_electronico = $request -> correo_electronico;
+        $empresa -> responsable_legal = $request -> responsable_legal;
         $empresa -> direccion = $request -> direccion;
+        $empresa -> producto_servicio = $request -> producto_servicio;
         $empresa -> municipio_id = $request -> municipio_id;
         $empresa -> save();
 

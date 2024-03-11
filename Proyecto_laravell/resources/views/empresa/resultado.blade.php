@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/empresa/resultado.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Resultado Empresas</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -33,16 +34,20 @@
                 <article class="contador-vacantes">
                     <h1 class="titulo">Resultados encontrados {{ $contador }}</h1>
                 </article>
-
+                
                 <article class="titulo-principal">
-                    <h1 class="titulo">Lista de empresas relacionadas a tu busqueda</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1 class="titulo">Lista de empresas relacionadas a tu busqueda</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
                 <article class="contenedor-input">
                     <form class="buscar" action="{{ route('reclutador.buscar') }}" method="POST">
                         @csrf
-                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
+                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes"
+                            value="{{ $busqueda }}" />
                         <button class="boton">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                         </button>
@@ -58,34 +63,44 @@
             <article class="contenedor-vacante">
 
                 <article class="vacantes">
-                    @forelse($resultado as $result)
+                    @forelse($resultado as $empresa)
                         <article class="informacion-vacante">
-
-
-                            <article class="grid-1">
-                                <article class="contenedor-codigo">
-                                    <h1 class="titulo">{{ $result->nit }}</h1>
-                                </article>
-                            </article>
 
                             <article class="grid-2">
 
                                 <article class="contenedor-cargo">
-                                    <h1 class="titulo">{{ $result->nombre }}</h1>
+                                    <h1 class="titulo">{{ $empresa->nit }} - {{ $empresa->nombre }}</h1>
                                 </article>
 
                                 <article class="info">
-                                    <article class="contenedor-salario">
-                                        <h1 class="titulo">{{ $result->direccion }}</h1>
+
+                                    <article class="responsable_legal">
+                                        <h1>Responsable legal</h1>
+                                        <p>{{ $empresa->responsable_legal }}</p>
                                     </article>
 
-                                    <article class="contenedor-lugar">
-                                        <h1>{{ $result->municipio->nombre }}</h1>
-                                        <h1>{{ $result->municipio->departamento->pais->nombre }}</h1>
+                                    <article class="correo">
+                                        <h1>Correo electronico</h1>
+                                        <p>{{ $empresa->correo_electronico }}</p>
+                                    </article>
+
+                                    <article class="producto">
+                                        <h1>Producto-servicio</h1>
+                                        <p>{{ $empresa->producto_servicio }}</p>
+                                    </article>
+
+                                    <article class="telefono">
+                                        <h1>Telefono</h1>
+                                        <p>{{ $empresa->telefono }}</p>
+                                    </article>
+
+                                    <article class="contenedor-salario">
+                                        <h1>Direccion</h1>
+                                        <p class="titulo">{{ $empresa->direccion }}</p>
                                     </article>
 
                                     <form class="contenedor-boton"
-                                        action="{{ route('reclutador.postulacion', ['empresa' => $result->id]) }}"
+                                        action="{{ route('reclutador.postulacion', ['empresa' => $empresa->id]) }}"
                                         method="POST">
                                         @csrf
                                         <button class="boton">
@@ -95,16 +110,16 @@
 
                                 </article>
                             </article>
-
                         </article>
-
                     @empty
-                        <h1>No hay empresas registradas registradas</h1>
+                        <article class="empty">
+                            <h1 class="empty-titulo">No hay empresas registradas registradas</h1>
+                        </article>
                     @endforelse
                 </article>
 
                 <article class="contenedor-volver">
-                    <a class="a" href="{{ route('reclutador.index') }}">Volver</a>
+                    <a class="a" href="{{ route('empresa.index') }}">Volver</a>
                 </article>
 
             </article>

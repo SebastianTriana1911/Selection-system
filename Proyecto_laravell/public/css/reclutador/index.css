@@ -136,13 +136,15 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-logout .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu{
@@ -155,14 +157,14 @@
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo {
@@ -171,7 +173,6 @@
     align-items: center;
     width: 100%;
     height: 30%;
-    /* margin-bottom: 3%; */
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo i {
@@ -209,12 +210,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 {
@@ -223,14 +226,14 @@
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-logo {
@@ -278,12 +281,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 /*------------------------------------------------------------*/
