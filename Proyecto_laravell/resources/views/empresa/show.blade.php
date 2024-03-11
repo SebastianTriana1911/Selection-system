@@ -2,6 +2,7 @@
 <!-- VISTA LOGIN -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/empresa/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <title>Show empresa</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -32,58 +34,75 @@
         <section class="content">
 
             <article class="contenedor-titulo">
-                <h1 class="titulo">Informacion de la empresa {{$empresa -> nombre}}</h1>
+                <article class="contenedor">
+                    <i class="fa-solid fa-eye"></i>
+                    <h1 class="titulo">Informacion de la empresa</h1>
+                </article>
                 <h1 class="linea"></h1>
             </article>
 
             <article class="contenedor-informacion">
 
-                <article class="linea-1">
-                    <article class="id">
-                        <h1 class="titulo">Id: </h1>
-                        <p> {{$empresa -> id}}</p>
-                    </article>
-
-                    <article class="nit">
-                        <h1 class="titulo">Nit: </h1>
-                        <p> {{$empresa -> nit}}</p>
-                    </article>
-                
-                    <article class="nombre">
-                        <h1 class="titulo">Nombre: </h1>
-                        <p> {{$empresa -> nombre}}</p>
-                    </article>
+                <article class="nit">
+                    <h1 class="titulo">Nit</h1>
+                    <p> {{ $empresa->nit }}</p>
                 </article>
 
-                <article class="linea-2">
-                    <article class="direccion">
-                        <h1 class="titulo">Direccion: </h1>
-                        <p> {{$empresa -> direccion}}</p>
-                    </article>
-                    
-                    <article class="municipio">
-                        <h1 class="titulo">Municipio:</h1>
-                        <p> {{$empresa -> municipio -> nombre}}</p>
-                    </article>
+                <article class="nombre">
+                    <h1 class="titulo">Nombre</h1>
+                    <p> {{ $empresa->nombre }}</p>
                 </article>
 
-                <article class="linea-3">
-                    <article class="reclutadores">
-                        <h1 class="titulo">Reclutadores: </h1>
-                        <p>{{$contador}}</p>
-                    </article>
+                <article class="responsable">
+                    <h1>Responsable legal</h1>
+                    <p>{{ $empresa->responsable_legal }}</p>
+                </article>
 
-                    <article class="seleccionador">
-                        <h1 class="titulo">Seleccionador:</h1>
-                        <p> {{$contadorSeleccionadores}}</p>
-                    </article>
+                <article class="tipo">
+                    <h1>Tipo de empresa</h1>
+                    <p>{{ $empresa->tipo_empresa }}</p>
                 </article>
+
+                <article class="direccion">
+                    <h1 class="titulo">Direccion</h1>
+                    <p> {{ $empresa->direccion }}</p>
                 </article>
+
+                <article class="correo">
+                    <h1>Correo electronico</h1>
+                    <p>{{ $empresa->correo_electronico }}</p>
+                </article>
+
+                <article class="telefono">
+                    <h1>Telefono</h1>
+                    <p>{{ $empresa->telefono }}</p>
+                </article>
+
+                <article class="producto">
+                    <h1>Producto o servicio</h1>
+                    <p>{{ $empresa->producto_servicio }}</p>
+                </article>
+
+                <article class="lugar">
+                    <h1>Lugar</h1>
+                    <p>{{ $empresa->municipio->departamento->nombre }} {{ $empresa->municipio->nombre }}</p>
+                </article>
+
+                <article class="reclutadores">
+                    <h1 class="titulo">Reclutadores</h1>
+                    <p>{{ $contador }}</p>
+                </article>
+
+                <article class="seleccionador">
+                    <h1 class="titulo">Seleccionador</h1>
+                    <p> {{ $contadorSeleccionadores }}</p>
+                </article>
+            </article>
 
             <article class="contenedor-boton">
-                <a class="boton" href="{{route('reclutador.index')}}">Volver</a>
-                <a class="boton" href="{{route('empresa.edit', ['id' => $empresa -> id])}}">Actualizar</a>
-                <form action="{{route('empresa.destroy', ['id' => $empresa -> id])}}" method="POST">
+                <a class="boton" href="{{ route('reclutador.index') }}">Volver</a>
+                <a class="boton" href="{{ route('empresa.edit', ['id' => $empresa->id]) }}">Actualizar</a>
+                <form action="{{ route('empresa.destroy', ['id' => $empresa->id]) }}" method="POST">
                     @csrf
                     @method('delete')
                     <button class="form">
@@ -190,4 +209,5 @@
         </footer>
     </main>
 </body>
+
 </html>

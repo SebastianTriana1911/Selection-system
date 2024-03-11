@@ -65,7 +65,7 @@
 .nav .primer-contenedor {
     display: flex;
     flex-direction: column;
-    gap: 20%;
+    gap: 10%;
     width: 50%;
     height: 100%;
     justify-content: center;
@@ -107,12 +107,14 @@
     font-weight: 1000;
     font-size: 12pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .segundo-contenedor .boton-a:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -127,12 +129,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .segundo-contenedor .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -148,12 +152,14 @@
     font-weight: 1000;
     font-size: 12pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-logout .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -184,12 +190,12 @@
     background-color: white;
     padding: 1%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo {
@@ -235,12 +241,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 {
@@ -253,12 +261,12 @@
     background-color: white;
     padding: 1%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-logo {
@@ -304,12 +312,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 {
@@ -322,12 +332,12 @@
     background-color: white;
     padding: 1%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-logo {
@@ -373,12 +383,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-4 {
