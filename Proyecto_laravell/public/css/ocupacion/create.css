@@ -123,6 +123,7 @@ body::-webkit-scrollbar-thumb{
     height: 4px;
     background-color: white;
     border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-hoja-vida{
@@ -142,56 +143,122 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea{
-    margin-top: 6%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8%;
+    height: 100%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo input{
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 10%;
-}
-
-.contenedor-content .contenedor-hoja-vida .primera-linea .input{
-    display: flex;
-    width: 86%;
-    height: 55%;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 7%;
-    padding-right: 7%;
+    width: 80%;
+    height: 23px;
     background-color: white;
-    box-shadow: 0 0 5px black;
     border-radius: 6px;
+    box-shadow: 0 0 5px black;
     border: none;
     margin-top: 3%;
+    transition: 0.4s;
+    text-indent: 10px;
+    margin-bottom: 1%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .input:hover {
-    box-shadow: 0 0 10px black;
-    transition: 0.5s;
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px black;
+}
+
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre input{
+    display: flex;
+    text-indent: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 23px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 5px black;
+    border: none;
+    margin-top: 3%;
+    transition: 0.4s;
+    margin-bottom: 1%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .descripcion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+.contenedor-content .contenedor-hoja-vida .descripcion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea{
     display: flex;
-    width: 86%;
-    height: 80%;
+    width: 55%;
     flex-direction: column;
     justify-content: center;
     padding-top: 7%;
     padding-left: 7%;
     padding-right: 7%;
+    padding-bottom: 7%;
     background-color: white;
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
     margin-top: 3%;
     resize: none;
+    transition: 0.4s;
+    margin-bottom: 1%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
@@ -206,6 +273,8 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -4%;
     width: 100%;
     gap: 10%;
 }
@@ -221,12 +290,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover{
     background-color: black;
     transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2{
@@ -240,13 +311,15 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
-    font-size: 14pt;
+    font-size: 13pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover{
     background-color: black;
     transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
@@ -260,8 +333,42 @@ body::-webkit-scrollbar-thumb{
     border-bottom: 4px solid white;
 }
 
-.contenedor-content .linea{
-    margin-top: 1%;
+
+.contenedor-content .contenedor-titulo-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2{
+    display: flex;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 .titulo-principal{
+    font-size: 18pt;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .linea-2{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-ocupaciones{
@@ -381,13 +488,18 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     width: 50%;
-    margin-top: 3%;
     padding: 2%;
     background-color: white;
     border-radius: 15px;
     display: flex;
     text-decoration: none;
     color: black;
+    transition: 0.4s;
+    font-size: 13pt;
+}
+
+.empty:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 

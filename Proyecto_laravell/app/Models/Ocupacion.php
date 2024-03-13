@@ -7,6 +7,7 @@ use App\Models\Funcion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ocupacion extends Model{
     use HasFactory;
@@ -20,5 +21,9 @@ class Ocupacion extends Model{
 
     public function cargo(): HasMany{
         return $this -> hasMany(Cargo::class, 'ocupacion_id', 'id');
+    }
+
+    public function empresa(): BelongsTo{
+        return $this -> belongsTo(Empresa::class);
     }
 }

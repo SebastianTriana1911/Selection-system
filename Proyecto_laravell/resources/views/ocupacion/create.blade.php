@@ -46,26 +46,30 @@
                     @csrf
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
-                        <article class="Nombre">
+
+                        <article class="codigo">
+                            <h1>Codigo de la ocupacion</h1>
+                            <input class="input" type="number" name="codigo">
+                            @error('codigo')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <article class="nombre">
                             <h1>Nombre de la ocupacion</h1>
-                            <input class="input" type="text" name="nombre" placeholder=""
-                                value="{{ old('nombre') }}" />
+                            <input type="text" name="nombre">
                             @error('nombre')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="7"></textarea>
+                            <textarea name="descripcion" rows="6"></textarea>
                             @error('descripcion')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
@@ -76,9 +80,12 @@
             </section>
 
             <section class="content-2">
-                <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Listado de ocupaciones</h1>
-                    <h1 class="linea"></h1>
+                <article class="contenedor-titulo-2">
+                    <article class="contenedor-contenido-2">
+                        <i class="fa-solid fa-down-long"></i>
+                        <h1 class="titulo-principal">Listado de ocupaciones</h1>
+                    </article>
+                    <h1 class="linea-2"></h1>
                 </article>
 
                 <section class="contenedor-ocupaciones">
@@ -99,8 +106,7 @@
                                         <i class="fa-solid fa-trash" style="color: black"></i>
                                     </button>
                                 </form>
-                                <a class="a"
-                                    href="{{ route('funcion.create', ['id' => $ocupacion->id]) }}">+</a>
+                                <a class="a" href="{{ route('funcion.create', ['id' => $ocupacion->id]) }}">+</a>
                             </article>
                         </article>
                     @empty

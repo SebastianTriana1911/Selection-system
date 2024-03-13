@@ -36,4 +36,8 @@ class Empresa extends Model{
     public function vacante(): HasMany{
         return $this -> hasMany(Vacante::class, 'empresa_id', 'id');
     }
+
+    public function ocupacion(): HasMany{
+        return $this -> hasMany(Ocupacion::class);
+    }
 }
