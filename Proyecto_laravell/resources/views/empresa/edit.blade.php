@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/empresa/edit.css') }}">
     <title>Update empresa</title>
+    <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -31,7 +33,10 @@
         <section class="contenedor-content">
 
             <article class="contenedor-titulo">
-                <h1 class="titulo-principal">Actualizar datos de la empresa {{ $empresa->nombre }}</h1>
+                <article class="contenedor">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <h1 class="titulo-principal">Formulario para actualizar los datos de la empresa</h1>
+                </article>
                 <h1 class="linea"></h1>
             </article>
 
@@ -40,77 +45,186 @@
                 @csrf
 
                 @method('put')
-                <section class="primera-linea">
+                <section class="info">
 
-                    <section class="linea-1">
-                        <!--------- Campo nombre de la tabla empresa -------->
-                        <article class="contenedor-nit">
-                            <input class="input" type="text" name="nit"
-                                placeholder="Nit"value="{{ old('nit', $empresa->nit) }}" />
-                            @error('nit')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-                        <!-------------------------------------------------->
+                    <article class="contenedor-nit">
+                        <h1>Nit empresa</h1>
+                        <input class="input" type="text" name="nit" value="{{ old('nit', $empresa->nit) }}" />
+                        @error('nit')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
-                        <!------ Campo num_documento de la tabla empresa --------->
-                        <article class="contenedor-nombre">
-                            <input class="input" type="text" name="nombre" placeholder="Nombre"
-                                value="{{ old('nombre', $empresa->nombre) }}" />
-                            @error('nombre')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-                        <!------------------------------------------------------>
-                    </section>
+                    <article class="contenedor-nombre">
+                        <h1>Nombre</h1>
+                        <input class="input" type="text" name="nombre"
+                            value="{{ old('nombre', $empresa->nombre) }}" />
+                        @error('nombre')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
-                    <section class="linea-2">
-                        <!--------- Campo direccion de la tabla empresa -------->
-                        <article class="contenedor-direccion">
-                            <input class="input" type="text" name="direccion" placeholder="Direccion"
-                                value="{{ old('direccion', $empresa->direccion) }}" />
-                            @error('direccion')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-                        <!---------------------------------------------------->
+                    <article class="contenedor-tipo">
+                        <h1>Tipo de empresa</h1>
+                        <select class="tipo_empresa" name="tipo_empresa">
+                            <option value="Corporacion"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Corporacion' ? 'selected' : '' }}>
+                                Corporación</option>
+                            <option value="Pequeña empresa"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Pequeña empresa' ? 'selected' : '' }}>
+                                Pequeña Empresa</option>
+                            <option value="Mediana empresa"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Mediana empresa' ? 'selected' : '' }}>
+                                Mediana Empresa</option>
+                            <option value="Startup"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Startup' ? 'selected' : '' }}>
+                                Startup</option>
+                            <option value="Sin fines de lucro"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Sin fines de lucro' ? 'selected' : '' }}>
+                                Sin Fines de Lucro</option>
+                            <option value="Privada"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Privada' ? 'selected' : '' }}>
+                                Empresa Privada</option>
+                            <option value="Publica"
+                                {{ old('tipo_empresa', $empresa->tipo_empresa) == 'Publica' ? 'selected' : '' }}>
+                                Empresa Pública</option>
+                        </select>
+                    </article>
 
-                        <!---- Campo pais que corresponde al campo que se ingrese en municipio ---->
-                        <article class="contenedor-pais">
-                            <select class="menu-pais">
-                                @foreach ($paises as $pais)
-                                    <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </article>
-                        <!------------------------------------------------------------------------->
-                    </section>
+                    <article class="contenedor-telefono">
+                        <h1>Telefono</h1>
+                        <input class="input" type="text" name="telefono"
+                            value="{{ old('telefono', $empresa->telefono) }}">
+                        @error('telefono')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
-                    <section class="linea-3">
-                        <!---- Campo departamento que corresponde al campo que se ingrese en municipio ---->
-                        <article class="contenedor-departamento">
-                            <select class="menu-departamentos">
-                                @foreach ($departamentos as $departamento)
-                                    <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </article>
-                        <!---------------------------------------------------------------------------------->
+                    <article class="contenedor-correo">
+                        <h1>Correo electronico</h1>
+                        <input class="input" type="email" name="correo_electronico"
+                            value="{{ old('correo_electronico', $empresa->correo_electronico) }}">
+                        @error('correo_electronico')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
-                        <!--------- Campo municipio_id de la tabla users -------->
-                        <article class="contenedor-municipio">
-                            <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id') }}">
-                                @foreach ($municipios as $municipio)
-                                    <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
-                                @endforeach
-                            </select>
-                            @error('municipio_id')
-                                <strong class="mensaje">{{ $message }}</strong>
-                            @enderror
-                        </article>
-                        <!--------------------------------------------------------->
-                    </section>
+                    <article class="contenedor-responsable">
+                        <h1>Nombre del responsable legal</h1>
+                        <input class="input" type="text" name="responsable_legal"
+                            value="{{ old('responsable_legal', $empresa->responsable_legal) }}">
+                        @error('responsable_legal')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
+                    <article class="contenedor-direccion">
+                        <h1>Direccion</h1>
+                        <input class="input" type="text" name="direccion"
+                            value="{{ old('direccion', $empresa->direccion) }}">
+                        @error('direccion')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
+
+                    <article class="contenedor-producto">
+                        <h1>Producto o servicio de la empresa</h1>
+                        <select class="producto_servicio" name="producto_servicio">
+                            <option value="Electrónicos"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Electrónicos' ? 'selected' : '' }}>
+                                Electrónicos</option>
+                            <option value="Ropa y Accesorios"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Ropa y Accesorios' ? 'selected' : '' }}>
+                                Ropa y Accesorios</option>
+                            <option value="Alimentos y Bebidas"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Alimentos y Bebidas' ? 'selected' : '' }}>
+                                Alimentos y Bebidas</option>
+                            <option value="Muebles y Decoración"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Muebles y Decoración' ? 'selected' : '' }}>
+                                Muebles y Decoración</option>
+                            <option value="Juguetes y Artículos para Niños"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Juguetes y Artículos para Niños' ? 'selected' : '' }}>
+                                Juguetes y Artículos para Niños</option>
+                            <option value="Automóviles y Accesorios"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Automóviles y Accesorios' ? 'selected' : '' }}>
+                                Automóviles y Accesorios</option>
+                            <option value="Herramientas y Equipamiento"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Herramientas y Equipamiento' ? 'selected' : '' }}>
+                                Herramientas y Equipamiento</option>
+                            <option value="Productos de Belleza y Cuidado Personal"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Productos de Belleza y Cuidado Personal' ? 'selected' : '' }}>
+                                Productos de Belleza y Cuidado Personal</option>
+                            <option value="Artículos Deportivos"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Artículos Deportivos' ? 'selected' : '' }}>
+                                Artículos Deportivos</option>
+                            <option value="Tecnología de la Información (TI)"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Tecnología de la Información (TI)' ? 'selected' : '' }}>
+                                Tecnología de la Información (TI)</option>
+                            <option value="Salud y Cuidado Personal"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Salud y Cuidado Personal' ? 'selected' : '' }}>
+                                Salud y Cuidado Personal</option>
+                            <option value="Educación"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Educación' ? 'selected' : '' }}>
+                                Educación</option>
+                            <option value="Finanzas"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Finanzas' ? 'selected' : '' }}>
+                                Finanzas</option>
+                            <option value="Viajes y Turismo"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Viajes y Turismo' ? 'selected' : '' }}>
+                                Viajes y Turismo</option>
+                            <option value="Hostelería y Restaurantes"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Hostelería y Restaurantes' ? 'selected' : '' }}>
+                                Hostelería y Restaurantes</option>
+                            <option value="Publicidad y Marketing"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Publicidad y Marketing' ? 'selected' : '' }}>
+                                Publicidad y Marketing</option>
+                            <option value="Consultoría Empresarial"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Consultoría Empresarial' ? 'selected' : '' }}>
+                                Consultoría Empresarial</option>
+                            <option value="Servicios Legales"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Servicios Legales' ? 'selected' : '' }}>
+                                Servicios Legales</option>
+                            <option value="Servicios de Mantenimiento del Hogar"
+                                {{ old('producto_servicio', $empresa->producto_servicio) == 'Servicios de Mantenimiento del Hogar' ? 'selected' : '' }}>
+                                Servicios de Mantenimiento del Hogar</option>
+                        </select>
+                    </article>
+
+                    <article class="contenedor-pais">
+                        <h1>Pais</h1>
+                        <select class="menu-pais">
+                            @foreach ($paises as $pais)
+                                <option value="{{ $pais->id }}"
+                                    {{ "$pais->nombre" == old('menu-pais') ? 'selected' : '' }}>
+                                    {{ $pais->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </article>
+
+                    <article class="contenedor-departamento">
+                        <h1>Departamento</h1>
+                        <select class="menu-departamentos">
+                            @foreach ($departamentos as $departamento)
+                                <option value="{{ $departamento->id }}"
+                                    {{ "$departamento->nombre" == old('menu-departamentos') ? 'selected' : '' }}>
+                                    {{ $departamento->nombre }}</option>
+                            @endforeach
+                        </select>
+                    </article>
+
+                    <article class="contenedor-municipio">
+                        <h1>Municipio</h1>
+                        <select class="menu-municipio" name="municipio_id" value="{{ old('municipio_id') }}">
+                            @foreach ($municipios as $municipio)
+                                <option value="{{ $municipio->id }}"
+                                    {{ "$municipio->nombre" == old('menu-municipio') ? 'selected' : '' }}>
+                                    {{ $municipio->nombre }}</option>
+                            @endforeach
+                        </select>
+                        @error('municipio_id')
+                            <strong class="mensaje">{{ $message }}</strong>
+                        @enderror
+                    </article>
 
                     <section class="contenedor-boton">
                         <a class="input-1" href="{{ route('empresa.show', ['id' => $empresa->id]) }}">Atras</a>

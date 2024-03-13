@@ -145,14 +145,31 @@ class EmpresaController extends Controller{
                 Rule::unique('empresas')->ignore($empresa->id),
             ],
             'nombre' => 'required',
+            'telefono' => 'required|min:8|max:10',
+            'correo_electronico' => [
+                'required',
+                // Como parametro en el metodo unique, se le pasa el nombre de la tabla
+                // y el campo que se desea ignorar
+                Rule::unique('empresas', 'correo_electronico')->ignore($empresa->id),
+                'email',
+            ],
+            'responsable_legal' => 'required|min:5',
             'direccion' => 'required',
             'municipio_id' => 'required'
         ], [
             'nit.required' => 'Obligatorio',
             'nit.unique' => 'Ya existe',
             'nombre.required' => 'Obligatorio',
+            'telefono.required' => 'Obligatorio',
+            'telefono.min' => 'Mínimo 8 caracteres',
+            'telefono.max' => 'Máximo 10 caracteres',
+            'correo_electronico.required' => 'Obligatorio',
+            'correo_electronico.unique' => 'Ya existe',
+            'correo_electronico.email' => 'Tiene que ser un correo válido',
+            'responsable_legal.required' => 'Obligatorio',
+            'responsable_legal.min' => 'Mínimo 5 caracteres',
             'direccion.required' => 'Obligatorio',
-            'minicipio_id.required' => 'Obligatorio'
+            'municipio_id.required' => 'Obligatorio'
         ]);
         $empresa->update($request->all());
 
