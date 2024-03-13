@@ -151,16 +151,16 @@ Route::get('restablecer/enviar/{id}/{token}', [RestablecerController::class, 'en
 
 
 // --------------------------- RUTAS DEL CONTROLADOR OCUPACIONES ------------------------------------
-Route::get('ocupacion/create', [OcupacionController::class, 'create'])->name('ocupacion.create')->middleware('auth');
+Route::get('ocupacion/create/{id}', [OcupacionController::class, 'create'])->name('ocupacion.create')->middleware('auth');
 Route::get('ocupacion/show/{id}', [OcupacionController::class, 'show'])->name('ocupacion.show')->middleware('auth');
-Route::post('ocupacion/store', [OcupacionController::class, 'store'])->name('ocupacion.store');
+Route::post('ocupacion/store/{id}', [OcupacionController::class, 'store'])->name('ocupacion.store');
 Route::put('ocupacion/update/{id}', [OcupacionController::class, 'update'])->name('ocupacion.update');
 Route::delete('ocupacion/destroy/{id}', [OcupacionController::class, 'destroy'])->name('ocupacion.destroy');
 // ---------------------------------------------------------------------------------------------------
 
 
 // --------------------------- RUTAS DEL CONTROLADOR FUNCIONES ---------------------------------------
-Route::get('funcion/create/{id}', [FuncionController::class, 'create'])->name('funcion.create')->middleware('auth');
+Route::get('funcion/create/{id}/{empresaId}', [FuncionController::class, 'create'])->name('funcion.create')->middleware('auth');
 Route::post('funcion/store/{id}', [FuncionController::class, 'store'])->name('funcion.store');
 Route::get('funcion/edit/{ocupacion}/{id}', [FuncionController::class, 'edit'])->name('funcion.edit')->middleware('auth');
 Route::put('funcion/update/{id}', [FuncionController::class, 'update'])->name('funcion.update');

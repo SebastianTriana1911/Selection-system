@@ -55,7 +55,7 @@
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{route('ocupacion.create')}}">Volver</a>
+                        <a class="input-1" href="{{route('ocupacion.create', ['id' => $empresaId])}}">Volver</a>
                         <input class="input-2" type="submit" value="Crear">
                     </section>
                 </form>

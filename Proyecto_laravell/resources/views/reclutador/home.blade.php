@@ -132,8 +132,8 @@
                         <p>En este campo podras crear una ocupacion visualizando las que ya estan creadas para que no haya redundancia al crearla.</p>
                     </article>
 
-                    <article class="contenedor-boton">
-                        <a href="{{route('ocupacion.create')}}">Crear</a>
+                    <article class="contenedor-boton-a">
+                        <a class="aa" href="{{route('ocupacion.create', ['id' => $empresaId])}}">Crear</a>
                     </article>
 
                 </article>

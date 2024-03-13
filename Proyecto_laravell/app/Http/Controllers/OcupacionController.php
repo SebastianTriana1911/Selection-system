@@ -8,16 +8,18 @@ use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
 class OcupacionController extends Controller{
-    public function create(){
+    public function create($id){
         $ocupaciones = Ocupacion::all();
-        return view('ocupacion.create', ['ocupaciones' => $ocupaciones]);
+        return view('ocupacion.create', ['ocupaciones' => $ocupaciones, 'empresaId' => $id]);
     }
 
-    public function store(StoreOcupacion $request){
+    public function store(StoreOcupacion $request, $id){
         $ocupacion = new Ocupacion();
 
+        $ocupacion -> codigo = $request -> codigo;
         $ocupacion -> nombre = $request -> nombre;
         $ocupacion -> descripcion = $request -> descripcion;
+        $ocupacion -> empresa_id = $id;
         $ocupacion -> save();
 
         return redirect()->back();

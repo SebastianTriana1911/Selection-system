@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('ocupaciones', function (Blueprint $table) {
             $table->id();
             $table->string('codigo');
-            $table->unique(['id', 'codigo']);
             $table->string('nombre');
             $table->text('descripcion')->nullable();
             $table->foreignId('empresa_id')->references('id')->on('empresas')->onDelete('cascade');

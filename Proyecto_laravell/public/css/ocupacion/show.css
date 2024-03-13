@@ -80,7 +80,6 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .content{
     grid-area: content-1;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-right: 4px solid white;
@@ -88,101 +87,177 @@ body::-webkit-scrollbar-thumb{
     border-left: 4px solid white;
 }
 
-.contenedor-content .content .contenedor-titulo .linea{
-    margin-top: 1%;
-}
-
 .contenedor-content .contenedor-titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    text-align: center;
+    width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo .contenedor{
+    display: flex;
 }
 
 .contenedor-content .titulo-principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18pt;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
+}
+
+.contenedor-content .contenedor-titulo .contenedor i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
 }
 
 .contenedor-content .linea{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 20%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
-    margin-bottom: -12%;
+    border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: auto;
-    width: 40%;
-    height: 60%;
+    width: 50%;
+    height: 77%;
     background-color: white;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8%;
+    height: 100%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo input{
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    gap: 10%;
-}
-
-.contenedor-content .contenedor-hoja-vida .primera-linea .input{
-    display: flex;
-    width: 86%;
-    height: 60%;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 7%;
-    padding-right: 7%;
+    width: 80%;
+    height: 23px;
     background-color: white;
-    box-shadow: 0 0 5px black;
     border-radius: 6px;
+    box-shadow: 0 0 5px black;
     border: none;
     margin-top: 3%;
+    transition: 0.4s;
+    text-indent: 10px;
+    margin-bottom: 1%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .input:hover {
-    box-shadow: 0 0 10px black;
-    transition: 0.5s;
+.contenedor-content .contenedor-hoja-vida .primera-linea .codigo input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px black;
+}
+
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre input{
+    display: flex;
+    text-indent: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 23px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 5px black;
+    border: none;
+    margin-top: 3%;
+    transition: 0.4s;
+    margin-bottom: 1%;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .nombre input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px black;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .descripcion{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+
+.contenedor-content .contenedor-hoja-vida .descripcion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea{
     display: flex;
-    width: 86%;
-    height: 100%;
+    width: 55%;
     flex-direction: column;
     justify-content: center;
     padding-top: 7%;
     padding-left: 7%;
     padding-right: 7%;
+    padding-bottom: 7%;
     background-color: white;
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
     margin-top: 3%;
     resize: none;
+    transition: 0.4s;
+    margin-bottom: 1%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
@@ -194,12 +269,12 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -4%;
     width: 100%;
-    top: 20%;
     gap: 10%;
 }
 
@@ -214,12 +289,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover{
     background-color: black;
     transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2{
@@ -233,14 +310,17 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
-    font-size: 14pt;
+    font-size: 13pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover{
     background-color: black;
     transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
+
 
 /*------------------------------------------------------------*/
 
@@ -253,68 +333,136 @@ body::-webkit-scrollbar-thumb{
     border-bottom: 4px solid white;
 }
 
-.content-2 .contenedor-titulo .titulo-principal{
+.contenedor-content .contenedor-titulo-2{
     display: flex;
-    width: 90%;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
 }
 
-.contenedor-content .content-2 .linea-2{
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2{
     display: flex;
-    justify-content: center;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 .titulo-principal{
+    font-size: 18pt;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 i{
+    display: flex;
     align-items: center;
-    width: 30%;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .linea-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
-    margin-bottom: -6%;
-    margin-top: 1%;
+    border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .content-2 .contenedor-show{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     background-color: white;
-    border: 3px solid black;
-    width: 65%;
-    height: 250px;
-    margin-top: 10%;
+    width: 50%;
+    height: 75%;    
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
-    padding-top: 5%;
+    transition: 0.4s;
+    overflow: auto;
+    gap: 40px;
 }
 
 .contenedor-content .content-2 .contenedor-show:hover{
     box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
-.contenedor-content .content-2 .contenedor-show .primera-linea{
+.contenedor-content .content-2 .contenedor-show .info-2{
     display: flex;
-    width: 90%;
     justify-content: center;
-    align-items: center;
-    gap: 10%;
-    position: relative;
-    top: -15%;
+    flex-direction: column;
+    width: 80%;
 }   
 
-.contenedor-content .content-2 .contenedor-show .primera-linea .id{
+.contenedor-content .content-2 .contenedor-show .info-2 .info-3{
     display: flex;
-    width: 15%;
-    gap: 5%;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
-.contenedor-content .content-2 .contenedor-show .primera-linea .id .titulo{
-    font-size: 12pt;
+.contenedor-content .content-2 .contenedor-show .codigo{
+    display: flex;
+    width: 80%;
+    gap: 1%;
+    align-items: center;
 }
 
-.contenedor-content .content-2 .contenedor-show .primera-linea .id .info{
-    font-size: 12pt;
+.contenedor-content .content-2 .contenedor-show .codigo h1{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .codigo p{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .nombre{
+    display: flex;
+    gap: 1%;
+    width: 80%;
+    align-items: center;
+}
+
+.contenedor-content .content-2 .contenedor-show .nombre h1{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .nombre p{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .descripcion{
+    display: flex;
+    gap: 1%;
+    width: 80%;
+    background-color: #FFD966;
+}
+
+.contenedor-content .content-2 .contenedor-show .descripcion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .descripcion p{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .funcion{
+    display: flex;
+    gap: 1%;
+    width: 80%;
+    align-items: center;
+}
+
+.contenedor-content .content-2 .contenedor-show .funcion h1{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-show .funcion p{
+    font-size: 11pt;
 }
 
 .contenedor-content .content-2 .contenedor-show .tercera-linea{

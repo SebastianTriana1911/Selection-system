@@ -16,6 +16,7 @@ class StoreOcupacion extends FormRequest{
      */
     public function rules(): array{
         return [
+            'codigo' => 'required|min:0',
             'nombre' => 'required|min:10',
             'descripcion' => 'required|min:10',
         ];
@@ -23,6 +24,8 @@ class StoreOcupacion extends FormRequest{
 
     public function messages(){
         return [
+            'codigo.required' => 'Obligatorio',
+            'codigo.min' => 'Necesita almenos 1 digito',
             'nombre.required' => 'Obligatorio',
             'nombre.min' => 'Necesita mas de 10 caracteres',
             'descripcion.required' => 'Obligatorio',

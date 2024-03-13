@@ -1,14 +1,17 @@
 <!-- VISTA PARA ACTUALIZAR UNA OCUPACION Y VER SUS DATOS -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/ocupacion/show.css') }}">
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <title>Show ocupaciones</title>
 </head>
+
 <body>
     <main class="page">
 
@@ -30,76 +33,96 @@
         <section class="contenedor-content">
 
             <section class="content">
+
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Actualizacion de ocupaciones</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <h1 class="titulo-principal">Formulario para actuailizar ocupaciones</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{route('ocupacion.update', ['id' => $ocupacion -> id])}}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{ route('ocupacion.update', ['id' => $ocupacion->id]) }}"
+                    method="POST">
                     @csrf
                     @method('put')
 
                     <section class="primera-linea">
-                        <!--------- Campo nombre de la tabla ocupaciones ----------->
-                        <article class="Nombre">
-                            <h1>Nombre de la ocupacion</h1>
-                            <input class="input" type="text" name="nombre" placeholder="" value="{{ old('nombre', $ocupacion -> nombre)}}" />
-                            @error('nombre')
-                                <strong class="mensaje">{{$message}}</strong>
+
+                        <article class="codigo">
+                            <h1>Codigo de la ocupacion</h1>
+                            <input class="input" type="number" name="codigo" min="0"
+                                value="{{ old('codigo', $ocupacion->codigo) }}">
+                            @error('codigo')
+                                <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
-                        <!---------------------------------------------------------->
 
-                        <!------ Campo descripcion de la tabla ocupaciones --------->
+                        <article class="nombre">
+                            <h1>Nombre de la ocupacion</h1>
+                            <input type="text" name="nombre" value="{{ old('nombre', $ocupacion->nombre) }}">
+                            @error('nombre')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="7">{{old('descripcion', $ocupacion -> descripcion)}}</textarea>
+                            <textarea name="descripcion" rows="6">{{ old('descripcion', $ocupacion->descripcion) }}</textarea>
+                            @error('descripcion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        <!---------------------------------------------------------->
                     </section>
 
                     <section class="contenedor-boton">
-                        <a class="input-1" href="{{route('ocupacion.create', ['id' => $ocupacion -> id])}}">Volver</a>
+                        <a class="input-1" href="{{ route('ocupacion.create', ['id' => $ocupacion->id]) }}">Volver</a>
                         <input class="input-2" type="submit" value="Actualizar">
                     </section>
                 </form>
             </section>
 
             <section class="content-2">
-                <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Ocupacion - {{$ocupacion -> nombre}}</h1>
+                <article class="contenedor-titulo-2">
+                    <article class="contenedor-contenido-2">
+                        <i class="fa-solid fa-arrow-down"></i>
+                        <h1 class="titulo-principal">Datos de la ocupacion</h1>
+                    </article>
                     <h1 class="linea-2"></h1>
                 </article>
 
                 <article class="contenedor-show">
-                    
-                    <article class="primera-linea">
-                        <article class="id">
-                            <h1 class="titulo">ID</h1>
-                            <p class="info">{{$ocupacion -> id}}</p>
-                        </article>                        
-                    </article>
+                    <article class="info-2">
+                        <article class="info-3">
+                            <article class="codigo">
+                                <h1>Codigo de la ocupacion</h1>
+                                <p>{{ $ocupacion->codigo }}</p>
+                            </article>
 
-                    <article class="tercera-linea">
-                        <article class="descripcion">
-                                <h1 class="titulo">DESCRIPCION</h1>
-                                <p class="info">{{$ocupacion -> descripcion}}</p>
+                            <article class="nombre">
+                                <h1>Nombre de la ocupacion</h1>
+                                <p>{{ $ocupacion->nombre }}</p>
+                            </article>
+
+                            <article class="descripcion">
+                                <h1>Descripcion</h1>
+                                <p>{{ $ocupacion->descripcion }}</p>
+                            </article>
+
+                            <article class="funcion">
+                                <h1>Funciones de la ocupacion</h1>
+                                @forelse ($funciones as $funcion)
+                                    <ul>
+                                        <li>
+                                            <p class="info">● {{ $funcion->funcion }}</p>
+                                        </li>
+                                    </ul>
+                                @empty
+                                    <p class="empty">No hay funciones</p>
+                                @endforelse
+                            </article>
                         </article>
-
-                        <article class="funcion">
-                            <h1 class="titulo">FUNCIONES</h1>
-                            @forelse ($funciones as $funcion)
-                                <ul>
-                                    <li>
-                                        <p class="info">● {{$funcion -> funcion}}</p>
-                                    </li>
-                                </ul>
-                            @empty
-                                <p class="empty">No hay funciones</p>
-                            @endforelse
-                        </article>
                     </article>
-
                 </article>
             </section>
 
@@ -204,4 +227,5 @@
 
     </main>
 </body>
+
 </html>

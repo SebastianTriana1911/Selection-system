@@ -9,12 +9,12 @@ use App\Models\Ocupacion;
 use Illuminate\Http\Request;
 
 class FuncionController extends Controller{
-    public function create($id){
+    public function create($id, $empresaId){
         $ocupaciones = Ocupacion::find($id);
         $funciones = Funcion::all();
 
         return view('funcion.create', ['ocupaciones' => $ocupaciones, 
-        'funciones' => $funciones]);
+        'funciones' => $funciones, 'empresaId' => $empresaId]);
     }
 
     public function store(StoreFunciones $request, $id){

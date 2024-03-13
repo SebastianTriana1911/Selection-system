@@ -42,14 +42,14 @@
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{ route('ocupacion.store') }}" method="POST">
+                <form class="contenedor-hoja-vida" action="{{ route('ocupacion.store', ['id' => $empresaId]) }}" method="POST">
                     @csrf
 
                     <section class="primera-linea">
 
                         <article class="codigo">
                             <h1>Codigo de la ocupacion</h1>
-                            <input class="input" type="number" name="codigo">
+                            <input class="input" type="number" name="codigo" min="0" value="{{old('codigo')}}">
                             @error('codigo')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -57,7 +57,7 @@
 
                         <article class="nombre">
                             <h1>Nombre de la ocupacion</h1>
-                            <input type="text" name="nombre">
+                            <input type="text" name="nombre" value="{{old('nombre')}}">
                             @error('nombre')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -65,7 +65,7 @@
 
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="6"></textarea>
+                            <textarea name="descripcion" rows="6">{{old('descripcion')}}</textarea>
                             @error('descripcion')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -106,7 +106,7 @@
                                         <i class="fa-solid fa-trash" style="color: black"></i>
                                     </button>
                                 </form>
-                                <a class="a" href="{{ route('funcion.create', ['id' => $ocupacion->id]) }}">+</a>
+                                <a class="a" href="{{ route('funcion.create', ['id' => $ocupacion->id,'empresaId' => $empresaId]) }}">+</a>
                             </article>
                         </article>
                     @empty
