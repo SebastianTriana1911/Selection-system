@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('funciones', function (Blueprint $table) {
             $table->id();
             $table->text('funcion');
+            $table->text('descripcion');
             $table->foreignId('ocupacion_id')->references('id')->on('ocupaciones')->onDelete('cascade');
             $table->timestamps();
         });

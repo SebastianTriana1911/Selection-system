@@ -65,7 +65,7 @@
 
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="6">{{old('descripcion')}}</textarea>
+                            <textarea name="descripcion" rows="4">{{old('descripcion')}}</textarea>
                             @error('descripcion')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -103,7 +103,7 @@
                                     @csrf
                                     @method('delete')
                                     <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>
+                                        <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </form>
                                 <a class="a" href="{{ route('funcion.create', ['id' => $ocupacion->id,'empresaId' => $empresaId]) }}">+</a>

@@ -16,13 +16,17 @@ class UpdateFunciones extends FormRequest{
      */
     public function rules(): array{
         return [
-            'funcion' => 'required'
+            'funcion' => 'required|min:8',
+            'descripcion' => 'required|min:10'
         ];
     }
 
     public function messages(){
         return [
-            'funcion.required' => 'Ingrese alguna funcion'
+            'funcion.required' => 'Obligatorio',
+            'funcion.min' => 'Pocos caracteres',
+            'descripcion.required' => 'Obligatorio',
+            'descripcion.min' => 'Pocos caracteres'
         ];
     }
 }

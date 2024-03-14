@@ -148,7 +148,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 8%;
+    gap: 2%;
     height: 100%;
 }
 
@@ -466,6 +466,16 @@ body::-webkit-scrollbar-thumb{
     border: none;
     cursor: pointer;
     font-size: 16pt;
+}
+
+.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom i{
+    transition: 0.4s;
+    color: black;
+}
+
+.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom i:hover{
+    transition: 0.4s;
+    color: rgba(174, 12, 12, 0.871);
 }
 
 .content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a{

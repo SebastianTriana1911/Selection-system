@@ -162,7 +162,7 @@ Route::delete('ocupacion/destroy/{id}', [OcupacionController::class, 'destroy'])
 // --------------------------- RUTAS DEL CONTROLADOR FUNCIONES ---------------------------------------
 Route::get('funcion/create/{id}/{empresaId}', [FuncionController::class, 'create'])->name('funcion.create')->middleware('auth');
 Route::post('funcion/store/{id}', [FuncionController::class, 'store'])->name('funcion.store');
-Route::get('funcion/edit/{ocupacion}/{id}', [FuncionController::class, 'edit'])->name('funcion.edit')->middleware('auth');
+Route::get('funcion/edit/{ocupacion}/{id}/{empresaId}', [FuncionController::class, 'edit'])->name('funcion.edit')->middleware('auth');
 Route::put('funcion/update/{id}', [FuncionController::class, 'update'])->name('funcion.update');
 Route::delete('funcion/destroy/{id}', [FuncionController::class, 'destroy'])->name('funcion.destroy');
 // ---------------------------------------------------------------------------------------------------

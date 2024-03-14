@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/ocupacion/show.css') }}">
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
-    <title>Show ocupaciones</title>
+    <title>Actualizar ocupaciones</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
 
                         <article class="descripcion">
                             <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="6">{{ old('descripcion', $ocupacion->descripcion) }}</textarea>
+                            <textarea name="descripcion" rows="4">{{ old('descripcion', $ocupacion->descripcion) }}</textarea>
                             @error('descripcion')
                                 <strong class="mensaje">{{ $message }}</strong>
                             @enderror
@@ -114,7 +114,7 @@
                                 @forelse ($funciones as $funcion)
                                     <ul>
                                         <li>
-                                            <p class="info">● {{ $funcion->funcion }}</p>
+                                            <p class="info">{{ $funcion->funcion }}</p>
                                         </li>
                                     </ul>
                                 @empty
@@ -124,9 +124,8 @@
                         </article>
                     </article>
                 </article>
-            </section>
 
-        </section>
+            </section>
 
         </section>
 

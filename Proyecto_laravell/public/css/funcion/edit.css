@@ -8,6 +8,9 @@
 
 .mensaje {
     color:red;
+    font-size: 12pt;
+    display: flex;
+    justify-content: center;
 }
 
 body {
@@ -80,16 +83,11 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .content{
     grid-area: content-1;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-right: 4px solid white;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
-}
-
-.contenedor-content .content .contenedor-titulo .linea{
-    margin-top: 1%;
 }
 
 .contenedor-content .contenedor-titulo{
@@ -98,102 +96,141 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo .contenedor{
+    display: flex;
 }
 
 .contenedor-content .titulo-principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18pt;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
+}
+
+.contenedor-content .contenedor-titulo .contenedor i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
 }
 
 .contenedor-content .linea{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 20%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
-    margin-bottom: -3%;
+    border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
-    position: relative;
-    top: -3%;
     justify-content: center;
     flex-direction: column;
-    margin: auto;
-    width: 40%;
-    height: 50%;
+    width: 50%;
+    height: 77%;
     background-color: white;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 2%;
+    height: 100%;
+    gap: 5%;
+}
+
+.funcion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.funcion h1{
+    font-size: 12pt;
+}
+
+.funcion input{
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    gap: 10%;
-}
-
-.contenedor-content .contenedor-hoja-vida .primera-linea .input{
-    display: flex;
-    width: 86%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 7%;
-    padding-right: 7%;
+    height: 23px;
     background-color: white;
-    box-shadow: 0 0 5px black;
     border-radius: 6px;
+    box-shadow: 0 0 5px black;
     border: none;
     margin-top: 3%;
+    transition: 0.4s;
+    text-indent: 10px;
+    margin-bottom: 1%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .input:hover {
+.funcion input:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea .descripcion h1{
+    display: flex;
+    justify-content: center;
+    font-size: 12pt;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea{
     display: flex;
-    width: 86%;
-    height: 100%;
+    width: 85%;
     flex-direction: column;
     justify-content: center;
     padding-top: 7%;
     padding-left: 7%;
     padding-right: 7%;
+    padding-bottom: 7%;
     background-color: white;
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
     margin-top: 3%;
     resize: none;
+    transition: 0.4s;
+    margin-bottom: 1%;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
+    width: 4px;
+}
+
+.contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar-thumb{
+    background: black;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 28%;
     gap: 10%;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1{
@@ -207,12 +244,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2{
@@ -227,12 +266,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 14pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 15px white;
 }
 
 /*------------------------------------------------------------*/
@@ -246,120 +287,120 @@ body::-webkit-scrollbar-thumb{
     border-bottom: 4px solid white;
 }
 
-.contenedor-content .linea{
-    margin-top: 1%;
-}
-
-.contenedor-content .contenedor-ocupaciones{
+.contenedor-content .contenedor-titulo-2{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    height: 15%;
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar{
-    width: 9px;
-}
-
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar-thumb{
-    background: white;
-}
-
-.contenedor-content .contenedor-ocupaciones .titulo-principal{
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2{
     display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 .titulo-principal{
+    font-size: 18pt;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
 }
 
-.contenedor-content .content-2 .linea{
+.contenedor-content .contenedor-titulo-2 .contenedor-contenido-2 i{
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 30%;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .linea-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
-    margin-bottom: 4%;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion{
-    display: flex;
-    position: relative;
-    top: -10%;
-    align-items: center;
-    width: 60%;
-    padding: 4%;
-    background-color: white;
-    border-radius: 15px;
-    text-decoration: none;
-    color: black;
-    box-shadow: 0 0 15px white;
-}
-
-.content-2 .contenedor-ocupaciones .parte-1{
-    display: flex;
-    width: 100%;
-    gap: 3%;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion i{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-1 a{
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 7%;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom{
-    background: none;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16pt;
-}
-
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a{
-    position: relative;
-    left: 95%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    color: black;
-    background-color: #FFD966;
-    border: none;
     border-radius: 10px;
-    padding: 5px;
-    font-weight: bolder;
-    box-shadow: 0 0 10px #FFD966;
-    cursor: pointer;
-    text-decoration: none;
+    margin-top: 0.5%;
 }
 
-.content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a:hover{
-    background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+.contenedor-content .content-2 .contenedor-ocupaciones {
+    background-color: white;
+    width: 55%;
+    height: 400px;    
+    border-radius: 10px;
+    transition: 0.4s;
+    overflow-y: auto; /* Cambiado a overflow: hidden */
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones::-webkit-scrollbar{
+    border-radius: 5px;
+    width:10px;
+    background-color: rgba(151, 145, 145, 0.76);
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(37, 37, 37, 0.76);
+    border-radius: 2px;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .ocupacion {
+    width: 100%;
+    top: 0; /* Añadido para fijar en la parte superior */
+    left: 0; /* Añadido para fijar en la parte izquierda */
+    bottom: 0; /* Añadido para estirar hasta la parte inferior */
+    right: 0; /* Añadido para estirar hasta la parte derecha */
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones:hover {
+    box-shadow: 0 0 25px white;
+    transition: 0.4s;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .ocupacion .ocupacion-2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    /* height: 100%; */ /* Eliminado para permitir que el contenido crezca */
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    width: 80%;
+    margin-bottom: 5%;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-1 h1{
+    display: flex;
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-1 p{
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-2{
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    width: 80%;
+    margin-bottom: 5%;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-2 h1{
+    display: flex;
+    font-size: 11pt;
+}
+
+.contenedor-content .content-2 .contenedor-ocupaciones .parte-2 p{
+    font-size: 11pt;
 }
 
 .empty{

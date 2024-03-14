@@ -147,7 +147,7 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 8%;
+    gap: 2%;
     height: 100%;
 }
 
@@ -371,36 +371,47 @@ body::-webkit-scrollbar-thumb{
     margin-top: 0.5%;
 }
 
-.contenedor-content .content-2 .contenedor-show{
-    display: flex;
-    flex-direction: column;
-    flex-direction: column;
+.contenedor-content .content-2 .contenedor-show {
     background-color: white;
-    width: 50%;
-    height: 75%;    
-    border-radius: 15px;
+    width: 55%;
+    height: 400px;    
+    border-radius: 10px;
     transition: 0.4s;
-    overflow: auto;
-    gap: 40px;
+    overflow-y: auto; /* Cambiado a overflow: hidden */
 }
 
-.contenedor-content .content-2 .contenedor-show:hover{
+.contenedor-content .content-2 .contenedor-show::-webkit-scrollbar{
+    border-radius: 5px;
+    width:10px;
+    background-color: rgba(151, 145, 145, 0.76);
+}
+
+.contenedor-content .content-2 .contenedor-show::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(37, 37, 37, 0.76);
+    border-radius: 2px;
+}
+
+.contenedor-content .content-2 .contenedor-show .info-2 {
+    width: 100%;
+    top: 0; /* Añadido para fijar en la parte superior */
+    left: 0; /* Añadido para fijar en la parte izquierda */
+    bottom: 0; /* Añadido para estirar hasta la parte inferior */
+    right: 0; /* Añadido para estirar hasta la parte derecha */
+}
+
+.contenedor-content .content-2 .contenedor-show:hover {
     box-shadow: 0 0 25px white;
     transition: 0.4s;
 }
 
-.contenedor-content .content-2 .contenedor-show .info-2{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 80%;
-}   
-
-.contenedor-content .content-2 .contenedor-show .info-2 .info-3{
+.contenedor-content .content-2 .contenedor-show .info-2 .info-3 {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 100%;
+    padding-top: 10%;
+    /* height: 100%; */ /* Eliminado para permitir que el contenido crezca */
 }
 
 .contenedor-content .content-2 .contenedor-show .codigo{
@@ -408,6 +419,7 @@ body::-webkit-scrollbar-thumb{
     width: 80%;
     gap: 1%;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .content-2 .contenedor-show .codigo h1{
@@ -423,6 +435,7 @@ body::-webkit-scrollbar-thumb{
     gap: 1%;
     width: 80%;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .content-2 .contenedor-show .nombre h1{
@@ -435,14 +448,14 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-content .content-2 .contenedor-show .descripcion{
     display: flex;
+    flex-direction: column;
     gap: 1%;
     width: 80%;
-    background-color: #FFD966;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .content-2 .contenedor-show .descripcion h1{
     display: flex;
-    justify-content: center;
     font-size: 11pt;
 }
 
@@ -452,74 +465,19 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-content .content-2 .contenedor-show .funcion{
     display: flex;
+    flex-direction: column;
     gap: 1%;
     width: 80%;
-    align-items: center;
+    margin-bottom: 5%;
 }
 
 .contenedor-content .content-2 .contenedor-show .funcion h1{
+    display: flex;
     font-size: 11pt;
 }
 
 .contenedor-content .content-2 .contenedor-show .funcion p{
     font-size: 11pt;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea{
-    display: flex;
-    width: 85%;
-    height: 75%;
-    gap: 8%;
-    overflow-y: auto;
-}
-
-.tercera-linea .descripcion{
-    display: flex;
-    flex-direction: column;
-    gap: 6%;
-    width: 50%;
-    overflow: auto;
-}
-
-.tercera-linea .descripcion .titulo{
-    font-size: 13pt;
-}
-
-.tercera-linea .descripcion .info{
-    padding: 1%;
-    font-size: 11pt;
-}
-
-.tercera-linea .descripcion::-webkit-scrollbar{
-    width: 4px;
-}
-
-.tercera-linea .descripcion::-webkit-scrollbar-thumb{
-    background: black;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea .funcion{
-    display: flex;
-    flex-direction: column;
-    gap: 6%;
-    width: 50%;
-    overflow: auto;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea .funcion::-webkit-scrollbar{
-    width: 4px;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea .funcion::-webkit-scrollbar-thumb{
-    background: black;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea .funcion .titulo{
-    font-size: 13pt;
-}
-
-.contenedor-content .content-2 .contenedor-show .tercera-linea .funcion .info{
-    font-size: 12pt;
 }
 
 .empty{

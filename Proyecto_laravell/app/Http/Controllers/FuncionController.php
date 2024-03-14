@@ -21,21 +21,24 @@ class FuncionController extends Controller{
         $ocupacion = Ocupacion::find($id);
         $funcion = new Funcion();
         $funcion -> funcion = $request -> funcion;
+        $funcion -> descripcion = $request -> descripcion;
         $funcion -> ocupacion_id = $ocupacion -> id;
         $funcion -> save();
 
         return redirect()->back();
     }
 
-    public function edit($ocupacion, $id){
+    public function edit($ocupacion, $id, $empresaId){
         $ocupacion = Ocupacion::find($ocupacion);
         $funcion = Funcion::find($id);
-        return view('funcion.edit', ['funcion' => $funcion, 'ocupacion' => $ocupacion]);
+        return view('funcion.edit', ['funcion' => $funcion, 'ocupacion' => $ocupacion,
+        'empresaId' => $empresaId]);
     }
 
     public function update(UpdateFunciones $request, string $id){
         $funcion = Funcion::find($id);
         $funcion -> funcion = $request -> funcion;
+        $funcion -> descripcion = $request -> descripcion;
         $funcion -> save();
 
         return redirect()->back();
