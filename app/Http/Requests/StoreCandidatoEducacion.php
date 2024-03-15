@@ -26,13 +26,13 @@ class StoreCandidatoEducacion extends FormRequest{
 
     public function messages(){
         return [
-            'institucion.required' => 'Campo obligatorio',
-            'institucion.min' => 'Pocos caracteres',
-            'titulado.required' => 'Campo obligatorio',
-            'titulado.min' => 'Pocos caracteres',
-            'documento.required' => 'Campo obligatorio',
-            'año_inicio.required' => 'Campo obligatorio',
-            'año_finalizacion.required' => 'Campo obligatorio'
+            'institucion.required' => 'Campo obligatorio.',
+            'institucion.min' => 'Pocos caracteres.',
+            'titulado.required' => 'Campo obligatorio.',
+            'titulado.min' => 'Pocos caracteres.',
+            'documento.required' => 'Campo obligatorio.',
+            'año_inicio.required' => 'Campo obligatorio.',
+            'año_finalizacion.required' => 'Campo obligatorio.'
         ];
     }
 }

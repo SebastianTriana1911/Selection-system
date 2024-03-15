@@ -24,10 +24,10 @@ class StoreProfesion extends FormRequest{
 
     public function messages(){
         return [
-            'titulado.required' => 'Campo obligatorio',
-            'titulado.min' => 'Pocos caracteres',
-            'institucion.required' => 'Campo obligatorio',
-            'documento' => 'Campo obligatorio'
+            'titulado.required' => 'Campo obligatorio.',
+            'titulado.min' => 'Pocos caracteres.',
+            'institucion.required' => 'Campo obligatorio.',
+            'documento' => 'Campo obligatorio.'
         ];
     }
 }

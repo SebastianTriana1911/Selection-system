@@ -27,15 +27,15 @@ class StoreCandidatoExperiencia extends FormRequest{
 
     public function messages(){
         return [
-            'nombre_empresa.required' => 'Campo obligatorio',
-            'nombre_empresa.min' => 'Pocos caracteres',
-            'año_inicio.required' => 'Campo obligatorio',
-            'año_finalizacion.required' => 'Campo obligatorio',
-            'meses.required' => 'Campo obligatorio',
-            'meses.min' => 'Minimo 1 mes de experiencia',
-            'certificacion_laboral.required' => 'Campo obligatorio',
-            'descripcion.required' => 'Campo obligatorio',
-            'descripcion.min' => 'Pocos caracteres'
+            'nombre_empresa.required' => 'Campo obligatorio.',
+            'nombre_empresa.min' => 'Pocos caracteres.',
+            'año_inicio.required' => 'Campo obligatorio.',
+            'año_finalizacion.required' => 'Campo obligatorio.',
+            'meses.required' => 'Campo obligatorio.',
+            'meses.min' => 'Minimo 1 mes de experiencia.',
+            'certificacion_laboral.required' => 'Campo obligatorio.',
+            'descripcion.required' => 'Campo obligatorio.',
+            'descripcion.min' => 'Pocos caracteres.'
         ];
     }
 }

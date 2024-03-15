@@ -27,7 +27,7 @@ class StoreRestablecer extends FormRequest
 
     public function messages(): array{
         return [
-            "documento.required" => "Campo obligatorio"
+            "documento.required" => "Campo obligatorio."
         ];
     }
 }

@@ -23,11 +23,11 @@ class StoreEducacionVacante extends FormRequest{
 
     public function messages(){
         return [
-            'puntos.required' => 'Campo obligatorio',
-            'puntos.min' => 'Pocos caracteres',
-            'puntos.max' => 'Muchos caracteres',
-            'titulado.required' => 'Campo obligatorio',
-            'titulado.min' => 'Pocos caracteres'
+            'puntos.required' => 'Campo obligatorio.',
+            'puntos.min' => 'Pocos caracteres.',
+            'puntos.max' => 'Muchos caracteres.',
+            'titulado.required' => 'Campo obligatorio.',
+            'titulado.min' => 'Pocos caracteres.'
         ];
     }
 }

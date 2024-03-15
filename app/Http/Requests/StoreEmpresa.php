@@ -31,17 +31,17 @@ class StoreEmpresa extends FormRequest
     public function messages()
     {
         return [
-            'nit.required' => 'Campo obligatorio',
-            'nit.unique' => 'Ya existe ese nit',
-            'nombre.required' => 'Campo obligatorio',
-            'telefono.required' => 'Campo obligatorio',
-            'telefono.min' => 'Pocos caracteres',
-            'telefono.max' => 'Muchos caracteres',
-            'correo_electronico.required' => 'Campo obligatorio',
-            'correo_electronico.unique' => 'Ya existe ese email',
-            'responsable_legal.required' => 'Campo obligatorio',
-            'responsable_legal.min' => 'Pocos caracteres',
-            'direccion.required' => 'Campo obligatorio',
+            'nit.required' => 'Campo obligatorio.',
+            'nit.unique' => 'Ya existe ese nit.',
+            'nombre.required' => 'Campo obligatorio.',
+            'telefono.required' => 'Campo obligatorio.',
+            'telefono.min' => 'Pocos caracteres.',
+            'telefono.max' => 'Muchos caracteres.',
+            'correo_electronico.required' => 'Campo obligatorio.',
+            'correo_electronico.unique' => 'Ya existe ese email.',
+            'responsable_legal.required' => 'Campo obligatorio.',
+            'responsable_legal.min' => 'Pocos caracteres.',
+            'direccion.required' => 'Campo obligatorio.',
         ];
     }
 }

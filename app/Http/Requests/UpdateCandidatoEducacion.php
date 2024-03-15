@@ -16,8 +16,8 @@ class UpdateCandidatoEducacion extends FormRequest{
      */
     public function rules(): array{
         return [
-            'institucion' => 'required|min:7',
-            'titulado' => 'required|min:7',
+            'institucion' => 'required',
+            'titulado' => 'required',
             'año_inicio' => 'required',
             'año_finalizacion' => 'required',
         ];
@@ -25,12 +25,10 @@ class UpdateCandidatoEducacion extends FormRequest{
 
     public function messages(){
         return [
-            'institucion.required' => 'Campo obligatorio',
-            'institucion.min' => 'Minimo 7 caracteres',
-            'titulado.required' => 'Campo obligatorio',
-            'titulado.min' => 'Minimo 7 caracteres',
-            'año_inicio.required' => 'Campo obligatorio',
-            'año_finalizacion.required' => 'Campo obligatorio'
+            'institucion.required' => 'Campo obligatorio.',
+            'titulado.required' => 'Campo obligatorio.',
+            'año_inicio.required' => 'Campo obligatorio.',
+            'año_finalizacion.required' => 'Campo obligatorio.'
         ];
     }
 }

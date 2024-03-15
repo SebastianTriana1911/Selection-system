@@ -24,10 +24,10 @@ class StoreCargo extends FormRequest{
 
     public function messages(){
         return [
-            'cargo.required' => "Campo obligatorio",
-            'cargo.min' => "Pocos caracteres",
-            'habilidad.min' => "Pocos caracteres",
-            'competencia.min' => "Pocos caracteres",
+            'cargo.required' => "Campo obligatorio.",
+            'cargo.min' => "Pocos caracteres.",
+            'habilidad.min' => "Pocos caracteres.",
+            'competencia.min' => "Pocos caracteres.",
         ];
     }
 }

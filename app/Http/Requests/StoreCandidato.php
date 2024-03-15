@@ -37,21 +37,21 @@ class StoreCandidato extends FormRequest
     public function messages()
     {
         return [
-            'num_documento.required' => 'Campo obligatorio',
-            'num_documento.min' => 'Pocos caracteres',
-            'num_documento.max' => 'Muchos caracteres',
-            'num_documento.unique' => 'Ya existe ese documento',
-            'tipo_documento.required' => 'Campo obligatorio',
-            'nombre.required' => 'Campo obligatorio',
-            'apellido.required' => 'Campo obligatorio',
-            'email.required' => 'Campo obligatorio',
-            'email.unique' => 'Ya existe ese email',
-            'password.required' => 'Campo obligatorio',
-            'fecha_nacimiento.required' => 'Campo obligatorio',
-            'direccion.required' => 'Campo obligatorio',
-            'telefono.required' => 'Campo obligatorio',
-            'perfil_ocupacional.required' => 'Campo obligatorio',
-            'perfil_ocupacional.min' => 'Pocos caracteres'
+            'num_documento.required' => 'Campo obligatorio.',
+            'num_documento.min' => 'Pocos caracteres.',
+            'num_documento.max' => 'Muchos caracteres.',
+            'num_documento.unique' => 'Ya existe ese documento.',
+            'tipo_documento.required' => 'Campo obligatorio.',
+            'nombre.required' => 'Campo obligatorio.',
+            'apellido.required' => 'Campo obligatorio.',
+            'email.required' => 'Campo obligatorio.',
+            'email.unique' => 'Ya existe ese email.',
+            'password.required' => 'Campo obligatorio.',
+            'fecha_nacimiento.required' => 'Campo obligatorio.',
+            'direccion.required' => 'Campo obligatorio.',
+            'telefono.required' => 'Campo obligatorio.',
+            'perfil_ocupacional.required' => 'Campo obligatorio.',
+            'perfil_ocupacional.min' => 'Pocos caracteres.'
         ];
     }
 }
