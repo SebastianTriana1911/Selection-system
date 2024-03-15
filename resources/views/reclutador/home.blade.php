@@ -1,6 +1,7 @@
 <!-- VISTA PARA CREAR UNA OCUPACION Y VER EL LISTADO DE LAS OCUPACIONES -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <title>Home Reclutador</title>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
+
 <body>
     <main class="page">
 
@@ -19,12 +21,13 @@
             </section>
 
             <section class="titulo">
-                <span>Selection</span><section class="system">System</section>
+                <span>Selection</span>
+                <section class="system">System</section>
             </section>
 
         </header>
 
-    <!---------------------------------------------------------------->
+        <!---------------------------------------------------------------->
 
         <nav class="nav">
 
@@ -34,7 +37,7 @@
             </article>
 
             <article class="segundo-contenedor">
-                
+
                 <a class="boton-a" href="{{route('restaurar.create')}}">Cambiar contraseña</a>
 
                 <form action="{{route('reclutador.desvincular', ['id' => $empresaId])}}" method="POST">
@@ -51,9 +54,9 @@
 
         </nav>
 
-    <!---------------------------------------------------------------->
+        <!---------------------------------------------------------------->
 
-        <section class="contenedor-content"> 
+        <section class="contenedor-content">
 
             <article class="recuadro-menu">
 
@@ -80,7 +83,7 @@
                 <article class="cuadro-2">
 
                     <article class="contenedor-logo">
-                        <i class="fa-solid fa-house" style="color: #000000;"></i>
+                        <i class="fa-solid fa-globe"></i>
                     </article>
 
                     <article class="contenedor-titulo">
@@ -144,13 +147,13 @@
         </section>
 
 
-    <!--------------------------------------------------------------------------------------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <footer class="footer">
             <section class="contenedor-footer">
 
                 <article class="contenedor-imagen">
-                    <img class="logo-png" src="{{ asset('imagenes/Logo-negro.png') }}" alt="Logo"/>
+                    <img class="logo-png" src="{{ asset('imagenes/Logo-negro.png') }}" alt="Logo" />
                 </article>
 
                 <section class="informacion">
@@ -160,16 +163,16 @@
                         <span>3214860900</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -180,64 +183,65 @@
                         <span>3153504473</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
                     </article>
 
                     <article class="peter">
-                            <h3>Peter Bustamante</h3>
-                            <span>3044479143</span>
+                        <h3>Peter Bustamante</h3>
+                        <span>3044479143</span>
 
-                            <section class="apps">
-                                <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-                                <a href= "https://web.whatsapp.com/" target="-blank">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </a>
-                                <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                                <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </section>
-                        </article>
+                        <section class="apps">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
 
-                            <article class="capera">
-                                <h3>Diego Capera</h3>
-                                <span>3005301839</span>
+                    <article class="capera">
+                        <h3>Diego Capera</h3>
+                        <span>3005301839</span>
 
-                                <section class="apps">
-                                    <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
-                                        <i class="fa-brands fa-facebook"></i>
-                                    </a>
-                                    <a href= "https://web.whatsapp.com/" target="-blank">
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </a>
-                                    <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
-                                        <i class="fa-brands fa-instagram"></i>
-                                    </a>
-                                    <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
-                                        <i class="fa-solid fa-envelope"></i>
-                                    </a>
-                                </section>
-                            </article>
+                        <section class="apps">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="https://web.whatsapp.com/" target="-blank">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </section>
+                    </article>
 
                 </section>
             </section>
         </footer>
     </main>
 </body>
+
 </html>

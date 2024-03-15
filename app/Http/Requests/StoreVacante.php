@@ -18,27 +18,26 @@ class StoreVacante extends FormRequest{
         return [
             'codigo' => 'required|unique:vacantes,codigo|min:8|max:8',
             'num_vacante' => 'required|min:1',
-            'meses_experiencia' => 'min:1',
+            'meses_experiencia' => 'required',
             'salario' => 'required',
             'puntos' => 'required|min:0',
-            'titulado' => 'required|min:5'
+            'titulado' => 'required'
         ];
     }
 
     public function messages(){
         return [
-            'codigo.required' => 'Obligatorio',
-            'codigo.unique' => 'Ya existe',
-            'codigo.min' => 'Minimo 8',
-            'codigo.max' => 'Maximo 8',
-            'num_vacante.required' => 'Obligatorio',
-            'num_vacante.min' => 'Minimo 1',
-            'meses_experiencia.min' => 'Minimo 1',
-            'salario.required' => 'Obligatorio',
-            'puntos.required' => 'Obligatorio',
+            'codigo.required' => 'Campo obligatorio',
+            'codigo.unique' => 'Ya existe ese codigo',
+            'codigo.min' => 'Pocos caracteres',
+            'codigo.max' => 'Muchos caracteres',
+            'num_vacante.required' => 'Campo obligatorio',
+            'num_vacante.min' => 'Pocos caracteres',
+            'meses_experiencia.required' => 'Campo obligatorio',
+            'salario.required' => 'Campo obligatorio',
+            'puntos.required' => 'Campo obligatorio',
             'puntos.min' => 'Minimo 0',
-            'titulado.required' => 'Obligatorio',
-            'titulado.min' => 'Minimo 5'
+            'titulado.required' => 'Campo obligatorio',
         ];
     }
 }

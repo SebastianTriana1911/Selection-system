@@ -23,9 +23,9 @@ class StoreFunciones extends FormRequest{
 
     public function messages(){
         return [
-            'funcion.required' => 'Obligatorio',
+            'funcion.required' => 'Campo obligatorio',
             'funcion.min' => 'Pocos caracteres',
-            'descripcion.required' => 'Obligatorio',
+            'descripcion.required' => 'Campo obligatorio',
             'descripcion.min' => 'Pocos caracteres'
         ];
     }

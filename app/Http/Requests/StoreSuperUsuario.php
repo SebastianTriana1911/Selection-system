@@ -17,30 +17,25 @@ class StoreSuperUsuario extends FormRequest{
     public function rules(): array{
         return [
             'num_documento' => 'required|max:11|min:7|unique:users',
-            'tipo_documento' => 'required',
             'nombre' => 'required|string',
             'apellido' => 'required|string',
             'genero' => 'required',
-            'estado_civil' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|unique:users',
             'password' => 'required',
         ];
     }
 
     public function messages(){
         return [
-            'num_documento.required' => 'Obligatorio',
-            'num_documento.max' => 'Maximo 11',
-            'num_documento.min' => 'Minimo 7',
-            'num_documento.unique' => 'Ya existe',
-            'tipo_documento.required' => 'Obligatorio',
-            'nombre.required' => 'Obligatorio',
-            'apellido.required' => 'Obligatorio',
-            'estado_civil.required' => 'Obligatorio',
-            'email.required' => 'Obligatorio',
-            'email.email' => 'Asegurese que es un email',
-            'email.unique' => 'Ya existe',
-            'password.required' => 'Obligatorio'
+            'num_documento.required' => 'Campo obligatorio',
+            'num_documento.max' => 'Muchos caracteres',
+            'num_documento.min' => 'Pocos caracteres',
+            'num_documento.unique' => 'Ya existe ese documento',
+            'nombre.required' => 'Campo obligatorio',
+            'apellido.required' => 'Campo obligatorio',
+            'email.required' => 'Campo obligatorio',
+            'email.unique' => 'Ya existe ese email',
+            'password.required' => 'Campo obligatorio'
         ];
     }
 }

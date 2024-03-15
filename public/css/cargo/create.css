@@ -128,137 +128,157 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
     flex-direction: column;
-    width: 55%;
-    height: 60%;
+    width: 40%;
+    height: 65%;
+    padding: 5% 5% 5% 5%;
     background-color: white;
     border-radius: 15px;
+}
+
+.contenedor-content .contenedor-hoja-vida:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
-    gap: 9%;
+    gap: 7%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1{
+.contenedor-content .contenedor-hoja-vida .primera-linea .cargo{
     display: flex;
-    width: 80%;
-    gap: 6%;
+    align-items: center;
+    gap: 5%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo{
-    display: flex;
-    flex-direction: column;
-    gap: 10%;
-}
-
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo .titulo{
+.contenedor-content .contenedor-hoja-vida .primera-linea .cargo .titulo{
     font-size: 12pt;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo .input{
-    width: 75%;
-    height: 40%;
-    padding: 0.3%;
-    padding-left: 6%;
-    padding-right: 6%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-content .contenedor-hoja-vida .primera-linea .cargo .input{
     border: none;
-    box-shadow: 0 0 4px black;
+    border-radius: 10px;
+    width: 70%;    
+    padding: 5px;
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .cargo .input:hover{
+.contenedor-content .contenedor-hoja-vida .primera-linea .cargo .input:hover{
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .contenedor-select{
+.contenedor-content .contenedor-hoja-vida .primera-linea .contenedor-select{
     display: flex;
-    width: 60%;
-    flex-direction: column;
-    gap: 10%;
+    align-items: center;
+    gap: 5%;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .contenedor-select .titulo{
+.contenedor-content .contenedor-hoja-vida .primera-linea .contenedor-select .titulo{
     font-size: 12pt;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea .linea-1 .contenedor-select .ocupacion_id{
-    width: 73%;
-    height: 40%;
-    padding: 1.5%;
-    border-radius: 7px;
-    font-weight: bolder;
+.contenedor-content .contenedor-hoja-vida .primera-linea .contenedor-select .ocupacion_id{
     border: none;
-    box-shadow: 0 0 4px black;
-    margin-bottom: 12%;
+    border-radius: 10px;
+    width: 70%;    
+    padding: 5px;
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    text-indent: 2%;
+    transition: 0.4s;
 }
 
-.linea-2{
-    display: flex;
+.contenedor-content .contenedor-hoja-vida .primera-linea .contenedor-select .ocupacion_id:hover{
+    box-shadow: 0 0 10px black;
+    transition: 0.4s;
+}
+
+.descripcion{
     width: 100%;
-    justify-content: center;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
 }
 
-.linea-2 .descripcion{
-    width: 40%;
-}
-
-.linea-2 .descripcion .titulo{
+.descripcion .titulo{
     font-size: 12pt;
 }  
 
-.linea-2 .descripcion-1{
-    width: 40%;
-}
-
-.linea-2 .descripcion-1 .titulo{
-    font-size: 12pt;
-}       
-
-.contenedor-content .contenedor-hoja-vida .primera-linea textarea{
+.descripcion textarea{
     display: flex;
-    width: 60%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 7%;
-    padding-left: 7%;
-    padding-right: 7%;
-    background-color: white;
+    width: 90%;
     box-shadow: 0 0 4px black;
     border-radius: 6px;
     border: none;
     margin-top: 3%;
     resize: none;
+    height: 100%;
+    padding: 3% 5% 3% 5%;
+    transition: 0.4s;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea textarea:hover {
-    box-shadow: 0 0 10px black;
-    transition: 0.5s;
+.descripcion textarea:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 8px black;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
+.descripcion textarea::-webkit-scrollbar{
     width: 5px;
 }
 
-.contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar-thumb{
+.descripcion textarea::-webkit-scrollbar-thumb{
+    background: black;
+}
+
+.descripcion-1{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.descripcion-1 .titulo{
+    font-size: 12pt;
+}  
+
+.descripcion-1 textarea{
+    display: flex;
+    width: 90%;
+    box-shadow: 0 0 4px black;
+    border-radius: 6px;
+    border: none;
+    margin-top: 3%;
+    resize: none;
+    height: 100%;
+    padding: 3% 5% 3% 5%;
+    transition: 0.4s;
+}
+
+.descripcion-1 textarea:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 8px black;
+}
+
+.descripcion-1 textarea::-webkit-scrollbar{
+    width: 5px;
+}
+
+.descripcion-1 textarea::-webkit-scrollbar-thumb{
     background: black;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 20%;
     gap: 10%;
 }
 
@@ -272,13 +292,15 @@ body::-webkit-scrollbar-thumb{
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
+    transition: 0.4s;
     text-decoration: none;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-1:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2{
@@ -293,12 +315,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 14pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton .input-2:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
@@ -312,26 +336,71 @@ body::-webkit-scrollbar-thumb{
     border-bottom: 4px solid white;
 }
 
-.contenedor-content .linea{
-    margin-top: 1%;
+.contenedor-content .contenedor-titulo-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor{
+    display: flex;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor .titulo-principal{
+    font-size: 18pt;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .contenedor i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .contenedor-titulo-2 .linea-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 0.5%;
+}
+
+.contenedor-content .contenedor-grande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
 }
 
 .contenedor-content .contenedor-ocupaciones{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     width: 90%;
-    height: 380px;
+    height: 420px;
     overflow: auto;
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar{
-    width: 9px;
+.content-2 .contenedor-ocupaciones::-webkit-scrollbar{
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar-thumb{
+.content-2 .contenedor-ocupaciones::-webkit-scrollbar-thumb{
+    width: 10px;
     background: white;
+    border-radius: 5px;
 }
 
 .contenedor-content .contenedor-ocupaciones .titulo-principal{
@@ -402,18 +471,33 @@ body::-webkit-scrollbar-thumb{
     font-size: 16pt;
 }
 
+.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom i{
+    transition: 0.4s;
+    color: black;
+}
+
+.content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom i:hover{
+    transition: 0.4s;
+    color: rgba(181, 15, 15, 0.917);
+}
+
 .empty{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
-    margin-top: 3%;
+    margin-top: 1%;
     padding: 2%;
     background-color: white;
     border-radius: 15px;
     display: flex;
     text-decoration: none;
     color: black;
+    transition: 0.4s;
+}
+
+.empty:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 

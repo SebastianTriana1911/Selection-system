@@ -49,7 +49,7 @@
                             <h1 class="titulo">Nombre del cargo</h1>
                             <input class="input" type="text" name="cargo" value="{{ old('cargo') }}" />
                             @error('cargo')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
@@ -57,22 +57,22 @@
                             <h1 class="titulo">Ocupaciones</h1>
                             <select class="ocupacion_id" name="ocupacion_id">
                                 @forelse($ocupaciones as $ocupacion)
-                                    <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
-                                    </option>
+                                <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
+                                </option>
                                 @empty
-                                    <h1>No hay ocupaciones</h1>
+                                <h1>No hay ocupaciones</h1>
                                 @endforelse
                                 @error('ocupacion_id')
-                                    <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </select>
                         </section>
 
                         <article class="descripcion">
                             <h1 class="titulo">Habilidades</h1>
-                            <textarea name="habilidad" rows="1">{{ old('habilidad') }}</textarea>
+                            <textarea name="habilidad">{{ old('habilidad') }}</textarea>
                             @error('habilidad')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
@@ -80,7 +80,7 @@
                             <h1 class="titulo">Competencias</h1>
                             <textarea name="competencia" rows="2">{{ old('competencia') }}</textarea>
                             @error('competencia')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
                     </section>
@@ -95,33 +95,38 @@
             </section>
 
             <section class="content-2">
-                <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Listado de cargos</h1>
-                    <h1 class="linea"></h1>
+                <article class="contenedor-titulo-2">
+                    <article class="contenedor">
+                        <i class="fa-solid fa-down-long"></i>
+                        <h1 class="titulo-principal">Listado de cargos</h1>
+                    </article>
+                    <h1 class="linea-2"></h1>
                 </article>
 
+                <article class="contenedor-grande">
                 <section class="contenedor-ocupaciones">
                     @forelse($cargos as $cargo)
-                        <article class="ocupacion">
-                            <article class="parte-1">
-                                <i class="fa-solid fa-plus" style="color: black"></i>
-                                <a href="{{ route('cargo.show', ['id' => $cargo->id]) }}">{{ $cargo->cargo }}</a>
-                            </article>
-
-                            <article class="parte-2">
-                                <form action="{{ route('cargo.destroy', ['id' => $cargo->id]) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>
-                                    </button>
-                                </form>
-                            </article>
+                    <article class="ocupacion">
+                        <article class="parte-1">
+                            <i class="fa-solid fa-plus" style="color: black"></i>
+                            <a href="{{ route('cargo.show', ['id' => $cargo->id]) }}">{{ $cargo->cargo }}</a>
                         </article>
+
+                        <article class="parte-2">
+                            <form action="{{ route('cargo.destroy', ['id' => $cargo->id]) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="buttom">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </article>
+                    </article>
                     @empty
-                        <h1 class="empty">No hay cargos creados</h1>
+                    <h1 class="empty">No hay cargos creados</h1>
                     @endforelse
                 </section>
+                </article>
             </section>
 
         </section>
@@ -142,16 +147,16 @@
                         <span>3214860900</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -162,16 +167,16 @@
                         <span>3153504473</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -182,16 +187,16 @@
                         <span>3044479143</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -202,16 +207,16 @@
                         <span>3005301839</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>

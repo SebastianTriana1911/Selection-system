@@ -24,12 +24,12 @@ class StoreOcupacion extends FormRequest{
 
     public function messages(){
         return [
-            'codigo.required' => 'Obligatorio',
-            'codigo.min' => 'Necesita almenos 1 digito',
-            'nombre.required' => 'Obligatorio',
-            'nombre.min' => 'Necesita mas de 10 caracteres',
-            'descripcion.required' => 'Obligatorio',
-            'descripcion.min' => 'Necesita mas de 10 caracteres',
+            'codigo.required' => 'Campo obligatorio',
+            'codigo.min' => 'Pocos caracteres',
+            'nombre.required' => 'Campo obligatorio',
+            'nombre.min' => 'Pocos caracteres',
+            'descripcion.required' => 'Campo obligatorio',
+            'descripcion.min' => 'Pocos caracteres',
         ];
     }
 }

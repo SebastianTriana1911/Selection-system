@@ -27,8 +27,7 @@ class StoreRestablecer extends FormRequest
 
     public function messages(): array{
         return [
-            "documento.required" => "El campo documento debe ser
-            diligenciado"
+            "documento.required" => "Campo obligatorio"
         ];
     }
 }

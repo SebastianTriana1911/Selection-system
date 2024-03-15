@@ -16,21 +16,18 @@ class StoreProfesion extends FormRequest{
      */
     public function rules(): array{
         return [
-            'titulado' => 'required|string|min:8',
-            'institucion' => 'required|string|min:8',
+            'titulado' => 'required|min:8',
+            'institucion' => 'required',
             'documento' => 'required'
         ];
     }
 
     public function messages(){
         return [
-            'titulado.required' => 'Obligatorio',
-            'titulado.string' => 'Debe ser texto',
-            'titulado.min' => 'minimo 8 caracteres',
-            'institucion.required' => 'Obligatorio',
-            'institucion.string'=> 'Debe ser texto',
-            'institucion.min' => 'minimo 8 caracteres',
-            'documento' => 'Obligatorio'
+            'titulado.required' => 'Campo obligatorio',
+            'titulado.min' => 'Pocos caracteres',
+            'institucion.required' => 'Campo obligatorio',
+            'documento' => 'Campo obligatorio'
         ];
     }
 }

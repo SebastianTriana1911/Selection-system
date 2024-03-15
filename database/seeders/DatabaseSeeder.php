@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Ocupacion;
 use App\Models\SuperUsuario;
 use Illuminate\Database\Seeder;
+use Database\Seeders\OcupacionSeeder;
 use Database\Seeders\SeleccionadorSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,5 +32,8 @@ class DatabaseSeeder extends Seeder
         $this -> call([ReclutadorSeeder::class]);
         $this -> call([SeleccionadorSeeder::class]);
         $this -> call([EmpresaSeeder::class]);
+        $this -> call([OcupacionSeeder::class]);
+        $this -> call([FuncionesSeeder::class]);
+        $this -> call([CargoSeeder::class]);
     }
 }

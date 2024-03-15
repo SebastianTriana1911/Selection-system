@@ -50,45 +50,42 @@
                 <article class="contenedor-datos">
                     <article class="grid-1">
                         <article class="contenedor-codigo">
-                            <label for="">
+                            <label for="uno">
                                 <h1 class="titulo">Codigo</h1>
-                                <input id="" class="input" type="text" name="codigo"
-                                    value="{{ old('codigo') }}">
+                                <input id="uno" class="input" type="text" name="codigo" value="{{ old('codigo') }}">
                             </label>
                             @error('codigo')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-num_vacante">
-                            <label for="">
+                            <label for="dos">
                                 <h1 class="titulo">Numero de vacantes</h1>
-                                <input class="input" type="text" name="num_vacante"
-                                    value="{{ old('num_vacante') }}">
+                                <input id="dos" class="input" type="text" name="num_vacante" value="{{ old('num_vacante') }}">
                             </label>
                             @error('num_vacante')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-meses_experiencia">
-                            <label for="">
+                            <label for="tres">
                                 <h1 class="titulo">Meses de experiencia</h1>
-                                <input class="input" type="text" name="meses_experiencia"
-                                    value="{{ old('meses_experiencia') }}">
+                                <input id="tres" class="input" type="text" name="meses_experiencia" value="{{ old('meses_experiencia') }}">
                             </label>
                             @error('meses_experiencia')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-salario">
-                            <label for="">
+                            <label for="cuatro">
                                 <h1 class="titulo">Salario</h1>
-                                <input class="input" type="text" name="salario" value="{{ old('salario') }}">
+                                <input id="cuatro" class="input" type="text" name="salario" value="{{ old('salario') }}">
                             </label>
                             @error('salario')
-                                <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
                     </article>
@@ -107,8 +104,8 @@
                         <article class="contenedor-tipo-contrato">
                             <h1 class="titulo">Tipo de contrato</h1>
                             <select name="tipo_contrato" class="tipo-contrato">
-                                <option value="Contrato por obra o valor">Contrato por obra o valor</option>
-                                <option value="Contrato de trabajo a término fijo">Contrato de trabajo a término fijo
+                                <option value="Contrato por obra o valor" {{ 'Contrato por obra o valor' == old('tipo_contrato') ? 'selected' : '' }}>Contrato por obra o valor</option>
+                                <option value="Contrato de trabajo a término fijo" {{ 'Contrato de trabajo a término fijo' == old('tipo_contrato') ? 'selected' : '' }}>Contrato de trabajo a término fijo
                                 </option>
                                 <option value="Contrato de trabajo a término indefinido">Contrato de trabajo a término
                                     indefinido</option>
@@ -133,9 +130,9 @@
                             <h1 class="titulo">Cargo</h1>
                             <select class="cargos" name="cargo_id">
                                 @forelse ($cargos as $cargo)
-                                    <option value="{{ $cargo->id }}">{{ $cargo->cargo }}</option>
+                                <option value="{{ $cargo->id }}">{{ $cargo->cargo }}</option>
                                 @empty
-                                    <h1>No hay cargos en el sistema</h1>
+                                <h1>No hay cargos en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -156,9 +153,9 @@
                             <h1>Pais</h1>
                             <select class="paises" name="">
                                 @forelse ($paises as $pais)
-                                    <option value="">{{ $pais->nombre }}</option>
+                                <option value="">{{ $pais->nombre }}</option>
                                 @empty
-                                    <h1>No hay paises en el sistema</h1>
+                                <h1>No hay paises en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -167,9 +164,9 @@
                             <h1>Departamento</h1>
                             <select class="departamento">
                                 @forelse ($departamentos as $departamento)
-                                    <option>{{ $departamento->nombre }}</option>
+                                <option>{{ $departamento->nombre }}</option>
                                 @empty
-                                    <h1>No hay departamentos en el sistema</h1>
+                                <h1>No hay departamentos en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -178,9 +175,9 @@
                             <h1>Municipio</h1>
                             <select class="municipio" name="municipio_id">
                                 @forelse ($municipios as $municipio)
-                                    <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                                 @empty
-                                    <h1>No hay municipios en el sistema</h1>
+                                <h1>No hay municipios en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -222,10 +219,9 @@
 
                             <article class="contenedor-puntos">
                                 <h1 class="titulo">Puntuacion para la educacion</h1>
-                                <input class="puntos" type="number" name="puntos" min="1" max="10"
-                                    value="{{ old('puntos') }}">
+                                <input class="puntos" type="number" name="puntos" min="1" max="10" value="{{ old('puntos') }}">
                                 @error('puntos')
-                                    <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
                         </article>
@@ -233,10 +229,9 @@
                         <article class="linea-2">
                             <article class="contenedor-titulado">
                                 <h1 class="titulo">Titulado requerido</h1>
-                                <input class="titulado" type="text" name="titulado"
-                                    value="{{ old('titulado') }}">
+                                <input class="titulado" type="text" name="titulado" value="{{ old('titulado') }}">
                                 @error('titulado')
-                                    <strong class="mensaje-titulado">{{ $message }}</strong>
+                                <strong class="mensaje-titulado">{{ $message }}</strong>
                                 @enderror
                             </article>
                         </article>
@@ -246,7 +241,7 @@
                         <h1>Descripcion de la educacion que se debe tener</h1>
                         <textarea class="descripcion" name="descripcion" cols="40" rows="7">{{ old('descripcion') }}</textarea>
                         @error('descripcion')
-                            <strong class="mensaje">{{ $message }}</strong>
+                        <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
 
@@ -275,16 +270,16 @@
                         <span>3214860900</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -295,16 +290,16 @@
                         <span>3153504473</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -315,16 +310,16 @@
                         <span>3044479143</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
@@ -335,16 +330,16 @@
                         <span>3005301839</span>
 
                         <section class="apps">
-                            <a href= "https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
+                            <a href="https://www.facebook.com/profile.php?id=100025316872756" target="-blank">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href= "https://web.whatsapp.com/" target="-blank">
+                            <a href="https://web.whatsapp.com/" target="-blank">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
-                            <a href= "https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
+                            <a href="https://www.instagram.com/sebastian___1911/?hl=es-la" target="-blank">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href= "https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
+                            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="-blank">
                                 <i class="fa-solid fa-envelope"></i>
                             </a>
                         </section>
