@@ -16,7 +16,7 @@ class CargoSeeder extends Seeder
         $cargo = [
             ['cargo' => 'Ingeniero de software',
             'habilidad' => 'Profesional encargado del análisis, diseño, desarrollo y mantenimiento de software.',
-            'competencia' => 'Pensamiento Analitico, Adaptabilidad, Trabajo en equipo, Creatividad, Gestion del tiempo, Aprendizaje en conjunto',
+            'competencia' => 'Pensamiento Analitico, Adaptabilidad, Trabajo en equipo, Creatividad, Gestion del tiempo, Aprendizaje en conjunto.',
             'ocupacion_id' => '1',
             'empresa_id' => '1',
             ]
