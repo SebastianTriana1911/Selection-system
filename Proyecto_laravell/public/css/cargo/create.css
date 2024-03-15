@@ -80,16 +80,11 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .content{
     grid-area: content-1;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-right: 4px solid white;
     border-bottom: 4px solid white;
     border-left: 4px solid white;
-}
-
-.contenedor-content .content .contenedor-titulo .linea{
-    margin-top: 1%;
 }
 
 .contenedor-content .contenedor-titulo{
@@ -98,33 +93,41 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo .contenedor{
+    display: flex;
 }
 
 .contenedor-content .titulo-principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 18pt;
     color: white;
-    margin-top: 3%;
-    font-size: 24pt;
+}
+
+.contenedor-content .contenedor-titulo .contenedor i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
 }
 
 .contenedor-content .linea{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 25%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
-    margin-bottom: -3%;
+    border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-hoja-vida{
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin: auto;
     width: 55%;
     height: 60%;
     background-color: white;

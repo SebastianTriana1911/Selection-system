@@ -81,7 +81,8 @@
                     </article>
                     <h1 class="linea-2"></h1>
                 </article>
-
+                
+                <article class="centrar">
                 <section class="contenedor-ocupaciones">
                     <article class="ocupacion">
                         <article class="ocupacion-2">
@@ -97,6 +98,7 @@
                         </article>
                     </article>
                 </section>
+            </article>
             </section>
 
         </section>

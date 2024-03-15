@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/cargo/create.css') }}">
-    <title>Create cargos</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Crear cargos</title>
 </head>
 
 <body>
@@ -33,7 +34,10 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Formulario de cargos</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-gear"></i>
+                        <h1 class="titulo-principal">Formulario para crear cargos</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -41,54 +45,44 @@
                     @csrf
 
                     <section class="primera-linea">
-                        <section class="linea-1">
-                            <!--------- Campo nombre de la tabla cargos ----------->
-                            <article class="cargo">
-                                <h1 class="titulo">Nombre del cargo</h1>
-                                <input class="input" type="text" name="cargo" value="{{ old('cargo') }}" />
-                                @error('cargo')
+                        <article class="cargo">
+                            <h1 class="titulo">Nombre del cargo</h1>
+                            <input class="input" type="text" name="cargo" value="{{ old('cargo') }}" />
+                            @error('cargo')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <section class="contenedor-select">
+                            <h1 class="titulo">Ocupaciones</h1>
+                            <select class="ocupacion_id" name="ocupacion_id">
+                                @forelse($ocupaciones as $ocupacion)
+                                    <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
+                                    </option>
+                                @empty
+                                    <h1>No hay ocupaciones</h1>
+                                @endforelse
+                                @error('ocupacion_id')
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
-                            </article>
-
-                            <section class="contenedor-select">
-                                <h1 class="titulo">Ocupaciones</h1>
-                                <select class="ocupacion_id" name="ocupacion_id">
-                                    @forelse($ocupaciones as $ocupacion)
-                                        <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
-                                        </option>
-                                    @empty
-                                        <h1>No hay ocupaciones</h1>
-                                    @endforelse
-                                    @error('ocupacion_id')
-                                        <strong class="mensaje">{{$message}}</strong>
-                                    @enderror
-                                </select>
-                            </section>
-                            <!---------------------------------------------------------->
+                            </select>
                         </section>
 
-                        <section class="linea-2">
-                            <!------ Campo descripcion de la tabla cargos --------->
-                            <article class="descripcion">
-                                <h1 class="titulo">Habilidades</h1>
-                                <textarea name="habilidad" rows="1">{{old('habilidad')}}</textarea>
-                                @error('habilidad')
-                                    <strong class="mensaje">{{$message}}</strong>
-                                @enderror
-                            </article>
-                            <!---------------------------------------------------------->
+                        <article class="descripcion">
+                            <h1 class="titulo">Habilidades</h1>
+                            <textarea name="habilidad" rows="1">{{ old('habilidad') }}</textarea>
+                            @error('habilidad')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
 
-                            <!------ Campo descripcion de la tabla cargos --------->
-                            <article class="descripcion-1">
-                                <h1 class="titulo">Competencias</h1>
-                                <textarea name="competencia" rows="2">{{old('competencia')}}</textarea>
-                                @error('competencia')
-                                    <strong class="mensaje">{{$message}}</strong>
-                                @enderror   
-                            </article>
-                            <!---------------------------------------------------------->
-                        </section>
+                        <article class="descripcion-1">
+                            <h1 class="titulo">Competencias</h1>
+                            <textarea name="competencia" rows="2">{{ old('competencia') }}</textarea>
+                            @error('competencia')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
                     </section>
 
                     <input type="number" name="empresa_id" value="{{ $empresa->id }}" hidden>

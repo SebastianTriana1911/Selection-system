@@ -101,7 +101,7 @@
                 <article class="cuadro-3">
 
                     <article class="contenedor-logo">
-                        <i class="fa-solid fa-plus" style="color: #000000;"></i>
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     </article>
 
                     <article class="contenedor-titulo">
