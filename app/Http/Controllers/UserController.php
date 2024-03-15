@@ -75,16 +75,7 @@ class UserController extends Controller
             $administrador = SuperUsuario::where('user_id',  $usuario->id)->first();
             $administrador->delete();
 
-            if ($request->menu == 2) {
-                $usuario->role_id = $request->menu;
-                $usuario->save();
-
-                $super = new Candidato();
-                $super->user_id = $usuario->id;
-
-                $super->save();
-                return redirect()->back();
-            } else if ($request->menu == 3) {
+            if ($request->menu == 3) {
                 $usuario->role_id = $request->menu;
                 $usuario->save();
 
