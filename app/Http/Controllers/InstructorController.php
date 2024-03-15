@@ -55,6 +55,7 @@ class InstructorController extends Controller{
         // metodo create para finalmente salvarlo en la base de datos
         $user -> num_documento = $request -> num_documento;
         $user -> tipo_documento = $request -> tipo_documento;
+        $user -> nombre = $request -> nombre;
         $user -> apellido = $request -> apellido;
         $user -> genero = $request -> genero;
         $user -> estado_civil = $request -> estado_civil;
