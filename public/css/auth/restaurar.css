@@ -65,13 +65,18 @@
     height: 60%;
     background-color: white;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-principal:hover{
     box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-principal .contenedor-titulo{
     background-color: black;
     color: white;
-    width: 98%;
+    width: 98.6%;
     height: 20%;
     border: 4px solid white;
     border-radius: 15px 15px 15px 15px;
@@ -104,19 +109,21 @@
     background-color: white;
 }
 
-.formulario{
-    margin-top: 6%;
-    margin-left: 6%;
+.formulario .contenedor-grande{
+    padding: 7% 7% 0% 7%;
 }
 
-.formulario .contraseña-vieja{
-    font-size: 14pt;
-    margin-bottom: 3%;
+.formulario .contenedor-grande .contraseña-vieja{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    font-size: 15pt;
+    margin-bottom: 5%;
 }
 
 .formulario .contraseña-vieja .input{
     display: flex;
-    width: 45%;
+    width: 49%;
     flex-direction: column;
     justify-content: center;
     padding-left: 2%;
@@ -127,22 +134,25 @@
     box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
-    margin-top: 1%;
+    transition: 0.4s;
 }
 
 .formulario .contraseña-vieja .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 7px black;
+    transition: 0.4s;
+    box-shadow: 0 0 px black;
 }
 
 .formulario .contraseña-nueva{
-    font-size: 14pt;
-    margin-bottom: 3%;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    font-size: 15pt;
+    margin-bottom: 5%;
 }
 
 .formulario .contraseña-nueva .input{
     display: flex;
-    width: 45%;
+    width: 49%;
     flex-direction: column;
     justify-content: center;
     padding-left: 2%;
@@ -153,22 +163,24 @@
     box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
-    margin-top: 1%;
+    transition: 0.4s;
 }
 
 .formulario .contraseña-nueva .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 7px black;
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
 }
 
 .formulario .contraseña-verificacion{
-    font-size: 14pt;
-    margin-bottom: 3%;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    font-size: 15pt;
 }
 
 .formulario .contraseña-verificacion .input{
     display: flex;
-    width: 45%;
+    width: 49%;
     flex-direction: column;
     justify-content: center;
     padding-left: 2%;
@@ -179,15 +191,12 @@
     box-shadow: 0 0 5px black;
     border-radius: 6px;
     border: none;
-    margin-top: 1%;
     transition: 0.4s;
 }
 
 .formulario .contraseña-verificacion .input:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 7px black;
-    color: white;
-    box-shadow: 0 0 10px white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
 }
 
 .formulario .contenedor-botones{
@@ -195,7 +204,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 5%;
+    gap: 10%;
 }
 
 .formulario .contenedor-botones a{

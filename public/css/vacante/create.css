@@ -7,6 +7,7 @@
 }
 
 .mensaje{
+    font-size: 12pt;
     color: red;
 }
 
@@ -82,7 +83,7 @@ body::-webkit-scrollbar-thumb{
 .nav .contenedor-titulo .titulo{
     color: white;
     font-size: 20pt;
-    width: 70%;
+    width: 40%;
     text-align: center;
 }
 
@@ -113,7 +114,7 @@ body::-webkit-scrollbar-thumb{
     width: 40%;
     border-radius: 15px;
     border: 3px solid white;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
     transition: 0.4s;
 }
 
@@ -169,8 +170,9 @@ body::-webkit-scrollbar-thumb{
 .formulario .contenedor-datos{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 5%;
     padding: 3%;
-    padding-left: 15%;
+    padding-left: 7%;
 }
 
 .formulario .contenedor-datos .grid-1{
@@ -188,7 +190,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-codigo .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -216,7 +218,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-num_vacante .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -244,7 +246,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-meses_experiencia .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -272,7 +274,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-salario .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -301,7 +303,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-salatio .tipo-salario{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -312,11 +314,12 @@ body::-webkit-scrollbar-thumb{
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-salatio .tipo-salario:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-contrato .titulo{
@@ -325,7 +328,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-contrato .tipo-contrato{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -336,11 +339,12 @@ body::-webkit-scrollbar-thumb{
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
+    transition: 0.4s;
 }
 
-.formulario .contenedor-datos .grid-2 .contenedor-tipo-contrato .tipo-salario:hover {
+.formulario .contenedor-datos .grid-2 .contenedor-tipo-contrato .tipo-contrato:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-jornada .titulo{
@@ -349,7 +353,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-jornada .tipo-jornada{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -360,11 +364,12 @@ body::-webkit-scrollbar-thumb{
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-jornada .tipo-jornada:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-cargos .titulo{
@@ -373,7 +378,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-cargos .cargos{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -384,11 +389,12 @@ body::-webkit-scrollbar-thumb{
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-datos .grid-2 .contenedor-cargos .cargos:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .encabezado{
@@ -399,35 +405,40 @@ body::-webkit-scrollbar-thumb{
     gap: 8%;
     width: 99.3%;
     background-color: black;
-    height: 25%;
+    height: 15%;
     border-radius: 13px 13px 13px 13px;
     border: 3px solid white;
     box-shadow: 0 0 10px white;
 }
 
-.formulario .contenedor-ubicacion .encabezado .titulo{
-    width: 100%;;
+.formulario .contenedor-ubicacion .encabezado .contenedor-titulo{
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 20pt;
+    justify-content: center;
 }
 
 .formulario .contenedor-ubicacion .encabezado .linea-2{
-    width: 20%;
+    width: 25%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 7px white;
+    border-radius: 10px;
 }
 
 .formulario .contenedor-ubicacion .grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 3%;
-    padding-left: 15%;
-    margin-bottom: 3%;
+    padding-left: 7%;
+    margin-bottom: 2%;
     margin-top: 2%;
+    padding-right: 7%;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-pais{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .titulo{
@@ -436,22 +447,28 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .paises{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .paises:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-departamentos{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .titulo{
@@ -460,22 +477,28 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .departamento{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .departamento:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-municipios{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .titulo{
@@ -484,29 +507,41 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .municipio{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .municipio:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-educacion-requerida .encabezado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+    width: 99.3%;
+    background-color: black;
+    height: 10%;
+    border-radius: 13px 13px 13px 13px;
+    border: 3px solid white;
+    box-shadow: 0 0 10px white;
 }
 
 .formulario .contenedor-educacion-requerida .parrafo{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-left: 7%;
     width: 100%;
     margin-top: 3%;
 }
@@ -518,136 +553,132 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-educacion-requerida p{
     display: flex;
-    width: 80%;
-    text-align: center;
+    width: 87%;
     font-size: 12pt;
 }
 
 .formulario .contenedor-educacion-requerida .grid{
+    display: flex;
+    flex-direction: column;
     padding: 3%;
-    padding-left: 15%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .formulario .contenedor-educacion-requerida .grid .linea-1{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 1%;
-}
-
-.formulario .contenedor-educacion-requerida .grid .linea-2{
     display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado{
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
 }
 
-.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulo{
-    display: flex;
-    justify-content: center;
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-nivel .titulo{
     font-size: 13pt;
 }
 
-.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulado{
-    margin: auto;
-    width: 25%;
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-nivel{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 4%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-nivel .nivel{
+    display: flex;
+    width: 63%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 1%;
+    transition: 0.4s;
 }
 
-.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .mensaje-titulado{
-    color: red;
-    display: flex;
-    justify-content: center;
-}
-
-.formulario .contenedor-educacion-requerida .grid .linea-2 .contenedor-titulado .titulado:hover {
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-nivel .nivel:hover{
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
-}
-
-.formulario .contenedor-educacion-requerida .grid .contenedor-nivel .titulo{
-    font-size: 13pt;
-}
-
-.formulario .contenedor-educacion-requerida .grid .contenedor-nivel .nivel{
-    display: flex;
-    width: 60%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 3%;
-    padding-right: 3%;
-    background-color: white;
-    box-shadow: 0 0 5px black;
-    border-radius: 6px;
-    border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
-}
-
-.formulario .contenedor-educacion-requerida .grid .contenedor-nivel .nivel:hover {
-    box-shadow: 0 0 10px black;
-    transition: 0.5s;
-}
-
-.formulario .contenedor-educacion-requerida .grid .contenedor-puntos{
-    margin-bottom: 6%;
 }
 
 .formulario .contenedor-educacion-requerida .grid .contenedor-puntos .titulo{
     font-size: 13pt;
 }
 
-.formulario .contenedor-educacion-requerida .grid .contenedor-puntos .puntos{
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-puntos{
     display: flex;
-    width: 60%;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 4%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-puntos .puntos{
+    display: flex;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
+    transition: 0.4s;
 }
 
-.formulario .contenedor-educacion-requerida .grid .contenedor-puntos .puntos:hover {
+.formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-puntos .puntos:hover{
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+}
+
+.formulario .contenedor-educacion-requerida .grid .contenedor-titulado .titulo{
+    font-size: 13pt;
+}
+
+.formulario .contenedor-educacion-requerida .grid .contenedor-titulado{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    margin-bottom: 1%;
+}
+
+.formulario .contenedor-educacion-requerida .grid .contenedor-titulado .titulado{
+    display: flex;
+    width: 62.6%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+    border: none;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-educacion-requerida .grid .contenedor-titulado .titulado:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin-bottom: 4%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion{
     display: flex;
-    width: 60%;
+    width: 94%;
+    height: 60px;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
     margin-top: 2%;
     resize: none;
@@ -668,12 +699,12 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-boton{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    top: 7%;
+    margin-top: 3%;
+    margin-bottom: 3%;
     gap: 10%;
 }
 
@@ -688,12 +719,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-boton .input-1:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-boton .input-2{
@@ -708,12 +741,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 14pt;
+    transition: 0.4s;
 }
 
 .contenedor-boton .input-2:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/

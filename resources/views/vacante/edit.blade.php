@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/vacante/edit.css')}}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Edit Vacantes</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Actualizar Vacantes</title>
 </head>
 <body>
     <main class="page">
@@ -49,9 +50,9 @@
                     <article class="contenedor-datos">
                         <article class="grid-1">
                             <article class="contenedor-codigo">
-                                <label for="">
+                                <label for="codigo">
                                     <h1 class="titulo">Codigo</h1>
-                                    <input id="" class="input" type="text" name="codigo" value="{{old('codigo', $vacante -> codigo)}}">
+                                    <input id="codigo" class="input" type="text" name="codigo" value="{{old('codigo', $vacante -> codigo)}}">
                                 </label>
                                 @error('codigo')
                                     <strong class="mensaje">{{$message}}</strong>
@@ -59,9 +60,9 @@
                             </article>
 
                             <article class="contenedor-num_vacante">
-                                <label for="">
+                                <label for="numero">
                                     <h1 class="titulo">Numero de vacantes</h1>
-                                    <input class="input" type="text" name="num_vacante" value="{{old('num_vacante', $vacante -> num_vacante)}}">
+                                    <input id="numero" class="input" type="text" name="num_vacante" value="{{old('num_vacante', $vacante -> num_vacante)}}">
                                 </label>
                                 @error('num_vacante')
                                     <strong class="mensaje">{{$message}}</strong>
@@ -69,9 +70,9 @@
                             </article>
 
                             <article class="contenedor-meses_experiencia">
-                                <label for="">
+                                <label for="meses">
                                     <h1 class="titulo">Meses de experiencia</h1>
-                                    <input class="input" type="text" name="meses_experiencia" value="{{old('meses_experiencia', $vacante -> meses_experiencia)}}">
+                                    <input id="meses" class="input" type="text" name="meses_experiencia" value="{{old('meses_experiencia', $vacante -> meses_experiencia)}}">
                                 </label>
                                 @error('meses_experiencia')
                                     <strong class="mensaje">{{$message}}</strong>
@@ -79,9 +80,9 @@
                             </article>
 
                             <article class="contenedor-salario">
-                                <label for="">
+                                <label for="salario">
                                     <h1 class="titulo">Salario</h1>
-                                    <input class="input" type="text" name="salario" value="{{old('salario', $vacante -> salario)}}">
+                                    <input id="salario" class="input" type="text" name="salario" value="{{old('salario', $vacante -> salario)}}">
                                 </label>
                                 @error('salario')
                                     <strong class="mensaje">{{$message}}</strong>
@@ -93,31 +94,57 @@
                             <article class="contenedor-tipo-salatio">
                                 <h1 class="titulo">Tipo de salario</h1>
                                 <select name="tipo_salario" class="tipo-salario">
-                                    <option value="Salario fijo">Salario fijo</option>
-                                    <option value="Salario mixto">Salario mixto</option>
-                                    <option value="Salario en especie">Salario en especie</option>
-                                    <option value="Salario en metalico">Salario en metalico</option>
+                                    <option value="Salario fijo"
+                                        {{$tipo_salario == 'Salario fijo'? 'selected' : '' }}>Salario fijo</option>
+                                    <option value="Salario mixto"
+                                        {{$tipo_salario == 'Salario mixto' ? 'selected' : '' }}>Salario mixto
+                                    </option>
+                                    <option value="Salario en especie"
+                                        {{$tipo_salario == 'Salario en especie' ? 'selected' : '' }}>Salario en
+                                        especie
+                                    </option>
+                                    <option value="Salario en metalico"
+                                        {{$tipo_salario == 'Salario en metalico' ? 'selected' : '' }}>Salario en
+                                        metalico
+                                    </option>
                                 </select>
                             </article>
 
                             <article class="contenedor-tipo-contrato">
                                 <h1 class="titulo">Tipo de contrato</h1>
                                 <select name="tipo_contrato" class="tipo-contrato">
-                                    <option value="Contrato por obra o valor">Contrato por obra o valor</option>
-                                    <option value="Contrato de trabajo a término fijo">Contrato de trabajo a término fijo</option>
-                                    <option value="Contrato de trabajo a término indefinido">Contrato de trabajo a término indefinido</option>
-                                    <option value="Contrato de aprendizaje">Contrato de aprendizaje</option>
-                                    <option value="Contrato temporal">Contrato temporal</option>
-                                    <option value="Contrato ocasional o accidental">Contrato ocasional o accidental</option>
+                                    <option value="Contrato por obra o valor"
+                                        {{ 'Contrato por obra o valor' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato por obra o valor</option>
+                                    <option value="Contrato de trabajo a término fijo"
+                                        {{ 'Contrato de trabajo a término fijo' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato de trabajo a término fijo
+                                    </option>
+                                    <option value="Contrato de trabajo a término indefinido"
+                                        {{ 'Contrato de trabajo a término indefinido' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato de trabajo a término
+                                        indefinido</option>
+                                    <option value="Contrato de aprendizaje"
+                                        {{ 'Contrato de aprendizaje' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato de aprendizaje</option>
+                                    <option value="Contrato temporal"
+                                        {{ 'Contrato temporal' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato temporal</option>
+                                    <option value="Contrato ocasional o accidental"
+                                        {{ 'Contrato ocasional o accidental' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        Contrato ocasional o accidental</option>
                                 </select>
                             </article>
 
                             <article class="contenedor-tipo-jornada">
                                 <h1 class="titulo">Tipo de jornada</h1>
                                 <select name="tipo_jornada" class="tipo-jornada">
-                                    <option value="Diurna">Diurna</option>
-                                    <option value="Nocturna">Nocturna</option>
-                                    <option value="Mixta">Mixta</option>
+                                    <option value="Diurna" {{ 'Diurna' == old('tipo_jornada') ? 'selected' : '' }}>Diurna
+                                    </option>
+                                    <option value="Nocturna" {{ 'Nocturna' == old('tipo_jornada') ? 'selected' : '' }}>
+                                        Nocturna</option>
+                                    <option value="Mixta" {{ 'Mixta' == old('tipo_jornada') ? 'selected' : '' }}>Mixta
+                                    </option>
                                 </select>
                             </article>
 

@@ -92,11 +92,11 @@ body::-webkit-scrollbar-thumb{
 }
 
 .nav .contenedor-nav .titulo-principal .linea{
-    width: 35%;
+    width: 25%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 10px white;
     margin-top: 0.5%;
+    border-radius: 10px;
 }
 
 /*------------------------------------------------------------*/
@@ -114,11 +114,16 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-datos{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 40%;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     margin-bottom: 3%;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-datos:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 20px white;
 }
 
 .contenedor-content .contenedor-datos .datos-vacante{
@@ -131,14 +136,13 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 99.3%;
+    width: 98.9%;
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
-    height: 15%;
+    height: 50px;
     border-radius: 13px 13px 13px 13px;
-    border: 3px solid white;
-    box-shadow: 0 0 10px white;
+    border: 4px solid white;
     margin-bottom: 3%;
 }
 
@@ -152,7 +156,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 18pt;
 }
 
 .contenedor-datos .datos-vacante .encabezado .contenedor-titulo i{
@@ -168,14 +172,15 @@ body::-webkit-scrollbar-thumb{
     width: 25%;
     height: 3px;
     background-color: white;
-    box-shadow: 0 0 7px white;
     margin: 0.5%;
+    border-radius: 10px;
 }
 
 .contenedor-datos .datos-vacante .grid{
     display: grid;
     grid-template-columns: 45% 1fr;
-    padding-left: 4%;
+    padding-left: 7%;
+    padding-right: 7%;
     padding-bottom: 2%;
 }
 
@@ -367,15 +372,14 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 99.3%;
+    width: 98.9%;
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
-    height: 70px;
+    height: 50px;
     border-radius: 13px 13px 13px 13px;
-    border: 3px solid white;
-    box-shadow: 0 0 10px white;
-    margin-bottom: 2%;
+    border: 4px solid white;
+    margin-bottom: 4%;
 }
 
 .contenedor-datos .ubicacion .encabezado .contenedor-titulo{
@@ -388,40 +392,39 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 18pt;
 }
 
 .contenedor-datos .ubicacion .encabezado .contenedor-titulo i{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 17pt;
+    font-size: 16pt;
     position: relative;
     left: -4%;
 }
 
 .contenedor-datos .ubicacion .encabezado .linea{
-    width: 20%;
-    height: 2px;
+    width: 15%;
+    height: 3px;
+    border-radius: 10px;
     background-color: white;
-    box-shadow: 0 0 7px white;
     margin: 0.5%;
 }
 
 .contenedor-datos .ubicacion .flex{
     display: flex;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
     justify-content: space-between;
-    margin-top: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }
 
 .contenedor-datos .ubicacion .flex .contenedor-pais{
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 2%;
-    margin-bottom: 5%;
 }
 
 .contenedor-datos .ubicacion .flex .contenedor-pais .titulo{
@@ -439,7 +442,6 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     align-items: center;
     gap: 2%;
-    margin-bottom: 5%;
 }
 
 .contenedor-datos .ubicacion .flex .contenedor-departamento .titulo{
@@ -457,7 +459,6 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     align-items: center;
     gap: 2%;
-    margin-bottom: 5%;
 }
 
 .contenedor-datos .ubicacion .flex .contenedor-municipio .titulo{
@@ -479,14 +480,13 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 99.3%;
+    width: 98.9%;
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
-    height: 70px;
+    height: 50px;
     border-radius: 13px 13px 13px 13px;
-    border: 3px solid white;
-    box-shadow: 0 0 10px white;
+    border: 4px solid white;
     margin-bottom: 2%;
 }
 
@@ -500,7 +500,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 18pt;
 }
 
 .contenedor-datos .datos-cargo .encabezado .contenedor-titulo i{
@@ -513,88 +513,61 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-datos .datos-cargo .encabezado .linea{
-    width: 20%;
-    height: 2px;
+    width: 10%;
+    height: 3px;
     background-color: white;
-    box-shadow: 0 0 7px white;
+    border-radius: 10px;
     margin: 0.5%;
 }
 
-.contenedor-datos .datos-cargo .primera-linea .contenedor-cargo{
+.contenedor-datos .datos-cargo .linea{
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.contenedor-datos .datos-cargo .contenedor-cargo{
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-top: 5%;
-    margin-bottom: 6%;
+    margin-bottom: 3%;
     gap: 1%;
 }
 
-.contenedor-datos .datos-cargo .primera-linea .contenedor-cargo .titulo{
-    font-size: 13pt;
-}
-
-.contenedor-datos .datos-cargo .primera-linea .contenedor-cargo p{
-    font-size: 13pt;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea{
-    display: flex;
-    justify-content: space-around;
-    height: 40%;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-habilidad{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: 100%;
-    overflow-y: auto;
-    margin-bottom: 4%;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-habilidad::-webkit-scrollbar{
-    width:3px;
-    background-color: white;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-habilidad::-webkit-scrollbar-thumb{
-    background: black;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-habilidad .titulo{
-    font-size: 13pt;
-    margin-bottom: 3%;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-habilidad p{
+.contenedor-datos .datos-cargo .contenedor-cargo .titulo{
     font-size: 12pt;
 }
 
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-competencia{
+.contenedor-datos .datos-cargo .contenedor-cargo p{
+    font-size: 12pt;
+}
+
+.contenedor-datos .datos-cargo .contenedor-habilidad{
     display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 100%;
-    overflow-y: auto;
-    margin-bottom: 4%;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-competencia::-webkit-scrollbar{
-    width:3px;
-    background-color: white;
-}
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-competencia::-webkit-scrollbar-thumb{
-    background: black;
-}
-
-
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-competencia .titulo{
-    font-size: 13pt;
+    width: 100%;
     margin-bottom: 3%;
 }
 
-.contenedor-datos .datos-cargo .segunda-linea .contenedor-competencia p{
+.contenedor-datos .datos-cargo .contenedor-habilidad .titulo{
+    font-size: 12pt;
+}
+
+.contenedor-datos .datos-cargo .contenedor-habilidad p{
+    font-size: 12pt;
+}
+
+.contenedor-datos .datos-cargo .contenedor-competencia{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-datos .datos-cargo .contenedor-competencia .titulo{
+    font-size: 12pt;
+}
+
+.contenedor-datos .datos-cargo .contenedor-competencia p{
     font-size: 12pt;
 }
 
@@ -604,13 +577,13 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 99.3%;
-    height: 70px;
+    width: 98.9%;
+    height: 50px;
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
     border-radius: 13px 13px 13px 13px;
-    border: 3px solid white;
+    border: 4px solid white;
     box-shadow: 0 0 10px white;
     margin-top: 5%;
 }
@@ -625,7 +598,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 18pt;
 }
 
 .contenedor-datos .datos-educacion .encabezado .contenedor-titulo i{
@@ -638,10 +611,10 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-datos .datos-educacion .encabezado .linea{
-    width: 20%;
-    height: 2px;
+    width: 23%;
+    height: 3px;
+    border-radius: 10px;
     background-color: white;
-    box-shadow: 0 0 7px white;
     margin: 0.5%;
 }
 
@@ -718,8 +691,9 @@ hr{
 .empty{
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 50%;
+    align-items: end;
+    height: 60px;
+    font-size: 12pt;
 }
 
 .contenedor-datos .datos-ocupacion .encabezado{
@@ -728,15 +702,13 @@ hr{
     justify-content: center;
     align-items: center;
     gap: 3%;
-    width: 99.3%;
-    height: 70px;
+    width: 98.9%;
+    height: 50px;
     padding-top: 4%;
     padding-bottom: 4%;
     background-color: black;
     border-radius: 13px 13px 13px 13px;
-    border: 3px solid white;
-    box-shadow: 0 0 10px white;
-    margin-top: 5%;
+    border: 4px solid white;
 }
 
 .contenedor-datos .datos-ocupacion .encabezado .contenedor-titulo{
@@ -763,18 +735,19 @@ hr{
 
 .contenedor-datos .datos-ocupacion .encabezado .linea{
     width: 20%;
-    height: 2px;
+    height: 3px;
     background-color: white;
-    box-shadow: 0 0 7px white;
+    border-radius: 10px;
     margin: 0.5%;
 }
 
 .contenedor-datos .datos-ocupacion .contenedor-ocupacion{
     display: flex;
-    padding-left: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
     gap: 2%;
     width: 100%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
     margin-top: 6%;
 }
 
@@ -790,19 +763,43 @@ hr{
 
 .contenedor-datos .datos-ocupacion .contenedor-descripcion{
     display: flex;
-    padding-left: 5%;
+    flex-direction: column;
+    padding-left: 7%;
+    padding-right: 7%;
     gap: 2%;
     width: 90%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 
 .contenedor-datos .datos-ocupacion .contenedor-descripcion .titulo{
     display: flex;
-    align-items: center;
     font-size: 13pt;
 }
 
 .contenedor-datos .datos-ocupacion .contenedor-descripcion p{
+    margin-top: 1%;
+    font-size: 12pt;
+}
+
+.contenedor-datos .datos-ocupacion .contenedor-funciones{
+    display: flex;
+    flex-direction: column;
+    padding-left: 7%;
+    padding-right: 7%;
+    gap: 2%;
+    width: 90%;
+    margin-bottom: 4%;
+}
+
+.contenedor-datos .datos-ocupacion .contenedor-funciones h1{
+    display: flex;
+    font-size: 13pt;
+}
+
+.contenedor-datos .datos-ocupacion .contenedor-funciones li{
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-bottom: 3%;
     font-size: 12pt;
 }
 
@@ -814,8 +811,9 @@ hr{
     gap: 10%;
 }
 
-.contenedor-boton .boton{
+.contenedor-boton a{
     display: flex;
+    align-items: center;
     color: black;
     background-color: #FFD966;
     border: none;
@@ -825,6 +823,8 @@ hr{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    font-size: 12pt;
+    transition: 0.4s;
 }
 
 .contenedor-boton form .boton{
@@ -835,15 +835,18 @@ hr{
     border-radius: 10px;
     padding: 12px;
     font-weight: bolder;
+    font-size: 12pt;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-boton .boton:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 /*------------------------------------------------------------*/
 

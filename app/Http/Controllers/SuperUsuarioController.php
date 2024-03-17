@@ -218,7 +218,7 @@ class SuperUsuarioController extends Controller
             $imagen = asset('imagenes\Icono-hombre.png');
             $titulo = "Perfil del instructor";
         } else {
-            $user = asset('imagenes\Icono-mujer.png');
+            $imagen = asset('imagenes\Icono-mujer.png');
             $titulo = "Perfil de la instructora";
         }
 

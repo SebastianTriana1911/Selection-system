@@ -221,9 +221,17 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 10%;
 }
 
+.opciones .contenedor-1 i{
+    color: black;
+}
+
 .opciones .contenedor-2{
     display: flex;
     gap: 25%;
+}
+
+.opciones .contenedor-2 i{
+    color: black;
 }
 
 .contenedor-boton  { 
@@ -265,43 +273,13 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 15px white;
 }
 
-#ojito{
-    color: black;
-    transition: 0.4s;
-}
-
-#ojito:hover{
-    color: #906d03;
-    transition: 0.4s;
-}
-
-#lapiz{
-    color: black;
-    transition: 0.4s;
-}
-
-#lapiz:hover{
-    color: rgba(67, 186, 80, 0.967);
-    transition: 0.4s;
-}
-
-#mas{
-    color: black;
-    transition: 0.4s;
-}
-
-#mas:hover{
-    color: rgb(0, 0, 255);
-    transition: 0.4s;
-}
-
 #caneca{
     color: black;
     transition: 0.4s;
 }
 
 #caneca:hover{
-    color: rgb(227, 12, 12);
+    color: rgb(221, 8, 8);
     transition: 0.4s;
 }
 

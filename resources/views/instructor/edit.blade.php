@@ -77,18 +77,18 @@
 
                         <article class="contenedor-tipo-identificacion">
                             <h4 class="titulo">Tipo identificacion</h4>
-                            <select class="menu-identificacion" name="tipo_documento" value="{{ old('tipo_documento') }}">
-                                <option value="cedula de ciudadania" {{ 'cedula de ciudadania' == old('tipo_documento') ? 'selected' : '' }}>Cedula de
+                            <select class="menu-identificacion" name="tipo_documento">
+                                <option value="Cedula de ciudadania" {{ $instructor->user->tipo_documento == 'Cedula de ciudadania' ? 'selected' : '' }}>Cedula de
                                     ciudadania</option>
-                                <option value="Tarjeta de identidad" {{ 'Tarjeta de identidad' == old('tipo_documento') ? 'selected' : '' }}>Tarjeta de
+                                <option value="Tarjeta de identidad" {{ $instructor->user->tipo_documento == 'Tarjeta de identidad' ? 'selected' : '' }}>Tarjeta de
                                     identidad</option>
-                                <option value="cedula de extranjeria" {{ 'Cedula de extranjeria' == old('tipo_documento') ? 'selected' : '' }}>Cedula de
+                                <option value="Cedula de extranjeria" {{ $instructor->user->tipo_documento == 'Cedula de extranjeria' ? 'selected' : '' }}>Cedula de
                                     extranjeria</option>
-                                <option value="Otro documento de identidad" {{ 'Otro documento de identidad' == old('tipo_documento') ? 'selected' : '' }}>Otro
+                                <option value="Otro documento de identidad" {{ $instructor->user->tipo_documento == 'Otro documento de identidad' ? 'selected' : '' }}>Otro
                                     doumento de identidad</option>
-                                <option value="Permiso especial de permanencia" {{ 'Permiso especial de permanencia' == old('tipo_documento') ? 'selected' : '' }}>
+                                <option value="Permiso especial de permanencia" {{ $instructor->user->tipo_documento == 'Permiso especial de permanencia' ? 'selected' : '' }}>
                                     Permiso especial de permanencia</option>
-                                <option value="Permiso por proteccion temporal" {{ 'Permiso por proteccion temporal' == old('tipo_documento') ? 'selected' : '' }}>
+                                <option value="Permiso por proteccion temporal" {{ $instructor->user->tipo_documento == 'Permiso por proteccion temporal' ? 'selected' : '' }}>
                                     Permiso por proteccion temporal</option>
                             </select>
                             @error('tipo_documento')
@@ -122,7 +122,7 @@
                             <h1 class="titulo">Municipio</h1>
                             <select class="munu-departamentos" name="municipio_id" value="{{ old('municipio_id') }}">
                                 @foreach ($municipios as $municipio)
-                                <option value="{{ $municipio->id }}" {{ "$municipio->id" == old('municipio_id') ? 'selected' : '' }}>
+                                <option value="{{ $municipio->id }}" {{$instructor->user->municipio->nombre == "$municipio->nombre"? 'selected' : '' }}>
                                     {{ $municipio->nombre }}
                                 </option>
                                 @endforeach
@@ -132,9 +132,9 @@
                         <article class="contenedor-genero">
                             <h3 class="titulo">Genero</h3>
                             <select class="menu-generos" name="genero" value="{{ old('genero') }}">
-                                <option value="Masculino" {{ 'Masculino' == old('genero') ? 'selected' : '' }}>Masculino
+                                <option value="Masculino" {{ $instructor->user->genero == 'Masculino' ? 'selected' : '' }}>Masculino
                                 </option>
-                                <option value="Femenino" {{ 'Femenino' == old('genero') ? 'selected' : '' }}>Femenino
+                                <option value="Femenino" {{ $instructor->user->genero == 'Femenino' ? 'selected' : '' }}>Femenino
                                 </option>
                             </select>
                             @error('genero')

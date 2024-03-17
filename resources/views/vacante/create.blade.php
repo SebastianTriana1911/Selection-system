@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/vacante/create.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <title>Create Vacantes</title>
 </head>
 
@@ -52,40 +53,44 @@
                         <article class="contenedor-codigo">
                             <label for="uno">
                                 <h1 class="titulo">Codigo</h1>
-                                <input id="uno" class="input" type="text" name="codigo" value="{{ old('codigo') }}">
+                                <input id="uno" class="input" type="text" name="codigo"
+                                    value="{{ old('codigo') }}">
                             </label>
                             @error('codigo')
-                            <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-num_vacante">
                             <label for="dos">
                                 <h1 class="titulo">Numero de vacantes</h1>
-                                <input id="dos" class="input" type="text" name="num_vacante" value="{{ old('num_vacante') }}">
+                                <input id="dos" class="input" type="text" name="num_vacante"
+                                    value="{{ old('num_vacante') }}">
                             </label>
                             @error('num_vacante')
-                            <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-meses_experiencia">
                             <label for="tres">
                                 <h1 class="titulo">Meses de experiencia</h1>
-                                <input id="tres" class="input" type="text" name="meses_experiencia" value="{{ old('meses_experiencia') }}">
+                                <input id="tres" class="input" type="text" name="meses_experiencia"
+                                    value="{{ old('meses_experiencia') }}">
                             </label>
                             @error('meses_experiencia')
-                            <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
 
                         <article class="contenedor-salario">
                             <label for="cuatro">
                                 <h1 class="titulo">Salario</h1>
-                                <input id="cuatro" class="input" type="text" name="salario" value="{{ old('salario') }}">
+                                <input id="cuatro" class="input" type="text" name="salario"
+                                    value="{{ old('salario') }}">
                             </label>
                             @error('salario')
-                            <strong class="mensaje">{{ $message }}</strong>
+                                <strong class="mensaje">{{ $message }}</strong>
                             @enderror
                         </article>
                     </article>
@@ -94,33 +99,57 @@
                         <article class="contenedor-tipo-salatio">
                             <h1 class="titulo">Tipo de salario</h1>
                             <select name="tipo_salario" class="tipo-salario">
-                                <option value="Salario fijo">Salario fijo</option>
-                                <option value="Salario mixto">Salario mixto</option>
-                                <option value="Salario en especie">Salario en especie</option>
-                                <option value="Salario en metalico">Salario en metalico</option>
+                                <option value="Salario fijo"
+                                    {{ 'Salario fijo' == old('tipo_salario') ? 'selected' : '' }}>Salario fijo</option>
+                                <option value="Salario mixto"
+                                    {{ 'Salario mixto' == old('tipo_salario') ? 'selected' : '' }}>Salario mixto
+                                </option>
+                                <option value="Salario en especie"
+                                    {{ 'Salario en especie' == old('tipo_salario') ? 'selected' : '' }}>Salario en
+                                    especie
+                                </option>
+                                <option value="Salario en metalico"
+                                    {{ 'Salario en metalico' == old('tipo_salario') ? 'selected' : '' }}>Salario en
+                                    metalico
+                                </option>
                             </select>
                         </article>
 
                         <article class="contenedor-tipo-contrato">
                             <h1 class="titulo">Tipo de contrato</h1>
                             <select name="tipo_contrato" class="tipo-contrato">
-                                <option value="Contrato por obra o valor" {{ 'Contrato por obra o valor' == old('tipo_contrato') ? 'selected' : '' }}>Contrato por obra o valor</option>
-                                <option value="Contrato de trabajo a término fijo" {{ 'Contrato de trabajo a término fijo' == old('tipo_contrato') ? 'selected' : '' }}>Contrato de trabajo a término fijo
+                                <option value="Contrato por obra o valor"
+                                    {{ 'Contrato por obra o valor' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato por obra o valor</option>
+                                <option value="Contrato de trabajo a término fijo"
+                                    {{ 'Contrato de trabajo a término fijo' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato de trabajo a término fijo
                                 </option>
-                                <option value="Contrato de trabajo a término indefinido">Contrato de trabajo a término
+                                <option value="Contrato de trabajo a término indefinido"
+                                    {{ 'Contrato de trabajo a término indefinido' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato de trabajo a término
                                     indefinido</option>
-                                <option value="Contrato de aprendizaje">Contrato de aprendizaje</option>
-                                <option value="Contrato temporal">Contrato temporal</option>
-                                <option value="Contrato ocasional o accidental">Contrato ocasional o accidental</option>
+                                <option value="Contrato de aprendizaje"
+                                    {{ 'Contrato de aprendizaje' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato de aprendizaje</option>
+                                <option value="Contrato temporal"
+                                    {{ 'Contrato temporal' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato temporal</option>
+                                <option value="Contrato ocasional o accidental"
+                                    {{ 'Contrato ocasional o accidental' == old('tipo_contrato') ? 'selected' : '' }}>
+                                    Contrato ocasional o accidental</option>
                             </select>
                         </article>
 
                         <article class="contenedor-tipo-jornada">
                             <h1 class="titulo">Tipo de jornada</h1>
                             <select name="tipo_jornada" class="tipo-jornada">
-                                <option value="Diurna">Diurna</option>
-                                <option value="Nocturna">Nocturna</option>
-                                <option value="Mixta">Mixta</option>
+                                <option value="Diurna" {{ 'Diurna' == old('tipo_jornada') ? 'selected' : '' }}>Diurna
+                                </option>
+                                <option value="Nocturna" {{ 'Nocturna' == old('tipo_jornada') ? 'selected' : '' }}>
+                                    Nocturna</option>
+                                <option value="Mixta" {{ 'Mixta' == old('tipo_jornada') ? 'selected' : '' }}>Mixta
+                                </option>
                             </select>
                         </article>
 
@@ -130,9 +159,9 @@
                             <h1 class="titulo">Cargo</h1>
                             <select class="cargos" name="cargo_id">
                                 @forelse ($cargos as $cargo)
-                                <option value="{{ $cargo->id }}">{{ $cargo->cargo }}</option>
+                                    <option value="{{ $cargo->id }}">{{ $cargo->cargo }}</option>
                                 @empty
-                                <h1>No hay cargos en el sistema</h1>
+                                    <h1>No hay cargos en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -153,9 +182,9 @@
                             <h1>Pais</h1>
                             <select class="paises" name="">
                                 @forelse ($paises as $pais)
-                                <option value="">{{ $pais->nombre }}</option>
+                                    <option value="">{{ $pais->nombre }}</option>
                                 @empty
-                                <h1>No hay paises en el sistema</h1>
+                                    <h1>No hay paises en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -164,9 +193,9 @@
                             <h1>Departamento</h1>
                             <select class="departamento">
                                 @forelse ($departamentos as $departamento)
-                                <option>{{ $departamento->nombre }}</option>
+                                    <option>{{ $departamento->nombre }}</option>
                                 @empty
-                                <h1>No hay departamentos en el sistema</h1>
+                                    <h1>No hay departamentos en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -175,9 +204,9 @@
                             <h1>Municipio</h1>
                             <select class="municipio" name="municipio_id">
                                 @forelse ($municipios as $municipio)
-                                <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
+                                    <option value="{{ $municipio->id }}">{{ $municipio->nombre }}</option>
                                 @empty
-                                <h1>No hay municipios en el sistema</h1>
+                                    <h1>No hay municipios en el sistema</h1>
                                 @endforelse
                             </select>
                         </article>
@@ -198,7 +227,7 @@
                         <h1>Atencion</h1>
                         <p>En este espacio podras colocar el nivel de educacion que requiere la vacante con una
                             descripcion de esta, el campo de puntuacion sera la ponderacion que tendra el candidato si
-                            cumple con el nivel de educacion que se requiere</p>
+                            cumple con el nivel de educacion que se requiere.</p>
                     </article>
 
                     <article class="grid">
@@ -206,42 +235,50 @@
                             <article class="contenedor-nivel">
                                 <h1 class="titulo">Nivel de educacion</h1>
                                 <select class="nivel" name="nivel_estudio">
-                                    <option value="Bachiller">Bachiller</option>
-                                    <option value="Tecnico">Tecnico</option>
-                                    <option value="Tecnologo">Tecnologo</option>
-                                    <option value="Pregrado">Pregrado</option>
-                                    <option value="Posgrado">Posgrado</option>
-                                    <option value="Especializacion">Especializacion</option>
-                                    <option value="Doctorado">Doctorado</option>
+                                    <option value="Bachiller"
+                                        {{ 'Bachiller' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Bachiller</option>
+                                    <option value="Tecnico"{{ 'Tecnico' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Tecnico</option>
+                                    <option value="Tecnologo"
+                                        {{ 'Tecnologo' == old('nivel_estudio') ? 'selected' : '' }}>Tecnologo</option>
+                                    <option value="Pregrado"
+                                        {{ 'Pregrado' == old('nivel_estudio') ? 'selected' : '' }}>Pregrado</option>
+                                    <option value="Posgrado"
+                                        {{ 'Posgrado' == old('nivel_estudio') ? 'selected' : '' }}>Posgrado</option>
+                                    <option value="Especializacion"
+                                        {{ 'Especializacion' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Especializacion</option>
+                                    <option value="Doctorado"
+                                        {{ 'Doctorado' == old('nivel_estudio') ? 'selected' : '' }}>Doctorado</option>
                                 </select>
                             </article>
 
 
                             <article class="contenedor-puntos">
-                                <h1 class="titulo">Puntuacion para la educacion</h1>
-                                <input class="puntos" type="number" name="puntos" min="1" max="10" value="{{ old('puntos') }}">
+                                <h1 class="titulo">Ponderacion</h1>
+                                <input class="puntos" type="number" name="puntos" min="1" max="10"
+                                    value="{{ old('puntos') }}">
                                 @error('puntos')
-                                <strong class="mensaje">{{ $message }}</strong>
+                                    <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
                         </article>
 
-                        <article class="linea-2">
-                            <article class="contenedor-titulado">
-                                <h1 class="titulo">Titulado requerido</h1>
-                                <input class="titulado" type="text" name="titulado" value="{{ old('titulado') }}">
-                                @error('titulado')
-                                <strong class="mensaje-titulado">{{ $message }}</strong>
-                                @enderror
-                            </article>
+                        <article class="contenedor-titulado">
+                            <h1 class="titulo">Titulo requerido</h1>
+                            <input class="titulado" type="text" name="titulado" value="{{ old('titulado') }}">
+                            @error('titulado')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
                     </article>
 
                     <article class="contenedor-descripcion">
-                        <h1>Descripcion de la educacion que se debe tener</h1>
-                        <textarea class="descripcion" name="descripcion" cols="40" rows="7">{{ old('descripcion') }}</textarea>
+                        <h1>Descripcion sobre dicha educacion</h1>
+                        <textarea class="descripcion" name="descripcion">{{ old('descripcion') }}</textarea>
                         @error('descripcion')
-                        <strong class="mensaje">{{ $message }}</strong>
+                            <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
 

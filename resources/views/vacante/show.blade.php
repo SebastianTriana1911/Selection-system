@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/vacante/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <title>Show Vacantes</title>
 </head>
 
@@ -155,16 +156,14 @@
                             <h1 class="linea"></h1>
                         </article>
 
-                        <article class="primera-linea">
+                        <article class="linea">
                             <article class="contenedor-cargo">
                                 <h1 class="titulo">Cargo: </h1>
                                 <p>{{ $vacante->cargo->cargo }}</p>
                             </article>
-                        </article>
 
-                        <article class="segunda-linea">
                             <article class="contenedor-habilidad">
-                                <h1 class="titulo">Habilidades del cargo</h1>
+                                <h1 class="titulo">Habilidades del cargo:</h1>
                                 <p>{{ $vacante->cargo->habilidad }}</p>
                             </article>
 
@@ -239,6 +238,17 @@
                         <article class="contenedor-descripcion">
                             <h1 class="titulo">Descripcion: </h1>
                             <p>{{ $vacante->cargo->ocupacion->descripcion }}</p>
+                        </article>
+
+                        <article class="contenedor-funciones">
+                            <h1>Funciones: </h1>
+                            @forelse($funciones as $funcion)
+                                    <ul>
+                                        <li>{{$funcion->funcion}}</li>
+                                    </ul>
+                                @empty
+
+                            @endforelse
                         </article>
                     </article>
                 </article>

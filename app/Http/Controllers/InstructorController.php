@@ -16,9 +16,11 @@ use App\Http\Requests\StoreInstructor;
 use App\Http\Requests\UpdateInstructor;
 use Illuminate\Support\Facades\Redirect;
 
-class InstructorController extends Controller{
+class InstructorController extends Controller
+{
     // ---------------------- METODO CREATE ----------------------
-    public function create(){
+    public function create()
+    {
 
         // Al llamar el metodo create mostraremos la vista la cual
         // contiene el formulario para crear un instructor, como
@@ -32,18 +34,21 @@ class InstructorController extends Controller{
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
-        
+
         // Se retorna la vista que contiene el formulario y se le
         // asignan las variables que contienen todos los registros de
         // las tablas ya mencionadas para que las itere
-        return view('instructor.create', ['paises' => $paises, 
-        'departamentos' => $departamentos,
-        'municipios' => $municipios]);
+        return view('instructor.create', [
+            'paises' => $paises,
+            'departamentos' => $departamentos,
+            'municipios' => $municipios
+        ]);
     }
     // ----------------------------------------------------------
 
     // ---------------------- METODO STORE ----------------------
-    public function store(StoreInstructor $request){
+    public function store(StoreInstructor $request)
+    {
         // Al llamar el metodo store vamos a hacer la insercion de
         // un nuevo registro de la tabla users pues recordemos que
         // en este caso un instructor es un usuario, asi que se
@@ -53,17 +58,17 @@ class InstructorController extends Controller{
         // Se accede a cada uno de los campos de la tabla users y se
         // remplazan por los campos del formulario que retorna el
         // metodo create para finalmente salvarlo en la base de datos
-        $user -> num_documento = $request -> num_documento;
-        $user -> tipo_documento = $request -> tipo_documento;
-        $user -> nombre = $request -> nombre;
-        $user -> apellido = $request -> apellido;
-        $user -> genero = $request -> genero;
-        $user -> estado_civil = $request -> estado_civil;
-        $user -> email = $request -> email;
-        $user -> password = Hash::make($request->password);
-        $user -> municipio_id = $request -> municipio_id;
-        $user -> role_id = $request -> role_id;
-        $user -> save();
+        $user->num_documento = $request->num_documento;
+        $user->tipo_documento = $request->tipo_documento;
+        $user->nombre = $request->nombre;
+        $user->apellido = $request->apellido;
+        $user->genero = $request->genero;
+        $user->estado_civil = $request->estado_civil;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->municipio_id = $request->municipio_id;
+        $user->role_id = $request->role_id;
+        $user->save();
 
         // Se crea una instancia del modelo instructor pues es este
         // al que estamos creando pero como el instructor es un usuario
@@ -78,12 +83,12 @@ class InstructorController extends Controller{
         // el campo id. Esto quiere decir que el valor del campo user_id
         // de la tabla instructores corresponde al registro con el mismo
         // valor en el campo id de la tabla users 
-        $instructor -> user_id = $user -> id;
-        $instructor -> fecha_nacimiento = $request -> fecha_nacimiento;
-        $instructor -> direccion = $request -> direccion;
-        $instructor -> telefono = $request -> telefono;
-        $instructor -> perfil_profesional = $request -> perfil_profesional; 
-        $instructor -> save();
+        $instructor->user_id = $user->id;
+        $instructor->fecha_nacimiento = $request->fecha_nacimiento;
+        $instructor->direccion = $request->direccion;
+        $instructor->telefono = $request->telefono;
+        $instructor->perfil_profesional = $request->perfil_profesional;
+        $instructor->save();
 
 
         // El instructor tambien cuenta con una o multiples profesiones por
@@ -91,38 +96,37 @@ class InstructorController extends Controller{
         // una nueva instancia a el modelo Profesion para asi relacionarlos
         // entre los dos
         $profesion = new Profesion();
-        if($profesion->titulado && $profesion->institucion && $profesion->documento == null){
+        if ($profesion->titulado && $profesion->institucion && $profesion->documento == null) {
             return redirect()->route('super.index');
+        } else {
+            $profesion->instructor_id = $instructor->id;
+            $profesion->titulado = $request->titulado;
+            $profesion->institucion = $request->institucion;
+
+            // En esta condicional se valida si la persona subio un documento y
+            // si ese es el caso se sube el documento a una carpeta llamada
+            // documento que es subcarpeta de la carpeta principal storage. Al
+            // campo documento se le asigna la ruta del archivo que se subio para
+            // que se pueda mostrar mediante una nueva vista
+            if ($request->hasFile('documento')) {
+                $documento = $request->file('documento');
+                $documentoNombre = $documento->getClientOriginalName();
+                $documento->storeAs('public', $documentoNombre);
+                $ruta = 'storage/' . $documentoNombre;
+                $profesion->documento = $ruta;
+                $profesion->save();
+
+                return redirect()->route('super.index');
+
+                // Si la condicional da que no se a subido ningun archivo entonces ese
+                // campo quedara como nulo
+            } else {
+                $profesion->documento = null;
+                $profesion->save();
+
+                return redirect()->route('super.index');
+            }
         }
-
-        $profesion -> instructor_id = $instructor -> id;
-        $profesion -> titulado = $request -> titulado;
-        $profesion -> institucion = $request -> institucion;
-
-        // En esta condicional se valida si la persona subio un documento y
-        // si ese es el caso se sube el documento a una carpeta llamada
-        // documento que es subcarpeta de la carpeta principal storage. Al
-        // campo documento se le asigna la ruta del archivo que se subio para
-        // que se pueda mostrar mediante una nueva vista
-        if ($request->hasFile('documento')){
-            $documento = $request->file('documento');
-            $documentoNombre = $documento->getClientOriginalName();
-            $documento->storeAs('public', $documentoNombre);
-            $ruta = 'storage/' . $documentoNombre;
-            $profesion -> documento = $ruta;
-            $profesion -> save();
-
-            return redirect()->route('super.index');
-
-        // Si la condicional da que no se a subido ningun archivo entonces ese
-        // campo quedara como nulo
-        }else {
-            $profesion -> documento = null;
-            $profesion->save();
-        
-            return redirect()->route('super.index');
-        }
-        
     }
     // ----------------------------------------------------------
 
@@ -136,7 +140,8 @@ class InstructorController extends Controller{
     // que ya tenian creados en el metodo value old() y el perfil_profesional
     // para que realizar la validacion donde si este campo esta vacio
     // muestre un mensaje
-    public function edit(string $id){
+    public function edit(string $id)
+    {
         // Instancias
         $userAutenticado = Auth::user();
         $paises = Pais::all();
@@ -147,17 +152,19 @@ class InstructorController extends Controller{
 
         // Validacion del perfil_profesional
         $perfil_profesional = '';
-        if($instructor->perfil_profesional == null){
+        if ($instructor->perfil_profesional == null) {
             $perfil_profesional = 'El instructor no tiene perfil profesional';
-        }else {
+        } else {
             $perfil_profesional = $instructor->perfil_profesional;
         }
 
-        return view('instructor.edit', ['instructor' => $instructor, 
-        "administrador" => $userAutenticado, 'paises' => $paises, 
-        'departamentos' => $departamentos, 'municipios' => $municipios,
-        'perfil_profesional' => $perfil_profesional,
-        'idInstructor' => $idInstructor]);
+        return view('instructor.edit', [
+            'instructor' => $instructor,
+            "administrador" => $userAutenticado, 'paises' => $paises,
+            'departamentos' => $departamentos, 'municipios' => $municipios,
+            'perfil_profesional' => $perfil_profesional,
+            'idInstructor' => $idInstructor
+        ]);
     }
     // ------------------------------------------------------------------------
 
@@ -178,14 +185,15 @@ class InstructorController extends Controller{
     // numero de documento ya existe por que ya se encuentre el 1 en la BD, lo
     // que hace dicho metodo es ignorar la regla de validacion cuando dicha
     // comparacion coincida
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         // Instancia de la clase de instructor donde se actualizan
         // los campos correspondientes a dicha tabla
         $instructor = Instructor::find($id);
-        $instructor->fecha_nacimiento = $request -> fecha_nacimiento;
-        $instructor->direccion = $request -> direccion;
-        $instructor->telefono = $request -> telefono;
-        $instructor->perfil_profesional = $request -> perfil_profesional;
+        $instructor->fecha_nacimiento = $request->fecha_nacimiento;
+        $instructor->direccion = $request->direccion;
+        $instructor->telefono = $request->telefono;
+        $instructor->perfil_profesional = $request->perfil_profesional;
         $instructor->save();
 
         // Instancia de la tabla user buscando el registro que coincida
@@ -235,23 +243,30 @@ class InstructorController extends Controller{
             'email.email' => 'Debe ser un email',
             'email.unique' => 'Ya existe',
         ]);
-        if($request -> num_documento == $user -> num_documento){
-            $user->num_documento = $request -> num_documento;
+        if ($request->num_documento == $user->num_documento) {
+            $user->num_documento = $request->num_documento;
+            $user->save();
+        } else {
+            $user->num_documento = $request->num_documento;
             $user->save();
         }
-        $user->tipo_documento = $request -> tipo_documento;
-        $user->nombre = $request -> nombre;
-        $user->apellido = $request -> apellido;
-        $user->genero = $request -> genero;
-        $user->estado_civil = $request ->estado_civil;
+        $user->tipo_documento = $request->tipo_documento;
+        $user->nombre = $request->nombre;
+        $user->apellido = $request->apellido;
+        $user->genero = $request->genero;
+        $user->estado_civil = $request->estado_civil;
+        $user->municipio_id = $request->municipio_id;
 
-        if($user->email == $request -> email){
-            $user->email = $request -> email;
+        if ($user->email == $request->email) {
+            $user->email = $request->email;
+            $user->save();
+        } else {
+            $user->email = $request->email;
             $user->save();
         }
         $user->save();
 
-        
+
         return redirect()->route('super.index');
     }
     // ------------------------------------------------------------------------

@@ -84,36 +84,38 @@
                     <h1 class="linea-2"></h1>
                 </article>
 
-                <section class="contenedor-ocupaciones">
-                    @forelse($funciones as $funcion)
-                        @if ($funcion->ocupacion_id == $ocupaciones->id)
-                            <article class="ocupacion">
-                                <article class="parte-1">
-                                    <i class="fa-solid fa-plus" style="color: black"></i>
-                                    <a>{{ $funcion->funcion }}</a>
+                <article class="contenedor-grande">
+                    <section class="contenedor-ocupaciones">
+                        @forelse($funciones as $funcion)
+                            @if ($funcion->ocupacion_id == $ocupaciones->id)
+                                <article class="ocupacion">
+                                    <article class="parte-1">
+                                        <i class="fa-solid fa-plus" style="color: black"></i>
+                                        <a>{{ $funcion->funcion }}</a>
+                                    </article>
+
+                                    <article class="parte-2">
+                                        <form action="{{ route('funcion.destroy', ['id' => $funcion->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="buttom">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        <a class="a"
+                                            href="{{ route('funcion.edit', ['ocupacion' => $ocupaciones->id, 'id' => $funcion->id, 'empresaId' => $empresaId]) }}"><i
+                                                class="fa-solid fa-pen"></i></a>
+                                    </article>
                                 </article>
+                            @endif
 
-                                <article class="parte-2">
-                                    <form action="{{ route('funcion.destroy', ['id' => $funcion->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="buttom">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
-                                    <a class="a"
-                                        href="{{ route('funcion.edit', ['ocupacion' => $ocupaciones->id, 'id' => $funcion->id, 'empresaId' => $empresaId]) }}"><i
-                                            class="fa-solid fa-pen"></i></a>
-                                </article>
-                            </article>
-                        @endif
+                        @empty
+                            <h1 class="empty">No hay funciones creadas</h1>
+                        @endforelse
 
-                    @empty
-                        <h1 class="empty">No hay funciones creadas</h1>
-                    @endforelse
-
-                </section>
+                    </section>
+                </article>
             </section>
 
         </section>

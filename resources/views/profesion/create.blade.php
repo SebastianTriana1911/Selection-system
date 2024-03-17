@@ -85,34 +85,36 @@
                     <h1 class="linea"></h1>
                 </article>
 
-                <section class="contenedor-ocupaciones">
-                    @forelse($profesiones as $profesion)
-                        @if ($profesion->titulado && $profesion->institucion && $profesion->docummento == null)
-                            <article class="ocupacion">
-                                <article class="parte-1">
-                                    <i class="fa-solid fa-gear" style="color: black"></i>
-                                    <a
-                                        href="{{ route('profesion.edit', ['id' => $profesion->id, 'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">{{ $profesion->titulado }}</a>
-                                </article>
+                <article class="contenedor-grande">
+                    <section class="contenedor-ocupaciones">
+                        @forelse($profesiones as $profesion)
+                            @if ($profesion->titulado && $profesion->institucion && $profesion->docummento == null)
+                                <article class="ocupacion">
+                                    <article class="parte-1">
+                                        <i class="fa-solid fa-gear" style="color: black"></i>
+                                        <a
+                                            href="{{ route('profesion.edit', ['id' => $profesion->id, 'idInstructor' => $idInstructor, 'idUsuario' => $idUsuario]) }}">{{ $profesion->titulado }}</a>
+                                    </article>
 
-                                <article class="parte-2">
-                                    <form action="{{ route('profesion.destroy', ['id' => $profesion->id]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button class="buttom">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    <article class="parte-2">
+                                        <form action="{{ route('profesion.destroy', ['id' => $profesion->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="buttom">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </article>
                                 </article>
-                            </article>
-                        @else
-                            @continue
-                        @endif
-                    @empty
-                        <h1 class="empty">El instructor no tiene profesiones</h1>
-                    @endforelse
-                </section>
+                            @else
+                                @continue
+                            @endif
+                        @empty
+                            <h1 class="empty">El instructor no tiene profesiones</h1>
+                        @endforelse
+                    </section>
+                </article>
             </section>
 
         </section>

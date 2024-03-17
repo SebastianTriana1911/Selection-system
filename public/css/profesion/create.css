@@ -207,10 +207,12 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 7px;
     padding: 8%;
-    width: 205%;
+    width: 140px;
+    height: 15px;
     box-shadow: 0 0 5px black;
     margin-top: 5%;
     display: flex;
+    align-items: center;
     font-weight: bolder;
     cursor: pointer;
     gap: 7%;
@@ -310,23 +312,30 @@ body::-webkit-scrollbar-thumb{
     margin-top: 1%;
 }
 
+.contenedor-content .contenedor-grande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+}
+
 .contenedor-content .contenedor-ocupaciones{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     width: 90%;
-    height: 390px;
+    height: 400px;
     overflow: auto;
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar{
+.content-2 .contenedor-ocupaciones::-webkit-scrollbar{
     border-radius: 5px;
     width:7px;
     background-color: rgb(207, 193, 193, 0.2);
 }
 
-.contenedor-content .contenedor-ocupaciones::-webkit-scrollbar-thumb{
+.content-2 .contenedor-ocupaciones::-webkit-scrollbar-thumb{
     width: 10px;
     background: white;
     border-radius: 5px;

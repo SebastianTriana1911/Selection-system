@@ -92,7 +92,7 @@ class ProfesionController extends Controller
             $urlModificada = str_replace($parteEliminar, '', $urlOriginal);
             // Ruta relativa al enlace simbólico creado por Laravel
             $rutaArchivo = 'public/' . $urlModificada;
-            $rutaArchivoCodificada = rawurldecode($rutaArchivo);            
+            $rutaArchivoCodificada = rawurldecode($rutaArchivo);
             Storage::delete($rutaArchivoCodificada);
             if ($request->hasFile('documento')) {
                 $documento = $request->file('documento');
@@ -116,6 +116,15 @@ class ProfesionController extends Controller
     public function destroy(string $id)
     {
         $profesion = Profesion::find($id);
+        $urlOriginal = $profesion->documento;
+        $parteEliminar = 'storage/';
+        // Accedo a la ruta sin el storage que habia concatenado a la hora de subir el archivo
+        $urlModificada = str_replace($parteEliminar, '', $urlOriginal);
+        // Ruta relativa al enlace simbólico creado por Laravel
+        $rutaArchivo = 'public/' . $urlModificada;
+        $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+        Storage::delete($rutaArchivoCodificada);
+        
         $profesion->delete();
         return redirect()->back();
     }

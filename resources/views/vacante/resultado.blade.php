@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/vacante/index.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Vacantes</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Resultado busqueda</title>
 </head>
 
 <body>
@@ -35,15 +36,18 @@
                 </article>
 
                 <article class="titulo-principal">
-                    <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
                 <article class="contenedor-input">
-                    <form class="buscar" action="{{ route('vacante.buscar', ['id' => $empresa->id]) }}"
-                        method="POST">
+                    <form class="buscar" action="{{ route('vacante.buscar', ['id' => $empresa->id]) }}" method="POST">
                         @csrf
-                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
+                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes"
+                            value="{{ $busqueda }}" />
                         <button class="boton">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                         </button>
@@ -105,7 +109,7 @@
                                                 $contadorPostulaciones = $contadorPostulaciones + 1;
                                             }
                                         @endphp
-                                        <h1 class="titulo"> Postulados {{$contadorPostulaciones}}</h1>
+                                        <h1 class="titulo"> Postulados {{ $contadorPostulaciones }}</h1>
                                     </article>
 
                                 </article>
@@ -113,11 +117,9 @@
 
 
                             <article class="contenedor-botones">
-                                <a
-                                    href="{{ route('vacante.show', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
+                                <a href="{{ route('vacante.show', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
                                         class="fa-solid fa-eye" style="color: #000000;"></i></a>
-                                <a
-                                    href="{{ route('vacante.edit', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
+                                <a href="{{ route('vacante.edit', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
                                         class="fa-solid fa-pencil" style="color: #000000;"></i></a>
                                 <a
                                     href="{{ route('eduvacante.create', ['vacante' => $resul->id, 'empresa' => $empresa->id]) }}"><i

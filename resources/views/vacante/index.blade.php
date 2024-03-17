@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/vacante/index.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Index Vacantes</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Buscar Vacantes</title>
 </head>
 
 <body>
@@ -35,7 +36,10 @@
                 </article>
 
                 <article class="titulo-principal">
-                    <h1 class="titulo">Lista de vacantes de la empresa {{ $empresa->nombre }}</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1 class="titulo">Lista de vacantes de la empresa {{ $empresa->nombre }}</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
@@ -115,19 +119,19 @@
                                 <article class="contenedor-botones">
                                     <a
                                         href="{{ route('vacante.show', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                     <a
                                         href="{{ route('vacante.edit', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-pencil" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-pencil"></i></a>
                                     <a
                                         href="{{ route('eduvacante.create', ['vacante' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-plus" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-plus"></i></a>
                                     <form action="{{ route('vacante.destroy', ['id' => $vacante->id]) }}"
                                         method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="boton">
-                                            <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                            <i id="caneca" class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
                                 </article>
@@ -183,19 +187,19 @@
                                 <article class="contenedor-botones">
                                     <a
                                         href="{{ route('vacante.show', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-eye"></i></a>
                                     <a
                                         href="{{ route('vacante.edit', ['id' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-pencil" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-pencil"></i></a>
                                     <a
                                         href="{{ route('eduvacante.create', ['vacante' => $vacante->id, 'empresa' => $empresa->id]) }}"><i
-                                            class="fa-solid fa-plus" style="color: #000000;"></i></a>
+                                            class="fa-solid fa-plus"></i></a>
                                     <form action="{{ route('vacante.destroy', ['id' => $vacante->id]) }}"
                                         method="POST">
                                         @csrf
                                         @method('delete')
                                         <button class="boton">
-                                            <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                            <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
                                 </article>

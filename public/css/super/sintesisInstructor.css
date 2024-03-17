@@ -96,12 +96,12 @@
     padding: 5% 4% 5% 4%;
     position: relative;
     left: -4%;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .cuadro:hover{
     box-shadow: 0 0 15px white;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-content .cuadro .contenedor-nombre {
@@ -110,6 +110,7 @@
     align-items: center;
     width: 100%;
     height: 20%;
+    text-align: center;
 }
 
 .contenedor-content .contenedor-imagen {
@@ -141,16 +142,16 @@
 }
 
 .contenedor-cuadro::-webkit-scrollbar{
-    border-radius: 5px;
-    width:7px;
-    background-color: rgb(0, 0, 0);
+    border-radius: 2px;
+    width:10px;
+    background-color: rgba(207, 202, 202, 0.712);
 }
 
 .contenedor-cuadro::-webkit-scrollbar-thumb{
     width: 4px;
-    background: rgba(207, 202, 202, 0.953);
+    background-color: rgba(0, 0, 0, 0.705);
     /* background: rgba(47, 47, 47, 0.955); */
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .contenedor-sidebar .contenedor-cuadro{
@@ -160,14 +161,14 @@
     overflow-y: auto;
     position: relative;
     top: -4%;
-    border-radius: 15px;
+    border-radius: 15px 0 0 15px;
     padding-bottom: 2%;
-    transition: 0.5s;
+    transition: 0.4s
 }
 
 .contenedor-sidebar .contenedor-cuadro:hover {
     box-shadow: 0 0 20px white;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 
@@ -246,6 +247,61 @@
 .contenedor-sidebar .correo .valor {
     font-size: 12pt;
     text-decoration: none;
+}
+
+.contenedor-sidebar .profesion {
+    display: grid;
+    gap: 7%;
+    margin-bottom: 3%;
+}
+
+.contenedor-sidebar .profesion .clave {
+    font-size: 15pt;
+}
+
+.contenedor-sidebar .profesion .valor{
+    font-size: 12pt;
+}
+
+.contenedor-sidebar .profesion .valor li {
+    font-size: 12pt;
+    text-decoration: none;
+    margin-bottom: 2%;
+}
+
+.contenedor-sidebar .egresado {
+    display: grid;
+}
+
+.contenedor-sidebar .egresado .clave {
+    font-size: 15pt;
+}
+
+.contenedor-sidebar .egresado .valor{
+    font-size: 12pt;
+}
+
+.contenedor-sidebar .egresado li {
+    font-size: 12pt;
+    text-decoration: none;
+}
+
+.contenedor-sidebar .documento {
+    display: grid;
+}
+
+.contenedor-sidebar .documento .clave {
+    font-size: 15pt;
+}
+
+.contenedor-sidebar .documento .valor{
+    font-size: 12pt;
+}
+
+.contenedor-sidebar .documento li {
+    font-size: 12pt;
+    text-decoration: none;
+    margin-bottom: 1%;
 }
 
 .valor-a{

@@ -371,13 +371,20 @@ body::-webkit-scrollbar-thumb{
     margin-top: 0.5%;
 }
 
+.contenedor-content .contenedor-grande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+}
+
 .contenedor-content .contenedor-ocupaciones{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     width: 90%;
-    height: 70%;
+    height: 400px;
     overflow: auto;
 }
 

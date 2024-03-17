@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Seleccionador;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\RestaurarPassword;
 
 class UserController extends Controller
@@ -50,6 +51,22 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        if ($user->role_id == 3) {
+            $instructor = $user->instructor;
+            foreach ($instructor->profesion as $profesion) {
+                if ($profesion->documento != null) {
+                    $urlOriginal = $profesion->documento;
+                    $parteEliminar = 'storage/';
+                    // Accedo a la ruta sin el storage que habia concatenado a la hora de subir el archivo
+                    $urlModificada = str_replace($parteEliminar, '', $urlOriginal);
+                    // Ruta relativa al enlace simbólico creado por Laravel
+                    $rutaArchivo = 'public/' . $urlModificada;
+                    $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+                    Storage::delete($rutaArchivoCodificada);
+                }
+            }
+            $user->delete();
+        }
         $user->delete();
 
         return redirect()->back();
@@ -69,7 +86,7 @@ class UserController extends Controller
     {
         $usuario = User::find($id);
         if ($usuario->role_id == 1) {
-            if($request->menu == 1){
+            if ($request->menu == 1) {
                 return redirect()->back();
             }
             $administrador = SuperUsuario::where('user_id',  $usuario->id)->first();
@@ -117,7 +134,7 @@ class UserController extends Controller
         // Validacion donde se comprueba si el usuario al que se desea 
         // cambiar el rol es un candidato
         if ($usuario->role_id == 2) {
-            if($request->menu == 2){
+            if ($request->menu == 2) {
                 return redirect()->back();
             }
             $candidato = Candidato::where('user_id',  $usuario->id)->first();
@@ -165,7 +182,7 @@ class UserController extends Controller
         // Validacion donde se comprueba si el usuario al que se desea 
         // cambiar el rol es un Instructor
         if ($usuario->role_id == 3) {
-            if($request->menu == 3){
+            if ($request->menu == 3) {
                 return redirect()->back();
             }
             $instructor = Instructor::where('user_id',  $usuario->id)->first();
@@ -214,7 +231,7 @@ class UserController extends Controller
         // Validacion donde se comprueba si el usuario al que se desea 
         // cambiar el rol es un seleccionador
         if ($usuario->role_id == 4) {
-            if($request->menu == 4){
+            if ($request->menu == 4) {
                 return redirect()->back();
             }
             $reclutador = Seleccionador::where('user_id', $usuario->id)->first();
@@ -259,7 +276,7 @@ class UserController extends Controller
         }
 
         if ($usuario->role_id == 5) {
-            if($request->menu == 5){
+            if ($request->menu == 5) {
                 return redirect()->back();
             }
             $reclutador = Reclutador::where('user_id', $usuario->id)->first();

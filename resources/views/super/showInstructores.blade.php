@@ -48,40 +48,46 @@
 
                 <article class="scroll">
                     @forelse($instructores as $instructor)
-                    <article class="contenedor-instructor">
+                        <article class="contenedor-instructor">
 
-                        <article class="contenedor-logo">
-                            <i class="fa-solid fa-user" style="color: #000000;"></i>
-                        </article>
-
-                        <article class="contenedor-nombre">
-                            <h1 class="titulo">{{ $instructor->user->nombre }} {{ $instructor->user->apellido }}</h1>
-                        </article>
-
-                        <article class="opciones">
-
-                            <article class="contenedor-1">
-                                <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i id="ojito" class="fa-solid fa-eye"></i></a>
-                                <a href="{{ route('instructor.edit', ['id' => $instructor->id]) }}"><i id="lapiz" class="fa-solid fa-pencil"></i></a>
+                            <article class="contenedor-logo">
+                                <i class="fa-solid fa-user" style="color: #000000;"></i>
                             </article>
 
-                            <article class="contenedor-2">
-                                <a href="{{ route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id]) }}"><i id="mas" class="fa-solid fa-plus"></i></a>
-                                <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}" method="POST">
-                                    @csrf
+                            <article class="contenedor-nombre">
+                                <h1 class="titulo">{{ $instructor->user->nombre }} {{ $instructor->user->apellido }}
+                                </h1>
+                            </article>
 
-                                    @method('delete')
+                            <article class="opciones">
 
-                                    <button class="contenedor-bote">
-                                        <i id="caneca" class="fa-solid fa-trash"></i>
-                                    </button>
-                                </form>
+                                <article class="contenedor-1">
+                                    <a href="{{ route('sintesis.instructor', ['id' => $instructor->user_id]) }}"><i
+                                            id="ojito" class="fa-solid fa-eye"></i></a>
+                                    <a href="{{ route('instructor.edit', ['id' => $instructor->id]) }}"><i
+                                            id="lapiz" class="fa-solid fa-pencil"></i></a>
+                                </article>
+
+                                <article class="contenedor-2">
+                                    <a
+                                        href="{{ route('profesion.create', ['idInstructor' => $instructor->id, 'idUsuario' => $instructor->user_id]) }}"><i
+                                            id="mas" class="fa-solid fa-plus"></i></a>
+                                    <form action="{{ route('user.destroy', ['id' => $instructor->user_id]) }}"
+                                        method="POST">
+                                        @csrf
+
+                                        @method('delete')
+
+                                        <button class="contenedor-bote">
+                                            <i id="caneca" class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </article>
                             </article>
                         </article>
-                    </article>
 
                     @empty
-                    <h3 class="empty">No hay ningun instructor registrado</h3>
+                        <h3 class="empty">No hay ningun instructor registrado</h3>
                     @endforelse
                 </article>
             </article>

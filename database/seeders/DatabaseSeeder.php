@@ -35,5 +35,6 @@ class DatabaseSeeder extends Seeder
         $this -> call([OcupacionSeeder::class]);
         $this -> call([FuncionesSeeder::class]);
         $this -> call([CargoSeeder::class]);
+        $this -> call([VacanteSeeder::class]);
     }
 }

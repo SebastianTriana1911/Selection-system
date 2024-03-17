@@ -122,6 +122,9 @@ class VacanteController extends Controller
     public function buscar(Request $request, $id)
     {
         $empresa = Empresa::find($id);
+        if($request->busqueda == null){
+            return redirect()->route('vacante.index', ['id' => $empresa->id]);
+        };
         $busqueda = $request->busqueda;
         $contador = 0;
 
@@ -145,7 +148,7 @@ class VacanteController extends Controller
             }
             return view('vacante.resultado', [
                 'resultado' => $resultado,
-                'contador' => $contador, 'empresa' => $empresa
+                'contador' => $contador, 'empresa' => $empresa, 'busqueda' => $busqueda
             ]);
         }
     }
@@ -162,6 +165,7 @@ class VacanteController extends Controller
         $educaciones = $id->educacionVacante;
         $postulaciones = $id->postulacion;
         $postuladosVacante = 0;
+        $funciones = $id->cargo->ocupacion->funcion;
 
         foreach ($postulaciones as $postulacion) {
             $postuladosVacante = $postuladosVacante + 1;
@@ -169,7 +173,8 @@ class VacanteController extends Controller
 
         return view('vacante.show', [
             'vacante' => $id,
-            'empresa' => $empresa, 'educaciones' => $educaciones, 'postulados' => $postuladosVacante
+            'empresa' => $empresa, 'educaciones' => $educaciones, 'postulados' => $postuladosVacante,
+            'funciones' => $funciones
         ]);
     }
     // --------------------------------------------------------------
@@ -182,12 +187,14 @@ class VacanteController extends Controller
         $paises = Pais::all();
         $departamentos = Departamento::all();
         $municipios = Municipio::all();
+        $tipo_salario = $id->tipo_salario;
+
 
         return view('vacante.edit', [
             'empresa' => $empresa,
             'cargos' => $cargos, 'paises' => $paises,
             'departamentos' => $departamentos, 'municipios' => $municipios,
-            'vacante' => $id
+            'vacante' => $id, 'tipo_salario' => $tipo_salario
         ]);
     }
     // --------------------------------------------------------------

@@ -41,7 +41,7 @@
             <article class="cuadro">
 
                 <article class="contenedor-nombre">
-                    <h1 class="nombre">{{ $user->nombre }}</h1>
+                    <h1 class="nombre">{{ $instructor->user->nombre }} {{$instructor->user->apellido}}</h1>
                 </article>
 
                 <article class="contenedor-imagen">
@@ -74,52 +74,59 @@
                     <article class="flex-1">
                         <article class="correo">
                             <h1 class="clave">Nombre completo</h1>
-                            <span class="valor">{{ $user->nombre }} {{ $user->apellido }}</span>
+                            <span class="valor">{{ $instructor->user->nombre }} {{ $instructor->user->apellido }}</span>
+                        </article>
+
+                        <article class="correo">
+                            <h1 class="clave">Tipo de documenton</h1>
+                            <span class="valor">{{ $instructor->user->tipo_documento }}</span>
                         </article>
 
                         <article class="correo">
                             <h1 class="clave">Numero documento</h1>
-                            <span class="valor">{{ $user->num_documento }}</span>
+                            <span class="valor">{{ $instructor->user->num_documento }}</span>
                         </article>
 
                         <article class="correo">
                             <h1 class="clave">Genero</h1>
-                            <span class="valor">{{ $user->genero }}</span>
+                            <span class="valor">{{ $instructor->user->genero }}</span>
                         </article>
 
                         <article class="correo">
                             <h1 class="clave">Fecha de nacimiento</h1>
-                            <span class="valor">{{ $user->instructor->fecha_nacimiento }}</span>
+                            <span class="valor">{{ $instructor->fecha_nacimiento }}</span>
                         </article>
 
                         <article class="correo">
                             <h1 class="clave">Telefono</h1>
-                            <span class="valor">{{ $user->instructor->telefono }}</span>
+                            <span class="valor">{{ $instructor->telefono }}</span>
                         </article>
 
                         <article class="correo">
                             <h1 class="clave">Direccion</h1>
-                            <span class="valor">{{ $user->instructor->direccion }}</span>
+                            <span class="valor">{{ $instructor->direccion }}</span>
                         </article>
 
-                        <article class="correo">
-                            <h1 class="clave">Correo electronico</h1>
-                            <span class="valor">{{ $user->email }}</span>
-                        </article>
                     </article>
 
                     <article class="flex-2">
+
                         <article class="correo">
-                            <h1 class="clave">Municipio</h1>
-                            <span class="valor">{{ $user->municipio->nombre }}</span>
+                            <h1 class="clave">Correo electronico</h1>
+                            <span class="valor">{{ $instructor->user->email }}</span>
                         </article>
 
                         <article class="correo">
+                            <h1 class="clave">Municipio</h1>
+                            <span class="valor">{{ $instructor->user->municipio->nombre }}</span>
+                        </article>
+
+                        <article class="profesion">
                             <h1 class="clave">Profesion</h1>
                             <span class="valor">
                                 @forelse($profesionInstructor as $profesion)
                                     @if ($profesion->titulado == null)
-                                        <li class="valor">No hay profesion registrada</li>
+                                        <p class="valor">No hay profesion registrada</p>
                                     @else
                                         <li class="valor">{{ $profesion->titulado }}</li>
                                     @endif
@@ -130,15 +137,14 @@
                             </span>
                         </article>
 
-                        <article class="correo">
+                        <article class="egresado">
                             <h1 class="clave">Institucion egresado</h1>
                             @forelse($profesionInstructor as $profesion)
-                                @if ($profesion->institucion == null)
-                                    <li class="valor">No hay ninguna institucion registrada</li>
+                                @if ($profesion->titulado == null)
+                                    <p class="valor">No hay institucion registrada</p>
                                 @else
                                     <li class="valor">{{ $profesion->institucion }}</li>
                                 @endif
-
                             @empty
                                 <span class="valor">El instructor no cuenta con ninguna profesion</span>
                             @endforelse
@@ -146,14 +152,14 @@
 
                         <article class="correo  ">
                             <h1 class="clave">Perfil profesional</h1>
-                            @if ($user->instructor->perfil_profesional == null)
+                            @if ($instructor->perfil_profesional == null)
                                 <p class="valor">El instructor no contiene un perfil profesional</p>
                             @else
-                                <p class="valor">{{ $user->instructor->perfil_profesional }}</p>
+                                <p class="valor">{{ $instructor->perfil_profesional }}</p>
                             @endif
                         </article>
 
-                        <article class="correo">
+                        <article class="documento">
                             <h1 class="clave">Documentos</h1>
                             <span class="valor">
                                 @php

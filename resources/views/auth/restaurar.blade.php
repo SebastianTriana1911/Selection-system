@@ -42,34 +42,39 @@
 
                 <form class="formulario" action="{{ route('restaurar.contraseña') }}" method="POST">
                     @csrf
-                    <article class="contraseña-vieja">
-                        <h1 class="titulo">Ingrese su contraseña</h1>
-                        <input class="input" type="text" name="contraseña_old" value="{{ old('contraseña_old') }}">
-                        @error('contraseña_old')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
 
-                    <article class="contraseña-nueva">
-                        <h1 class="titulo">Ingrese su nueva contraseña</h1>
-                        <input class="input" type="password" name="contraseña_new" value="{{ old('contraseña_new') }}">
-                        @error('contraseña_new')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
+                    <article class="contenedor-grande">
+                        <article class="contraseña-vieja">
+                            <h1 class="titulo">Ingrese su contraseña</h1>
+                            <input class="input" type="text" name="contraseña_old"
+                                value="{{ old('contraseña_old') }}">
+                            @error('contraseña_old')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
 
-                    <article class="contraseña-verificacion">
-                        <h1 class="titulo">Ingrese nuevamente la contraseña</h1>
-                        <input class="input" type="password" name="contraseña_verifi"
-                            value="{{ old('contraseña_verifi') }}">
-                        @error('contraseña_verifi')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
+                        <article class="contraseña-nueva">
+                            <h1 class="titulo">Ingrese su nueva contraseña</h1>
+                            <input class="input" type="password" name="contraseña_new"
+                                value="{{ old('contraseña_new') }}">
+                            @error('contraseña_new')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <article class="contraseña-verificacion">
+                            <h1 class="titulo">Ingrese nuevamente la contraseña</h1>
+                            <input class="input" type="password" name="contraseña_verifi"
+                                value="{{ old('contraseña_verifi') }}">
+                            @error('contraseña_verifi')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
                     </article>
 
                     <article class="contenedor-botones">
-                        <a class="boton" href="{{ route('home.restaurar') }}">Atras</a>
-                        <input class="boton" type="submit" value="Listo">
+                        <a class="boton" href="{{ route('home.restaurar') }}">Volver</a>
+                        <input class="boton" type="submit" value="Restaurar">
                     </article>
                 </form>
             </section>
