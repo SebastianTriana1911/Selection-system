@@ -5,6 +5,7 @@
     <title>Index Candidato</title>
     <link rel="stylesheet" href="{{ asset('css/candidato/index.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -29,12 +30,12 @@
 
             <article class="primer-contenedor">
                 <h1>{{ $candidato->user->nombre }} {{ $candidato->user->apellido }}</h1>
-                <h1>TI: {{ $candidato->user->num_documento }}</h1>
+                <h1>Num Documento: {{ $candidato->user->num_documento }}</h1>
             </article>
 
             <article class="contenedor-estado">
                 <div class="estado">
-                    <h1>Disponible</h1>
+                    <h1>{{$candidato->estado}}</h1>
                 </div>
             </article>
 

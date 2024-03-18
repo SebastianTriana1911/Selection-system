@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->text('perfil_ocupacional')->nullable();
+            $table->enum('estado', ['Disponible', 'En proceso', 'Preseleccionado', 'Seleccionado', 'Finalista' ])->default('Disponible');
+            $table->string('avatar')->nullable();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
