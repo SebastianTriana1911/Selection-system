@@ -583,7 +583,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-educacion-requerida .grid .linea-1 .contenedor-nivel .nivel{
     display: flex;
-    width: 63%;
+    width: 69.9%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -643,7 +643,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-educacion-requerida .grid .contenedor-titulado .titulado{
     display: flex;
-    width: 62.6%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;

@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/educacionVacante/create.css') }}">
-    <title>Create educacion vacante</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Crear educacion vacante</title>
 </head>
 
 <body>
@@ -33,38 +34,43 @@
 
             <section class="content">
                 <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Formulario de educacion V</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-bell"></i>
+                        <h1 class="titulo-principal">Formulario para crearle una educacion a la vacante</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
-                <form class="contenedor-hoja-vida" action="{{ route('eduvacante.store', ['vacante' => $vacante->id]) }}"
-                    method="POST">
-                    @csrf
 
-                    <section class="primera-linea">
+                <article class="contenedor-centrar">
+                    <form class="contenedor-hoja-vida"
+                        action="{{ route('eduvacante.store', ['vacante' => $vacante->id]) }}" method="POST">
+                        @csrf
 
-                        <article class="flex">
-
+                        <section class="primera-linea">
                             <article class="educacion">
                                 <h1>Nivel de educacion</h1>
                                 <select class="nivel" name="nivel_estudio">
-                                    <option value="Bachiller">Bachiller</option>
-                                    <option value="Tecnico">Tecnico</option>
-                                    <option value="Tecnologo">Tecnologo</option>
-                                    <option value="Pregrado">Pregrado</option>
-                                    <option value="Posgrado">Posgrado</option>
-                                    <option value="Especializacion">Especializacion</option>
-                                    <option value="Doctorado">Doctorado</option>
+                                    <option value="Bachiller"
+                                        {{ 'Bachiller' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Bachiller</option>
+                                    <option value="Tecnico" {{ 'Tecnico' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Tecnico</option>
+                                    <option value="Tecnologo"
+                                        {{ 'Tecnologo' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Tecnologo</option>
+                                    <option value="Pregrado" {{ 'Pregrado' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Pregrado</option>
+                                    <option value="Posgrado" {{ 'Posgrado' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Posgrado</option>
+                                    <option value="Especializacion"
+                                        {{ 'Especializacion' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Especializacion
+                                    </option>
+                                    <option value="Doctorado"
+                                        {{ 'Doctorado' == old('nivel_estudio') ? 'selected' : '' }}>
+                                        Doctorado</option>
                                 </select>
-                            </article>
-
-                            <article class="puntos">
-                                <h1>Puntos</h1>
-                                <input class="input" type="number" name="puntos" min="1" max="10" 
-                                    value="{{ old('puntos') }}">
-                                @error('puntos')
-                                    <strong class="mensaje">{{ $message }}</strong>
-                                @enderror
                             </article>
 
                             <article class="puntos">
@@ -74,60 +80,74 @@
                                     <strong class="mensaje">{{ $message }}</strong>
                                 @enderror
                             </article>
-                        </article>
 
-                        <article class="descripcion">
-                            <h1>Descripcion</h1>
-                            <textarea name="descripcion" rows="4">{{ old('descripcion') }}</textarea>
-                        </article>
-                        @error('descripcion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
+                            <article class="puntos">
+                                <h1>Puntos</h1>
+                                <input class="input" type="number" name="puntos" min="1" max="10"
+                                    value="{{ old('puntos') }}">
+                                @error('puntos')
+                                    <strong class="mensaje">{{ $message }}</strong>
+                                @enderror
+                            </article>
 
-                        <input type="text" name="vacante_id" value="{{ $vacante->id }}" hidden>
+                            <article class="descripcion">
+                                <h1>Descripcion</h1>
+                                <textarea name="descripcion" rows="4">{{ old('descripcion') }}</textarea>
+                            </article>
+                            @error('descripcion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
 
-                    </section>
+                            <input type="text" name="vacante_id" value="{{ $vacante->id }}" hidden>
 
-                    <section class="contenedor-boton">
-                        <a class="input-1" href="{{ route('vacante.index', ['id' => $empresa->id]) }}">Volver</a>
-                        <input class="input-2" type="submit" value="Crear">
-                    </section>
-                </form>
+                        </section>
+
+                        <section class="contenedor-boton">
+                            <a class="input-1" href="{{ route('vacante.index', ['id' => $empresa->id]) }}">Volver</a>
+                            <input class="input-2" type="submit" value="Crear">
+                        </section>
+                    </form>
+                </article>
             </section>
 
             <section class="content-2">
-                <article class="contenedor-titulo">
-                    <h1 class="titulo-principal">Lista de educaciones requeridas</h1>
-                    <h1 class="linea"></h1>
+                <article class="contenedor-titulo-2">
+                    <article class="contenedor">
+                        <i class="fa-solid fa-down-long"></i>
+                        <h1 class="titulo-principal">Lista de educaciones requeridas</h1>
+                    </article>
+                    <h1 class="linea-2"></h1>
                 </article>
 
-                <section class="contenedor-ocupaciones">
-                    @forelse ($educaciones as $educacion)
-                        <article class="ocupacion">
-                            <article class="parte-1">
-                                <i class="fa-solid fa-gear" style="color: black"></i>
-                                <a
-                                    href="{{ route('eduvacante.edit', ['educacion' => $educacion->id, 'vacante' => $vacante->id, 'empresa' => $empresa->id]) }}">{{ $educacion->nivel_estudio }}</a>
-                            </article>
+                <article class="contenedor-grande">
+                    <section class="contenedor-ocupaciones">
+                        @forelse ($educaciones as $educacion)
+                            <article class="ocupacion">
+                                <article class="parte-1">
+                                    <i class="fa-solid fa-gear" style="color: black"></i>
+                                    <a
+                                        href="{{ route('eduvacante.edit', ['educacion' => $educacion->id, 'vacante' => $vacante->id, 'empresa' => $empresa->id]) }}">{{ $educacion->nivel_estudio }}</a>
+                                </article>
 
-                            <article class="parte-2">
-                                <form action="{{ route('eduvacante.destroy', ['id' => $educacion->id]) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="buttom">
-                                        <i class="fa-solid fa-trash" style="color: black"></i>
-                                    </button>
-                                </form>
+                                <article class="parte-2">
+                                    <form action="{{ route('eduvacante.destroy', ['id' => $educacion->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="buttom">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </article>
                             </article>
-                        </article>
-                    @empty
-                        <article class="contenedor-empty">
-                            <h1 class="empty">No hay educaciones para esta vacante</h1>
-                        </article>
-                    @endforelse
-                </section>
+                        @empty
+                            <article class="contenedor-empty">
+                                <h1 class="empty">No hay educaciones para esta vacante</h1>
+                            </article>
+                        @endforelse
+                    </section>
             </section>
+            </article>
 
         </section>
 

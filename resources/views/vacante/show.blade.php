@@ -247,7 +247,7 @@
                                         <li>{{$funcion->funcion}}</li>
                                     </ul>
                                 @empty
-
+                                    <p class="empty">La ocupacion no cuenta con funciones</p>
                             @endforelse
                         </article>
                     </article>

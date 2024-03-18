@@ -52,11 +52,11 @@ class EducacionVacanteController extends Controller{
         // Se iterara la lista para comprobar si la educacion que
         // se desea subir es igual a las educaciones que ya contiene
         // la vacante
-        foreach ($lista as $niveles){
-            if ($niveles == $request -> nivel_estudio){
-                return redirect()->back();
-            }
-        }
+        // foreach ($lista as $niveles){
+        //     if ($niveles == $request -> nivel_estudio){
+        //         return redirect()->back();
+        //     }
+        // }
 
         // Si no hay ninguna educacion de la lista que coincida con
         // la que se desea crear, se creara la educacion para la

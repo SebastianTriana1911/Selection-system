@@ -82,17 +82,17 @@ body::-webkit-scrollbar-thumb{
 
 .nav .contenedor-titulo .titulo{
     color: white;
-    font-size: 24pt;
+    font-size: 20pt;
     width: 70%;
     text-align: center;
 }
 
 .nav .contenedor-titulo .linea{
-    width: 25%;
+    width: 15%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 7px white;
     margin-top: 0.5%;
+    border-radius: 10px;
 }
 
 /*------------------------------------------------------------*/
@@ -111,11 +111,16 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 45%;
+    width: 35%;
     border-radius: 15px;
     border: 3px solid white;
-    box-shadow: 0 0 10px white;
     margin-bottom: 7%;
+    transition: 0.4s;
+}
+
+.formulario:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
 }
 
 .formulario .encabezado{
@@ -141,7 +146,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .formulario .encabezado .contenedor-titulo i{
-    font-size: 17pt;
+    font-size: 15pt;
     position: relative;
     left: -4%;
 }
@@ -152,22 +157,23 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 17pt;
 }
 
 .formulario .encabezado .linea{
     width: 20%;
-    height: 2px;
+    height: 3px;
     margin-top: 0.5%;
     background-color: white;
-    box-shadow: 0 0 7px white;
+    border-radius: 10px;
 }
 
 .formulario .contenedor-datos{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 5%;
     padding: 3%;
-    padding-left: 15%;
+    padding-left: 7%;
 }
 
 .formulario .contenedor-datos .grid-1{
@@ -185,7 +191,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-codigo .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -213,7 +219,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-num_vacante .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -241,7 +247,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-meses_experiencia .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -269,7 +275,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-1 .contenedor-salario .input{
     display: flex;
-    width: 50%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -298,7 +304,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-salatio .tipo-salario{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -323,7 +329,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-contrato .tipo-contrato{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -348,7 +354,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-tipo-jornada .tipo-jornada{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -373,7 +379,7 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-datos .grid-2 .contenedor-cargos .cargos{
     display: flex;
-    width: 60%;
+    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
@@ -412,21 +418,31 @@ body::-webkit-scrollbar-thumb{
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 20pt;
+    font-size: 17pt;
 }
 
 .formulario .contenedor-ubicacion .encabezado .linea-2{
     width: 20%;
-    height: 2px;
+    height: 3px;
     background-color: white;
-    box-shadow: 0 0 7px white;
+    border-radius: 10px;
 }
 
 .formulario .contenedor-ubicacion .grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 3%;
-    padding-left: 15%;
+    padding-left: 7%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding-right: 7%;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-pais{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .titulo{
@@ -435,22 +451,28 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .paises{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-pais .paises:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-departamentos{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .titulo{
@@ -459,22 +481,28 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .departamento{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-departamentos .departamento:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+
+.formulario .contenedor-ubicacion .grid .contenedor-municipios{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 4%;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .titulo{
@@ -483,22 +511,21 @@ body::-webkit-scrollbar-thumb{
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .municipio{
     display: flex;
-    width: 60%;
+    width: 100%;
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 3%;
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 10px;
     border: none;
-    margin-top: 2%;
-    margin-bottom: 6%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-ubicacion .grid .contenedor-municipios .municipio:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-boton{
@@ -522,12 +549,15 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.4s;
 }
 
 .contenedor-boton .input-1:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
+
 }
 
 .contenedor-boton .input-2{
@@ -542,12 +572,14 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer;
     text-decoration: none;
     font-size: 14pt;
+    transition: 0.4s;
 }
 
 .contenedor-boton .input-2:hover{
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 /*------------------------------------------------------------*/

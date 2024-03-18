@@ -114,24 +114,24 @@
                                 <h1 class="titulo">Tipo de contrato</h1>
                                 <select name="tipo_contrato" class="tipo-contrato">
                                     <option value="Contrato por obra o valor"
-                                        {{ 'Contrato por obra o valor' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato por obra o valor' ? 'selected' : '' }}>
                                         Contrato por obra o valor</option>
                                     <option value="Contrato de trabajo a término fijo"
-                                        {{ 'Contrato de trabajo a término fijo' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato de trabajo a término fijo' ? 'selected' : '' }}>
                                         Contrato de trabajo a término fijo
                                     </option>
                                     <option value="Contrato de trabajo a término indefinido"
-                                        {{ 'Contrato de trabajo a término indefinido' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato de trabajo a término indefinido' ? 'selected' : '' }}>
                                         Contrato de trabajo a término
                                         indefinido</option>
                                     <option value="Contrato de aprendizaje"
-                                        {{ 'Contrato de aprendizaje' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato de aprendizaje' ? 'selected' : '' }}>
                                         Contrato de aprendizaje</option>
                                     <option value="Contrato temporal"
-                                        {{ 'Contrato temporal' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato temporal' ? 'selected' : '' }}>
                                         Contrato temporal</option>
                                     <option value="Contrato ocasional o accidental"
-                                        {{ 'Contrato ocasional o accidental' == old('tipo_contrato') ? 'selected' : '' }}>
+                                        {{ $vacante->tipo_contrato == 'Contrato ocasional o accidental' ? 'selected' : '' }}>
                                         Contrato ocasional o accidental</option>
                                 </select>
                             </article>
@@ -139,11 +139,11 @@
                             <article class="contenedor-tipo-jornada">
                                 <h1 class="titulo">Tipo de jornada</h1>
                                 <select name="tipo_jornada" class="tipo-jornada">
-                                    <option value="Diurna" {{ 'Diurna' == old('tipo_jornada') ? 'selected' : '' }}>Diurna
+                                    <option value="Diurna" {{ $vacante->tipo_jornada == 'Diurna' ? 'selected' : '' }}>Diurna
                                     </option>
-                                    <option value="Nocturna" {{ 'Nocturna' == old('tipo_jornada') ? 'selected' : '' }}>
+                                    <option value="Nocturna" {{ $vacante->tipo_jornada == 'Nocturna' ? 'selected' : '' }}>
                                         Nocturna</option>
-                                    <option value="Mixta" {{ 'Mixta' == old('tipo_jornada') ? 'selected' : '' }}>Mixta
+                                    <option value="Mixta" {{ $vacante->tipo_jornada == 'Mixta' ? 'selected' : '' }}>Mixta
                                     </option>
                                 </select>
                             </article>
@@ -154,7 +154,7 @@
                                 <h1 class="titulo">Cargo</h1>
                                 <select class="cargos" name="cargo_id">
                                     @forelse ($cargos as $cargo)
-                                        <option value="{{$cargo -> id}}">{{$cargo -> cargo}}</option>
+                                        <option value="{{$cargo -> id}}" {{$cargo->id == $vacante->cargo->id ? 'selected' : ''}}>{{$cargo -> cargo}}</option>
                                         @empty
                                             <h1>No hay cargos en el sistema</h1>
                                     @endforelse
@@ -199,7 +199,7 @@
                                 <h1>Municipio</h1>
                                 <select class="municipio" name="municipio_id">
                                     @forelse ($municipios as $municipio)
-                                        <option value="{{$municipio -> id}}">{{$municipio -> nombre}}</option>
+                                        <option value="{{$municipio -> id}}" {{$municipio->id == $vacante->municipio_id ? 'selected' : ''}}>{{$municipio -> nombre}}</option>
                                         @empty
                                             <h1>No hay municipios en el sistema</h1>
                                     @endforelse

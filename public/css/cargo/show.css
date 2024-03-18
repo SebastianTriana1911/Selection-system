@@ -348,7 +348,6 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .content-2 .contenedor-grande{
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100%;
 }
 
@@ -356,8 +355,8 @@ body::-webkit-scrollbar-thumb{
     display: grid;
     grid-template-rows: 1fr 1fr;
     background-color: white;
-    width: 50%;
-    height: 410px;
+    width: 430px;
+    height: 420px;
     border-radius: 15px;
     transition: 0.4s;
     overflow-y: auto;
@@ -470,6 +469,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .empty{
+    display: flex;
     font-size: 12pt;
 }
 

@@ -118,17 +118,17 @@
 
                             <article class="contenedor-botones">
                                 <a href="{{ route('vacante.show', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-eye" style="color: #000000;"></i></a>
+                                        class="fa-solid fa-eye"></i></a>
                                 <a href="{{ route('vacante.edit', ['id' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-pencil" style="color: #000000;"></i></a>
+                                        class="fa-solid fa-pencil"></i></a>
                                 <a
                                     href="{{ route('eduvacante.create', ['vacante' => $resul->id, 'empresa' => $empresa->id]) }}"><i
-                                        class="fa-solid fa-plus" style="color: #000000;"></i></a>
+                                        class="fa-solid fa-plus"></i></a>
                                 <form action="{{ route('vacante.destroy', ['id' => $resul->id]) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button class="boton">
-                                        <i class="fa-solid fa-trash" style="color: #000000;"></i>
+                                        <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </form>
                             </article>
