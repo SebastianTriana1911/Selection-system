@@ -445,7 +445,7 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 4%;
 }
 
-.formulario .contenedor-ubicacion .grid .contenedor-pais .titulo{
+.formulario .contenedor-ubicacion .grid .contenedor-pais h1{
     font-size: 13pt;
 }
 
@@ -475,7 +475,7 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 4%;
 }
 
-.formulario .contenedor-ubicacion .grid .contenedor-departamentos .titulo{
+.formulario .contenedor-ubicacion .grid .contenedor-departamentos h1{
     font-size: 13pt;
 }
 
@@ -505,7 +505,7 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 4%;
 }
 
-.formulario .contenedor-ubicacion .grid .contenedor-municipios .titulo{
+.formulario .contenedor-ubicacion .grid .contenedor-municipios h1{
     font-size: 13pt;
 }
 

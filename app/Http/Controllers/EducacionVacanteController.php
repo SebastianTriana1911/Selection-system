@@ -107,12 +107,6 @@ class EducacionVacanteController extends Controller{
             }
         }
 
-        foreach ($lista as $niveles){
-            if ($niveles == $request -> nivel_estudio){
-                return redirect()->back();
-            }
-        }
-
         $educacion -> nivel_estudio = $request -> nivel_estudio;
         $educacion -> puntos = $request -> puntos;
         $educacion -> descripcion = $request -> descripcion;
