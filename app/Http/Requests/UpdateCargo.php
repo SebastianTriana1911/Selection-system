@@ -17,7 +17,6 @@ class UpdateCargo extends FormRequest{
     public function rules(): array{
         return [
             'cargo' => 'required|min:10',
-            'ocupacion_id' => 'required',
             'habilidad' => 'min:10',
             'competencia' => 'min:10',
         ];
@@ -25,11 +24,10 @@ class UpdateCargo extends FormRequest{
 
     public function messages(){
         return [
-            'cargo.required' => "Obligatorio",
-            'cargo.min' => "Minimo 10 caracteres",
-            'ocupacion_id.required' => "Obligatorio",
-            'habilidad.min' => "Pocos caracter",
-            'competencia.min' => "Pocos caracter",
+            'cargo.required' => "Campo obligatorio.",
+            'cargo.min' => "Pocos caracteres.",
+            'habilidad.min' => "Pocos caracter.",
+            'competencia.min' => "Pocos caracter.",
         ];
     }
 }

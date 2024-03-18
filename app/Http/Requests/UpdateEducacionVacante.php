@@ -16,17 +16,17 @@ class UpdateEducacionVacante extends FormRequest{
      */
     public function rules(): array{
         return [
-            'puntos' => 'required|min:0',
+            'puntos' => 'required|min:1',
             'titulado' => 'required|min:5'
         ];
     }
 
     public function messages(){
         return [
-            'puntos.required' => 'Obligatorio',
-            'puntos.min' => 'Minimo 0',
-            'titulado.required' => 'Obligatorio',
-            'titulado.min' => 'Minimo 5'
+            'puntos.required' => 'Campo obligatorio',
+            'puntos.min' => 'Ingrese almenos minimo 1 punto.',
+            'titulado.required' => 'Campo obligatorio.',
+            'titulado.min' => 'Pocos caracteres.'
         ];
     }
 }

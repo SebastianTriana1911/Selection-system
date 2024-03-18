@@ -16,17 +16,17 @@ class UpdateProfesion extends FormRequest{
      */
     public function rules(): array{
         return [
-            'titulado' => 'string|min:8',
-            'institucion' => 'string|min:8',
+            'titulado' => 'required|min:8',
+            'institucion' => 'required|min:8',
         ];
     }
 
     public function messages(){
         return [
-            'titulado.string' => 'Debe ser texto',
-            'titulado.min' => 'minimo 8 caracteres',
-            'institucion.string'=> 'Debe ser texto',
-            'institucion.min' => 'minimo 8 caracteres',
+            'titulado.required' => 'Campo obligatorio.',
+            'titulado.min' => 'Pocos caracteres.',
+            'institucion.required'=> 'Campo obligatorio.',
+            'institucion.min' => 'Pocos caracteres.',
         ];
     }
 }

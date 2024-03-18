@@ -57,7 +57,8 @@
                             <h1 class="titulo">Ocupaciones</h1>
                             <select class="ocupacion_id" name="ocupacion_id">
                                 @forelse($ocupaciones as $ocupacion)
-                                <option class="input" value="{{ $ocupacion->id }}">{{ $ocupacion->nombre }}
+                                <option class="input" value="{{ $ocupacion->id }}"
+                                    {{$ocupacion->id == old('ocupacion_id') ? 'selected' : ''}}>{{ $ocupacion->nombre }}
                                 </option>
                                 @empty
                                 <h1>No hay ocupaciones</h1>

@@ -18,7 +18,7 @@ class Cargo extends Model{
     protected $guarded = [];
 
     public function ocupacion(): BelongsTo{
-        return $this -> belongsTo(Ocupacion::class, 'ocupacion_id', 'id');
+        return $this -> belongsTo(Ocupacion::class);
     }
 
     public function empresa(): BelongsTo{

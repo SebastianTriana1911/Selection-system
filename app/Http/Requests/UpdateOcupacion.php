@@ -16,6 +16,7 @@ class UpdateOcupacion extends FormRequest{
      */
     public function rules(): array{
         return [
+            'codigo' => 'required',
             'nombre' => 'required|min:10',
             'descripcion' => 'required|min:10',
         ];
@@ -23,10 +24,11 @@ class UpdateOcupacion extends FormRequest{
 
     public function messages(){
         return [
-            'nombre.required' => 'Obligatorio',
-            'nombre.min' => 'Necesita mas de 10 caracteres',
-            'descripcion.required' => 'Obligatorio',
-            'descripcion.min' => 'Necesita mas de 10 caracteres',
+            'codigo.required' => 'Campo obligatorio.',
+            'nombre.required' => 'Campo obligatorio.',
+            'nombre.min' => 'Pocos caracteres.',
+            'descripcion.required' => 'Campo obligatorio.',
+            'descripcion.min' => 'Pocos caracteres.',
         ];
     }
 }

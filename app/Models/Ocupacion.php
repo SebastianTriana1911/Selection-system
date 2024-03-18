@@ -20,7 +20,7 @@ class Ocupacion extends Model{
     }
 
     public function cargo(): HasMany{
-        return $this -> hasMany(Cargo::class, 'ocupacion_id', 'id');
+        return $this -> hasMany(Cargo::class);
     }
 
     public function empresa(): BelongsTo{
