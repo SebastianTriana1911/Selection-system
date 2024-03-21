@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Update Candidato</title>
+    <title>Actualizar informacion</title>
     <link rel="stylesheet" href="{{ asset('css/candidato/edit.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <article class="contenedor-content">
-            <form class="contenedor-put" action="{{ route('candidato.update', ['id' => $candidato->id]) }}"
+            <form class="contenedor-put" action="{{ route('candidato.update', ['id' => $candidato->id]) }}" enctype="multipart/form-data"
                 method="POST">
                 @csrf
                 @method('put')
@@ -44,15 +45,18 @@
                     <article class="contenedor-tipo">
                         <h1>Tipo de documento</h1>
                         <select class="menu-identificacion" name="tipo_documento" value="{{ old('tipo_documento') }}">
-                            <option value="cedula de ciudadania">Cedula de ciudadania</option>
-                            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-                            <option value="cedula de extranjeria">Cedula de extranjeria</option>
-                            <option value="cedula de extranjeria">Cedula de extranjeria</option>
-                            <option value="Otro documento de identidad">Otro doumento de identidad</option>
-                            <option value="Otro documento de identidad">Otro doumento de identidad</option>
-                            <option value="Permiso especial de permanencia">Permiso especial de permanencia</option>
-                            <option value="Permiso especial de permanencia">Permiso especial de permanencia</option>
-                            <option value="Permiso por proteccion temporal">Permiso por proteccion temporal</option>
+                            <option value="Cedula de ciudadania"
+                            {{$candidato->user->tipo_documento == 'Cedula de ciudadania' ? 'selected' : ''}}>Cedula de ciudadania</option>
+                            <option value="Tarjeta de identidad"
+                            {{$candidato->user->tipo_documento == 'Tarjeta de identidad' ? 'selected' : ''}}>Tarjeta de identidad</option>
+                            <option value="Cedula de extranjeria"
+                            {{$candidato->user->tipo_documento == 'Cedula de extranjeria' ? 'selected' : ''}}>Cedula de extranjeria</option>
+                            <option value="Otro documento de identidad"
+                            {{$candidato->user->tipo_documento == 'Otro documento de identidad' ? 'selected' : ''}}>Otro doumento de identidad</option>
+                            <option value="Permiso especial de permanencia"
+                            {{$candidato->user->tipo_documento == 'Permiso especial de pertenencia' ? 'selected' : ''}}>Permiso especial de permanencia</option>
+                            <option value="Permiso por proteccion temporal"
+                            {{$candidato->user->tipo_documento == 'Permiso por proteccion temporal' ? 'selected' : ''}}>Permiso por proteccion temporal</option>
                         </select>
                         @error('tipo_documento')
                             <strong class="mensaje">{{ $message }}</strong>
@@ -88,8 +92,8 @@
                         <h1>Genero</h1>
                         <select class="menu-generos" name="genero"
                             value="{{ old('genero', $candidato->user->genero) }}">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino" {{$candidato->user->genero == 'Masculino' ? 'selected' : ''}}>Masculino</option>
+                            <option value="Femenino" {{$candidato->user->genero == 'Femenino' ? 'selected' : ''}}>Femenino</option>
                         </select>
                         @error('genero')
                             <strong class="mensaje">{{ $message }}</strong>
@@ -100,12 +104,18 @@
                         <h1>Estado civil</h1>
                         <select class="menu-estado-civil" name="estado_civil"
                             value="{{ old('estado_civil', $candidato->user->estado_civil) }}">
-                            <option value="Soltero">Soltero</option>
-                            <option value="Casado">Casado</option>
-                            <option value="Union de hecho">Union de hecho</option>
-                            <option value="Seoarado">Seorado</option>
-                            <option value="Divorciado">Divorciado</option>
-                            <option value="Viudo">Viudo</option>
+                            <option value="Soltero" 
+                            {{$candidato->user->estado_civil == 'Soltero' ? 'selected' : ''}}>Soltero</option>
+                            <option value="Casado"
+                            {{$candidato->user->estado_civil == 'Casado' ? 'selected' : ''}}>Casado</option>
+                            <option value="Union de hecho"
+                            {{$candidato->user->estado_civil == 'Union de hecho' ? 'selected' : ''}}>Union de hecho</option>
+                            <option value="Seoarado" 
+                            {{$candidato->user->estado_civil == 'Seoarado' ? 'selected' : ''}}>Seorado</option>
+                            <option value="Divorciado"
+                            {{$candidato->user->estado_civil == 'Divorciado' ? 'selected' : ''}}>Divorciado</option>
+                            <option value="Viudo" 
+                            {{$candidato->user->estado_civil == 'Viudo' ? 'selected' : ''}}>Viudo</option>
                         </select>
                         @error('estado_civil')
                             <strong class="mensaje">{{ $message }}</strong>
@@ -136,6 +146,23 @@
                             <strong class="mensaje">{{ $message }}</strong>
                         @enderror
                     </article>
+
+                    <article class="contenedor-estado">
+                        <h1>Estado</h1>
+                        <input type="text" value="{{$candidato->estado}}" readonly>
+                    </article>
+
+                    <article class="contenedor-avatar">
+                        <h1>Foto de perfil</h1>
+                            <article class="texto">
+                                <i class="fa-solid fa-download" style="color: #000000;"></i>
+                                <label for="input">Archivo</label>
+                                <input id="input" class="label-input" type="file" name="avatar" value="{{old('avatar')}}" accept="image/*">
+                            </article>
+                            @error('avatar')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
 
                     <article class="contenedor-email">
                         <h1>Email</h1>

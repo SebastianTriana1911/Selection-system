@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreCandidato;
 use App\Models\CandidatoDesvinculacion;
+use Illuminate\Support\Facades\Storage;
 
 class CandidatoController extends Controller
 {
@@ -32,7 +33,7 @@ class CandidatoController extends Controller
             $estadoCandidato = 'En proceso';
             $desvinculaciones = $candidato->candidatoDesvinculacion;
             $postulacionFind = '';
-            foreach ($candidato->postulacion as $post){
+            foreach ($candidato->postulacion as $post) {
                 $postulacionFind = $post->id;
             }
 
@@ -40,10 +41,10 @@ class CandidatoController extends Controller
             $cont = 0;
 
             $postulacionesAll = Postulacion::all();
-            foreach ($postulacionesAll as $all){
-                if($all->vacante_id == $postulacion->vacante_id){
-                    $cont ++;
-                }else{
+            foreach ($postulacionesAll as $all) {
+                if ($all->vacante_id == $postulacion->vacante_id) {
+                    $cont++;
+                } else {
                     continue;
                 }
             }
@@ -53,7 +54,6 @@ class CandidatoController extends Controller
                 'estadoCandidato' => $estadoCandidato, 'postulacion' => $postulacion,
                 'cont' => $cont
             ]);
-
         } else {
             $estadoCandidato = 'Disponible';
             $desvinculaciones = $candidato->candidatoDesvinculacion;
@@ -63,8 +63,6 @@ class CandidatoController extends Controller
                 'estadoCandidato' => $estadoCandidato
             ]);
         }
-
-        // RECORDATORIO: TOCA HACER LA VALIDACION DONDE SE COMPRUEBE SI EL CANDIDATO A SIDO SELECCIONADO
     }
 
     // -------------------- METODO STORE ------------------------
@@ -106,15 +104,26 @@ class CandidatoController extends Controller
     }
     // ----------------------------------------------------------
 
+
     public function hojavida(string $id)
     {
         $candidato = Candidato::find($id);
 
         $sexo = "";
         if ($candidato->user->genero == 'Masculino') {
-            $sexo = '/imagenes/icono-hombre.png';
+            if ($candidato->avatar != null) {
+                $ruta = 'storage/' . $candidato->avatar;
+                $sexo = $ruta;
+            } else {
+                $sexo = '/imagenes/icono-hombre.png';
+            }
         } else {
-            $sexo = '/imagenes/icono-mujer.png';
+            if ($candidato->avatar != null) {
+                $ruta = 'storage/' . $candidato->avatar;
+                $sexo = $ruta;
+            } else {
+                $sexo = '/imagenes/icono-mujer.png';
+            }
         }
 
         $candidatoEducacion = [];
@@ -143,11 +152,13 @@ class CandidatoController extends Controller
         ]);
     }
 
+
     public function edit(string $id)
     {
         $candidato = Candidato::find($id);
         return view('candidato.edit', ['candidato' => $candidato]);
     }
+
 
     public function update(Request $request, string $id)
     {
@@ -174,7 +185,8 @@ class CandidatoController extends Controller
                 'email',
                 'min:10',
                 Rule::unique('users')->ignore($rule),
-            ]
+            ],
+            'avatar' => 'image|mimes:jpeg,png,jpg',
         ], [
             'direccion.min' => 'Minimo 7 caracteres',
             'direccion.required' => 'Este campo es obligatorio',
@@ -196,14 +208,37 @@ class CandidatoController extends Controller
             'email.required' => 'Este campo es obligatorio',
             'email.email' => 'Este campo debe ser un correo valido',
             'email.min' => 'Minimo 10 caracteres',
-            'email.unique' => 'El email ya existe'
+            'email.unique' => 'El email ya existe',
+            'avatar.image' => 'Asegure de que sea una imagen'
         ]);
 
         $candidato->direccion = $request->direccion;
         $candidato->fecha_nacimiento = $request->fecha_nacimiento;
         $candidato->telefono = $request->telefono;
         $candidato->perfil_ocupacional = $request->perfil_ocupacional;
-        $candidato->save();
+
+        if ($request->hasFile('avatar')) {
+            if ($candidato->avatar == $request->avatar) {
+                $documento = $request->file('avatar');
+                $documentoNombre = $documento->getClientOriginalName();
+                $documento->storeAs('public', $documentoNombre);
+                $ruta = $documentoNombre;
+                $candidato->avatar = $ruta;
+                $candidato->save();
+            } else {
+                $urlOriginal = $candidato->avatar;
+                $rutaArchivo = 'public/' . $urlOriginal;
+                $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+                Storage::delete($rutaArchivoCodificada);
+
+                $documento = $request->file('avatar');
+                $documentoNombre = $documento->getClientOriginalName();
+                $documento->storeAs('public', $documentoNombre);
+                $ruta = $documentoNombre;
+                $candidato->avatar = $ruta;
+                $candidato->save();
+            };
+        }
 
         $user->tipo_documento = $request->tipo_documento;
         $user->num_documento = $request->num_documento;
@@ -221,6 +256,24 @@ class CandidatoController extends Controller
         }
     }
 
+
+    public function destroyAvatar($id)
+    {
+        $candidato = Candidato::find($id);
+
+        // Se elimina la imagen que haya en la carpeta storage con la ruta que haya en el campo
+        $urlOriginal = $candidato->avatar;
+        $rutaArchivo = 'public/' . $urlOriginal;
+        $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+        Storage::delete($rutaArchivoCodificada);
+
+        $candidato->avatar = null;
+        $candidato->save();
+
+        return redirect()->back();
+    }
+
+
     public function destroy(string $id)
     {
         $usuario = User::find($id);
@@ -228,6 +281,7 @@ class CandidatoController extends Controller
 
         return redirect()->route('welcome');
     }
+
 
     public function showVacantes()
     {
@@ -244,6 +298,7 @@ class CandidatoController extends Controller
 
         return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);
     }
+    
 
     public function sintesis($id)
     {
@@ -254,7 +309,7 @@ class CandidatoController extends Controller
         $vacante = Vacante::find($id);
         $postulaciones = $vacante->postulacion;
         $candidatosPostulados = 0;
-        foreach ($postulaciones as $postulacion){
+        foreach ($postulaciones as $postulacion) {
             $candidatosPostulados = $candidatosPostulados = 1;
         }
 
@@ -274,9 +329,9 @@ class CandidatoController extends Controller
                 }
             }
         };
-        if($comparacionExitosaNivel >= ($conteoEducacion/2)){
+        if ($comparacionExitosaNivel >= ($conteoEducacion / 2)) {
             $nivel_estudio = true;
-            foreach ($ponderacionNivel as $ponderacion){
+            foreach ($ponderacionNivel as $ponderacion) {
                 $conteoNivel = $conteoNivel + $ponderacion;
             }
         }
@@ -290,15 +345,15 @@ class CandidatoController extends Controller
             foreach ($candidatoEducacion as $candiEdu) {
                 similar_text($educacion->titulado, $candiEdu->titulado, $similitud);
                 $umbralSimilitud = 60;
-                if ($similitud >= $umbralSimilitud){
+                if ($similitud >= $umbralSimilitud) {
                     $comparacionExitosaTitulo = $comparacionExitosaTitulo + 1;
                     array_push($ponderacionTitulo, $educacion->puntos);
                 }
             }
         };
-        if($comparacionExitosaTitulo >= ($conteoEducacion/2)){
+        if ($comparacionExitosaTitulo >= ($conteoEducacion / 2)) {
             $titulado = true;
-            foreach ($ponderacionTitulo as $ponderacion){
+            foreach ($ponderacionTitulo as $ponderacion) {
                 $conteoTitulo = $conteoTitulo + $ponderacion;
             }
         }
@@ -314,7 +369,7 @@ class CandidatoController extends Controller
 
         $postulacion = false;
         $sumaTotalPonderacion = 0;
-        if($nivel_estudio || $titulado && $meses == true){
+        if ($nivel_estudio || $titulado && $meses == true) {
             $sumaTotalPonderacion = $conteoNivel + $conteoTitulo + $conteoMeses;
             $postulacion = true;
         }
@@ -329,7 +384,8 @@ class CandidatoController extends Controller
         ]);
     }
 
-    public function postulacion($idCandidato, $idVacante, $puntos){
+    public function postulacion($idCandidato, $idVacante, $puntos)
+    {
         $candidato = Candidato::find($idCandidato);
         $vacante = Vacante::find($idVacante);
 
@@ -346,9 +402,10 @@ class CandidatoController extends Controller
         return redirect()->route('candidato.index');
     }
 
-    public function desvinculacion($idCandidato, $idVacante, $idPostulacion){
+    public function desvinculacion($idCandidato, $idVacante, $idPostulacion)
+    {
         $postulacion = Postulacion::find($idPostulacion);
-        $postulacion -> delete();
+        $postulacion->delete();
 
         $desvinculacion = new CandidatoDesvinculacion();
         $desvinculacion->candidato_id = $idCandidato;
@@ -377,7 +434,7 @@ class CandidatoController extends Controller
         })->get();
         $encontrado = $vacante->isNotEmpty();
 
-        if ($encontrado == 0 || $busqueda== null) {
+        if ($encontrado == 0 || $busqueda == null) {
             return redirect()->route('candidato.index');
         } else {
             foreach ($vacante as $resul) {

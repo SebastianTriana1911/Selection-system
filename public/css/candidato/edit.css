@@ -75,11 +75,16 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-put{
-    width: 40%;
+    width: 38%;
     background-color: white;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-bottom: 7%;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-put:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
 }
 
@@ -115,10 +120,9 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-put .contenedor-titulo .linea{
-    width: 35%;
+    width: 28%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
     border-radius: 10px;
     margin-top: 1%;
 }
@@ -144,14 +148,15 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     border-radius: 15px;
-    width: 59%;    
+    width: 100%;    
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-tipo .menu-identificacion:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -169,14 +174,15 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-numero-documento input{
     border: none;
     padding: 7px;
-    width: 49%;
+    width: 100%;
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-numero-documento input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -198,10 +204,11 @@ body::-webkit-scrollbar-thumb{
     font-weight: bolder;
     width: 100%;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-nombre input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -223,10 +230,11 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-apellido input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -249,10 +257,11 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 5px black;
     width: 100%;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .genero .menu-generos:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -273,12 +282,13 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
-    width: 74%;
+    width: 100%;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-estado .menu-estado-civil:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -298,12 +308,13 @@ body::-webkit-scrollbar-thumb{
     padding: 7px;
     border-radius: 15px;
     font-weight: bolder;
-    width: 54%;
+    width: 100%;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-fecha input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -325,10 +336,11 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-direccion input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -350,11 +362,86 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-telefono input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
+}
+
+.contenedor-content .contenedor-put .info .contenedor-estado{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.contenedor-content .contenedor-put .info .contenedor-estado h1{
+    font-size: 15pt;
+}
+
+.contenedor-content .contenedor-put .info .contenedor-estado input{
+    border: none;
+    padding: 7px;
+    width: 100%;
+    border-radius: 15px;
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-put .info .contenedor-estado input:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-avatar{
+    display: flex;
+    gap: 5%;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.contenedor-avatar h1{
+    font-size: 15pt;
+}
+
+.label-input {
+    display: none;
+}
+
+.contenedor-avatar .texto {
+    display: flex;
+    border: none;
+    padding: 7px;
+    width: 72%;
+    border-radius: 15px;
+    font-weight: bolder;
+    box-shadow: 0 0 5px black;
+    transition: 0.4s;
+    font-weight: bolder;
+    cursor: pointer;
+    gap: 2%;
+}
+
+.contenedor-avatar .texto i {
+    margin-left: 2%;
+    font-size: 13pt;
+    display: flex;
+    align-items: center;
+    cursor:pointer
+}
+
+.contenedor-avatar .texto label {
+    cursor:pointer;
+    transition: 0.4s;
+    font-size: 12pt;
+}
+
+.contenedor-avatar .texto:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px black;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-email{
@@ -375,10 +462,11 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-email input:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -400,19 +488,21 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 5px black;
     resize: none;
     padding: 10px 10px 10px 10px;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .info .contenedor-sobre-mi textarea:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
 .contenedor-sobre-mi textarea::-webkit-scrollbar{
-    width: 4px;
+    width: 5px;
 }
 
 .contenedor-sobre-mi textarea::-webkit-scrollbar-thumb{
     background: black;
+    border-radius: 5px;
 }
 
 
@@ -433,12 +523,14 @@ body::-webkit-scrollbar-thumb{
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .contenedor-botones .volver:hover{
-    transition: 0.5s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px;
 }
 
 .contenedor-content .contenedor-put .contenedor-botones .actualizar{
@@ -452,12 +544,14 @@ body::-webkit-scrollbar-thumb{
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     font-size: 13pt;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-put .contenedor-botones .actualizar:hover{
-    transition: 0.5s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px;
 }
 
 /*------------------------------------------------------------*/

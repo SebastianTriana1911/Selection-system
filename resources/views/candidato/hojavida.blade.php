@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Show Candidato</title>
+    <title>Hoja de vida</title>
     <link rel="stylesheet" href="{{ asset('css/candidato/hojavida.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -31,13 +32,12 @@
 
                     <article class="linea-1">
                         <article class="contenedor-imagen">
-                            <img class="imagen" src="{{ $sexo }}" alt="Genero">
+                            <img class="imagen" src="{{ asset($sexo) }}" alt="Genero">
                         </article>
 
                         <article class="info-linea-1">
                             <article class="contenedor-nombre">
-                                <h1 class="nombre">{{ $candidato->user->nombre }}</h1>
-                                <h1 class="apellido">{{ $candidato->user->apellido }}</h1>
+                                <h1 class="nombre">{{ $candidato->user->nombre }} {{ $candidato->user->apellido }}</h1>
                             </article>
 
                             <article class="info-linea-2">
@@ -93,7 +93,7 @@
 
                     <article class="linea-3">
                         <article class="contenedor-titulo">
-                            <h1>Estudios</h1>
+                            <h1>Educacion / Estudios</h1>
                             <h1 class="linea"></h1>
                         </article>
 
@@ -212,9 +212,23 @@
                 </article>
             </article>
 
-            <article class="contenedor-boton">
-                <a class="boton" href="{{ route('candidato.index') }}">Volver</a>
-            </article>
+            @if($candidato->avatar == null)
+                <article class="contenedor-boton">
+                    <a class="boton" href="{{ route('candidato.index') }}">Volver</a>
+                </article>
+            @else
+                <article class="contenedor-boton">
+                    <a class="boton" href="{{ route('candidato.index') }}">Volver</a>
+                    <form action="{{ route('candidato.destroyAvatar', ['id' => $candidato->id]) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                
+                        <button class="boton-2" type="submit">
+                            Eliminar foto
+                        </button>
+                    </form>
+                </article>
+            @endif
         </section>
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->

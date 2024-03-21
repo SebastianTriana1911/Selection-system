@@ -101,6 +101,7 @@
     border-radius: 10px;
     box-shadow: 0 0 7px #33FF76;
     color: black;
+    transition: 0.4s;
 }
 
 .nav .contenedor-estado .estado h1 {
@@ -108,8 +109,8 @@
 }
 
 .nav .contenedor-estado .estado:hover {
-    box-shadow: 0 0 20px #00ff55;
-    transition: 0.5s;
+    box-shadow: 0 0 15px #00ff55;
+    transition: 0.4s;
 }
 
 .segundo-contenedor {
@@ -599,8 +600,7 @@
     width: 20%;
     height: 3px;
     background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    border-radius: 10px;
 }
 
 .grid-2 .contenedor-buscar .formulario {
@@ -630,10 +630,11 @@
     padding: 5px;
     border-radius: 10px;
     border: 1px solid white;
-    box-shadow: 0 0 10px white;
+    box-shadow: 0 0 5px white;
     background-color: black;
     text-align: center;
     font-weight: bolder;
+    transition: 0.4s;
 }
 
 .grid-2 .contenedor-buscar .formulario .buscar::placeholder {
@@ -643,8 +644,8 @@
 }
 
 .grid-2 .contenedor-buscar .formulario .buscar:hover {
-    transition: 0.5s;
-    box-shadow: 0 0 20px white;
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
 }
 
 .grid-2 .contenedor-buscar .formulario .contenedor-boton {
@@ -668,12 +669,14 @@
     font-weight: 1000;
     font-size: 11pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .grid-2 .contenedor-buscar .formulario .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -690,12 +693,14 @@
     font-weight: 1000;
     font-size: 11pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .grid-2 .contenedor-buscar .formulario .contenedor-boton .boton:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -820,12 +825,19 @@
 .empty {
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: white;
     width: 70%;
     padding: 2%;
     border-radius: 15px;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.empty:hover {
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
-    font-size: 16px;
 }
 
 /*------------------------------------------------------------*/

@@ -62,7 +62,7 @@
 
 .contenedor-content .contenedor-principal{
     width: 30%;
-    height: 60%;
+    height: 80%;
     background-color: white;
     border-radius: 15px;
     transition: 0.4s;
@@ -200,11 +200,11 @@
 }
 
 .formulario .contenedor-botones{
-    margin-top: 7%;
     width: 100%;
     display: flex;
     justify-content: center;
     gap: 10%;
+    margin-top: 10%;
 }
 
 .formulario .contenedor-botones a{
