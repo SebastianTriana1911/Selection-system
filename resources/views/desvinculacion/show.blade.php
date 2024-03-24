@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Show Desvinculacion</title>
+    <title>Datos sobre desvinculacion</title>
     <link rel="stylesheet" href="{{ asset('css/desvinculacion/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 
 <body>
@@ -98,7 +99,7 @@
                             <article class="contenedor-tercero">
                                 <article class="tercera-linea">
                                     <article class="estado">
-                                        <h1>Estado </h1>
+                                        <h1>Estado de la vacante</h1>
                                         @php
                                             $estado = '';
                                             if ($desvinculacion->vacante->estado == 0) {

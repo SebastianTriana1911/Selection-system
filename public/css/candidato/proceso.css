@@ -101,6 +101,7 @@
     border-radius: 10px;
     box-shadow: 0 0 7px #33FF76;
     color: black;
+    transition: 0.4s;
 }
 
 .nav .contenedor-estado .estado h1{
@@ -108,8 +109,8 @@
 }
 
 .nav .contenedor-estado .estado:hover{
-    box-shadow: 0 0 20px #00ff55;
-    transition: 0.5s;
+    box-shadow: 0 0 15px #00ff55;
+    transition: 0.4s;
 }
 
 .segundo-contenedor{
@@ -137,12 +138,14 @@
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     font-size: 12pt;
+    transition: 0.4s;
 }
 
 .destroy input:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -157,12 +160,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-logout .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -178,12 +183,14 @@
     font-weight: 1000;
     font-size: 12pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .segundo-contenedor .boton-a:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -199,12 +206,14 @@
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
     font-size: 12pt;
+    transition: 0.4s;
 }
 
 .segundo-contenedor .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
     cursor: pointer;
 }
 
@@ -215,12 +224,12 @@
     grid-area: content;
 }
 
-.contenedor-content .division{
+.contenedor-content .division {
     display: grid;
     grid-template-columns: 50% 1fr;
 }
 
-.contenedor-content .division .grid-1{
+.contenedor-content .division .grid-1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -228,7 +237,7 @@
     background-color: black;
 }
 
-.contenedor-content .division .grid-1 .flex-1{
+.contenedor-content .division .grid-1 .flex-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,38 +247,43 @@
     margin-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja {
     width: 35%;
     height: 70%;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     padding-bottom: 4%;
     padding-top: 3%;
+    transition: 0.4s;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja:hover {
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
+}
+
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja i{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,12 +291,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -293,7 +307,7 @@
     display: flex;
     align-items: center;
     padding: 10px 15px 10px 15px;
-    font-size: 12pt;
+    font-size: 13pt;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -301,46 +315,53 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .division .grid-1 .flex-1 .contenedor-hoja .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update {
     width: 35%;
     height: 70%;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     padding-bottom: 4%;
     padding-top: 3%;
+    transition: 0.4s;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
+}
+
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update i{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .titulo{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -348,12 +369,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -364,7 +385,7 @@
     display: flex;
     align-items: center;
     padding: 10px 15px 10px 15px;
-    font-size: 12pt;
+    font-size: 13pt;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -372,15 +393,17 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .division .grid-1 .flex-1 .contenedor-update .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
-.contenedor-content .division .grid-1 .flex-2{
+.contenedor-content .division .grid-1 .flex-2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -390,38 +413,43 @@
     margin-top: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion {
     width: 35%;
     height: 67%;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     padding-bottom: 4%;
     padding-top: 3%;
+    transition: 0.4s;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion:hover{
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
+}
+
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion i{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -429,12 +457,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -445,7 +473,7 @@
     display: flex;
     align-items: center;
     padding: 10px 15px 10px 15px;
-    font-size: 12pt;
+    font-size: 13pt;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -453,46 +481,53 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .division .grid-1 .flex-2 .contenedor-educacion .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion {
     width: 35%;
     height: 67%;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     padding-bottom: 4%;
     padding-top: 3%;
+    transition: 0.4s;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion:hover{
+    box-shadow: 0 0 15px white;
+    transition: 0.4s;
+}
+
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-titulo {
     display: flex;
     width: 100%;
     justify-content: center;
     gap: 7%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion i{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion i {
     display: flex;
     justify-content: center;
     font-size: 15pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .titulo{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .titulo {
     display: flex;
     justify-content: center;
     font-size: 13pt;
     margin-bottom: 3%;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -500,12 +535,12 @@
     margin: auto;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p p{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-p p {
     font-size: 12pt;
     text-align: center;
 }
 
-.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-boton{
+.contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-boton {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -516,7 +551,7 @@
     display: flex;
     align-items: center;
     padding: 10px 15px 10px 15px;
-    font-size: 12pt;
+    font-size: 13pt;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -524,12 +559,14 @@
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .division .grid-1 .flex-2 .contenedor-update-educacion .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
@@ -565,11 +602,10 @@
 
 .grid-2 .contenedor-proceso .contenedor-titulo .linea{
     margin: auto;
-    width: 20%;
+    width: 18%;
     height: 3px;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     margin-top: 0.5%;
 }
 
@@ -584,6 +620,12 @@
     background-color: white;
     margin-top: 1%;
     border-radius: 15px;
+    transition: 0.4s;
+}
+
+.grid-2 .contenedor-proceso .contenedor-vacante .vacante:hover{
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .grid-2 .contenedor-proceso .contenedor-vacante .vacante .info{
@@ -705,13 +747,14 @@
     border: none;
     box-shadow: 0 0 10px red;
     margin-left: 70%;
-    transition: 0.5s;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .desvinculacion .boton:hover{
-    box-shadow: 0 0 30px red;
-    transition: 0.5s;
+    box-shadow: 0 0 20px red;
+    transition: 0.4s;
+    font-size: 14pt;
 }
 
 .desvinculacion .boton .i{
@@ -732,12 +775,11 @@
 
 .grid-2 .contenedor-titulo .linea{
     margin: auto;
-    width: 20%;
-    height: 3px;
+    width: 15%;
+    height: 4px;
     background-color: white;
     margin-bottom: 3%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones{
@@ -748,7 +790,7 @@
     margin: auto;
     overflow: auto;
     position: relative;
-    top: -4%;
+    top: -6%;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones::-webkit-scrollbar{
@@ -774,7 +816,12 @@
     padding-left: 3%;
     padding-right: 3%;
     padding-bottom: 3%;
-    box-shadow: 0 0 10px white;
+    transition: 0.4s;
+}
+
+.grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones .contenedor-titulo{
@@ -821,13 +868,15 @@
     font-weight: 1000;
     font-size: 11pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .grid-2 .contenedor-titulo .contenedor-postulaciones .postulaciones .contenedor-boton .boton:hover{
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    transition: 0.4s;
     cursor: pointer;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-empty{

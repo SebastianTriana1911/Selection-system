@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/candidato/sintesis.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <title>Sintesis Vacantes</title>
 </head>
 
@@ -262,7 +263,7 @@
                     <article class="info">
                         <p>A continuación se presentará una comparación entre el candidato y la solicitud del
                             empresario 'requisicion de la vacante', especificando las variables que cumple y no cumple. Esto con
-                            el fin de que si usted como candidato cumple con las 3 variables se podra postular de lo
+                            el fin de que si usted como candidato cumple con las 3 o en su defecto con 2 variables se podra postular de lo
                             contrario no.</p>
                         <article class="linea-1">
                             <h1 class="titulo">Nivel de estudio</h1>

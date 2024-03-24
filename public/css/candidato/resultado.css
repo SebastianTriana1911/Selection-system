@@ -84,15 +84,25 @@ body{
     align-items: center;
 }
 
+.nav .contenedor-nav .titulo-principal .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+.nav .contenedor-nav .titulo-principal .contenedor i{
+    position: relative;
+    left: -2%;
+}
+
 .nav .contenedor-nav .titulo-principal .titulo{
     font-size: 18pt;
 }
 
 .nav .contenedor-nav .titulo-principal .linea{
-    width: 45%;
+    width: 55%;
     height: 4px;
+    border-radius: 10px;
     background-color: white;
-    box-shadow: 0 0 10px white;
     margin-top: 1%;
 }
 
@@ -121,6 +131,7 @@ body{
     padding: 4%;
     text-align: center;
     font-weight: bolder;
+    transition: 0.4s;
 }
 
 .nav .contenedor-input .input::placeholder{
@@ -142,6 +153,12 @@ body{
 .boton i{
     font-size: 16pt;
     cursor: pointer;
+    transition: 0.4s;
+}
+
+.boton i:hover{
+    font-size: 18pt;
+    transition: 0.4s;
 }
 
 /*------------------------------------------------------------*/
@@ -200,8 +217,13 @@ body{
     padding: 1%;
     width: 80%;
     border-radius: 15px;
-    box-shadow: 0 0 10px white;
     background-color: white;
+    transition: 0.4s;
+}
+
+.informacion-vacante:hover{
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .informacion-vacante .contenedor-boton-vacante{
@@ -220,13 +242,14 @@ body{
     text-decoration: none;
     font-weight: bolder;
     box-shadow: 0 0 5px #FFD966;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .informacion-vacante .contenedor-boton-vacante .boton:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 5px white;
 }
 
 .informacion-vacante .grid-1 {
@@ -239,6 +262,12 @@ body{
     font-size: 14pt;
 }
 
+.grid-2 .contenedor-cargo {
+    display: flex;
+    align-items: center;
+    height: 45%;
+}
+
 .grid-2 .contenedor-cargo .titulo {
     font-size: 14pt;
 }
@@ -247,8 +276,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 9%;
-    margin-top: 7%;
-    margin-bottom: 7%;
+    margin-bottom: 15%;
 }
 
 .grid-2 .info .contenedor-lugar {
@@ -278,12 +306,14 @@ body{
     text-decoration: none;
     position: relative;
     top: -70%;
+    transition: 0.4s;
 }
 
 .contenedor-boton a:hover {
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
+    color: white;
 }
 
 .contenedor-empty{
@@ -293,9 +323,14 @@ body{
     width: 60%;
     padding: 3%;
     border-radius: 15px;
-    box-shadow: 0 0 10px white;
     position: relative;
     left: 5%;
+    transition: 0.4s;
+}
+
+.contenedor-empty{
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-empty .empty{

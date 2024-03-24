@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/candidato/resultado.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Busqueda Vacantes</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Resultado de busqueda</title>
 </head>
 
 <body>
@@ -34,15 +35,18 @@
                 </article>
 
                 <article class="titulo-principal">
-                    <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+                    <article class="contenedor">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h1 class="titulo">Lista de vacantes relacionadas a tu busqueda</h1>
+                    </article>
                     <h1 class="linea"></h1>
                 </article>
 
                 <article class="contenedor-input">
-                    <form class="buscar" action="{{ route('candidatoResultado.buscar') }}"
-                        method="POST">
+                    <form class="buscar" action="{{ route('candidatoResultado.buscar') }}" method="POST">
                         @csrf
-                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes" />
+                        <input class="input" name="busqueda" type="text" placeholder="Buscar Vacantes"
+                            value="{{ $busqueda }}" />
                         <button class="boton">
                             <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
                         </button>
@@ -115,7 +119,7 @@
 
                                     <article class="contenedor-boton-vacante">
                                         <a class="boton"
-                                            href="{{ route('sintesisVacante.sintesis', ['id' => $vacante->id]) }}">Ver</a>
+                                            href="{{ route('sintesisVacante.sintesis', ['id' => $vacante->id]) }}"><i class="fa-solid fa-eye"></i></a>
                                     </article>
                                 </article>
                             @else

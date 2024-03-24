@@ -27,11 +27,10 @@ body::-webkit-scrollbar-thumb{
 .page {
     display: grid;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
     grid-template-rows: 10vh 75vh 15vh;
     grid-template-areas: 
     "header    header"
-    "content   content-2"
+    "content   content"
     "footer    footer";
 }
 
@@ -70,51 +69,105 @@ body::-webkit-scrollbar-thumb{
 
 /*------------------------------------------------------------*/
 
-.contenedor-content{
-    display: grid;
+.contenedor-content {
     grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "content-1  content-2";
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    display: grid;
+    grid-area: content-1;
     border-left: 3px solid white;
     border-right: 3px solid white;
     border-bottom: 3px solid white;
 }
+.contenedor-content .content{
+    grid-area: content-1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-right: 4px solid white;
+    border-bottom: 4px solid white;
+    border-left: 4px solid white;
+}
 
 .contenedor-content .contenedor-titulo{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 90%;
-    gap: 3%;
+    width: 100%;
+    height: 15%;
+}
+
+.contenedor-content .contenedor-titulo .contenedor{
+    display: flex;
 }
 
 .contenedor-content .contenedor-titulo h1{
     font-size: 18pt;
-    font-weight: bolder;
     color: white;
 }
 
-.contenedor-content .contenedor-titulo .linea{
-    width: 30%;
+.contenedor-content .contenedor-titulo .contenedor i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.contenedor-content .linea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
     height: 4px;
     background-color: white;
-    box-shadow: 0 0 15px white;
     border-radius: 10px;
+    margin-top: 0.5%;
 }
 
 .contenedor-content .contenedor-padre-formulario{
     display: flex;
+    width: 100%;
     justify-content: center; 
+    align-items: center;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario{
     display: flex;
     flex-direction: column;
-    width: 60%;
-    height: 80%;
+    width: 53%;
+    height: 380px;
     background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    border-radius: 10px;
     padding: 4% 5% 3% 5%;
+    transition: 0.4s;
+    overflow-y: auto;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario::-webkit-scrollbar{
+    border-radius: 10px;
+    width:10px;
+    background-color: rgba(196, 196, 196, 0.932);
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgb(92, 91, 91);
+    border-radius: 5px;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-nivel{
@@ -125,7 +178,8 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario h1{
-    width: 100%;
+    font-size: 13pt;
+    width: 66%;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .nivel{
@@ -135,10 +189,11 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .nivel:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -150,7 +205,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion h1{
-    width: 100%;
+    width: 65%;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion .institucion{
@@ -160,24 +215,24 @@ body::-webkit-scrollbar-thumb{
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion .institucion:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 4%;
 }
 
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .grid{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion p{
+    font-size: 12pt;
+    margin-bottom: 2%;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion h1{
@@ -186,23 +241,34 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 2%;
 }
 
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion p{
-    font-size: 11pt;
-}
-
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-descripcion .titulado{
     width: 100%;
+    height: 70px;
     border: none;
     padding: 7px;
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     resize: none;
+    transition: 0.4s;
+    overflow-y: auto;
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado::-webkit-scrollbar{
+    border-radius: 5px;
+    width:7px;
+    background-color: rgb(207, 193, 193, 0.2);
+}
+
+.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: white;
+    border-radius: 5px;
 }
 
 .contenedor-documento{
@@ -226,10 +292,11 @@ body::-webkit-scrollbar-thumb{
     border: none;
     border-radius: 15px;
     padding: 7px;
-    width: 100%;
+    width: 85%;
     box-shadow: 0 0 8px black;
     font-weight: bolder;
     cursor: pointer;
+    transition: 0.4s;
     margin-bottom: 4%;
 }
 
@@ -247,32 +314,28 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-documento .texto:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 15px black;
 }
 
 .contenedor-inicio{
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 4%;
 }
 
-.contenedor-inicio h1{
-    width: 100%;
-}
-
 .contenedor-inicio .fecha-inicio{
-    width: 100%;
     border: none;
+    width: 120%;
     padding: 7px;
     border-radius: 15px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-inicio .fecha-inicio:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
 }
 
@@ -320,12 +383,14 @@ body::-webkit-scrollbar-thumb{
     padding: 8px;
     border-radius: 10px;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-boton a:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-boton .enviar{
@@ -341,13 +406,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 10px;
     font-size: 14pt;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
+    cursor: pointer;
 }
 
 .contenedor-boton .enviar:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     background-color: black;
-    color: #FFD966;
-    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /*------------------------------------------------------------*/
@@ -361,29 +428,50 @@ body::-webkit-scrollbar-thumb{
     border-bottom: 4px solid white;
 }
 
-.content-2 .contenedor-titulo{
+.content-2 .contenedor-titulo-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 18%;
+    height: 15%;
+}
+
+.content-2 .contenedor-titulo-2 .contenedor-contenido-2{
+    display: flex;
+}
+
+.content-2 .contenedor-titulo-2  h1{
+    font-size: 18pt;
+    color: white;
+}
+
+.content-2 .contenedor-titulo-2 .contenedor-contenido-2 i{
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    position: relative;
+    left: -3%;
+    color: white;
+}
+
+.content-2 .contenedor-titulo-2 .linea-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 0.5%;
+}
+
+.content-2 .contenedor-grande{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
-
-.content-2 .contenedor-titulo h1{
-    width: 70%;
-    color: white;
-    font-size: 18pt;
-    text-align: center;
-}
-
-.content-2 .contenedor-titulo .linea{
-    width: 30%;
-    height: 4px;
-    margin-top: 0.5%;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 15px white;
+    width: 100%;
+    height: 70%;
 }
 
 .content-2 .contenedor-educacion{
@@ -392,8 +480,12 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     position: relative;
     width: 90%;
-    height: 65%;
+    height: 400px;
     overflow: auto;
+    mask-image: linear-gradient(
+        black 90%,
+        transparent
+    );
 }
 
 .content-2 .contenedor-educacion::-webkit-scrollbar{
@@ -420,7 +512,12 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     text-decoration: none;
     color: black;
+    transition: 0.4s;
+}
+
+.content-2 .contenedor-educacion .ocupacion:hover{
     box-shadow: 0 0 15px white;
+    transition: 0.4s;
 }
 
 .content-2 .contenedor-educacion .parte-1{
@@ -458,6 +555,12 @@ body::-webkit-scrollbar-thumb{
     font-size: 16pt;
     position: relative;
     left: -200%;
+    transition: 0.4s;
+}
+
+.content-2 .contenedor-educacion .ocupacion .parte-2 form .buttom:hover{
+    color: rgba(181, 15, 15, 0.917);
+    transition: 0.4s;
 }
 
 .empty{

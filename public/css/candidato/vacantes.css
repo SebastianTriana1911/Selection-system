@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Montserrat&family=Poppins:wght@300&family=Tilt+Prism&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400&family=Montserrat&family=Poppins:wght@300&family=Tilt+Prism&display=swap');
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -94,6 +94,16 @@
     left: -4%;
 }
 
+.contenedor-content .nav .contenedor-titulo .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-content .nav .contenedor-titulo .contenedor i{
+    position: relative;
+    left: -3%;
+}
+
 .contenedor-content .nav .conjunto .contenedor-titulo h1 {
     font-size: 18pt;
 }
@@ -104,20 +114,10 @@
     height: 4px;
     border-radius: 15px;
     margin-top: 0.5%;
-    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .nav .contenedor-titulo h1 {
     font-size: 18pt;
-}
-
-.contenedor-content .nav .contenedor-titulo .linea {
-    background-color: white;
-    width: 15%;
-    height: 4px;
-    border-radius: 15px;
-    margin-top: 0.5%;
-    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .content {
@@ -169,8 +169,13 @@
     padding: 1%;
     width: 80%;
     border-radius: 15px;
-    box-shadow: 0 0 10px white;
     background-color: white;
+    transition: 0.4s;
+}
+
+.informacion-vacante:hover {
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
 .informacion-vacante .contenedor-boton-vacante{
@@ -189,13 +194,18 @@
     text-decoration: none;
     font-weight: bolder;
     box-shadow: 0 0 5px #FFD966;
-    transition: 0.5s;
+    transition: 0.4s;
+}
+.informacion-vacante .contenedor-boton-vacante .boton i:hover{
+    font-size: 15pt;
+    transition: 0.4s;
 }
 
 .informacion-vacante .contenedor-boton-vacante .boton:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     background-color: black;
-    color: #FFD966;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .informacion-vacante .grid-1 {
@@ -208,6 +218,12 @@
     font-size: 14pt;
 }
 
+.grid-2 .contenedor-cargo {
+    display: flex;
+    align-items: center;
+    height: 45%;
+}
+
 .grid-2 .contenedor-cargo .titulo {
     font-size: 14pt;
 }
@@ -216,8 +232,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 9%;
-    margin-top: 7%;
-    margin-bottom: 7%;
+    margin-bottom: 15%;
 }
 
 .grid-2 .info .contenedor-lugar {
@@ -247,12 +262,14 @@
     text-decoration: none;
     position: relative;
     top: -40%;
+    transition: 0.4s;
 }
 
 .contenedor-boton a:hover {
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-empty{

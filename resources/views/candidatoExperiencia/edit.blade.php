@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/candidatoExperiencia/edit.css') }}">
-    <title>Update experiencia</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Actualizar experiencia</title>
 </head>
 
 <body>
@@ -29,95 +30,103 @@
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 
         <section class="contenedor-content">
-            <article class="contenedor-titulo">
-                <h1>Actualizacion de datos sobre la experiencia</h1>
-                <h1 class="linea"></h1>
-            </article>
-
-            <article class="contenedor-padre-formulario">
-                <form class="contenedor-formulario"
-                    action="{{ route('experienciaCandidato.update', ['id' => $candidatoExperiencia->id]) }}" method="POST"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <article class="contenedor-nivel">
-                        <h1>Nombre de la empresa</h1>
-                        <input class="nivel" type="text" name="nombre_empresa"
-                            value="{{ old('nombre_empresa', $candidatoExperiencia->nombre_empresa) }}">
-                        @error('nombre_empresa')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
+            <article class="content">
+                <article class="contenedor-titulo">
+                    <article class="contenedor">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <h1>Actualizacion de datos sobre la experiencia</h1>
                     </article>
+                    <h1 class="linea"></h1>
+                </article>
 
-                    <article class="contenedor-institucion">
-                        <h1>Meses experiencia</h1>
-                        <input class="institucion" type="number" name="meses" min="1"
-                            value="{{ old('meses', $candidatoExperiencia->meses) }}">
-                        @error('meses')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
-
-                    <article class="contenedor-documento">
-                        <h1 class="titulo">Certificacion laboral</h1>
-                        <article class="texto">
-                            <i class="fa-solid fa-download" style="color: #000000;"></i>
-                            <label for="input">Archivo</label>
-                            <input id="input" class="label-input" type="file" name="certificacion_laboral"
-                                value="{{ old('certificacion_laboral', $candidatoExperiencia->certificacion_laboral) }}">
+                <article class="contenedor-padre-formulario">
+                    <form class="contenedor-formulario"
+                        action="{{ route('experienciaCandidato.update', ['id' => $candidatoExperiencia->id]) }}"
+                        method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
+                        <article class="contenedor-nivel">
+                            <h1>Nombre de la empresa</h1>
+                            <input class="nivel" type="text" name="nombre_empresa"
+                                value="{{ old('nombre_empresa', $candidatoExperiencia->nombre_empresa) }}">
+                            @error('nombre_empresa')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        @error('certificacion_laboral')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
 
-                    <article class="contenedor-inicio">
-                        <h1>Año de inicio</h1>
-                        <input class="fecha-inicio" type="date" name="año_inicio"
-                            value="{{ old('año_inicio', $candidatoExperiencia->año_inicio) }}">
-                        @error('año_inicio')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
-
-                    <article class="contenedor-fin">
-                        <h1>Año de finalizacion</h1>
-                        <input class="fecha-fin" type="date" name="año_finalizacion"
-                            value="{{ old('año_finalizacion', $candidatoExperiencia->año_finalizacion) }}">
-                        @error('año_finalizacion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
-
-                    <article class="contenedor-descripcion">
-                        <article class="grid">
-                            <h1>Descripcion</h1>
-                            <p>En este campo podras dar una descripcion corta de su paso por la empresa, su experiencia
-                                y conocimientos adquiridos</p>
+                        <article class="contenedor-institucion">
+                            <h1>Meses experiencia</h1>
+                            <input class="institucion" type="number" name="meses" min="1"
+                                value="{{ old('meses', $candidatoExperiencia->meses) }}">
+                            @error('meses')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
                         </article>
-                        <textarea class="titulado" name="descripcion" rows="4">{{ old('descripcion', $candidatoExperiencia->descripcion) }}</textarea>
-                        @error('descripcion')
-                            <strong class="mensaje">{{ $message }}</strong>
-                        @enderror
-                    </article>
 
-                    <article class="contenedor-boton">
-                        <a href="{{ route('experienciaCandidado.index', ['id' => $candidato->id]) }}">Volver</a>
-                        <input class="enviar" type="submit" value="Actualizar">
-                    </article>
+                        <article class="contenedor-documento">
+                            <h1 class="titulo">Certificacion laboral</h1>
+                            <article class="texto">
+                                <i class="fa-solid fa-download" style="color: #000000;"></i>
+                                <label for="input">Archivo</label>
+                                <input id="input" class="label-input" type="file" name="certificacion_laboral"
+                                    value="{{ old('certificacion_laboral', $candidatoExperiencia->certificacion_laboral) }}">
+                            </article>
+                            @error('certificacion_laboral')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
 
-                </form>
+                        <article class="contenedor-inicio">
+                            <h1>Año de inicio</h1>
+                            <input class="fecha-inicio" type="date" name="año_inicio"
+                                value="{{ old('año_inicio', $candidatoExperiencia->año_inicio) }}">
+                            @error('año_inicio')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <article class="contenedor-fin">
+                            <h1>Año de finalizacion</h1>
+                            <input class="fecha-fin" type="date" name="año_finalizacion"
+                                value="{{ old('año_finalizacion', $candidatoExperiencia->año_finalizacion) }}">
+                            @error('año_finalizacion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <article class="contenedor-descripcion">
+                            <article class="grid">
+                                <h1>Descripcion</h1>
+                                <p>En este campo podras dar una descripcion corta de su paso por la empresa, su
+                                    experiencia
+                                    y conocimientos adquiridos</p>
+                            </article>
+                            <textarea class="titulado" name="descripcion" rows="4">{{ old('descripcion', $candidatoExperiencia->descripcion) }}</textarea>
+                            @error('descripcion')
+                                <strong class="mensaje">{{ $message }}</strong>
+                            @enderror
+                        </article>
+
+                        <article class="contenedor-boton">
+                            <a href="{{ route('experienciaCandidado.index', ['id' => $candidato->id]) }}">Volver</a>
+                            <input class="enviar" type="submit" value="Actualizar">
+                        </article>
+
+                    </form>
+                </article>
             </article>
-        </section>
 
-        <section class="content-2">
-            <article class="contenedor-titulo">
-                <h1>Visualizacion sobre actualizacion</h1>
-                <h1 class="linea"></h1>
-            </article>
-            <article class="contenedor-informacion">
-                <article class="info">
-                    <article class="flex">
+            <section class="content-2">
+                <article class="contenedor-titulo-2">
+                    <article class="contenedor-contenido-2">
+                        <i class="fa-solid fa-eye"></i>
+                        <h1>Visualizacion sobre actualizacion</h1>
+                    </article>
+                    <h1 class="linea-2"></h1>
+                </article>
+
+                <article class="contenedor-informacion">
+                    <article class="info">
                         <article class="nombre">
                             <h1>Nombre de la empresa</h1>
                             <p>{{ $candidatoExperiencia->nombre_empresa }}</p>
@@ -129,15 +138,13 @@
                         </article>
 
                         <article class="certificado">
-                            <h1>Documento</h1>
+                            <h1>Certificacion laboral</h1>
                             @php
                                 $ruta = $candidatoExperiencia->certificacion_laboral;
                             @endphp
-                            <a class="documento" href="{{ asset('storage/' . $ruta) }}" target="_blank">Certificado</a>
+                            <a class="documento" href="{{ asset('storage/' . $ruta) }}" target="_blank">Documento</a>
                         </article>
-                    </article>
 
-                    <article class="fechas">
                         <article class="inicio">
                             <h1>Fecha de inicio</h1>
                             <p>{{ $candidatoExperiencia->año_inicio }}</p>
@@ -147,9 +154,7 @@
                             <h1>Fecha de finalizacion</h1>
                             <p>{{ $candidatoExperiencia->año_finalizacion }}</p>
                         </article>
-                    </article>
 
-                    <article class="contenedor-descripcion">
                         <article class="descripcion">
                             <h1>Descripcion</h1>
                             <article class="p">
@@ -158,8 +163,9 @@
                         </article>
                     </article>
                 </article>
-            </article>
+            </section>
         </section>
+
 
         <!--------------------------------------------------------------------------------------------------------------------------------------------->
 

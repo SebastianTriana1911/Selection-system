@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCandidatoExperiencia;
-use App\Http\Requests\UpdateCandidatoExperiencia;
 use DateTime;
 use Illuminate\Http\Request;
 use App\Models\CandidatoExperiencia;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreCandidatoExperiencia;
+use App\Http\Requests\UpdateCandidatoExperiencia;
 
 class CandidatoExperienciaController extends Controller
 {
@@ -53,10 +54,11 @@ class CandidatoExperienciaController extends Controller
 
         // Obtener los valores individuales
         $meses = $diferencia->y * 12 + $diferencia->m;
-
         if ($request->hasFile('certificacion_laboral')) {
             $documento = $request->file('certificacion_laboral');
-            $ruta = $documento->store('documentos', 'public');
+            $documentoNombre = $documento->getClientOriginalName();
+            $documento->storeAs('public', $documentoNombre);
+            $ruta = $documentoNombre;
             $candidatoExperiencia->certificacion_laboral = $ruta;
             if ($request->meses == $meses) {
                 $candidatoExperiencia->save();
@@ -107,10 +109,21 @@ class CandidatoExperienciaController extends Controller
         // Obtener los valores individuales
         $meses = $diferencia->y * 12 + $diferencia->m;
 
+
+
         if ($request->certificacion_laboral != null) {
+            if ($request->certificacion_laboral != $candidatoExperiencia->certificacion_laboral) {
+                $urlOriginal = $candidatoExperiencia->certificacion_laboral;
+                $rutaArchivo = 'public/' . $urlOriginal;
+                $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+                Storage::delete($rutaArchivoCodificada);
+                $candidatoExperiencia->delete();
+            }
             if ($request->hasFile('certificacion_laboral')) {
                 $documento = $request->file('certificacion_laboral');
-                $ruta = $documento->store('documentos', 'public');
+                $documentoNombre = $documento->getClientOriginalName();
+                $documento->storeAs('public', $documentoNombre);
+                $ruta = $documentoNombre;
                 $candidatoExperiencia->certificacion_laboral = $ruta;
                 if ($request->meses == $meses) {
                     $candidatoExperiencia->save();
@@ -120,19 +133,20 @@ class CandidatoExperienciaController extends Controller
                 }
             }
         }else{
-            if ($request->meses == $meses) {
-                $candidatoExperiencia->save();
-                return redirect()->back();
-            } else {
-                return redirect()->back();
-            }
+            $candidatoExperiencia->save();
+            return redirect()->back();
         }
     }
 
     public function destroy($id)
     {
-        $candidatoEducacion = CandidatoExperiencia::find($id);
-        $candidatoEducacion->delete();
+        $candidatoExperiencia = CandidatoExperiencia::find($id);
+        // Se elimina la imagen que haya en la carpeta storage con la ruta que haya en el campo
+        $urlOriginal = $candidatoExperiencia->certificacion_laboral;
+        $rutaArchivo = 'public/' . $urlOriginal;
+        $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+        Storage::delete($rutaArchivoCodificada);
+        $candidatoExperiencia->delete();
 
         return redirect()->back();
     }

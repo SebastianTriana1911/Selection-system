@@ -29,12 +29,12 @@
 
             <article class="primer-contenedor">
                 <h1>{{ $candidato->user->nombre }} {{ $candidato->user->apellido }}</h1>
-                <h1>TI: {{ $candidato->user->num_documento }}</h1>
+                <h1>Num documento: {{ $candidato->user->num_documento }}</h1>
             </article>
 
             <article class="contenedor-estado">
                 <div class="estado">
-                    <h1>En proceso</h1>
+                    <h1>{{$candidato->estado}}</h1>
                 </div>
             </article>
 
@@ -217,7 +217,6 @@
                     </article>
 
                 </article>
-
             </article>
         </section>
 

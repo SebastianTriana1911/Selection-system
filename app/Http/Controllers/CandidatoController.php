@@ -387,6 +387,9 @@ class CandidatoController extends Controller
     public function postulacion($idCandidato, $idVacante, $puntos)
     {
         $candidato = Candidato::find($idCandidato);
+        $candidato->estado = 'En proceso';
+        $candidato->save();
+        
         $vacante = Vacante::find($idVacante);
 
         $postulacion = new Postulacion();
@@ -444,7 +447,8 @@ class CandidatoController extends Controller
             return view('candidato.resultado', [
                 'vacantes' => $vacante,
                 'contador' => $contador,
-                'postulados' => $postulados
+                'postulados' => $postulados,
+                'busqueda' => $busqueda
             ]);
         }
     }
