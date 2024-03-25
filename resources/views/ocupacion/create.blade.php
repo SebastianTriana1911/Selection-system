@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/ocupacion/create.css') }}">
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Create ocupaciones</title>
+    <title>Crear ocupaciones</title>
 </head>
 
 <body>

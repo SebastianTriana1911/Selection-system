@@ -107,6 +107,7 @@
     padding: 1% 3% 1% 2%;
     gap: 5%;
     overflow-y: auto;
+    transition: 0.4s;
 }
 
 .content .contenedor-informacion:hover{
@@ -117,6 +118,18 @@
 .content .contenedor-informacion::-webkit-scrollbar{
     border-radius: 7px;
     width: 10px;
+    background-color: rgba(31, 31, 31, 0.2);
+}
+
+.content .contenedor-informacion::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+
+/* .content .contenedor-informacion::-webkit-scrollbar{
+    border-radius: 7px;
+    width: 10px;
     background-color: rgb(197, 197, 197);
 }
 
@@ -124,7 +137,7 @@
     width: 10px;
     background: rgba(104, 100, 100, 0.671);
     border-radius: 5px;
-}
+} */
 
 .content .contenedor-informacion .nit{
     display: flex;

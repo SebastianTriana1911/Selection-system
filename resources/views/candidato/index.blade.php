@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Index Candidato</title>
+    <title>Home candidato</title>
     <link rel="stylesheet" href="{{ asset('css/candidato/index.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">

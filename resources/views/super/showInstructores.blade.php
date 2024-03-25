@@ -36,7 +36,7 @@
 
                 <article class="contenedor-titulo">
                     <article class="titulo">
-                        <i class="fa-solid fa-chalkboard-user" style="color: #ffffff;"></i>
+                        <i class="fa-solid fa-down-long"></i>
                         <h1 class="titulo">Listados de instructores</h1>
                     </article>
                     <h1 class="barra"></h1>

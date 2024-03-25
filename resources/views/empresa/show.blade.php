@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/empresa/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show empresa</title>
+    <title>Ver datos de la empresa</title>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
 </head>
 

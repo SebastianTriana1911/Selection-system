@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/reclutador/crearEmpresa.css') }}">
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Create empresa</title>
+    <title>Registrar empresa</title>
 </head>
 
 <body>

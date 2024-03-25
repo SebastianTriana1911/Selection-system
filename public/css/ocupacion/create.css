@@ -173,7 +173,7 @@ body::-webkit-scrollbar-thumb{
     width: 80%;
     height: 23px;
     background-color: white;
-    border-radius: 6px;
+    border-radius: 7px;
     box-shadow: 0 0 5px black;
     border: none;
     margin-top: 3%;
@@ -210,7 +210,7 @@ body::-webkit-scrollbar-thumb{
     width: 80%;
     height: 23px;
     background-color: white;
-    border-radius: 6px;
+    border-radius: 7px;
     box-shadow: 0 0 5px black;
     border: none;
     margin-top: 3%;
@@ -248,7 +248,7 @@ body::-webkit-scrollbar-thumb{
     padding-bottom: 7%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 3%;
     resize: none;
@@ -262,11 +262,15 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
-    width: 4px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar-thumb{
-    background: black;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
@@ -386,6 +390,10 @@ body::-webkit-scrollbar-thumb{
     width: 90%;
     height: 400px;
     overflow: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .content-2 .contenedor-ocupaciones::-webkit-scrollbar{
@@ -482,7 +490,7 @@ body::-webkit-scrollbar-thumb{
 
 .content-2 .contenedor-ocupaciones .ocupacion .parte-2 form .buttom i:hover{
     transition: 0.4s;
-    color: rgba(181, 15, 15, 0.917);    
+    color: rgba(181, 15, 15, 0.917);   
 }
 
 .content-2 .contenedor-ocupaciones .ocupacion .parte-2 .a{

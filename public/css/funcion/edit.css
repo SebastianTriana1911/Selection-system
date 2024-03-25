@@ -217,11 +217,15 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar{
-    width: 4px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-content .contenedor-hoja-vida .primera-linea textarea::-webkit-scrollbar-thumb{
-    background: black;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .contenedor-content .contenedor-hoja-vida .contenedor-boton{
@@ -344,14 +348,14 @@ body::-webkit-scrollbar-thumb{
 
 .contenedor-content .content-2 .contenedor-ocupaciones::-webkit-scrollbar{
     border-radius: 5px;
-    width:10px;
-    background-color: rgba(151, 145, 145, 0.76);
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-content .content-2 .contenedor-ocupaciones::-webkit-scrollbar-thumb{
     width: 10px;
-    background: rgba(37, 37, 37, 0.76);
-    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .contenedor-content .content-2 .contenedor-ocupaciones .ocupacion {

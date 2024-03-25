@@ -584,7 +584,6 @@ body::-webkit-scrollbar-thumb{
     background-color: black;
     border-radius: 13px 13px 13px 13px;
     border: 4px solid white;
-    box-shadow: 0 0 10px white;
     margin-top: 5%;
 }
 
@@ -826,7 +825,7 @@ hr{
     background-color: #FFD966;
     border: none;
     border-radius: 10px;
-    padding: 11px;
+    padding: 12px;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
@@ -843,7 +842,7 @@ hr{
     border-radius: 10px;
     padding: 12px;
     font-weight: bolder;
-    font-size: 12pt;
+    font-size: 11pt;
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;

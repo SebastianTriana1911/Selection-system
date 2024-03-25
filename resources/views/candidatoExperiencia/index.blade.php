@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/candidatoExperiencia/index.css') }}">
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
-    <title>Index experiencia</title>
+    <title>Crear experiencia</title>
 </head>
 
 <body>

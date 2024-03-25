@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/vacante/create.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
-    <title>Create Vacantes</title>
+    <title>Crear Vacantes</title>
 </head>
 
 <body>

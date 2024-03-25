@@ -68,7 +68,6 @@ body::-webkit-scrollbar-thumb{
     grid-area: content;
     width: 100%;
     height: 100%;
-    margin-bottom: 5%;
     background-color: black;
 }
 .contenedor-nav {
@@ -106,10 +105,16 @@ body::-webkit-scrollbar-thumb{
     font-size: 20pt;
 }
 
+.contenedor-titulo .titulo i{
+    position: relative;
+    left: -2%;
+    font-size: 18pt;
+}
+
 .barra {
     height: 4px;
     width: 25%;
-    margin-left: 55px;
+    margin-left: 30px;
     margin-top: 0.5%;
     background-color: white;
     border-radius: 10px;
@@ -134,9 +139,14 @@ body::-webkit-scrollbar-thumb{
     align-items: center;
     gap: 10%;
     width: 45%;
+    height: 400px;
     padding-top: 1%;
     padding-bottom: 1%;
     overflow-y: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .contenedor-content .contenedor-informacion .scroll::-webkit-scrollbar{
@@ -152,7 +162,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-informacion .scroll .contenedor-instructor {
-    width: 70%;
+    width: 65%;
     margin-top: 3%;
     background-color: white;
     border-radius: 15px;
@@ -217,8 +227,8 @@ body::-webkit-scrollbar-thumb{
 
 .opciones .contenedor-1{
     display: flex;
-    gap: 15%;
-    margin-bottom: 10%;
+    gap: 30%;
+    margin-bottom: 15%;
 }
 
 .opciones .contenedor-1 i{
@@ -227,7 +237,7 @@ body::-webkit-scrollbar-thumb{
 
 .opciones .contenedor-2{
     display: flex;
-    gap: 25%;
+    gap: 40%;
 }
 
 .opciones .contenedor-2 i{
@@ -237,7 +247,8 @@ body::-webkit-scrollbar-thumb{
 .contenedor-boton  { 
     display: flex;
     justify-content: center;
-    margin-top: 0.8%;
+    align-items: center;
+    height: 15%;
 }
 
 .contenedor-boton .volver {    
@@ -249,11 +260,12 @@ body::-webkit-scrollbar-thumb{
     padding: 0.7% 0.7%;
     font-weight: bolder;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-boton .volver:hover {
     background-color: black;
-    transition: 0.5s;
+    transition: 0.4s;
     color: white;
     box-shadow: 0 0 10px white;
 }
@@ -270,7 +282,12 @@ body::-webkit-scrollbar-thumb{
     color: black;
     margin-top: 1%;
     width: 60%;
-    box-shadow: 0 0 15px white;
+    transition: 0.4s;
+}
+
+.empty:hover{
+    transition: 0.4s;
+    box-shadow: 15px;
 }
 
 #caneca{
@@ -279,7 +296,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 #caneca:hover{
-    color: rgb(221, 8, 8);
+    color: rgba(181, 15, 15, 0.917);
     transition: 0.4s;
 }
 

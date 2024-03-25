@@ -171,7 +171,7 @@ body::-webkit-scrollbar-thumb{
     width: 65%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -193,7 +193,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -215,7 +215,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -242,7 +242,7 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     gap: 6%;
     border: none;
-    border-radius: 15px;
+    border-radius: 7px;
     padding: 7px;
     width: 100%;
     box-shadow: 0 0 8px black;
@@ -281,7 +281,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -303,7 +303,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -431,6 +431,10 @@ body::-webkit-scrollbar-thumb{
     width: 90%;
     height: 400px;
     overflow: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .content-2 .contenedor-educacion::-webkit-scrollbar{

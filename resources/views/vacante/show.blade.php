@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/vacante/show.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
-    <title>Show Vacantes</title>
+    <title>Datos de la vacantes</title>
 </head>
 
 <body>

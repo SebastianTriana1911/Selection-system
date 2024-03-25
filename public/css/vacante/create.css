@@ -197,7 +197,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     transition: 0.4s;
@@ -225,7 +225,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     transition: 0.4s;
@@ -253,7 +253,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     transition: 0.4s;
@@ -281,7 +281,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     transition: 0.4s;
@@ -310,7 +310,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
@@ -335,7 +335,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
@@ -360,7 +360,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
@@ -385,7 +385,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 6px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     margin-bottom: 6%;
@@ -454,7 +454,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -484,7 +484,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -514,7 +514,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -590,7 +590,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -620,7 +620,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -650,7 +650,7 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     transition: 0.4s;
 }
@@ -666,6 +666,7 @@ body::-webkit-scrollbar-thumb{
     margin-bottom: 4%;
     padding-left: 7%;
     padding-right: 7%;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion{
@@ -678,24 +679,28 @@ body::-webkit-scrollbar-thumb{
     padding-right: 3%;
     background-color: white;
     box-shadow: 0 0 5px black;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
     margin-top: 2%;
     resize: none;
+    transition: 0.4s;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion::-webkit-scrollbar{
-    width:4px;
-    background-color: white;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion::-webkit-scrollbar-thumb{
-    background: black;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .formulario .contenedor-educacion-requerida .contenedor-descripcion .descripcion:hover {
     box-shadow: 0 0 10px black;
-    transition: 0.5s;
+    transition: 0.4s;
 }
 
 .contenedor-boton{

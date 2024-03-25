@@ -24,314 +24,6 @@ body::-webkit-scrollbar-thumb{
     background: white;
 }
 
-/* .page {
-    display: grid;
-    height: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 75vh 15vh;
-    grid-template-areas: 
-    "header    header"
-    "content   content-2"
-    "footer    footer";
-}
-
-
-.header {
-    display: flex;
-    grid-area: header;
-    background-color: black;
-    color: white;
-    justify-content: space-between;
-    border-bottom: 3px solid white;
-    font-size: 23pt;
-    align-items: center;
-    padding-left: 25px;
-    font-weight: 1000;
-}
-
-.header .contenedor-logo {
-    display: flex;
-    gap: 2px
-}
-
-.header .contenedor-logo .s-amarilla {
-    color: #FFD966;
-}
-
-.header .titulo {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.header .titulo .system {
-    color: #FFD966;
-} */
-
-/*------------------------------------------------------------*/
-
-/* .contenedor-content{
-    display: grid;
-    grid-area: content;
-    border-left: 3px solid white;
-    border-right: 3px solid white;
-    border-bottom: 3px solid white;
-}
-
-.contenedor-content .contenedor-titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 90%;
-    gap: 3%;
-}
-
-.contenedor-content .contenedor-titulo h1{
-    font-size: 18pt;
-    font-weight: bolder;
-    color: white;
-}
-
-.contenedor-content .contenedor-titulo .linea{
-    width: 30%;
-    height: 4px;
-    background-color: white;
-    box-shadow: 0 0 15px white;
-    border-radius: 10px;
-}
-
-.contenedor-content .contenedor-padre-formulario{
-    display: flex;
-    justify-content: center; 
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 70%;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 15px white;
-    padding: 4% 5% 3% 5%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-nivel{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario h1{
-    width: 100%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .nivel{
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border-radius: 15px;
-    font-weight: bolder;
-    box-shadow: 0 0 5px black;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .nivel:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 10px black;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion h1{
-    width: 100%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion .institucion{
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border-radius: 15px;
-    font-weight: bolder;
-    box-shadow: 0 0 5px black;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-institucion .institucion:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 10px black;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado h1{
-    width: 100%;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado{
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border-radius: 15px;
-    font-weight: bolder;
-    box-shadow: 0 0 5px black;
-}
-
-.contenedor-content .contenedor-padre-formulario .contenedor-formulario .contenedor-titulado .titulado:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 10px black;
-}
-
-.contenedor-documento{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.label-input {
-    display: none;
-}
-
-.contenedor-documento .texto {
-    display: flex;
-    gap: 6%;
-    border: none;
-    border-radius: 15px;
-    padding: 7px;
-    width: 100%;
-    box-shadow: 0 0 8px black;
-    font-weight: bolder;
-    cursor: pointer;
-    margin-bottom: 4%;
-}
-
-.contenedor-documento .texto i {
-    margin-left: 2%;
-    font-size: 13pt;
-    display: flex;
-    align-items: center;
-    cursor:pointer
-}
-
-.contenedor-documento .texto label {
-    cursor:pointer;
-    font-size: 12pt;
-}
-
-.contenedor-documento .texto:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 15px black;
-}
-
-.contenedor-inicio{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4%;
-}
-
-.contenedor-inicio h1{
-    width: 100%;
-}
-
-.contenedor-inicio .fecha-inicio{
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border-radius: 15px;
-    font-weight: bolder;
-    box-shadow: 0 0 5px black;
-}
-
-.contenedor-inicio .fecha-inicio:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 10px black;
-}
-
-.contenedor-fin{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4%;
-}
-
-.contenedor-fin h1{
-    width: 100%;
-}
-
-.contenedor-fin .fecha-fin{
-    width: 100%;
-    border: none;
-    padding: 7px;
-    border-radius: 15px;
-    font-weight: bolder;
-    box-shadow: 0 0 5px black;
-}
-
-.contenedor-fin .fecha-fin:hover{
-    transition: 0.5s;
-    box-shadow: 0 0 10px black;
-}
-
-.contenedor-boton{
-    display: flex;
-    justify-content: center;
-    gap: 10%;
-    margin-top: 3%;
-}
-
-.contenedor-boton a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    text-decoration: none;
-    background-color: #FFD966;
-    color: black;
-    font-weight: bolder;
-    padding: 8px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.contenedor-boton a:hover{
-    transition: 0.5s;
-    background-color: black;
-    color: #FFD966;
-}
-
-.contenedor-boton .enviar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    text-decoration: none;
-    background-color: #FFD966;
-    color: black;
-    font-weight: bolder;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 14pt;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.contenedor-boton .enviar:hover{
-    transition: 0.5s;
-    background-color: black;
-    color: #FFD966;
-    cursor: pointer;
-} */
-
 .page {
     display: grid;
     height: 100%;
@@ -479,7 +171,7 @@ body::-webkit-scrollbar-thumb{
     width: 65%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -501,7 +193,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -523,7 +215,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -550,7 +242,7 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     gap: 6%;
     border: none;
-    border-radius: 15px;
+    border-radius: 7px;
     padding: 7px;
     width: 100%;
     box-shadow: 0 0 8px black;
@@ -589,7 +281,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -611,7 +303,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;

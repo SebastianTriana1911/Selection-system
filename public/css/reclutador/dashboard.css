@@ -252,8 +252,12 @@
     width: 90%;
     height: 70%;
     overflow: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
+    transition: 0.4s;
 }
-
 .segunda-columna .contenedor-informacion::-webkit-scrollbar{
     border-radius: 5px;
     width:7px;
@@ -276,7 +280,14 @@
     padding: 1%;
     text-decoration: none;
     color: black;
+    transition: 0.4s;
 }
+
+.segunda-columna .contenedor-instructor:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
+}
+
 
 .segunda-columna .contenedor-instructor .contenedor-logo {
     display: flex;
@@ -347,9 +358,15 @@
     border-radius: 7px;
     font-weight: bolder;
     border: none;
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 5px black;
     cursor: pointer;
     margin-bottom: 15%;
+    transition: 0.4s;
+}
+
+.rol .formulario-2 .menu:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
 }
 
 .rol .formulario-2 .cambiar{

@@ -265,7 +265,7 @@
                             <article class="contenedor-perfil">
                                 <article class="perfil">
                                     <h1 class="titulo">Perfil profesional</h1>
-                                    <textarea class="input" name="perfil_profesional" cols="70" rows="4"
+                                    <textarea class="input" name="perfil_profesional" cols="70" rows="3"
                                         placeholder="En este campo podras redactar tu como persona como te sientes en el ambito profesional y el ser un profesional">{{ old('perfil_profesional') }}</textarea>
                                 </article>
                             </article>

@@ -84,8 +84,7 @@
 .nav .segundo-contenedor {
     position: relative;
     right: 2%;
-    left: 1%;
-    width: 40%;
+    width: 35%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -96,13 +95,14 @@
 }
 
 .contenedor-restablecer{
-    width: 40%;
+    width: 250px;
+    align-items: center;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
 
 .boton-restablecer{
-    width: 100%;
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -126,18 +126,19 @@
 }
 
 .contenedor-create{
-    width: 40%;
+    width: 200px;
+    align-items: center;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
 
 .boton-create{
-    width: 60%;
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: black;
-    padding: 5%;
+    padding: 6%;
     background-color: #FFD966;
     border: none;
     border-radius: 15px;
@@ -156,9 +157,11 @@
 }
 
 .contenedor-logout{
-    width: 50%;
+    width: 200px;
+    align-items: center;
+    height: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
 }
 
 .boton-logout{
@@ -276,12 +279,12 @@
     border-radius: 15px;
     position: relative;
     top: -15px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo {
@@ -346,12 +349,12 @@
     border-radius: 15px;
     position: relative;
     top: -15px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-logo {
@@ -417,12 +420,12 @@
     border-radius: 15px;
     position: relative;
     top: -15px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3:hover {
     box-shadow: 0 0 25px white;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-3 .contenedor-logo {

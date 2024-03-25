@@ -147,7 +147,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-tipo .menu-identificacion{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     width: 100%;    
     font-weight: bolder;
     box-shadow: 0 0 5px black;
@@ -175,7 +175,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -200,7 +200,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-nombre input{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     width: 100%;
     box-shadow: 0 0 5px black;
@@ -226,7 +226,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-apellido input{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     width: 100%;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
@@ -252,7 +252,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .genero .menu-generos{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     width: 100%;
@@ -279,7 +279,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-estado .menu-estado-civil{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     width: 100%;
@@ -306,7 +306,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-fecha input{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     width: 100%;
     box-shadow: 0 0 5px black;
@@ -333,7 +333,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -359,7 +359,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -385,7 +385,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -416,7 +416,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     padding: 7px;
     width: 72%;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -459,7 +459,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -483,7 +483,7 @@ body::-webkit-scrollbar-thumb{
 .contenedor-content .contenedor-put .info .contenedor-sobre-mi textarea{
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     resize: none;
@@ -497,14 +497,16 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-sobre-mi textarea::-webkit-scrollbar{
-    width: 5px;
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-sobre-mi textarea::-webkit-scrollbar-thumb{
-    background: black;
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
     border-radius: 5px;
 }
-
 
 .contenedor-content .contenedor-put .contenedor-botones{
     position: relative;

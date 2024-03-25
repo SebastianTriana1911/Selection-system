@@ -154,14 +154,14 @@ body::-webkit-scrollbar-thumb{
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario::-webkit-scrollbar{
-    border-radius: 10px;
-    width:10px;
-    background-color: rgba(196, 196, 196, 0.932);
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-content .contenedor-padre-formulario .contenedor-formulario::-webkit-scrollbar-thumb{
     width: 10px;
-    background: rgb(92, 91, 91);
+    background: rgba(0, 0, 0, 0.418);
     border-radius: 5px;
 }
 
@@ -186,7 +186,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -212,7 +212,7 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -246,7 +246,7 @@ body::-webkit-scrollbar-thumb{
     height: 70px;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     resize: none;
@@ -290,7 +290,7 @@ body::-webkit-scrollbar-thumb{
     display: flex;
     gap: 6%;
     border: none;
-    border-radius: 15px;
+    border-radius: 7px;
     padding: 7px;
     width: 85%;
     box-shadow: 0 0 8px black;
@@ -328,7 +328,7 @@ body::-webkit-scrollbar-thumb{
     border: none;
     width: 120%;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
     transition: 0.4s;
@@ -354,14 +354,37 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     border: none;
     padding: 7px;
-    border-radius: 15px;
+    border-radius: 7px;
     font-weight: bolder;
     box-shadow: 0 0 5px black;
+    transition: 0.4s;
 }
 
 .contenedor-fin .fecha-fin:hover{
-    transition: 0.5s;
+    transition: 0.4s;
     box-shadow: 0 0 10px black;
+}
+
+.contenedor-descripcion .titulado{
+    transition: 0.4s;
+    box-shadow: 0 0 5px black;
+}
+
+.contenedor-descripcion .titulado:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px black;
+}
+
+.contenedor-descripcion .titulado::-webkit-scrollbar{
+    border-radius: 5px;
+    width:7px;
+    background-color: rgba(31, 31, 31, 0.2);
+}
+
+.contenedor-descripcion .titulado::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .contenedor-boton{

@@ -8,7 +8,6 @@
 
 .mensaje {
     font-size: 12pt;
-    margin-top: 1%;
     color:red;
 }
 
@@ -126,19 +125,24 @@ body::-webkit-scrollbar-thumb{
     height: 75%;
     background-color: white;
     border-radius: 15px 5px 5px 15px;
-    box-shadow: 0 0 15px white;
     overflow-y: auto;
+    transition: 0.4s;
+}
+
+.contenedor-content .contenedor-hoja-vida:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .contenedor-hoja-vida::-webkit-scrollbar{
-    border-radius: 10px;
+    border-radius: 5px;
     width:7px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
 .contenedor-content .contenedor-hoja-vida::-webkit-scrollbar-thumb{
     width: 10px;
-    background: rgb(45, 45, 45);
+    background: rgba(0, 0, 0, 0.418);
     border-radius: 5px;
 }
 
