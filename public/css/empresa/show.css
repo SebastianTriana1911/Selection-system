@@ -127,18 +127,6 @@
     border-radius: 5px;
 }
 
-/* .content .contenedor-informacion::-webkit-scrollbar{
-    border-radius: 7px;
-    width: 10px;
-    background-color: rgb(197, 197, 197);
-}
-
-.content .contenedor-informacion::-webkit-scrollbar-thumb{
-    width: 10px;
-    background: rgba(104, 100, 100, 0.671);
-    border-radius: 5px;
-} */
-
 .content .contenedor-informacion .nit{
     display: flex;
     width: 100%;

@@ -277,6 +277,27 @@ class CandidatoController extends Controller
     public function destroy(string $id)
     {
         $usuario = User::find($id);
+        $candidatoEducacion = $usuario->candidato->candidatoEducacion;
+        foreach ($candidatoEducacion as $educacion) {
+            $urlOriginal = $educacion->documento;
+            $rutaArchivo = 'public/' . $urlOriginal;
+            $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+            Storage::delete($rutaArchivoCodificada);
+        }
+
+        $candidatoExperiencia = $usuario->candidato->candidatoExperiencia;
+        foreach ($candidatoExperiencia as $experiencia) {
+            $urlOriginal = $experiencia->certificacion_laboral;
+            $rutaArchivo = 'public/' . $urlOriginal;
+            $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+            Storage::delete($rutaArchivoCodificada);
+        }
+
+        $urlOriginal = $usuario->candidato->avatar;
+        $rutaArchivo = 'public/' . $urlOriginal;
+        $rutaArchivoCodificada = rawurldecode($rutaArchivo);
+        Storage::delete($rutaArchivoCodificada);
+
         $usuario->delete();
 
         return redirect()->route('welcome');
@@ -298,7 +319,7 @@ class CandidatoController extends Controller
 
         return view('candidato.vacantes', ['vacantes' => $vacantes, 'cantidad' => $cantidad]);
     }
-    
+
 
     public function sintesis($id)
     {
@@ -389,7 +410,7 @@ class CandidatoController extends Controller
         $candidato = Candidato::find($idCandidato);
         $candidato->estado = 'En proceso';
         $candidato->save();
-        
+
         $vacante = Vacante::find($idVacante);
 
         $postulacion = new Postulacion();

@@ -252,6 +252,10 @@ body{
     box-shadow: 0 0 5px white;
 }
 
+#ojo{
+    font-size: 16pt;
+}
+
 .informacion-vacante .grid-1 {
     display: flex;
     justify-content: center;

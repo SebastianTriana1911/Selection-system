@@ -94,6 +94,17 @@
     left: -4%;
 }
 
+.contenedor-content .nav .contenedor-titulo .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-content .nav .contenedor-titulo .contenedor i{
+    position: relative;
+    left: -2%;
+    font-size: 14pt;
+}
+
 .contenedor-content .nav .conjunto .contenedor-titulo h1 {
     font-size: 18pt;
 }
@@ -104,7 +115,6 @@
     height: 4px;
     border-radius: 15px;
     margin-top: 0.5%;
-    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .nav .contenedor-titulo h1 {
@@ -117,7 +127,6 @@
     height: 4px;
     border-radius: 15px;
     margin-top: 0.5%;
-    box-shadow: 0 0 15px white;
 }
 
 .contenedor-content .content {
@@ -144,11 +153,17 @@
     flex-direction: column;
     align-items: center;
     gap: 10%;
-    width: 45%;
+    width: 50%;
     height: 400px;
     padding-top: 1%;
     padding-bottom: 1%;
     overflow-y: auto;
+    position: relative;
+    left: 3%;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar{
@@ -165,45 +180,113 @@
 
 .informacion-vacante {
     display: grid;
-    grid-template-columns: 22% 1fr 11%;
+    grid-template-columns: 25% 1fr 11%;
     padding: 1%;
     width: 80%;
-    height: 30%;
+    height: 55%;
     border-radius: 15px;
-    box-shadow: 0 0 10px white;
     background-color: white;
+    transition: 0.4s;
+}
+
+.informacion-vacante:hover {
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
 .informacion-vacante .contenedor-boton-vacante{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 5%;
     border-left: 3px solid black;
     width: 100%;
 }
 
 .informacion-vacante .contenedor-boton-vacante .boton{
-    padding: 15%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     background-color: #FFD966;
     text-decoration: none;
     font-weight: bolder;
     color: black;
+    width: 20px;
     box-shadow: 0 0 5px #FFD966;
     transition: 0.5s;
 }
 
 .informacion-vacante .contenedor-boton-vacante .boton:hover{
-    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
     background-color: black;
     color: #ffffff;
     box-shadow: 0 0 10px white;
 }
 
+.informacion-vacante .contenedor-boton-vacante .boton-2{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #FFD966;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    width: 20px;
+    box-shadow: 0 0 5px #FFD966;
+    transition: 0.4s;
+}
+
+.informacion-vacante .contenedor-boton-vacante .boton-2:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    background-color: black;
+    color: #ffffff;
+    box-shadow: 0 0 10px white;
+}
+
+.informacion-vacante .contenedor-boton-vacante .boton-3{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    border-radius: 10px;
+    background-color: #33FF53;
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+    box-shadow: 0 0 3px black;
+    transition: 0.4s;
+}
+
+.informacion-vacante .contenedor-boton-vacante .boton-3:hover{
+    transition: 0.4s;
+    background-color: black;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px white;
+}
+
+
 .informacion-vacante .contenedor-boton-vacante  i:hover{
     width: 100%;
     height: 100%;
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .informacion-vacante .grid-1 {
@@ -218,7 +301,10 @@
 }
 
 .informacion-vacante .grid-1 .contenedor-codigo .contenedor-imagen{
-    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -273,26 +359,31 @@
     box-shadow: 0 0 10px #FFD966;
     cursor: pointer;
     text-decoration: none;
-    position: relative;
-    top: -40%;
+    transition: 0.4s;
 }
 
 .contenedor-boton a:hover {
     background-color: black;
-    transition: 0.5s;
-    color: #FFD966;
+    transition: 0.4s;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-empty{
     display: flex;
     justify-content: center;
     background-color: white;
-    width: 60%;
+    width: 70%;
     padding: 3%;
     border-radius: 15px;
-    box-shadow: 0 0 10px white;
     position: relative;
-    left: 5%;
+    left: 4%;
+    transition: 0.4s;
+}
+
+.contenedor-empty:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
 }
 
 .contenedor-empty .empty{

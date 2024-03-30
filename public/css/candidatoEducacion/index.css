@@ -168,7 +168,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .content .contenedor-padre-formulario .contenedor-formulario .nivel{
-    width: 65%;
+    width: 100%;
     border: none;
     padding: 7px;
     border-radius: 7px;

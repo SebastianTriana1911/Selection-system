@@ -67,200 +67,166 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 20%;
-    gap: 8%;
+    height: 12%;
+    gap: 5%;
+}
+
+.content .contenedor-titulo .contenedor{
+    display: flex;
+    align-items: center;
+}
+
+.content .contenedor-titulo .contenedor i{
+    color: white;
+    font-size: 15pt;
+    position: relative;
+    left: -3%;
 }
 
 .content .contenedor-titulo .titulo{
     color: white;
-    font-size: 22pt;
+    font-size: 18pt;
 }
 
 .content .contenedor-titulo .linea{
     background-color: white;
-    width: 20%;
+    width: 10%;
     height: 4px;
     border-radius: 10px;
-    box-shadow: 0 0 10px white;
 }
 
 .content .contenedor-informacion{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10%;
-    width: 37%;
-    height: 60%;
+    width: 25%;
+    height: 70%;
     background-color: white;
+    border-radius: 10px;
+    transition: 0.4s;
+    padding: 1% 3% 1% 2%;
+    gap: 5%;
+    overflow-y: auto;
+    transition: 0.4s;
+}
+
+.content .contenedor-informacion:hover{
+    transition: 0.4s;
     box-shadow: 0 0 15px white;
-    border-radius: 15px;
 }
 
-.content .contenedor-informacion .linea-1{
-    display: flex;
-    width: 90%;
-    align-items: center;
-    padding-left: 10%;
+.content .contenedor-informacion::-webkit-scrollbar{
+    border-radius: 7px;
+    width: 10px;
+    background-color: rgba(31, 31, 31, 0.2);
 }
 
-.content .contenedor-informacion .id{
-    display: flex;
-    width: 38%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .id .titulo{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .id p{
-    font-size: 13pt;
+.content .contenedor-informacion::-webkit-scrollbar-thumb{
+    width: 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
 }
 
 .content .contenedor-informacion .nit{
     display: flex;
-    width: 58%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .nit .titulo{
+    width: 100%;
     font-size: 13pt;
-}
-
-.content .contenedor-informacion .id p{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .linea-2{
-    display: flex;
-    width: 80%;
     align-items: center;
-    padding-left: 10%;
+    gap: 1%;
 }
 
 .content .contenedor-informacion .nombre{
     display: flex;
     width: 100%;
-    gap: 4%;
+    font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
-.content .contenedor-informacion .nombre .titulo{
+.content .contenedor-informacion .responsable{
+    display: flex;
+    width: 100%;
     font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
-.content .contenedor-informacion .nombre p{
+.content .contenedor-informacion .tipo{
+    display: flex;
+    width: 100%;
     font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
 .content .contenedor-informacion .direccion{
     display: flex;
-    width: 122%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .direccion .titulo{
+    width: 100%;
     font-size: 13pt;
-}
-
-.content .contenedor-informacion .direccion p{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .linea-3{
-    display: flex;
-    width: 80%;
     align-items: center;
-    padding-left: 10%;
+    gap: 1%;
 }
 
-.content .contenedor-informacion .pais{
+.content .contenedor-informacion .correo{
     display: flex;
     width: 100%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .pais .titulo{
     font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
-.content .contenedor-informacion .pais p{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .departamento{
-    display: flex;
-    width: 125%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .departamento .titulo{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .departamento p{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .municipio{
+.content .contenedor-informacion .telefono{
     display: flex;
     width: 100%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .municipio .titulo{
     font-size: 13pt;
-}
-
-.content .contenedor-informacion .municipio p{
-    font-size: 13pt;
-}
-
-.content .contenedor-informacion .linea-3{
-    display: flex;
-    width: 80%;
     align-items: center;
-    padding-left: 10%;
+    gap: 1%;
+}
+
+.content .contenedor-informacion .producto{
+    display: flex;
+    width: 100%;
+    font-size: 13pt;
+    align-items: center;
+    gap: 1%;
+}
+
+.content .contenedor-informacion .lugar{
+    display: flex;
+    width: 100%;
+    font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
 .content .contenedor-informacion .reclutadores{
     display: flex;
-    width: 55%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .reclutadores .titulo{
+    width: 100%;
     font-size: 13pt;
-}
-
-.content .contenedor-informacion .reclutadores p{
-    font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
 .content .contenedor-informacion .seleccionador{
     display: flex;
-    width: 45%;
-    gap: 4%;
-}
-
-.content .contenedor-informacion .seleccionador .titulo{
+    width: 100%;
     font-size: 13pt;
-}
-
-.content .contenedor-informacion .seleccionador p{
-    font-size: 13pt;
+    align-items: center;
+    gap: 1%;
 }
 
 .content .contenedor-boton {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-top: 1%;
 }
 
 .content .contenedor-boton .boton{
     display: flex;
     align-items: center;
-    padding: 1%;
+    padding: 8px;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -268,33 +234,14 @@
     border: none;
     border-radius: 15px;
     font-weight: 1000;
+    transition: 0.4s;
 }
 
 .content .contenedor-boton .boton:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-}
-
-.content .contenedor-boton .form{
-    display: flex;
-    align-items: center;
-    padding: 20%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    box-shadow: 0 0 10px #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    font-size: 12pt;
-}
-
-.content .contenedor-boton .form:hover {
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 /*------------------------------------------------------------*/

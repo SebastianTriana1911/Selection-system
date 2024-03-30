@@ -1,13 +1,15 @@
 <!-- VISTA DE LA EMPRESA A LA QUE ESTA VINCULADO EL RECLUTADOR -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/seleccionador/showEmpresa.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show empresa</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Ver datos de la empresa</title>
 </head>
 
 <body>
@@ -31,56 +33,89 @@
         <section class="content">
 
             <article class="contenedor-titulo">
-                <h1 class="titulo">Informacion de la empresa {{$empresa -> nombre}}</h1>
+                <article class="contenedor">
+                    <i class="fa-solid fa-eye"></i>
+                    <h1 class="titulo">Informacion de la empresa</h1>
+                </article>
                 <h1 class="linea"></h1>
             </article>
 
             <article class="contenedor-informacion">
 
-                <article class="linea-1">
-                    <article class="id">
-                        <h1 class="titulo">Id: </h1>
-                        <p> {{$empresa -> id}}</p>
-                    </article>
-
-                    <article class="nit">
-                        <h1 class="titulo">Nit: </h1>
-                        <p> {{$empresa -> nit}}</p>
-                    </article>
-                
-                    <article class="nombre">
-                        <h1 class="titulo">Nombre: </h1>
-                        <p> {{$empresa -> nombre}}</p>
-                    </article>
+                <article class="nit">
+                    <h1 class="titulo">Nit</h1>
+                    <p> {{ $empresa->nit }}</p>
                 </article>
 
-                <article class="linea-2">
-                    <article class="direccion">
-                        <h1 class="titulo">Direccion: </h1>
-                        <p> {{$empresa -> direccion}}</p>
-                    </article>
-                    
-                    <article class="municipio">
-                        <h1 class="titulo">Municipio:</h1>
-                        <p> {{$empresa -> municipio -> nombre}}</p>
-                    </article>
+                <article class="nombre">
+                    <h1 class="titulo">Nombre</h1>
+                    <p> {{ $empresa->nombre }}</p>
                 </article>
 
-                <article class="linea-3">
-                    <article class="reclutadores">
-                        <h1 class="titulo">Reclutadores: </h1>
-                        <p>{{$reclutadores}}</p>
-                    </article>
+                <article class="responsable">
+                    <h1>Responsable legal</h1>
+                    <p>{{ $empresa->responsable_legal }}</p>
+                </article>
 
-                    <article class="seleccionador">
-                        <h1 class="titulo">Seleccionador:</h1>
-                        <p> {{$seleccionadores}}</p>
-                    </article>
+                <article class="tipo">
+                    <h1>Tipo de empresa</h1>
+                    <p>{{ $empresa->tipo_empresa }}</p>
                 </article>
+
+                <article class="direccion">
+                    <h1 class="titulo">Direccion</h1>
+                    <p> {{ $empresa->direccion }}</p>
                 </article>
+
+                <article class="correo">
+                    <h1>Correo electronico</h1>
+                    <p>{{ $empresa->correo_electronico }}</p>
+                </article>
+
+                <article class="telefono">
+                    <h1>Telefono</h1>
+                    <p>{{ $empresa->telefono }}</p>
+                </article>
+
+                <article class="producto">
+                    <h1>Producto o servicio</h1>
+                    <p>{{ $empresa->producto_servicio }}</p>
+                </article>
+
+                <article class="lugar">
+                    <h1>Lugar</h1>
+                    <p>{{ $empresa->municipio->departamento->nombre }} {{ $empresa->municipio->nombre }}</p>
+                </article>
+
+                @php
+                    $contador = 0;
+                    $reclutadores = $empresa->reclutador;
+
+                    foreach ($reclutadores as $reclutador){
+                        $contador = $contador + 1;
+                    }
+                @endphp
+                <article class="reclutadores">
+                    <h1 class="titulo">Reclutadores</h1>
+                    <p>{{ $contador }}</p>
+                </article>
+
+                @php
+                    $contadorSeleccionadores = 0;
+                    $seleccionadores = $empresa->seleccionador;
+
+                    foreach ($seleccionadores as $seleccionador){
+                        $contadorSeleccionadores = $contadorSeleccionadores + 1;
+                    }
+                @endphp
+                <article class="seleccionador">
+                    <h1 class="titulo">Seleccionador</h1>
+                    <p> {{ $contadorSeleccionadores }}</p>
+                </article>
+            </article>
 
             <article class="contenedor-boton">
-                <a class="boton" href="{{route('seleccionador.index')}}">Volver</a>
+                <a class="boton" href="{{ route('seleccionador.index') }}">Volver</a>
             </article>
 
         </section>
@@ -181,4 +216,5 @@
         </footer>
     </main>
 </body>
+
 </html>

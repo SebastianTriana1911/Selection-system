@@ -892,9 +892,15 @@
     width: 70%;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     font-size: 16px;
+    transition: 0.4s;
 }
+
+.empty:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px white;
+}
+
 /*------------------------------------------------------------*/
 
 .footer {

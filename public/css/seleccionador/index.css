@@ -66,6 +66,7 @@
 .nav .primer-contenedor {
     display: flex;
     flex-direction: column;
+    gap: 10%;
     width: 50%;
     height: 100%;
     justify-content: center;
@@ -82,6 +83,87 @@
 }
 
 .nav .segundo-contenedor i {
+    cursor: pointer;
+}
+
+.segundo-contenedor{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+    gap: 10%;
+    position: relative;
+    right: 1.5%;
+}
+
+.segundo-contenedor .boton-a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 12px;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    font-size: 12pt;
+    box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
+}
+
+.segundo-contenedor .boton-a:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.segundo-contenedor .boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 12px;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    font-size: 12pt;
+    box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
+}
+
+.segundo-contenedor .boton:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.contenedor-logout .boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    font-size: 12pt;
+    box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
+}
+
+.contenedor-logout .boton:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
     cursor: pointer;
 }
 
@@ -115,73 +197,6 @@
     width: 40%;
 }
 
-.contenedor-logout .boton{
-    width: 120%;
-}
-
-.boton-a{
-    position: relative;
-    left: 3%;
-    display: flex;
-    justify-content: center;
-    padding: 1.5%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    font-size: 12.5pt;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.boton-a:hover{
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-form .boton{
-    display: flex;
-    justify-content: center;
-    padding: 10%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-form .boton:hover{
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.contenedor-logout .boton{
-    display: flex;
-    justify-content: center;
-    padding: 10%;
-    text-decoration: none;
-    color: black;
-    background-color: #FFD966;
-    border: none;
-    border-radius: 15px;
-    font-weight: 1000;
-    box-shadow: 0 0 10px #FFD966;
-}
-
-.contenedor-logout .boton:hover{
-    background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
 .contenedor-content .recuadro-menu{
     width: 80%;
 }
@@ -192,14 +207,14 @@ form .boton:hover{
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo {
@@ -208,7 +223,6 @@ form .boton:hover{
     align-items: center;
     width: 100%;
     height: 30%;
-    /* margin-bottom: 3%; */
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-logo i {
@@ -232,7 +246,7 @@ form .boton:hover{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-boton a {
@@ -246,12 +260,14 @@ form .boton:hover{
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-1 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 {
@@ -260,14 +276,14 @@ form .boton:hover{
     background-color: white;
     padding: 2%;
     border-radius: 15px;
-    box-shadow: 0 0 15px white;
     position: relative;
     top: -15px;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2:hover {
-    box-shadow: 0 0 25px white;
-    transition: 0.5s;
+    box-shadow: 0 0 20px white;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-logo {
@@ -301,7 +317,7 @@ form .boton:hover{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a {
@@ -315,12 +331,14 @@ form .boton:hover{
     border-radius: 15px;
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
 }
 
 .contenedor-content .recuadro-menu .cuadro-2 .contenedor-boton a:hover {
     background-color: black;
-    color: #FFD966;
-    transition: 0.5s;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.4s;
 }
 
 /*------------------------------------------------------------*/

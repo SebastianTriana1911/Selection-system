@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/seleccionador/postulados.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show postulados</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Ver lista de postulados</title>
 </head>
 
 <body>
@@ -32,10 +33,13 @@
             <article class="nav">
                 <article class="conjunto">
                     <article class="cantidad">
-                        <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
+                        <h1>Cantidad de postulados: {{ $cantidad }}</h1>
                     </article>
                     <article class="contenedor-titulo">
-                        <h1>Lista de vacantes creadas por la empresa</h1>
+                        <article class="contenedor">
+                            <i class="fa-solid fa-down-long"></i>
+                            <h1>Lista de candidatos postulados</h1>
+                        </article>
                         <h1 class="linea"></h1>
                     </article>
                     <article>
@@ -54,14 +58,29 @@
                                     <article class="contenedor-codigo">
                                         @php
                                             $imagen = '';
+
                                             if ($postulacion->candidato->user->genero == 'Masculino') {
-                                                $imagen = '/imagenes/icono-hombre.png';
-                                            } else {
-                                                $imagen = '/imagenes/icono-mujer.png';
+                                                if ($postulacion->candidato->avatar != null) {
+                                                    $imagen = 'storage/' . $postulacion->candidato->avatar;
+                                                } else {
+                                                    $imagen = '/imagenes/icono-hombre.png';
+                                                }
+                                            }
+
+                                            if ($postulacion->candidato->user->genero == 'Femenino') {
+                                                if ($postulacion->candidato->avatar != null) {
+                                                    $imagen = 'storage/' . $postulacion->candidato->avatar;
+                                                } else {
+                                                    $imagen = '/imagenes/icono-mujer.png';
+                                                }
                                             }
                                         @endphp
                                         <article class="contenedor-imagen">
-                                            <img src="{{ $imagen }}" alt="icono">
+                                            @if (substr($imagen, 0, 1) === '/')
+                                                <img src="{{ $imagen }}" alt="icono">
+                                            @else
+                                                <img src="{{ asset($imagen) }}" alt="icono">
+                                            @endif
                                         </article>
                                     </article>
                                 </article>
@@ -111,32 +130,35 @@
                                         </article>
 
                                         <article class="contenedor-postulados">
-                                            {{-- @php
-                                                $ponderacion = $postulacion->ponderacion;
-                                                $lista = [];
-
-                                                foreach($postulacion->ponderacion as $ponderacion){
-                                                array_push($lista, $ponderacion->ponderacion);
-                                                }
-                                            @endphp
-                                            @foreach($lista as $ponderaciones)
-                                                <h1>Ponderacion: {{$ponderaciones}}</h1>
-                                            @endforeach --}}
-                                            <h1>Ponderacion: {{$postulacion->ponderacion->ponderacion}}</h1>
+                                            <h1>Ponderacion: {{ $postulacion->ponderacion->ponderacion }}</h1>
                                         </article>
 
                                     </article>
                                 </article>
 
                                 <article class="contenedor-boton-vacante">
-                                    <a class="boton" href="">
-                                        <i class="fa-solid fa-users"></i>
-                                    </a>
+                                    @if ($postulacion->candidato->estado == 'Preseleccionado')
+                                        <a class="boton" href="">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+
+                                        <a class="boton-2" href="">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </a>
+
+                                        <a class="boton-3" href="">
+                                            <i class="fa-solid fa-check"></i>
+                                        </a>
+                                    @else
+                                        <a class="boton" href="">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
+                                    @endif
                                 </article>
                             </article>
                         @empty
                             <article class="contenedor-empty">
-                                <h1 class="empty">No hay vacantes registradas</h1>
+                                <h1 class="empty">No se han postulado candidatos para esta vacante</h1>
                             </article>
                         @endforelse
                     </article>

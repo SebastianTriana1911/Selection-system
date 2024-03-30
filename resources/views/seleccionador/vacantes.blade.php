@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/seleccionador/vacante.css') }}">
     <script src="https://kit.fontawesome.com/10d9a6ff24.js" crossorigin="anonymous"></script>
-    <title>Show vacantes</title>
+    <link rel="icon" href="{{ asset('imagenes/icono.png') }}">
+    <title>Vacantes de la empresa</title>
 </head>
 
 <body>
@@ -35,7 +36,10 @@
                         <h1>Cantidad de vacantes: {{ $cantidad }}</h1>
                     </article>
                     <article class="contenedor-titulo">
-                        <h1>Lista de vacantes creadas por la empresa</h1>
+                        <article class="contenedor">
+                            <i class="fa-solid fa-down-long"></i>
+                            <h1>Lista de vacantes creadas por la empresa</h1>
+                        </article>
                         <h1 class="linea"></h1>
                     </article>
                     <article>
@@ -97,7 +101,7 @@
                                                         $cantidadPostulados = $cantidadPostulados + 1;
                                                     }
                                                 @endphp
-                                                    <h1 class="titulo">Postulados: {{$cantidadPostulados }}</h1>
+                                                <h1 class="titulo">Postulados: {{ $cantidadPostulados }}</h1>
                                             </article>
 
                                         </article>
@@ -105,7 +109,7 @@
 
                                     <article class="contenedor-boton-vacante">
                                         <a class="boton"
-                                            href="{{route('seleccionador.candidatosPostulados', ['id' => $vacante->id])}}">
+                                            href="{{ route('seleccionador.candidatosPostulados', ['id' => $vacante->id]) }}">
                                             <i class="fa-solid fa-users"></i>
                                         </a>
                                     </article>

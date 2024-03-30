@@ -196,10 +196,6 @@
     box-shadow: 0 0 5px #FFD966;
     transition: 0.4s;
 }
-.informacion-vacante .contenedor-boton-vacante .boton i:hover{
-    font-size: 15pt;
-    transition: 0.4s;
-}
 
 .informacion-vacante .contenedor-boton-vacante .boton:hover{
     transition: 0.4s;

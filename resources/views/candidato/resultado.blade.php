@@ -119,7 +119,7 @@
 
                                     <article class="contenedor-boton-vacante">
                                         <a class="boton"
-                                            href="{{ route('sintesisVacante.sintesis', ['id' => $vacante->id]) }}"><i class="fa-solid fa-eye"></i></a>
+                                            href="{{ route('sintesisVacante.sintesis', ['id' => $vacante->id]) }}"><i id="ojo" class="fa-solid fa-eye"></i></a>
                                     </article>
                                 </article>
                             @else
