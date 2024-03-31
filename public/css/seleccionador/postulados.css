@@ -144,7 +144,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 85%;
+    height: 95%;
     grid-area: vacante;
 }
 
@@ -152,9 +152,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10%;
+    gap: 9%;
     width: 50%;
-    height: 400px;
+    height: 480px;
+    /* height: 400px; */
     padding-top: 1%;
     padding-bottom: 1%;
     overflow-y: auto;
@@ -183,7 +184,9 @@
     grid-template-columns: 25% 1fr 11%;
     padding: 1%;
     width: 80%;
-    height: 55%;
+    min-height: 35%; /* Establecer una altura mínima */
+    max-height: 40%; 
+    /* height: 100vh; */
     border-radius: 15px;
     background-color: white;
     transition: 0.4s;
@@ -360,6 +363,8 @@
     cursor: pointer;
     text-decoration: none;
     transition: 0.4s;
+    position: relative;
+    left: 2%;
 }
 
 .contenedor-boton a:hover {
@@ -373,11 +378,11 @@
     display: flex;
     justify-content: center;
     background-color: white;
-    width: 70%;
+    width: 55%;
+    text-align: center;
     padding: 3%;
     border-radius: 15px;
     position: relative;
-    left: 4%;
     transition: 0.4s;
 }
 

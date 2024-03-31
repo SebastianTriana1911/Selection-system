@@ -201,6 +201,10 @@ body::-webkit-scrollbar-thumb{
     padding-top: 1%;
     padding-bottom: 1%;
     overflow-y: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .contenedor-content .contenedor-vacante .vacantes::-webkit-scrollbar{

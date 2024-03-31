@@ -138,7 +138,7 @@
 
                                 <article class="contenedor-boton-vacante">
                                     @if ($postulacion->candidato->estado == 'Preseleccionado')
-                                        <a class="boton" href="">
+                                        <a class="boton" href="{{route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id])}}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
 
@@ -150,7 +150,7 @@
                                             <i class="fa-solid fa-check"></i>
                                         </a>
                                     @else
-                                        <a class="boton" href="">
+                                        <a class="boton" href="{{route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id])}}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                     @endif

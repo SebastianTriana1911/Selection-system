@@ -293,7 +293,7 @@ class CandidatoController extends Controller
             Storage::delete($rutaArchivoCodificada);
         }
 
-        $urlOriginal = $usuario->candidato->avatar;
+        $urlOriginal = $usuario->candidato->avatas;
         $rutaArchivo = 'public/' . $urlOriginal;
         $rutaArchivoCodificada = rawurldecode($rutaArchivo);
         Storage::delete($rutaArchivoCodificada);

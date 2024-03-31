@@ -208,6 +208,8 @@ Route::post('seleccionador/desvincular', [SeleccionadorController::class, 'desvi
 Route::get('seleccionador/show/empresa', [SeleccionadorController::class, 'showEmpresa'])->name('seleccionador.showEmpresa')->middleware('auth');
 Route::get('seleccionador/show/vacantes', [SeleccionadorController::class, 'vacantes'])->name('seleccionador.vacante')->middleware('auth');
 Route::get('seleccionador/candidatos/postulados/{id}', [SeleccionadorController::class, 'candidatosPostulados'])->name('seleccionador.candidatosPostulados')->middleware('auth');
+Route::get('seleccionador/datos/postulacion/{idPostulacion}', [SeleccionadorController::class, 'datosPostulacion'])->name('seleccionador.datosPostulacion')->middleware('auth');
+Route::post('seleccionador/preseleccionado/{idCandidato}/{idVacante}', [SeleccionadorController::class, 'estadoPreseleccionado'])->name('seleccionador.estadoPreseleccionado');
 // ----------------------------------------------------------------------------------------------
 
 

@@ -393,6 +393,10 @@ body::-webkit-scrollbar-thumb{
     width: 90%;
     height: 420px;
     overflow: auto;
+    mask-image: linear-gradient(
+        black 85%,
+        transparent
+    );
 }
 
 .content-2 .contenedor-ocupaciones::-webkit-scrollbar{
