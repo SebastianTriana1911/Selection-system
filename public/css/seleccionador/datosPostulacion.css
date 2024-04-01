@@ -1117,7 +1117,6 @@ body::-webkit-scrollbar-thumb {
 
 .contenedor-recomendacion{
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: auto;
@@ -1160,13 +1159,15 @@ body::-webkit-scrollbar-thumb {
 
 .contenedor-recomendacion .informacion p{
     font-size: 13pt;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }
 
 .contenedor-recomendacion form .boton{
     display: flex;
     justify-content: center;
     padding: 10px;
+    width: 100%;
+    font-size: 12pt;
     text-decoration: none;
     color: black;
     background-color: #FFD966;
@@ -1175,8 +1176,6 @@ body::-webkit-scrollbar-thumb {
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
     transition: 0.4s;
-    margin-top: 2%;
-    margin-bottom: 8%;
     cursor: pointer;
 }
 
@@ -1190,6 +1189,7 @@ body::-webkit-scrollbar-thumb {
 
 .contenedor-recomendacion .contenedor-boton{
     display: flex;
+    align-items: center;
     gap: 10%;
 }
 
@@ -1205,12 +1205,34 @@ body::-webkit-scrollbar-thumb {
     font-weight: 1000;
     box-shadow: 0 0 10px #FFD966;
     transition: 0.4s;
-    margin-top: 2%;
-    margin-bottom: 13%;
     cursor: pointer;
 }
 
 .contenedor-recomendacion .contenedor-boton a:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 10px white;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.contenedor-recomendacion .contenedor-boton .boton-a{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    font-size: 12pt;
+    text-decoration: none;
+    color: black;
+    background-color: #FFD966;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    box-shadow: 0 0 10px #FFD966;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.contenedor-recomendacion .contenedor-boton .boton-a:hover{
     background-color: black;
     color: white;
     box-shadow: 0 0 10px white;

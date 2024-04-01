@@ -36,7 +36,10 @@
                         <h1>Cantidad de empresas: {{ $cantidad }}</h1>
                     </article>
                     <article class="contenedor-titulo">
-                        <h1>Lista de empresas disponibles para postularse</h1>
+                        <article class="contenedor">
+                            <i class="fa-solid fa-down-long"></i>
+                            <h1>Lista de empresas disponibles para postularse</h1>
+                        </article>
                         <h1 class="linea"></h1>
                     </article>
                     <article>

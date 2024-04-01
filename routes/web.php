@@ -209,7 +209,8 @@ Route::get('seleccionador/show/empresa', [SeleccionadorController::class, 'showE
 Route::get('seleccionador/show/vacantes', [SeleccionadorController::class, 'vacantes'])->name('seleccionador.vacante')->middleware('auth');
 Route::get('seleccionador/candidatos/postulados/{id}', [SeleccionadorController::class, 'candidatosPostulados'])->name('seleccionador.candidatosPostulados')->middleware('auth');
 Route::get('seleccionador/datos/postulacion/{idPostulacion}', [SeleccionadorController::class, 'datosPostulacion'])->name('seleccionador.datosPostulacion')->middleware('auth');
-Route::post('seleccionador/preseleccionado/{idCandidato}/{idVacante}', [SeleccionadorController::class, 'estadoPreseleccionado'])->name('seleccionador.estadoPreseleccionado');
+Route::post('seleccionador/preseleccionado/{idCandidato}/{idVacante}/{idPostulacion}', [SeleccionadorController::class, 'estadoPreseleccionado'])->name('seleccionador.estadoPreseleccionado');
+Route::get('seleccionador/ponderar/{idPostulacion}', [SeleccionadorController::class, 'ponderar'])->name('seleccionador.ponderar')->middleware('auth');
 // ----------------------------------------------------------------------------------------------
 
 

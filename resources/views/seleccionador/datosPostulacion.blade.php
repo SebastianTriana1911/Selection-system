@@ -228,6 +228,26 @@
 
                     <article class="linea-1">
                         <article class="contenedor-imagen">
+                            @php
+                                $imagen = '';
+
+                                if ($postulacion->candidato->user->genero == 'Masculino') {
+                                    if ($postulacion->candidato->avatar != null) {
+                                        $imagen = 'storage/' . $postulacion->candidato->avatar;
+                                    } else {
+                                        $imagen = '/imagenes/Icono-hombre.png';
+                                    }
+                                } elseif ($postulacion->candidato->user->genero == 'Femenino') {
+                                    if ($postulacion->candidato->avatar != null) {
+                                        $imagen = 'storage/' . $postulacion->candidato->avatar;
+                                    } else {
+                                        $imagen = '/imagenes/icono-mujer.png';
+                                    }
+                                } else {
+                                    // Si el género no es ni masculino ni femenino, puedes manejar este caso aquí
+                                    // Por ejemplo, puedes establecer una imagen predeterminada o lanzar una excepción
+                                }
+                            @endphp
                             @if (substr($imagen, 0, 1) === '/')
                                 <img class="imagen" src="{{ $imagen }}" alt="Genero">
                             @else
@@ -423,9 +443,10 @@
                 <article class="informacion">
                     <p>Este espacio te brinda la oportunidad de validar y comparar la hoja de vida del candidato que se
                         ha postulado con los requisitos específicos de la vacante. Tendrás la opción de designar a este
-                        candidato como preseleccionado para cubrir la vacante, lo que le permitirá participar en
-                        diversas entrevistas y pruebas adicionales. Esto le brinda al candidato la oportunidad de
-                        avanzar en el proceso de selección, acercándose cada vez más a la finalización y a la
+                        candidato como preseleccionado para entrar al proceso del poder ser seleccionado para suplir
+                        dicha vacante, lo que le permitirá participar en
+                        diversas entrevistas y pruebas adicionales. Esto le brindara al candidato acercárdose cada vez
+                        más a la finalización y a la
                         posibilidad de asegurar el puesto.
 
                         Si consideras que este candidato es apto para continuar en el proceso de selección, puedes hacer
@@ -434,21 +455,26 @@
 
                 @if ($postulacion->candidato->estado == 'Preseleccionado')
                     <article class="contenedor-boton">
-                        <a href="{{route('seleccionador.candidatosPostulados', ['id' => $postulacion->vacante->id])}}">Volver</a>
+                        <a
+                            href="{{ route('seleccionador.candidatosPostulados', ['id' => $postulacion->vacante->id]) }}">Volver</a>
 
                         <div class="cambio-estado">
                             Preseleccionado
                         </div>
                     </article>
                 @else
-                    <form
-                        action="{{ route('seleccionador.estadoPreseleccionado', ['idCandidato' => $candidato->id, 'idVacante' => $postulacion->vacante->id]) }}"
-                        method="POST">
-                        @csrf
-                        <button class="boton">
-                            Preseleccionado
-                        </button>
-                    </form>
+                    <article class="contenedor-boton">
+                        <a class="boton-a"
+                            href="{{ route('seleccionador.candidatosPostulados', ['id' => $postulacion->vacante->id]) }}">Volver</a>
+                        <form
+                            action="{{ route('seleccionador.estadoPreseleccionado', ['idCandidato' => $candidato->id, 'idVacante' => $postulacion->vacante->id, 'idPostulacion' => $postulacion->id]) }}"
+                            method="POST">
+                            @csrf
+                            <button class="boton">
+                                Preseleccionado
+                            </button>
+                        </form>
+                    </article>
                 @endif
             </article>
         </section>

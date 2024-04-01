@@ -63,16 +63,17 @@
                                                 if ($postulacion->candidato->avatar != null) {
                                                     $imagen = 'storage/' . $postulacion->candidato->avatar;
                                                 } else {
-                                                    $imagen = '/imagenes/icono-hombre.png';
+                                                    $imagen = '/imagenes/Icono-hombre.png';
                                                 }
-                                            }
-
-                                            if ($postulacion->candidato->user->genero == 'Femenino') {
+                                            } elseif ($postulacion->candidato->user->genero == 'Femenino') {
                                                 if ($postulacion->candidato->avatar != null) {
                                                     $imagen = 'storage/' . $postulacion->candidato->avatar;
                                                 } else {
                                                     $imagen = '/imagenes/icono-mujer.png';
                                                 }
+                                            } else {
+                                                // Si el género no es ni masculino ni femenino, puedes manejar este caso aquí
+                                                // Por ejemplo, puedes establecer una imagen predeterminada o lanzar una excepción
                                             }
                                         @endphp
                                         <article class="contenedor-imagen">
@@ -138,19 +139,22 @@
 
                                 <article class="contenedor-boton-vacante">
                                     @if ($postulacion->candidato->estado == 'Preseleccionado')
-                                        <a class="boton" href="{{route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id])}}">
+                                        <a class="boton"
+                                            href="{{ route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id]) }}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
 
-                                        <a class="boton-2" href="">
+                                        <a class="boton-2"
+                                            href="{{ route('seleccionador.ponderar', ['idPostulacion' => $postulacion->id]) }}">
                                             <i class="fa-solid fa-envelope"></i>
                                         </a>
 
                                         <a class="boton-3" href="">
-                                            <i class="fa-solid fa-check"></i>
+                                            <i class="fa-solid fa-user-check"></i>
                                         </a>
                                     @else
-                                        <a class="boton" href="{{route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id])}}">
+                                        <a class="boton"
+                                            href="{{ route('seleccionador.datosPostulacion', ['idPostulacion' => $postulacion->id]) }}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                     @endif

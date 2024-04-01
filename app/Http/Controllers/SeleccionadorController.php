@@ -6,6 +6,7 @@ use App\Models\Empresa;
 use App\Models\Vacante;
 use App\Models\Candidato;
 use App\Models\Funcion;
+use App\Models\PonderacionEntrevista;
 use App\Models\Postulacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -120,33 +121,36 @@ class SeleccionadorController extends Controller
         $educaciones = $postulacion->vacante->educacionVacante;
 
         $candidato = Candidato::find($postulacion->candidato->id);
-        $imagen = '';
-        if ($candidato->avatar == null || $candidato->user->genero == 'Masculino'){
-            $imagen = "/imagenes/icono-hombre.png";
-        }else{
-            $imagen = 'storage/' . $candidato->avatar;
-        }
-
-        if ($candidato->avatar == null || $candidato->user->genero == 'Femenino'){
-            $imagen = "/imagenes/icono-mujer.png";
-        }else{
-            $imagen = 'storage/' . $candidato->avatar;
-        }
+        
 
         $candidatoEducacion = $candidato->candidatoEducacion;
         $candidatoExperiencia = $candidato->candidatoExperiencia;
 
         return view('seleccionador.datosPostulacion', ['postulacion' => $postulacion, 
-        'funciones' => $funciones, 'educaciones' => $educaciones, 'candidato' => $candidato,
-        'imagen' => $imagen, 'candidatoEducacion' => $candidatoEducacion, 'candidatoExperiencia' => $candidatoExperiencia]);
+        'funciones' => $funciones, 'educaciones' => $educaciones, 'candidato' => $candidato, 'candidatoEducacion' => $candidatoEducacion, 'candidatoExperiencia' => $candidatoExperiencia]);
     }
 
-    public function estadoPreseleccionado($idCandidato, $idVacante){
+    public function estadoPreseleccionado($idCandidato, $idVacante, $idPostulacion){
         $vacante = Vacante::find($idVacante);
         $candidato = Candidato::find($idCandidato);
         $candidato->estado = 'Preseleccionado';
         $candidato->save();
 
+        $entrevista = new PonderacionEntrevista();
+        $entrevista->ponderacion = 0;
+        $entrevista->descripcion = null;
+        $entrevista->tipo_entrevista_id = 1;
+        $entrevista->postulacion_id = $idPostulacion;
+        $entrevista->save();
+
+
         return redirect()->route('seleccionador.candidatosPostulados', ['id' => $vacante->id]);
+    }
+
+    public function ponderar($idPostulacion){
+        $postulacion = Postulacion::find($idPostulacion);
+
+
+        return view('seleccionador.ponderar', ['postulacion' => $postulacion]);
     }
 }
