@@ -12,8 +12,10 @@ use App\Models\Ponderacion;
 use App\Models\Postulacion;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\PonderacionTotal;
 use App\Models\CandidatoEducacion;
 use App\Models\CandidatoExperiencia;
+use App\Models\PonderacionEducacion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreCandidato;
@@ -418,10 +420,16 @@ class CandidatoController extends Controller
         $postulacion->vacante_id = $vacante->id;
         $postulacion->save();
 
-        $ponderacion = new Ponderacion();
+        $ponderacion = new PonderacionEducacion();
         $ponderacion->ponderacion = $puntos;
+        $ponderacion->descripcion = null;
         $ponderacion->postulacion_id = $postulacion->id;
         $ponderacion->save();
+
+        $ponderacionTotal = new PonderacionTotal();
+        $ponderacionTotal->ponderacion = $ponderacion->ponderacion;
+        $ponderacionTotal->postulacion_id = $postulacion->id;
+        $ponderacionTotal->save();
 
         return redirect()->route('candidato.index');
     }

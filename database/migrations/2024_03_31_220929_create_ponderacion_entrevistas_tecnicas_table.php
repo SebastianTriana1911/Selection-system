@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ponderacion_entrevistas_tecnicas', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ponderacion');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->foreignId('tipo_entrevista_id')->references('id')->on('tipo_entrevistas')->onDelete('cascade');
             $table->foreignId('postulacion_id')->references('id')->on('postulaciones')->onDelete('cascade');
             $table->timestamps();

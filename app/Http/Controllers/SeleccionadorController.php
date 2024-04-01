@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresa;
+use App\Models\Funcion;
 use App\Models\Vacante;
 use App\Models\Candidato;
-use App\Models\Funcion;
-use App\Models\PonderacionEntrevista;
 use App\Models\Postulacion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PonderacionEntrevista;
+use App\Models\PonderacionEntrevistaTecnica;
+use App\Models\PonderacionEntrevistaPsicologica;
 
 class SeleccionadorController extends Controller
 {
@@ -107,9 +109,9 @@ class SeleccionadorController extends Controller
         }
 
         $vacantes = $vacante->postulacion()
-            ->join('ponderaciones', 'postulaciones.id', '=', 'ponderaciones.postulacion_id') // Hacer un join con la tabla ponderaciones
+            ->join('ponderacion_totales', 'postulaciones.id', '=', 'ponderacion_totales.postulacion_id') // Hacer un join con la tabla ponderaciones
             ->select('postulaciones.*') // Seleccionar los campos de postulaciones
-            ->orderByDesc('ponderaciones.ponderacion') // Ordenar por la ponderacion de manera descendente
+            ->orderByDesc('ponderacion_totales.ponderacion') // Ordenar por la ponderacion de manera descendente
             ->get();
 
         return view('seleccionador.postulados', ['cantidad' => $cantidad, 'vacantes' => $vacantes]);
@@ -121,12 +123,12 @@ class SeleccionadorController extends Controller
         $educaciones = $postulacion->vacante->educacionVacante;
 
         $candidato = Candidato::find($postulacion->candidato->id);
-        
+
 
         $candidatoEducacion = $candidato->candidatoEducacion;
         $candidatoExperiencia = $candidato->candidatoExperiencia;
 
-        return view('seleccionador.datosPostulacion', ['postulacion' => $postulacion, 
+        return view('seleccionador.datosPostulacion', ['postulacion' => $postulacion,
         'funciones' => $funciones, 'educaciones' => $educaciones, 'candidato' => $candidato, 'candidatoEducacion' => $candidatoEducacion, 'candidatoExperiencia' => $candidatoExperiencia]);
     }
 
@@ -143,6 +145,20 @@ class SeleccionadorController extends Controller
         $entrevista->postulacion_id = $idPostulacion;
         $entrevista->save();
 
+        $entrevistaTecnica = new PonderacionEntrevistaTecnica();
+        $entrevistaTecnica->ponderacion = 0;
+        $entrevistaTecnica->descripcion = null;
+        $entrevistaTecnica->tipo_entrevista_id = 2;
+        $entrevistaTecnica->postulacion_id = $idPostulacion;
+        $entrevistaTecnica->save();
+
+        $entrevistaPsicologica = new PonderacionEntrevistaPsicologica();
+        $entrevistaPsicologica->ponderacion = 0;
+        $entrevistaPsicologica->descripcion = null;
+        $entrevistaPsicologica->tipo_entrevista_id = 3;
+        $entrevistaPsicologica->postulacion_id = $idPostulacion;
+        $entrevistaPsicologica->save();
+
 
         return redirect()->route('seleccionador.candidatosPostulados', ['id' => $vacante->id]);
     }
@@ -150,7 +166,7 @@ class SeleccionadorController extends Controller
     public function ponderar($idPostulacion){
         $postulacion = Postulacion::find($idPostulacion);
 
-
-        return view('seleccionador.ponderar', ['postulacion' => $postulacion]);
+        $ponderacionTotal = $postulacion->ponderacionTotal;
+        return view('seleccionador.ponderar', ['postulacion' => $postulacion, 'ponderacionTotal' => $ponderacionTotal]);
     }
 }

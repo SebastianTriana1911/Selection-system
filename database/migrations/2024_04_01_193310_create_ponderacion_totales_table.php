@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('ponderaciones', function (Blueprint $table) {
+        Schema::create('ponderacion_totales', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('ponderacion');
             $table->foreignId('postulacion_id')->references('id')->on('postulaciones')->onDelete('cascade');
@@ -16,8 +19,11 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('ponderaciones');
+        Schema::dropIfExists('ponderacion_total');
     }
 };

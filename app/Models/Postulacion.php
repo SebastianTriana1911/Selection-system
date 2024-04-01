@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Citacion;
 use App\Models\Candidato;
 use App\Models\Ponderacion;
+use App\Models\PonderacionTotal;
 use App\Models\PonderacionEntrevista;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PonderacionEntrevistaTecnica;
@@ -27,8 +28,8 @@ class Postulacion extends Model{
         return $this -> belongsTo(Vacante::class);
     }
 
-    public function ponderacion(): HasOne{
-        return $this ->hasOne(Ponderacion::class); 
+    public function ponderacionEducacion(): HasOne{
+        return $this ->hasOne(ponderacionEducacion::class);
     }
 
     public function citacion(): HasMany{
@@ -45,5 +46,9 @@ class Postulacion extends Model{
 
     public function ponderacionEntrevistaTecnica():HasOne{
         return $this -> hasOne(PonderacionEntrevistaTecnica::class);
+    }
+
+    public function ponderacionTotal():HasOne{
+        return $this -> hasOne(PonderacionTotal::class);
     }
 }

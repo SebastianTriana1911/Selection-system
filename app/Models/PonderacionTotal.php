@@ -4,14 +4,13 @@ namespace App\Models;
 
 use App\Models\Postulacion;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class PonderacionEntrevistaPsicologica extends Model
+class PonderacionTotal extends Model
 {
     use HasFactory;
 
-    protected $table = 'ponderacion_entrevistas_psicologicas';
+    protected $table = 'ponderacion_totales';
 
     protected $guarded =[];
 

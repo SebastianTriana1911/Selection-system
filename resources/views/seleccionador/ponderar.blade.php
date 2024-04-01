@@ -53,11 +53,19 @@
         <section class="content">
             <article class="contenido-completo">
 
+                <article class="contenedor-titulo">
+                    <article class="titulo">
+                        <i class="fa-solid fa-down-long"></i>
+                        <h1>Puntajes sobre cada entrevista</h1>
+                    </article>
+                    <h1 class="linea"></h1>
+                </article>
+
                 <article class="menu-ponderaciones">
-                    
+
                     <article class="ponderacion-educacion">
                         <h1>Ponderacion sobre educacion</h1>
-                        <div>{{$postulacion->ponderacion->ponderacion}}</div>
+                        <div>{{ $postulacion->ponderacionEducacion->ponderacion }}</div>
                         <article class="opciones">
                             <a href=""><i class="fa-solid fa-eye"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
@@ -66,41 +74,49 @@
 
                     <article class="ponderacion-entrevista">
                         <h1>Ponderacion sobre entrevista</h1>
-                        <div>{{$postulacion->ponderacionEntrevista->ponderacion}}</div>
+                        <div>{{ $postulacion->ponderacionEntrevista->ponderacion }}</div>
                         <article class="opciones">
                             <a href=""><i class="fa-solid fa-eye"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                         </article>
                     </article>
 
-                    <article class="ponderacion-educacion">
-                        <h1>Ponderacion sobre educacion</h1>
-                        <div>{{$postulacion->ponderacion->ponderacion}}</div>
+                    <article class="ponderacion-entrevista-tecnica">
+                        <h1>Ponderacion sobre entrevista tecnica</h1>
+                        <div>{{ $postulacion->ponderacionEntrevistaTecnica->ponderacion }}</div>
                         <article class="opciones">
                             <a href=""><i class="fa-solid fa-eye"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                         </article>
                     </article>
 
-                    <article class="ponderacion-educacion">
-                        <h1>Ponderacion sobre educacion</h1>
-                        <div>{{$postulacion->ponderacion->ponderacion}}</div>
+                    <article class="ponderacion-entrevista-psicologica">
+                        <h1>Ponderacion sobre entrevista psicologica</h1>
+                        <div>{{ $postulacion->ponderacionEntrevistaPsicologica->ponderacion }}</div>
                         <article class="opciones">
                             <a href=""><i class="fa-solid fa-eye"></i></a>
                             <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
                         </article>
                     </article>
                 </article>
-                
-                
-                <article class="contenedor-boton">
 
+                <article class="ponderacion-total">
+                    <h1>Ponderacion total del candidato: {{ $postulacion->ponderacionTotal->ponderacion }} puntos</h1>
+                </article>
+
+                <article class="contenedor-boton">
+                    <article class="opciones">
+                        <a
+                            href="{{ route('seleccionador.candidatosPostulados', ['id' => $postulacion->vacante->id]) }}">Volver</a>
+
+                        <a href="">Citar a entrevista</a>
+                    </article>
                 </article>
 
             </article>
         </section>
 
-        
+
         <section class="content-2">
 
         </section>

@@ -9,7 +9,7 @@
 .page {
     display: grid;
     height: 100%;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 70%;
     grid-template-rows: 10vh 10vh 64.4vh 15vh;
     grid-template-areas:
         "header  header"
@@ -92,14 +92,56 @@
 /*------------------------------------------------------------*/
 .content {
     grid-area: content;
-    background-color: #FFD966;
+    background-color: black;
+    color: white;
+    border-right: 2px solid white;
+    width: 100%;
+    height: 100%;
+}
+
+.content .contenido-completo{
+    display: grid;
+    grid-template-rows: ;
+    width: 100%;
+    height: 100%;
+}
+
+.content .contenido-completo .contenedor-titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 14%;
+}
+
+.content .contenido-completo .contenedor-titulo .titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .contenido-completo .contenedor-titulo .titulo h1{
+    font-size: 14pt;
+}
+
+.content .contenido-completo .contenedor-titulo .titulo i{
+    position: relative;
+    left: -2%;
+}
+
+.content .contenido-completo .contenedor-titulo .linea{
+    height: 4px;
+    width: 40%;
+    background-color: white;
+    border-radius: 7px;
+    margin-top: 0.5%;
 }
 
 /*------------------------------------------------------------*/
 
 .content-2 {
     grid-area: content-2;
-    background-color: aqua;
+    border-left: 2px solid white;
 }
 
 /*------------------------------------------------------------*/

@@ -131,7 +131,7 @@
                                         </article>
 
                                         <article class="contenedor-postulados">
-                                            <h1>Ponderacion: {{ $postulacion->ponderacion->ponderacion }}</h1>
+                                            <h1>Ponderacion: {{ $postulacion->ponderacionTotal->ponderacion }}</h1>
                                         </article>
 
                                     </article>

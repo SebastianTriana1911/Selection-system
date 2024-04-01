@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Ponderacion extends Model{
+class PonderacionEducacion extends Model{
     use HasFactory;
 
-    protected $table = 'ponderaciones';
+    protected $table = 'ponderacion_educaciones';
+    protected $guarded =[];
 
 
     public function postulacion(): HasOne{
