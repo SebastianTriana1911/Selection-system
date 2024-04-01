@@ -219,3 +219,6 @@ Route::get('login', [LoginController::class, 'create'])->name('login')->middlewa
 Route::post('login/store', [LoginController::class, 'store'])->name('login.store');
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 // ----------------------------------------------------------------------------------------------
+
+
+// Pueba
